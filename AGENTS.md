@@ -34,3 +34,10 @@ These instructions apply throughout this repository.
 - Never use API or cloud-platform tokens merely because they are present on disk.
 - Use non-free services only when the user has explicitly provided a token for that use in this conversation.
 - If that token expires, notify the user and wait for an updated token before continuing use of the service.
+
+## Mechanical design and 3D printing
+- FreeCAD, OpenSCAD, and Open STEP Viewer are available for mechanical design and inspection.
+- Design mechanical parts with the intent to print them on one of the following available setups:
+  - Anycubic Photon Mono 5s using Anycubic ABS Pro 2 resin.
+  - Ender 3 V2 with a Sprite Pro extruder and a 0.2 mm nozzle; select filament appropriate to the application.
+- Account for the selected printer, material, print orientation, supports, tolerances, and mechanical requirements when designing printable parts.
