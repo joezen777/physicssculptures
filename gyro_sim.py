@@ -1,5 +1,5 @@
 """Four satellite gyroscopes on a rotating carrier; SI units throughout."""
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, replace
 from pathlib import Path
 import argparse
 import csv
@@ -15,6 +15,10 @@ import numpy as np
 @dataclass
 class Config:
     mode: str = "supported"
+    startup: str = "coast"
+    rotor_ramp: float = 2.0
+    rotor_hold: float = 0.5
+    ring_ramp: float = 2.0
     gravity: float = 9.81
     ring_rpm: float = 30.0
     rotor_rpm: float = 1200.0
@@ -34,9 +38,13 @@ class Config:
             if isinstance(value, (int, float)) and not math.isfinite(value):
                 raise ValueError(f"{key} must be finite")
         for key in ("radius", "ring_mass", "rod_length", "rod_mass",
-                    "rotor_radius", "rotor_mass", "dt", "duration"):
+                    "rotor_radius", "rotor_mass", "dt", "duration", "rotor_ramp", "ring_ramp"):
             if getattr(self, key) <= 0:
                 raise ValueError(f"{key} must be positive")
+        if self.startup not in ("coast", "staged") or self.rotor_hold < 0:
+            raise ValueError("Invalid startup mode or hold duration")
+        if self.startup == "staged" and self.mode != "supported":
+            raise ValueError("Staged startup uses a ground-mounted motor; use --startup coast for free flight")
         if self.duration < self.dt:
             raise ValueError("duration must be at least one timestep")
         if self.mode not in ("free", "supported") or self.gravity < 0:
@@ -112,6 +120,26 @@ def make_model(c):
                 rgba=colors[j])
         element(rotor, "geom", type="box", pos=f"{c.rotor_radius/2} 0 .011",
                 size=f"{c.rotor_radius/2} .006 .002", rgba=".12 .14 .19 1")
+    if c.startup == "staged":
+        # Temporary preparation fixtures carry reaction torque during spin-up.
+        equalities = element(root, "equality")
+        element(equalities, "joint", name="ring_hold", joint1="base",
+                polycoef="0 0 0 0 0", solref=".002 1")
+        theta = math.radians(c.tilt_deg)
+        for j in range(4):
+            a = j*math.pi/2
+            quat = (math.cos(theta/2), -math.sin(a)*math.sin(theta/2),
+                    math.cos(a)*math.sin(theta/2), 0)
+            pose = (c.radius*math.cos(a), c.radius*math.sin(a), 0, *quat)
+            element(equalities, "weld", name=f"rod_hold{j}", body1="ring",
+                    body2=f"rod{j}", relpose=" ".join(map(str, pose)),
+                    solref=".002 1")
+        actuators = element(root, "actuator")
+        element(actuators, "motor", name="ring_motor", joint="base",
+                ctrllimited="true", ctrlrange="-20 20")
+        for j in range(4):
+            element(actuators, "motor", name=f"rotor_motor{j}", joint=f"spin{j}",
+                    ctrllimited="true", ctrlrange="-1 1")
     if c.mode == "supported":
         sensors = element(root, "sensor")
         element(sensors, "force", name="support_force", site="support")
@@ -122,7 +150,7 @@ def make_model(c):
 
 def initial_data(model, c):
     d = mujoco.MjData(model)
-    rate = c.ring_rpm*2*math.pi/60
+    rate = c.ring_rpm*2*math.pi/60 if c.startup == "coast" else 0
     if c.mode == "free":
         d.joint("base").qvel[5] = rate
     else:
@@ -135,7 +163,7 @@ def initial_data(model, c):
             math.cos(theta/2), -math.sin(a)*math.sin(theta/2),
             math.cos(a)*math.sin(theta/2), 0]
         sign = -1 if c.alternating and j % 2 else 1
-        d.joint(f"spin{j}").qvel[0] = sign*c.rotor_rpm*2*math.pi/60
+        d.joint(f"spin{j}").qvel[0] = sign*c.rotor_rpm*2*math.pi/60 if c.startup == "coast" else 0
     mujoco.mj_forward(model, d)
     mujoco.mj_subtreeVel(model, d)
     if c.mode == "free":
@@ -143,6 +171,71 @@ def initial_data(model, c):
         d.joint("base").qvel[:3] -= d.subtree_linvel[1]
         mujoco.mj_forward(model, d)
     return d
+
+
+
+def startup_phase(c, t):
+    if c.startup == "coast":
+        return "COASTING - preset initial speeds"
+    if t < c.rotor_ramp:
+        return "1 / SMALL WHEELS SPINNING UP - ring and sticks held"
+    if t < c.rotor_ramp + c.rotor_hold:
+        return "2 / SMALL WHEELS READY - ring still held"
+    if t < c.rotor_ramp + c.rotor_hold + c.ring_ramp:
+        return "3 / RING ACCELERATING - ball joints released"
+    return "4 / RING AT TARGET - small wheels coasting"
+
+
+def drive(model, d, c):
+    if c.startup != "staged":
+        return
+    release = c.rotor_ramp + c.rotor_hold
+    held = d.time < release
+    d.eq_active[:] = held
+    d.ctrl[:] = 0
+    if held:
+        u = min(1., d.time/c.rotor_ramp)
+        target = c.rotor_rpm*2*math.pi/60*(u*u*(3-2*u))
+        for j in range(4):
+            sign = -1 if c.alternating and j % 2 else 1
+            error = sign*target - d.joint(f"spin{j}").qvel[0]
+            d.actuator(f"rotor_motor{j}").ctrl[0] = np.clip(.15*error, -1, 1)
+    else:
+        u = min(1., max(0., (d.time-release)/c.ring_ramp))
+        target = c.ring_rpm*2*math.pi/60*(u*u*(3-2*u))
+        error = target-d.joint("base").qvel[0]
+        d.actuator("ring_motor").ctrl[0] = np.clip(10*error, -20, 20)
+
+
+def advance(model, d, c):
+    drive(model, d, c)
+    mujoco.mj_step(model, d)
+
+
+
+class Experiment:
+    """State shared by the native viewer and keyboard regression tests."""
+    def __init__(self, config):
+        self.c = replace(config)
+        self.model, _ = make_model(self.c)
+        self.data = initial_data(self.model, self.c)
+        self.original_rpm = self.c.rotor_rpm
+        self.paused = True
+
+    def handle_key(self, key):
+        if key == 32:
+            self.paused = not self.paused
+        elif key in (82, 49, 50, 51):
+            if key != 82:
+                self.c.rotor_rpm = 0 if key == 49 else self.original_rpm
+                self.c.alternating = key == 51
+            mujoco.mj_copyData(self.data, self.model, initial_data(self.model, self.c))
+            self.paused = True
+
+    def tick(self, seconds=1/60):
+        if not self.paused:
+            for _ in range(max(1, round(seconds/self.c.dt))):
+                advance(self.model, self.data, self.c)
 
 
 def sample(model, d, c):
@@ -154,11 +247,14 @@ def sample(model, d, c):
     momentum = mass*d.subtree_linvel[1]
     result = {"time": float(d.time), "ring_z": float(d.body("ring").xpos[2]),
               "com_x": float(com[0]), "com_y": float(com[1]), "com_z": float(com[2]),
-              "energy": float(sum(d.energy))}
+              "energy": float(sum(d.energy)),
+              "ring_rpm": float(d.joint("base").qvel[-1]*60/(2*math.pi)),
+              "phase": startup_phase(c, d.time)}
     for axis, p, h in zip("xyz", momentum, d.subtree_angmom[1]):
         result[f"p_{axis}"] = float(p)
         result[f"h_{axis}"] = float(h)
     for j in range(4):
+        result[f"rotor{j}_rpm"] = float(d.joint(f"spin{j}").qvel[0]*60/(2*math.pi))
         zaxis = d.body(f"rod{j}").xmat.reshape(3, 3)[:, 2]
         result[f"tilt{j}_deg"] = float(np.degrees(np.arccos(np.clip(zaxis[2], -1, 1))))
     if c.mode == "supported":
@@ -178,7 +274,7 @@ def simulate(c, output=None, frame_callback=None):
     stride = max(1, round(.01/c.dt))
     steps = round(c.duration/c.dt)
     for step in range(1, steps+1):
-        mujoco.mj_step(model, d)
+        advance(model, d, c)
         if step % stride == 0 or step == steps:
             rows.append(sample(model, d, c))
             if frame_callback and step % (stride*4) == 0:
@@ -203,8 +299,9 @@ def simulate(c, output=None, frame_callback=None):
             np.array([row[f"h_{a}"] for a in "xyz"]) - h0)))
     summary = {
         "config": asdict(c), "mujoco_version": mujoco.__version__, "total_mass_kg": mass,
-        "relative_energy_drift": max(abs(r["energy"]-first["energy"]) for r in rows)
-                                 / max(abs(first["energy"]), 1e-12),
+        "energy_change_J": rows[-1]["energy"]-first["energy"],
+        "relative_energy_drift": (max(abs(r["energy"]-first["energy"]) for r in rows)
+                                 / max(abs(first["energy"]), 1e-12)) if c.startup == "coast" else None,
         "max_ballistic_com_error_m": max_com_error if c.mode == "free" else None,
         "max_linear_momentum_error_kg_m_s": max_p_error if c.mode == "free" else None,
         "max_angular_momentum_error_kg_m2_s": max_h_error if c.mode == "free" else None,
@@ -262,14 +359,13 @@ def plot(rows, c, path):
 def view(c, max_wall_seconds=None):
     import mujoco.viewer
     from queue import SimpleQueue
-    model, _ = make_model(c)
-    d = initial_data(model, c)
+    experiment = Experiment(c)
+    c, model, d = experiment.c, experiment.model, experiment.data
     keys = SimpleQueue()
-    paused = False
-    print("SPACE pause; R reset; 1 stopped rotors; 2 spinning; 3 alternating spin.")
+    print("SPACE start/pause; R reset and pause; 1 stopped rotors; 2 spinning; 3 alternating.")
     print("Presets reset the experiment. Close the window to exit.")
-    original_rpm = c.rotor_rpm
-    with mujoco.viewer.launch_passive(model, d, key_callback=keys.put) as viewer:
+    with mujoco.viewer.launch_passive(model, d, key_callback=keys.put,
+                                     show_left_ui=False, show_right_ui=False) as viewer:
         viewer.cam.distance = 2.6
         viewer.cam.azimuth = 125
         viewer.cam.elevation = -25
@@ -279,21 +375,17 @@ def view(c, max_wall_seconds=None):
             start = time.monotonic()
             with viewer.lock():
                 while not keys.empty():
-                    key = keys.get()
-                    if key == 32:
-                        paused = not paused
-                    elif key in (82, 49, 50, 51):
-                        if key != 82:
-                            c.rotor_rpm = 0 if key == 49 else original_rpm
-                            c.alternating = key == 51
-                        d0 = initial_data(model, c)
-                        mujoco.mj_copyData(d, model, d0)
-                if not paused:
-                    for _ in range(max(1, round(1/60/c.dt))):
-                        mujoco.mj_step(model, d)
+                    experiment.handle_key(keys.get())
+                experiment.tick()
                 mujoco.mj_forward(model, d)
                 if c.mode == "free":
                     viewer.cam.lookat[:] = d.subtree_com[1]
+            rpm = d.joint("base").qvel[-1]*60/(2*math.pi)
+            rotor_rpm = d.joint("spin0").qvel[0]*60/(2*math.pi)
+            viewer.set_texts((None, mujoco.mjtGridPos.mjGRID_TOPLEFT,
+                ("PAUSED - SPACE to start/resume" if experiment.paused else startup_phase(c, d.time))
+                + f"\nTime {d.time:.2f}s | ring {rpm:.1f} RPM | wheel 1 {rotor_rpm:.0f} RPM"
+                + "\nR = reset and pause | SPACE = start/pause", None))
             viewer.sync()
             time.sleep(max(0, 1/60-(time.monotonic()-start)))
 
@@ -307,6 +399,8 @@ def main():
         flag = "--"+field.name.replace("_", "-")
         if field.type is bool:
             p.add_argument(flag, action="store_true")
+        elif field.name == "startup":
+            p.add_argument(flag, choices=["coast", "staged"], default=None)
         elif field.name == "mode":
             p.add_argument(flag, choices=["supported", "free"], default=field.default)
         else:
@@ -316,6 +410,8 @@ def main():
     view_seconds = args.pop("view_seconds")
     if view_seconds is not None and (not math.isfinite(view_seconds) or view_seconds <= 0):
         p.error("--view-seconds must be finite and positive")
+    if args["startup"] is None:
+        args["startup"] = "staged" if viewer and args["mode"] == "supported" else "coast"
     c = Config(**args)
     try:
         if viewer:

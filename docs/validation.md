@@ -40,3 +40,11 @@ Tiny center-of-mass residuals are numerical error, not predicted propulsion. The
 ## Reproduction
 
 Run the unittest command and make_demo.py documented in README.md. Additional convergence calculations are in validate_convergence.py. Generated trajectories, models, graphics, configuration summaries and convergence output are saved under runs/demo and excluded from source control.
+
+## Staged startup correction
+
+Eight tests now pass, including the original five and three new tests: the actual viewer controller's R-then-SPACE sequence, five-second staged time-step comparison, and rejection of a ground motor in free flight.
+
+The reset regression checks that all velocities/time return to zero and remain unchanged while paused. One second after SPACE, the small wheels are around 600 RPM while the ring remains below 0.01 RPM. After 2.4 seconds all four wheels are within 1 RPM of 1200 while the ring remains below 0.01 RPM. Later the ring accelerates, all preparation constraints release and rotor motor controls are zero. Pausing and resetting again restores the preparation constraints.
+
+The five-second staged run agrees with a half-step run within 0.03 RPM for ring speed and 0.1 degree for each axle tilt. Both complete with no numerical warnings. The corrected native viewer also passes its three-second launch/close smoke check.
