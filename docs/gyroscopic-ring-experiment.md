@@ -1,7 +1,7 @@
 # Gyroscopic ring experiment: initial design
 
 ## Objective and status
-Explore a rotating annular carrier with elevated satellite flywheels on ball-mounted rods. Determine satellite motion, carrier reaction forces, and whether any apparent rise represents translation of the complete assembly. This is a research and experiment specification, not a completed or validated simulation. The supplied sketch appeared black in the conversation; geometry is inferred from the verbal description.
+Explore a rotating annular carrier with elevated satellite flywheels on ball-mounted rods. Determine satellite motion, carrier reaction forces, and whether any apparent rise represents translation of the complete assembly. The first Python/MuJoCo prototype is implemented; see simulation.md and README.md for its checks and limitations. A second, readable sketch confirmed four satellite rotors with axles along the upward rods.
 
 ## Software decision
 Recommend MuJoCo with Python for the first rigid-body model: open-source Apache 2.0 licensing, native Python bindings, ball/hinge/free joints, and gyroscopic dynamics. Project Chrono is a credible alternative, particularly for more elaborate mechanical systems. Use FreeCAD/OpenSCAD for eventual printable geometry. FreeCAD's prescribed assembly animation alone does not establish force-driven gyroscopic behavior. A STEP viewer is for inspecting geometry.
@@ -27,8 +27,8 @@ In free flight without aerodynamic forces, vertical center-of-mass acceleration 
 - Rigid annular carrier, central hub, and relative revolute bearing.
 - Several identical rods mounted on spherical joints around the ring.
 - Each rod carries a separate rotor on an axle hinge.
-- Provisional interpretation: each rotor axle follows its rod; awaiting user clarification.
-- All masses, inertia tensors, dimensions, rod inclinations, spin directions and speeds remain configurable; no physical dimensions are asserted yet.
+- Confirmed interpretation from the readable sketch: each rotor axle follows its rod.
+- Illustrative dimensions and masses are configurable; defaults are documented in README.md and are not fabrication specifications.
 - First use initial spin and coast, avoiding hidden energy or momentum inputs from prescribed velocities. Later internal motors must include reaction on their mounting bodies.
 - Begin with rigid bodies, ideal bearings, no aerodynamic forces, and no collisions. Add joint limits, friction and contact explicitly in subsequent fidelity steps.
 
