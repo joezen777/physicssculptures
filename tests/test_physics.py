@@ -3,7 +3,11 @@ from dataclasses import replace
 import unittest
 import numpy as np
 import mujoco
-from gyro_sim import Config, make_model, initial_data, sample, simulate
+from gyro_sim import Config as BaseConfig, make_model, initial_data, sample, simulate
+
+
+def Config(**kwargs):
+    return BaseConfig(**(dict(joint_type='ball', latch=False, joint_limits=False, collisions=False, tilt_deg=8., ring_rpm=30.) | kwargs))
 
 
 class PhysicsTests(unittest.TestCase):

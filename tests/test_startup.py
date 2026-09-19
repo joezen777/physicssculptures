@@ -36,7 +36,8 @@ class StartupTests(unittest.TestCase):
         self.assertGreater(row["ring_rpm"], 10)
         self.assertFalse(any(e.data.eq_active))
         for j in range(4):
-            self.assertEqual(e.data.actuator(f"rotor_motor{j}").ctrl[0], 0)
+            self.assertAlmostEqual(row[f"rotor{j}_rpm"], 1200, delta=20)
+            self.assertLessEqual(abs(e.data.actuator(f"rotor_motor{j}").ctrl[0]), 1)
 
         e.handle_key(32)
         before = e.data.time

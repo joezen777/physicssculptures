@@ -16,13 +16,25 @@ import numpy as np
 class Config:
     mode: str = "supported"
     startup: str = "coast"
+    joint_type: str = "collar"
+    rotor_type: str = "flywheel"
+    joint_limits: bool = True
+    collisions: bool = True
+    latch: bool = True
+    pin_mass: float = .015
+    spring_preload: float = .06
+    spring_k: float = 12.
+    pin_travel: float = .004
+    air_density: float = 1.225
+    thrust_coefficient: float = .10
+    torque_coefficient: float = .01
     rotor_ramp: float = 2.0
     rotor_hold: float = 0.5
     ring_ramp: float = 2.0
     gravity: float = 9.81
-    ring_rpm: float = 30.0
+    ring_rpm: float = 60.0
     rotor_rpm: float = 1200.0
-    tilt_deg: float = 8.0
+    tilt_deg: float = 0.0
     radius: float = 0.4
     ring_mass: float = 2.0
     rod_length: float = 0.25
@@ -38,9 +50,15 @@ class Config:
             if isinstance(value, (int, float)) and not math.isfinite(value):
                 raise ValueError(f"{key} must be finite")
         for key in ("radius", "ring_mass", "rod_length", "rod_mass",
-                    "rotor_radius", "rotor_mass", "dt", "duration", "rotor_ramp", "ring_ramp"):
+                    "rotor_radius", "rotor_mass", "dt", "duration", "rotor_ramp", "ring_ramp", "pin_mass", "spring_k", "pin_travel", "air_density"):
             if getattr(self, key) <= 0:
                 raise ValueError(f"{key} must be positive")
+        if self.joint_type not in ("collar", "ball") or self.rotor_type not in ("flywheel", "propeller"):
+            raise ValueError("Invalid joint or rotor type")
+        if min(self.spring_preload, self.thrust_coefficient, self.torque_coefficient) < 0:
+            raise ValueError("Spring preload and aerodynamic coefficients must be nonnegative")
+        if abs(self.ring_rpm) > 240 or abs(self.rotor_rpm) > 20000:
+            raise ValueError("Speed outside supported experiment range")
         if self.startup not in ("coast", "staged") or self.rotor_hold < 0:
             raise ValueError("Invalid startup mode or hold duration")
         if self.startup == "staged" and self.mode != "supported":
@@ -53,99 +71,7 @@ class Config:
             raise ValueError("Initial tilt must be between -80 and 80 degrees")
 
 
-def element(parent, tag, **attrs):
-    return ET.SubElement(parent, tag, {k: str(v) for k, v in attrs.items()})
-
-
-def make_model(c):
-    c.validate()
-    root = ET.Element("mujoco", model="Gyroscopic ring laboratory")
-    element(root, "compiler", angle="radian")
-    option = element(root, "option", timestep=c.dt, gravity=f"0 0 {-c.gravity}",
-                     integrator="RK4")
-    element(option, "flag", energy="enable")
-    defaults = element(root, "default")
-    element(defaults, "geom", contype="0", conaffinity="0", rgba=".2 .65 .75 1")
-    element(defaults, "joint", damping="0", armature="0")
-    visual = element(root, "visual")
-    element(visual, "global", offwidth="960", offheight="720")
-    world = element(root, "worldbody")
-    element(world, "light", pos="0 -2 4", dir="0 .3 -1")
-    # Reference grid is visual only: no ground collisions in this experiment.
-    element(world, "geom", type="plane", size="4 4 .1", rgba=".12 .15 .2 1")
-    ring = element(world, "body", name="ring", pos="0 0 1")
-    if c.mode == "free":
-        element(ring, "freejoint", name="base")
-    else:
-        element(ring, "joint", name="base", type="hinge", axis="0 0 1")
-        element(world, "geom", type="cylinder", pos="0 0 .5", size=".035 .5",
-                rgba=".45 .5 .6 1")
-    # Uniform annulus, with rectangular radial/vertical cross section.
-    ri, ro, height = .84*c.radius, 1.10*c.radius, .035
-    iz = .5*c.ring_mass*(ri*ri + ro*ro)
-    ix = c.ring_mass*(3*(ri*ri + ro*ro) + height*height)/12
-    element(ring, "inertial", pos="0 0 0", mass=c.ring_mass,
-            diaginertia=f"{ix} {ix} {iz}")
-    for j in range(64):
-        a, b = 2*math.pi*j/64, 2*math.pi*(j+1)/64
-        element(ring, "geom", type="capsule",
-                fromto=f"{c.radius*math.cos(a)} {c.radius*math.sin(a)} 0 "
-                       f"{c.radius*math.cos(b)} {c.radius*math.sin(b)} 0",
-                size=".022", rgba=".16 .6 .7 1")
-    element(ring, "site", name="support", size=".015")
-    colors = [".98 .65 .2 1", ".4 .75 1 1", ".98 .4 .4 1", ".65 .5 1 1"]
-    for j in range(4):
-        a = j*math.pi/2
-        x, y = c.radius*math.cos(a), c.radius*math.sin(a)
-        element(ring, "geom", type="capsule", fromto=f"0 0 0 {x} {y} 0",
-                size=".009", rgba=".3 .4 .45 1")
-        rod = element(ring, "body", name=f"rod{j}", pos=f"{x} {y} 0")
-        element(rod, "joint", name=f"ball{j}", type="ball")
-        length, radius = c.rod_length, .008
-        rod_ix = c.rod_mass*(3*radius*radius + length*length)/12
-        rod_iz = .5*c.rod_mass*radius*radius
-        element(rod, "inertial", pos=f"0 0 {length/2}", mass=c.rod_mass,
-                diaginertia=f"{rod_ix} {rod_ix} {rod_iz}")
-        element(rod, "geom", type="sphere", size=".025", rgba=".85 .88 .92 1")
-        element(rod, "geom", type="capsule", fromto=f"0 0 0 0 0 {length}",
-                size=radius, rgba=".85 .88 .92 1")
-        rotor = element(rod, "body", name=f"rotor{j}", pos=f"0 0 {length}")
-        element(rotor, "joint", name=f"spin{j}", type="hinge", axis="0 0 1")
-        thickness = .018
-        iz = .5*c.rotor_mass*c.rotor_radius**2
-        ix = c.rotor_mass*(3*c.rotor_radius**2 + thickness**2)/12
-        element(rotor, "inertial", pos="0 0 0", mass=c.rotor_mass,
-                diaginertia=f"{ix} {ix} {iz}")
-        element(rotor, "geom", type="cylinder", size=f"{c.rotor_radius} {thickness/2}",
-                rgba=colors[j])
-        element(rotor, "geom", type="box", pos=f"{c.rotor_radius/2} 0 .011",
-                size=f"{c.rotor_radius/2} .006 .002", rgba=".12 .14 .19 1")
-    if c.startup == "staged":
-        # Temporary preparation fixtures carry reaction torque during spin-up.
-        equalities = element(root, "equality")
-        element(equalities, "joint", name="ring_hold", joint1="base",
-                polycoef="0 0 0 0 0", solref=".002 1")
-        theta = math.radians(c.tilt_deg)
-        for j in range(4):
-            a = j*math.pi/2
-            quat = (math.cos(theta/2), -math.sin(a)*math.sin(theta/2),
-                    math.cos(a)*math.sin(theta/2), 0)
-            pose = (c.radius*math.cos(a), c.radius*math.sin(a), 0, *quat)
-            element(equalities, "weld", name=f"rod_hold{j}", body1="ring",
-                    body2=f"rod{j}", relpose=" ".join(map(str, pose)),
-                    solref=".002 1")
-        actuators = element(root, "actuator")
-        element(actuators, "motor", name="ring_motor", joint="base",
-                ctrllimited="true", ctrlrange="-20 20")
-        for j in range(4):
-            element(actuators, "motor", name=f"rotor_motor{j}", joint=f"spin{j}",
-                    ctrllimited="true", ctrlrange="-1 1")
-    if c.mode == "supported":
-        sensors = element(root, "sensor")
-        element(sensors, "force", name="support_force", site="support")
-    xml = ET.tostring(root, encoding="unicode")
-    model = mujoco.MjModel.from_xml_string(xml)
-    return model, xml
+from mechanics import make_model, release_rpm, mount_height
 
 
 def initial_data(model, c):
@@ -157,11 +83,13 @@ def initial_data(model, c):
         d.joint("base").qvel[0] = rate
     for j in range(4):
         a = j*math.pi/2
-        theta = math.radians(c.tilt_deg)
-        # Radially outward tilt; quaternion in the ring's frame.
-        d.joint(f"ball{j}").qpos[:] = [
-            math.cos(theta/2), -math.sin(a)*math.sin(theta/2),
-            math.cos(a)*math.sin(theta/2), 0]
+        theta = 0 if c.latch else math.radians(c.tilt_deg)
+        if c.joint_type == "ball":
+            d.joint(f"ball{j}").qpos[:] = [
+                math.cos(theta/2), -math.sin(a)*math.sin(theta/2),
+                math.cos(a)*math.sin(theta/2), 0]
+        else:
+            d.joint(f"tilt{j}").qpos[0] = theta
         sign = -1 if c.alternating and j % 2 else 1
         d.joint(f"spin{j}").qvel[0] = sign*c.rotor_rpm*2*math.pi/60 if c.startup == "coast" else 0
     mujoco.mj_forward(model, d)
@@ -182,35 +110,70 @@ def startup_phase(c, t):
     if t < c.rotor_ramp + c.rotor_hold:
         return "2 / SMALL WHEELS READY - ring still held"
     if t < c.rotor_ramp + c.rotor_hold + c.ring_ramp:
-        return "3 / RING ACCELERATING - ball joints released"
-    return "4 / RING AT TARGET - small wheels coasting"
+        return "3 / RING ACCELERATING - pins release only at sufficient speed"
+    return "4 / SPEED CONTROL - inspect latch and tilt"
+
+
+def rotor_load(model, d, c, j):
+    body = model.body(f"rotor{j}").id
+    axis = d.xmat[body].reshape(3,3)[:,2]
+    velocity = np.zeros(6)
+    mujoco.mj_objectVelocity(model, d, mujoco.mjtObj.mjOBJ_BODY, body, velocity, 0)
+    n = float(np.dot(velocity[:3], axis)/(2*math.pi))
+    pitch = -1 if c.alternating and j % 2 else 1
+    diameter = 2*c.rotor_radius
+    thrust = pitch*c.thrust_coefficient*c.air_density*n*abs(n)*diameter**4
+    drag = -c.torque_coefficient*c.air_density*n*abs(n)*diameter**5
+    return body, axis*thrust, axis*drag
 
 
 def drive(model, d, c):
-    if c.startup != "staged":
-        return
-    release = c.rotor_ramp + c.rotor_hold
-    held = d.time < release
-    d.eq_active[:] = held
-    d.ctrl[:] = 0
-    if held:
+    release_time = c.rotor_ramp+c.rotor_hold
+    # A released pin does not magically re-engage with a moving collar.
+    if c.latch:
+        for j in range(4):
+            eq = model.equality(f"rod_hold{j}").id
+            if d.joint(f"pin_slide{j}").qpos[0] >= c.pin_travel:
+                d.eq_active[eq] = False
+    if c.startup == "staged":
+        held = d.time < release_time
+        d.eq_active[model.equality("ring_hold").id] = held
+        if not c.latch:
+            for j in range(4):
+                d.eq_active[model.equality(f"rod_hold{j}").id] = held
+        d.ctrl[:] = 0
         u = min(1., d.time/c.rotor_ramp)
         target = c.rotor_rpm*2*math.pi/60*(u*u*(3-2*u))
         for j in range(4):
             sign = -1 if c.alternating and j % 2 else 1
-            error = sign*target - d.joint(f"spin{j}").qvel[0]
-            d.actuator(f"rotor_motor{j}").ctrl[0] = np.clip(.15*error, -1, 1)
-    else:
-        u = min(1., max(0., (d.time-release)/c.ring_ramp))
-        target = c.ring_rpm*2*math.pi/60*(u*u*(3-2*u))
-        error = target-d.joint("base").qvel[0]
-        d.actuator("ring_motor").ctrl[0] = np.clip(10*error, -20, 20)
+            error = sign*target-d.joint(f"spin{j}").qvel[0]
+            # Internal motor torques act equally and oppositely on rotor and housing.
+            gain = .15
+            eq = model.equality(f"rod_hold{j}").id
+            if c.joint_type == "ball" and not d.eq_active[eq]:
+                # A free ball-mounted housing has very little axial inertia.
+                # Bound discrete servo gain to avoid numerically exciting its counterspin.
+                housing_iz = .5*c.rod_mass*.008**2
+                gain = min(gain, .5*housing_iz/c.dt)
+            d.actuator(f"rotor_motor{j}").ctrl[0] = np.clip(gain*error, -1, 1)
+        if not held:
+            u = min(1., max(0., (d.time-release_time)/c.ring_ramp))
+            target = c.ring_rpm*2*math.pi/60*(u*u*(3-2*u))
+            error = target-d.joint("base").qvel[0]
+            d.actuator("ring_motor").ctrl[0] = np.clip(10*error, -20, 20)
+    if c.rotor_type == "propeller":
+        # Aerodynamics is an external interaction with air, not gyroscopic lift.
+        for j in range(4):
+            body, force, torque = rotor_load(model, d, c, j)
+            d.xfrc_applied[body,:3] = force
+            d.xfrc_applied[body,3:] = torque
 
 
 def advance(model, d, c):
+    if c.rotor_type == "propeller":
+        mujoco.mj_forward(model, d)
     drive(model, d, c)
     mujoco.mj_step(model, d)
-
 
 
 class Experiment:
@@ -255,8 +218,18 @@ def sample(model, d, c):
         result[f"h_{axis}"] = float(h)
     for j in range(4):
         result[f"rotor{j}_rpm"] = float(d.joint(f"spin{j}").qvel[0]*60/(2*math.pi))
+        velocity = np.zeros(6)
+        body_id = model.body(f"rotor{j}").id
+        mujoco.mj_objectVelocity(model,d,mujoco.mjtObj.mjOBJ_BODY,body_id,velocity,0)
+        axis = d.body(f"rotor{j}").xmat.reshape(3,3)[:,2]
+        result[f"rotor{j}_inertial_rpm"] = float(np.dot(velocity[:3],axis)*60/(2*math.pi))
         zaxis = d.body(f"rod{j}").xmat.reshape(3, 3)[:, 2]
-        result[f"tilt{j}_deg"] = float(np.degrees(np.arccos(np.clip(zaxis[2], -1, 1))))
+        ring_up = d.body("ring").xmat.reshape(3,3)[:,2]
+        result[f"tilt{j}_deg"] = float(np.degrees(np.arccos(np.clip(np.dot(zaxis,ring_up), -1, 1))))
+        result[f"pin{j}_mm"] = float(d.joint(f"pin_slide{j}").qpos[0]*1000) if c.latch else 0.
+        result[f"locked{j}"] = bool(d.eq_active[model.equality(f"rod_hold{j}").id]) if (c.latch or c.startup == "staged") else False
+    result["thrust_up_N"] = sum(rotor_load(model,d,c,j)[1][2] for j in range(4)) if c.rotor_type == "propeller" else 0.
+    result["release_rpm_estimate"] = release_rpm(c) if c.latch else 0.
     if c.mode == "supported":
         # Parent-to-child force on the assembly, expressed in the sensor frame.
         force_local = d.sensor("support_force").data
@@ -301,10 +274,10 @@ def simulate(c, output=None, frame_callback=None):
         "config": asdict(c), "mujoco_version": mujoco.__version__, "total_mass_kg": mass,
         "energy_change_J": rows[-1]["energy"]-first["energy"],
         "relative_energy_drift": (max(abs(r["energy"]-first["energy"]) for r in rows)
-                                 / max(abs(first["energy"]), 1e-12)) if c.startup == "coast" else None,
-        "max_ballistic_com_error_m": max_com_error if c.mode == "free" else None,
-        "max_linear_momentum_error_kg_m_s": max_p_error if c.mode == "free" else None,
-        "max_angular_momentum_error_kg_m2_s": max_h_error if c.mode == "free" else None,
+                                 / max(abs(first["energy"]), 1e-12)) if c.startup == "coast" and not c.collisions and not c.joint_limits and c.rotor_type == "flywheel" and not c.latch else None,
+        "max_ballistic_com_error_m": max_com_error if c.mode == "free" and c.rotor_type == "flywheel" else None,
+        "max_linear_momentum_error_kg_m_s": max_p_error if c.mode == "free" and c.rotor_type == "flywheel" else None,
+        "max_angular_momentum_error_kg_m2_s": max_h_error if c.mode == "free" and c.rotor_type == "flywheel" else None,
         "ring_height_change_m": rows[-1]["ring_z"]-first["ring_z"],
         "com_height_change_m": rows[-1]["com_z"]-first["com_z"],
         "numerical_warnings": 0,
@@ -330,7 +303,7 @@ def plot(rows, c, path):
     fig, axes = plt.subplots(3, 1, figsize=(9, 9), constrained_layout=True)
     for key, label in (("ring_z", "Ring"), ("com_z", "Whole-machine center of mass")):
         axes[0].plot(t, [r[key]-rows[0][key] for r in rows], label=label)
-    if c.mode == "free":
+    if c.mode == "free" and c.rotor_type == "flywheel":
         axes[0].plot(t, -.5*c.gravity*t*t, "--", label="Ballistic prediction")
     axes[0].set_ylabel("Height change (m)")
     axes[0].legend()
@@ -340,13 +313,13 @@ def plot(rows, c, path):
     axes[1].legend(ncol=4)
     if c.mode == "supported":
         axes[2].plot(t, [r["support_up_N"] for r in rows], label="Support force on assembly")
-        axes[2].axhline((c.ring_mass+4*(c.rod_mass+c.rotor_mass))*c.gravity,
+        axes[2].axhline((c.ring_mass+4*(c.rod_mass+c.rotor_mass+(c.pin_mass if c.latch else 0)))*c.gravity,
                        ls="--", color="gray", label="Weight")
         axes[2].set_ylabel("Upward force (N)")
         axes[2].legend()
     else:
         axes[2].plot(t, [r["energy"]-rows[0]["energy"] for r in rows])
-        axes[2].set_ylabel("Energy drift (J)")
+        axes[2].set_ylabel("Energy change (J)")
     axes[2].set_xlabel("Simulation time (s)")
     for ax in axes:
         ax.grid(alpha=.2)
@@ -398,7 +371,7 @@ def main():
     for field in Config.__dataclass_fields__.values():
         flag = "--"+field.name.replace("_", "-")
         if field.type is bool:
-            p.add_argument(flag, action="store_true")
+            p.add_argument(flag, action=argparse.BooleanOptionalAction, default=field.default)
         elif field.name == "startup":
             p.add_argument(flag, choices=["coast", "staged"], default=None)
         elif field.name == "mode":
