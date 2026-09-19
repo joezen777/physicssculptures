@@ -70,9 +70,14 @@ def make_model(c):
     if c.startup == "staged":
         el(actuators, "motor", name="ring_motor", joint="base",
            ctrllimited="true", ctrlrange="-20 20")
+    if c.startup in ("staged", "powered"):
         for j in range(4):
             el(actuators, "motor", name=f"rotor_motor{j}", joint=f"spin{j}",
                ctrllimited="true", ctrlrange="-1 1")
+    if c.tilt_control:
+        for j in range(4):
+            el(actuators, "motor", name=f"tilt_motor{j}", joint=f"tilt{j}",
+               ctrllimited="true", ctrlrange="-2 2")
     h = mount_height(c)
     colors = [".98 .65 .2 1", ".4 .75 1 1", ".98 .4 .4 1", ".65 .5 1 1"]
     for j in range(4):

@@ -28,6 +28,8 @@ class Config:
     air_density: float = 1.225
     thrust_coefficient: float = .10
     torque_coefficient: float = .01
+    tilt_control: bool = False
+    target_tilt_deg: float = 20.
     rotor_ramp: float = 2.0
     rotor_hold: float = 0.5
     ring_ramp: float = 2.0
@@ -59,10 +61,16 @@ class Config:
             raise ValueError("Spring preload and aerodynamic coefficients must be nonnegative")
         if abs(self.ring_rpm) > 240 or abs(self.rotor_rpm) > 20000:
             raise ValueError("Speed outside supported experiment range")
-        if self.startup not in ("coast", "staged") or self.rotor_hold < 0:
+        if self.startup not in ("coast", "staged", "powered") or self.rotor_hold < 0:
             raise ValueError("Invalid startup mode or hold duration")
         if self.startup == "staged" and self.mode != "supported":
             raise ValueError("Staged startup uses a ground-mounted motor; use --startup coast for free flight")
+        if self.startup == "powered" and (self.mode != "free" or self.joint_type != "collar"):
+            raise ValueError("Powered flight requires free mode and collar joints")
+        if self.tilt_control and (self.startup != "powered" or self.latch):
+            raise ValueError("Tilt control requires powered flight with pins disabled")
+        if abs(self.target_tilt_deg) > 70:
+            raise ValueError("Target tilt must be between -70 and 70 degrees")
         if self.duration < self.dt:
             raise ValueError("duration must be at least one timestep")
         if self.mode not in ("free", "supported") or self.gravity < 0:
@@ -76,7 +84,7 @@ from mechanics import make_model, release_rpm, mount_height
 
 def initial_data(model, c):
     d = mujoco.MjData(model)
-    rate = c.ring_rpm*2*math.pi/60 if c.startup == "coast" else 0
+    rate = c.ring_rpm*2*math.pi/60 if c.startup in ("coast", "powered") else 0
     if c.mode == "free":
         d.joint("base").qvel[5] = rate
     else:
@@ -91,7 +99,7 @@ def initial_data(model, c):
         else:
             d.joint(f"tilt{j}").qpos[0] = theta
         sign = -1 if c.alternating and j % 2 else 1
-        d.joint(f"spin{j}").qvel[0] = sign*c.rotor_rpm*2*math.pi/60 if c.startup == "coast" else 0
+        d.joint(f"spin{j}").qvel[0] = sign*c.rotor_rpm*2*math.pi/60 if c.startup in ("coast", "powered") else 0
     mujoco.mj_forward(model, d)
     mujoco.mj_subtreeVel(model, d)
     if c.mode == "free":
@@ -103,6 +111,8 @@ def initial_data(model, c):
 
 
 def startup_phase(c, t):
+    if c.startup == "powered":
+        return "POWERED FREE FLIGHT - internal motors; air supplies thrust"
     if c.startup == "coast":
         return "COASTING - preset initial speeds"
     if t < c.rotor_ramp:
@@ -161,6 +171,16 @@ def drive(model, d, c):
             target = c.ring_rpm*2*math.pi/60*(u*u*(3-2*u))
             error = target-d.joint("base").qvel[0]
             d.actuator("ring_motor").ctrl[0] = np.clip(10*error, -20, 20)
+    if c.startup == "powered":
+        for j in range(4):
+            sign = -1 if c.alternating and j % 2 else 1
+            error = sign*c.rotor_rpm*2*math.pi/60-d.joint(f"spin{j}").qvel[0]
+            d.actuator(f"rotor_motor{j}").ctrl[0] = np.clip(.15*error, -1, 1)
+            if c.tilt_control:
+                u = min(1., d.time)
+                target = math.radians(c.tilt_deg+(c.target_tilt_deg-c.tilt_deg)*u*u*(3-2*u))
+                q = d.joint(f"tilt{j}")
+                d.actuator(f"tilt_motor{j}").ctrl[0] = np.clip(4*(target-q.qpos[0])-.3*q.qvel[0], -2, 2)
     if c.rotor_type == "propeller":
         # Aerodynamics is an external interaction with air, not gyroscopic lift.
         for j in range(4):
@@ -229,6 +249,8 @@ def sample(model, d, c):
         result[f"pin{j}_mm"] = float(d.joint(f"pin_slide{j}").qpos[0]*1000) if c.latch else 0.
         result[f"locked{j}"] = bool(d.eq_active[model.equality(f"rod_hold{j}").id]) if (c.latch or c.startup == "staged") else False
     result["thrust_up_N"] = sum(rotor_load(model,d,c,j)[1][2] for j in range(4)) if c.rotor_type == "propeller" else 0.
+    result["weight_N"] = mass*c.gravity
+    result["motor_power_W"] = float(np.dot(d.actuator_force, d.actuator_velocity))
     result["release_rpm_estimate"] = release_rpm(c) if c.latch else 0.
     if c.mode == "supported":
         # Parent-to-child force on the assembly, expressed in the sensor frame.
@@ -373,7 +395,7 @@ def main():
         if field.type is bool:
             p.add_argument(flag, action=argparse.BooleanOptionalAction, default=field.default)
         elif field.name == "startup":
-            p.add_argument(flag, choices=["coast", "staged"], default=None)
+            p.add_argument(flag, choices=["coast", "staged", "powered"], default=None)
         elif field.name == "mode":
             p.add_argument(flag, choices=["supported", "free"], default=field.default)
         else:
