@@ -1,5 +1,7 @@
 # Prototype validation, 2026-09-17
 
+> Historical record: the collar/pin/propeller revision supersedes the original geometry and motor behavior. See [current mechanics](mechanisms.md), [dashboard](dashboard.md), and [current validation](validation-current.md).
+
 Environment: WSL2 Ubuntu, Python 3.12.3, MuJoCo 3.13.0. Dependencies are installed in ~/.venvs/angularmomflyer on the Linux filesystem; installing the environment under the OneDrive repository was exceptionally slow and that attempt was stopped.
 
 ## Automated checks

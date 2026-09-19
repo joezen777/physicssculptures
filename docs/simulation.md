@@ -1,5 +1,7 @@
 # Initial implementation
 
+> Historical record: the collar/pin/propeller revision supersedes the original geometry and motor behavior. See [current mechanics](mechanisms.md), [dashboard](dashboard.md), and [current validation](validation-current.md).
+
 The clarified sketch has four horizontal satellite disks, with their axles running along the upward rods. Each rod has a ball joint at the carrier. The initial model implements this topology in MuJoCo, with a native interactive viewer and reproducible headless runs.
 
 ## Architecture

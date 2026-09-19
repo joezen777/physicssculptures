@@ -17,3 +17,7 @@ dist/
 # Reproducible generated datasets and trained weights
 runs/
 *.pt
+
+# Local dashboard dependencies and build output
+node_modules/
+web/dist/
