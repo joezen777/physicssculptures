@@ -11,6 +11,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from gyro_sim import Config, Experiment, sample
+from flight import flight_config
 
 ROOT = Path(__file__).resolve().parent
 
@@ -112,6 +113,15 @@ def state():
 @app.get("/api/model")
 def model():
     return lab.geometry()
+
+
+@app.post("/api/preset/{name}")
+def preset(name: str):
+    if name not in ("flight", "no-air", "original"):
+        raise HTTPException(404, "Unknown preset")
+    c = Config(startup="staged") if name == "original" else flight_config(name == "flight")
+    lab.configure(asdict(c))
+    return lab.state()
 
 
 @app.post("/api/config")

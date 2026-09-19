@@ -33,3 +33,14 @@ The local server is bound to 127.0.0.1:8766. It was relaunched after the interru
 
 ## Limits
 This validates implementation and selected numerical cases, not physical construction. Spring values and aerodynamic coefficients are illustrative. Pin/hole shear, binding and loaded friction are not resolved. Contact and stiff stops require new convergence studies for extreme parameter choices. No CAD, printable files, measured propeller calibration or rotor stress validation is claimed.
+
+## Powered-flight extension — 2026-09-19
+
+All 19 unittest cases passed in 70.249 seconds. Production Vite build passed.
+Added tests verify positive whole-machine climb with air, ballistic/free
+center-of-mass motion without air, external-force impulse accounting,
+and absence of a world actuator or support constraint in powered flight.
+The five-run benchmark and half-timestep comparison are documented in
+[powered-flight.md](powered-flight.md). Browser verification confirmed
+preset loading, start/pause, positive center-of-mass displacement,
+tilt/thrust charts, and power/weight telemetry.

@@ -11,3 +11,13 @@ Two numeric fields/sliders set the small rotor group and donut target independen
 Dependencies are bundled locally. No external fonts, remote scripts or CDN runtime resources are required. The backend binds only to localhost:8766. Use launch_lab.sh after npm build; launch.sh retains the optional MuJoCo native viewer.
 
 Physical model details and limitations are in mechanisms.md. Browser controls do not silently change velocities during a run; applying changes starts a new experiment.
+
+## Powered flight presets
+
+POST /api/preset/flight, /api/preset/no-air, and /api/preset/original replace
+the full configuration and pause at time zero. Flight uses free-body motion,
+internal rotor motors and radial collar tilt servos. No-air retains those
+motors, masses and targets but sets both aerodynamic coefficients to zero.
+The flight preset disables passive pins and exposes a tilt target slider.
+Telemetry includes weight and instantaneous net mechanical actuator power.
+Selecting other joint/support modes disables incompatible tilt control.

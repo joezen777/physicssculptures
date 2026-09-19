@@ -72,3 +72,15 @@ Each run saves XML, CSV, configuration/diagnostics JSON and a plot. Generated ou
 The conservation tests explicitly disable latches, contact, stops and aerodynamic loads. Powered, colliding or aerodynamic cases must not be judged against the old unforced energy/ballistic assumptions.
 
 See [mechanical and scientific details](docs/mechanisms.md), [dashboard architecture](docs/dashboard.md) and [validation history](docs/validation.md). Earlier demo scripts and reports predate the new mechanism defaults; their exact historical numbers are not results for the current collar model.
+
+## Powered lift experiment
+
+In the dashboard, select **Load powered flight**, then **Start**. The preset uses
+four powered propellers, a freely moving ring and internal collar tilt servos.
+Use **Compare: air forces off** to run the same mechanism without aerodynamic forces.
+Both presets start pre-spun and paused; reset restores that initial condition.
+Adjust the collar target and rotor speeds, then apply changes and start again.
+
+At three seconds the tilted propeller model rises 4.58 m; the no-air control
+falls ballistically. See [powered-flight measurements and assumptions](docs/powered-flight.md).
+Angular momentum changes orientation; air provides the external force.
