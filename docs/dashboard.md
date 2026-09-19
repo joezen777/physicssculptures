@@ -21,3 +21,10 @@ motors, masses and targets but sets both aerodynamic coefficients to zero.
 The flight preset disables passive pins and exposes a tilt target slider.
 Telemetry includes weight and instantaneous net mechanical actuator power.
 Selecting other joint/support modes disables incompatible tilt control.
+
+## Live supported steering
+
+POST /api/preset/steering loads a balanced spherical-bearing rig.
+POST /api/steer accepts x/y lean commands in degrees (each −15 to +15);
+it preserves model, revision, time, velocities and running/paused state.
+The UI charts world X/Y lean and displays measured support force alongside weight.

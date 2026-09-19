@@ -44,3 +44,15 @@ The five-run benchmark and half-timestep comparison are documented in
 [powered-flight.md](powered-flight.md). Browser verification confirmed
 preset loading, start/pause, positive center-of-mass displacement,
 tilt/thrust charts, and power/weight telemetry.
+
+## Supported steering extension
+
+All 21 unittest cases passed in 130.437 seconds. The new physics test tracks
+(8°, 0°), then (−6°, 5°), within 0.7° on each axis after four seconds per
+command. It checks support force equals weight, total angular momentum is
+conserved within 1e-5 N·m·s, no root actuator exists, and no engine warnings occur.
+The API test verifies live command validation without model replacement.
+
+Browser testing confirmed Start, live target changes without a reset, and Pause.
+At 43.44 seconds, the requested (−6°, 5°) lean measured (−6.13°, 5.11°),
+with 51.8 N bearing support and unchanged whole-machine center-of-mass height.

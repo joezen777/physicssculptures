@@ -37,12 +37,25 @@ def make_model(c):
     el(world, "light", pos="0 -2 4", dir="0 .3 -1")
     el(world, "geom", type="plane", size="4 4 .1", rgba=".12 .15 .2 1",
        contype="0", conaffinity="0")
+    pivot_h = (4*c.rod_mass*(mount_height(c)+c.rod_length/2)+4*c.rotor_mass*(mount_height(c)+c.rod_length))/(c.ring_mass+4*c.rod_mass+4*c.rotor_mass)
+    if c.steering:
+        satellite_mass=2*c.rotor_mass+1.5*c.rod_mass
+        pivot_h=4*satellite_mass*mount_height(c)/(c.ring_mass+4*satellite_mass)
     ring = el(world, "body", name="ring", pos="0 0 1")
     if c.mode == "free":
         el(ring, "freejoint", name="base")
     else:
-        el(ring, "joint", name="base", type="hinge", axis="0 0 1")
+        if c.mode == "pivot":
+            el(ring, "joint", name="base", type="ball", pos=f"0 0 {pivot_h}")
+        else:
+            el(ring, "joint", name="base", type="hinge", axis="0 0 1")
         el(world, "geom", type="cylinder", pos="0 0 .5", size=".025 .5",
+           rgba=".3 .36 .43 1", contype="0", conaffinity="0")
+    if c.mode == "pivot":
+        el(ring,"geom",type="capsule",fromto=f"0 0 0 0 0 {pivot_h}",size=".012",contype="0",conaffinity="0",rgba=".6 .7 .75 1")
+        el(world, "geom", type="sphere", pos=f"0 0 {1+pivot_h}", size=".045",
+           rgba=".95 .7 .25 1", contype="0", conaffinity="0")
+        el(world, "geom", type="cylinder", pos=f"0 0 {1+pivot_h/2}", size=f".015 {pivot_h/2}",
            rgba=".3 .36 .43 1", contype="0", conaffinity="0")
     ri, ro, height = .84*c.radius, 1.10*c.radius, .035
     iz = .5*c.ring_mass*(ri*ri+ro*ro)
@@ -60,7 +73,7 @@ def make_model(c):
         el(ring, "geom", name=f"brace{j}", type="capsule",
            fromto=f"0 0 -.035 {c.radius*math.cos(a)} {c.radius*math.sin(a)} -.035",
            size=".009", rgba=".3 .4 .45 1")
-    el(ring, "site", name="support", size=".008")
+    el(ring, "site", name="support", size=".008", pos=f"0 0 {pivot_h}" if c.mode == "pivot" else "0 0 0")
     equalities = el(root, "equality")
     if c.startup == "staged":
         el(equalities, "joint", name="ring_hold", joint1="base",
@@ -70,11 +83,11 @@ def make_model(c):
     if c.startup == "staged":
         el(actuators, "motor", name="ring_motor", joint="base",
            ctrllimited="true", ctrlrange="-20 20")
-    if c.startup in ("staged", "powered"):
+    if c.startup in ("staged", "powered") or c.steering:
         for j in range(4):
             el(actuators, "motor", name=f"rotor_motor{j}", joint=f"spin{j}",
                ctrllimited="true", ctrlrange="-1 1")
-    if c.tilt_control:
+    if c.tilt_control or c.steering:
         for j in range(4):
             el(actuators, "motor", name=f"tilt_motor{j}", joint=f"tilt{j}",
                ctrllimited="true", ctrlrange="-2 2")
@@ -89,6 +102,14 @@ def make_model(c):
            fromto=f"{x} {y} .022 {x} {y} {h-.018}", size=".011",
            rgba=".33 .4 .46 1", contype="0", conaffinity="0")
         rod = el(ring, "body", name=f"rod{j}", pos=f"{x} {y} {h}")
+        if c.steering:
+            counter=el(rod,"body",name=f"counterweight{j}",pos=f"0 0 {-c.rod_length}")
+            mass=c.rotor_mass+c.rod_mass/2
+            inertia=.4*mass*.025**2
+            el(counter,"inertial",pos="0 0 0",mass=mass,diaginertia=f"{inertia} {inertia} {inertia}")
+            el(counter,"geom",type="sphere",size=".025",rgba=".65 .67 .72 1",contype="0",conaffinity="0")
+            el(rod,"geom",type="capsule",fromto=f"0 0 0 0 0 {-c.rod_length}",size=".006",contype="0",conaffinity="0")
+
         if c.joint_type == "collar":
             attrs = dict(name=f"tilt{j}", type="hinge",
                          axis=" ".join(map(str, tangent)))
@@ -175,7 +196,7 @@ def make_model(c):
                fromto=" ".join(map(str,[*(-.035*radial), *(.006*radial)])),
                size=".0045", mass=c.pin_mass, rgba="1 .75 .25 1",
                contype="0", conaffinity="0")
-    if c.mode == "supported":
+    if c.mode in ("supported", "pivot"):
         sensors = el(root, "sensor")
         el(sensors, "force", name="support_force", site="support")
     xml=ET.tostring(root, encoding="unicode")

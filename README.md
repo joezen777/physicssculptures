@@ -84,3 +84,12 @@ Adjust the collar target and rotor speeds, then apply changes and start again.
 At three seconds the tilted propeller model rises 4.58 m; the no-air control
 falls ballistically. See [powered-flight measurements and assumptions](docs/powered-flight.md).
 Angular momentum changes orientation; air provides the external force.
+
+## Supported gyroscope steering
+
+Choose **Load supported gyro steering**, then Start. Adjust **Lean toward X/Y**
+and press **Steer now · keep running** to steer without resetting.
+The four powered collars redirect flywheel angular momentum; a balanced
+spherical bearing supports the full weight. The default demonstration uses
+a 3 RPM donut and alternating 3000 RPM flywheels.
+See [design and controller limits](docs/supported-steering.md).

@@ -28,6 +28,9 @@ class Config:
     air_density: float = 1.225
     thrust_coefficient: float = .10
     torque_coefficient: float = .01
+    steering: bool = False
+    steer_x_deg: float = 8.
+    steer_y_deg: float = 0.
     tilt_control: bool = False
     target_tilt_deg: float = 20.
     rotor_ramp: float = 2.0
@@ -73,8 +76,12 @@ class Config:
             raise ValueError("Target tilt must be between -70 and 70 degrees")
         if self.duration < self.dt:
             raise ValueError("duration must be at least one timestep")
-        if self.mode not in ("free", "supported") or self.gravity < 0:
+        if self.mode not in ("free", "supported", "pivot") or self.gravity < 0:
             raise ValueError("Invalid mode or negative gravity")
+        if self.steering and (self.mode != "pivot" or self.joint_type != "collar" or self.rotor_type != "flywheel" or self.latch or self.startup != "coast"):
+            raise ValueError("Steering needs pivot support, solid flywheels, collars, coast startup and no pins")
+        if max(abs(self.steer_x_deg), abs(self.steer_y_deg)) > 15:
+            raise ValueError("Steering target must be within 15 degrees per axis")
         if abs(self.tilt_deg) > 80:
             raise ValueError("Initial tilt must be between -80 and 80 degrees")
 
@@ -87,6 +94,8 @@ def initial_data(model, c):
     rate = c.ring_rpm*2*math.pi/60 if c.startup in ("coast", "powered") else 0
     if c.mode == "free":
         d.joint("base").qvel[5] = rate
+    elif c.mode == "pivot":
+        d.joint("base").qvel[2] = rate
     else:
         d.joint("base").qvel[0] = rate
     for j in range(4):
@@ -111,6 +120,8 @@ def initial_data(model, c):
 
 
 def startup_phase(c, t):
+    if c.mode == "pivot":
+        return "SUPPORTED STEERING - bearing carries weight; internal collar torques tilt the ring"
     if c.startup == "powered":
         return "POWERED FREE FLIGHT - internal motors; air supplies thrust"
     if c.startup == "coast":
@@ -181,6 +192,9 @@ def drive(model, d, c):
                 target = math.radians(c.tilt_deg+(c.target_tilt_deg-c.tilt_deg)*u*u*(3-2*u))
                 q = d.joint(f"tilt{j}")
                 d.actuator(f"tilt_motor{j}").ctrl[0] = np.clip(4*(target-q.qpos[0])-.3*q.qvel[0], -2, 2)
+    if c.steering:
+        from steering import control
+        control(model, d, c)
     if c.rotor_type == "propeller":
         # Aerodynamics is an external interaction with air, not gyroscopic lift.
         for j in range(4):
@@ -190,7 +204,7 @@ def drive(model, d, c):
 
 
 def advance(model, d, c):
-    if c.rotor_type == "propeller":
+    if c.rotor_type == "propeller" or c.steering:
         mujoco.mj_forward(model, d)
     drive(model, d, c)
     mujoco.mj_step(model, d)
@@ -252,7 +266,13 @@ def sample(model, d, c):
     result["weight_N"] = mass*c.gravity
     result["motor_power_W"] = float(np.dot(d.actuator_force, d.actuator_velocity))
     result["release_rpm_estimate"] = release_rpm(c) if c.latch else 0.
-    if c.mode == "supported":
+    if c.mode == "pivot":
+        normal = d.body("ring").xmat.reshape(3,3)[:,2]
+        result["steer_x_deg"] = float(np.degrees(np.arctan2(normal[0], normal[2])))
+        result["steer_y_deg"] = float(np.degrees(np.arctan2(normal[1], normal[2])))
+        result["target_x_deg"] = c.steer_x_deg
+        result["target_y_deg"] = c.steer_y_deg
+    if c.mode in ("supported", "pivot"):
         # Parent-to-child force on the assembly, expressed in the sensor frame.
         force_local = d.sensor("support_force").data
         force_world = (d.site("support").xmat.reshape(3, 3) @ force_local)
@@ -397,7 +417,7 @@ def main():
         elif field.name == "startup":
             p.add_argument(flag, choices=["coast", "staged", "powered"], default=None)
         elif field.name == "mode":
-            p.add_argument(flag, choices=["supported", "free"], default=field.default)
+            p.add_argument(flag, choices=["supported", "free", "pivot"], default=field.default)
         else:
             p.add_argument(flag, type=field.type, default=field.default)
     args = vars(p.parse_args())

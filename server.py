@@ -12,6 +12,7 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from gyro_sim import Config, Experiment, sample
 from flight import flight_config
+from steering import steering_config
 
 ROOT = Path(__file__).resolve().parent
 
@@ -117,10 +118,27 @@ def model():
 
 @app.post("/api/preset/{name}")
 def preset(name: str):
-    if name not in ("flight", "no-air", "original"):
+    if name not in ("flight", "no-air", "original", "steering"):
         raise HTTPException(404, "Unknown preset")
     c = Config(startup="staged") if name == "original" else flight_config(name == "flight")
+    if name == "steering":
+        c = steering_config()
     lab.configure(asdict(c))
+    return lab.state()
+
+
+@app.post("/api/steer")
+def steer(target: dict):
+    from dataclasses import replace
+    with lab.lock:
+        if not lab.experiment.c.steering:
+            raise HTTPException(422, "Load supported steering first")
+        try:
+            c=replace(lab.experiment.c,steer_x_deg=float(target["x"]),steer_y_deg=float(target["y"]))
+            c.validate()
+        except (KeyError,ValueError,TypeError) as exc:
+            raise HTTPException(422,str(exc)) from exc
+        lab.experiment.c=c
     return lab.state()
 
 
