@@ -1,0 +1,16 @@
+{
+  "mass_kg": 0.7822663225479293,
+  "M": [
+    [
+      0.00419959593468042,
+      -0.003606334405084681
+    ],
+    [
+      -0.003606334405084681,
+      0.004025195632907178
+    ]
+  ],
+  "free_reaction_per_shell": 0.8959401564489983,
+  "free_bottom_per_shell": 7.5557701437131115,
+  "note": "Lossless, zero initial spin, external torque on shell only. Geometry-derived concept inertias; bearings omitted."
+}

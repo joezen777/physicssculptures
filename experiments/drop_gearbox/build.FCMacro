@@ -1,0 +1,229 @@
+"""FreeCAD concept: three balanced 4:1 planetary speed-increasing stages.
+Run in FreeCAD GUI. Geometry is illustrative, not a manufactured gearbox.
+"""
+import math, json, os, traceback
+from pathlib import Path
+import FreeCAD as App, Part, FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore, QtWidgets
+from pivy import coin
+
+ROOT = Path(__file__).resolve().parent if "__file__" in globals() else Path("/mnt/c/Users/josep/OneDrive/Documents/angularmomflyer/experiments/drop_gearbox")
+OUT = ROOT / "output"
+OUT.mkdir(exist_ok=True)
+for marker in ["build_complete.txt","render_complete.txt"]:
+    (OUT/marker).unlink(missing_ok=True)
+doc = App.newDocument("DropGearbox")
+moving, inertias = [], []
+blue=(0.12,0.48,0.76); gold=(0.95,0.62,0.12); green=(0.15,0.72,0.51)
+purple=(0.63,0.39,0.83); steel=(0.65,0.71,0.78)
+def annulus(ro,ri,h):
+    return Part.makeCylinder(ro,h).cut(Part.makeCylinder(ri,h))
+def inv(r,rb):
+    t=math.sqrt(max(0,(r/rb)**2-1))
+    return t-math.atan(t)
+def tooth_outline(n, internal=False):
+    rp=n/2; rb=rp*math.cos(math.radians(20))
+    lo=rp-1 if internal else rp-1.25
+    hi=rp+1.25 if internal else rp+1
+    # For an internal ring this is the space cutout, with internal involute flanks.
+    def half(r):
+        return math.pi/(2*n)+inv(rp,rb)-inv(max(r,rb),rb)
+    pts=[]
+    for i in range(n):
+        a=2*math.pi*i/n
+        pts.append(V(lo*math.cos(a-math.pi/n),lo*math.sin(a-math.pi/n),0))
+        for j in range(9):
+            r=lo+(hi-lo)*j/8; t=a-half(r)
+            pts.append(V(r*math.cos(t),r*math.sin(t),0))
+        for j in range(9):
+            r=hi-(hi-lo)*j/8; t=a+half(r)
+            pts.append(V(r*math.cos(t),r*math.sin(t),0))
+        pts.append(V(lo*math.cos(a+math.pi/n),lo*math.sin(a+math.pi/n),0))
+    clean=[]
+    for p in pts:
+        if not clean or (p-clean[-1]).Length>1e-8: clean.append(p)
+    if (clean[-1]-clean[0]).Length<1e-8: clean.pop()
+    return Part.Face(Part.makePolygon(clean+[clean[0]])).extrude(V(0,0,6))
+def gear(n,bore=0):
+    s=tooth_outline(n)
+    return s.cut(Part.makeCylinder(bore,6)) if bore else s
+
+def item(name,shape,z,color,a=0,b=0,phase=0,orbit=None,density=1.24e-6):
+    ob=doc.addObject("PartDesign::Feature",name)
+    ob.Label=name.replace("_"," ")
+    ob.Shape=Part.makeCompound([shape]); ob.ViewObject.ShapeColor=color
+    ob.ViewObject.LineColor=(0.08,0.10,0.14)
+    ob.addProperty("App::PropertyString","Role","Concept")
+    ob.Role="Kinematic concept; no bearing or structural qualification"
+    ob.addProperty("App::PropertyFloat","ShellCoefficient","Kinematics"); ob.ShellCoefficient=a
+    ob.addProperty("App::PropertyFloat","ReactionCoefficient","Kinematics"); ob.ReactionCoefficient=b
+    moving.append((ob,z,a,b,phase,orbit))
+    mass=shape.Volume*density
+    inertia=sum(s.MatrixOfInertia.A33+s.Volume*(s.CenterOfMass.x**2+s.CenterOfMass.y**2) for s in shape.Solids)*density*1e-6
+    inertias.append(dict(name=name,mass_kg=mass,J_kgm2=inertia,a=a,b=b,
+                         orbit=orbit))
+    return ob
+def pose(shell,react):
+    for ob,z,a,b,phase,orbit in moving:
+        x=y=0
+        if orbit:
+            radius,az,ca,cb=orbit
+            ang=math.radians(az+ca*shell+cb*react)
+            x=radius*math.cos(ang); y=radius*math.sin(ang)
+        ob.Placement=App.Placement(V(x,y,z),App.Rotation(V(0,0,1),phase+a*shell+b*react))
+    doc.recompute()
+
+# A sealed envelope is represented by the full shell; the viewer uses a cutaway.
+shell=item("Blue_rotating_shell_FULL",annulus(49,47,218),0,blue,1,0)
+shell.ViewObject.Transparency=78
+# Upper six pitched fins have equal mass and spacing.
+for k in range(6):
+    fin=Part.makeBox(21,2,24,V(48,-1,-12))
+    fin.rotate(V(0,0,0),V(1,0,0),30)
+    fin.rotate(V(0,0,0),V(0,0,1),k*60)
+    item("Upper_pitched_fin_%d"%(k+1),fin,199,blue,1,0)
+item("Shell_top_cap",annulus(49,0.1,3),218,blue,1,0)
+item("Shell_bottom_cap",annulus(49,5,3),0,blue,1,0)
+# The common reaction member is independently supported, not grounded.
+item("Reaction_flywheel",annulus(44,8,9),10,purple,0,1,density=7.8e-6)
+for k in range(3):
+    rod=Part.makeCylinder(2,162,V(42*math.cos(k*2*math.pi/3),42*math.sin(k*2*math.pi/3),0))
+    item("Reaction_spine_%d"%(k+1),rod,19,purple,0,1,density=7.8e-6)
+# Main shell connects to first carrier by three radial lugs above the teeth.
+for k in range(3):
+    lug=Part.makeBox(22,5,3,V(25,-2.5,0));lug.rotate(V(),V(0,0,1),k*120)
+    item("Input_carrier_lug_%d"%k,lug,184,blue,1,0)
+
+stages=[174,118,62]
+for i,z in enumerate(stages):
+    ca=4**i; cb=1-ca
+    sa=4**(i+1); sb=1-sa
+    ring=Part.makeCylinder(39,6).cut(tooth_outline(72,True))
+    item("Stage_%d_ring_72T"%(i+1),ring,z,purple,0,1,phase=2.5)
+    for k in range(3):
+        lug=Part.makeBox(4,4,4,V(38,-2,0));lug.rotate(V(),V(0,0,1),k*120)
+        item("Stage_%d_ring_lug_%d"%(i+1,k),lug,z+1,purple,0,1)
+    # Carrier has a central journal opening, symmetric arms, and three planet axles.
+    carrier=annulus(9,4.2,3)
+    for k in range(3):
+        arm=Part.makeBox(19,5,3,V(7,-2.5,0));arm.rotate(V(),V(0,0,1),k*120)
+        carrier=carrier.fuse(arm)
+        pin=Part.makeCylinder(1.7,10,V(24*math.cos(k*2*math.pi/3),24*math.sin(k*2*math.pi/3),-10))
+        carrier=carrier.fuse(pin)
+    item("Stage_%d_input_carrier"%(i+1),carrier,z+10,blue,ca,cb)
+    item("Stage_%d_sun_24T_output"%(i+1),gear(24,3.0),z,gold,sa,sb)
+    # Equal tooth counts: absolute planet speed = 2*carrier - sun.
+    for k in range(3):
+        item("Stage_%d_planet_%d_24T"%(i+1,k+1),gear(24,2),z,green,
+             2*ca-sa,2*cb-sb,phase=7.5,orbit=(24,k*120,ca,cb))
+    shaft=Part.makeCylinder(3,43 if i<2 else 57)
+    item("Stage_%d_output_shaft"%(i+1),shaft,z-(40 if i<2 else 54),gold,sa,sb,density=7.8e-6)
+    # A central output hub joins the shaft to the next carrier below.
+    if i<2:
+        item("Stage_%d_coupling_to_next_carrier"%(i+1),annulus(6,3,3),z-43,gold,sa,sb)
+# Nominal journal sleeves: interfaces indicated, bearing internals omitted.
+for z in [4,20]:
+    item("Reaction_journal_%d"%z,annulus(8,5,5),z,steel,0,1)
+pose(0,0)
+
+doc.recompute()
+# Validate physical solids and sampled tooth meshes (not bearing/structural validation).
+checks={"invalid_objects":[o.Name for o, *_ in moving if not o.Shape.isValid() or o.Shape.Volume<=0],
+        "mesh_intersections_mm3":[]}
+for sh,re in [(0,0),(2.3,0),(8.7,4.2)]:
+    pose(sh,re)
+    sun=doc.getObject("Stage_1_sun_24T_output").Shape
+    ring=doc.getObject("Stage_1_ring_72T").Shape
+    planet=doc.getObject("Stage_1_planet_1_24T").Shape
+    checks["mesh_intersections_mm3"].append(dict(shell_deg=sh,reaction_deg=re,
+        sun_planet=sun.common(planet).Volume,ring_planet=ring.common(planet).Volume))
+pose(0,0)
+(OUT/"validation.json").write_text(json.dumps(checks,indent=2))
+# All STEP solids, including the full shell, exported at the same initial phase.
+import Import
+Import.export([x[0] for x in moving],str(OUT/"drop_gearbox_full.step"))
+# Preserve inertia of full shell before replacing its displayed geometry.
+cut=Part.makeBox(140,100,250,V(-70,-100,-10))
+shell.Shape=shell.Shape.cut(cut)
+shell.Label="Blue rotating shell - FRONT HALF CUT AWAY"
+shell.ViewObject.Transparency=65
+Import.export([x[0] for x in moving],str(OUT/"drop_gearbox_cutaway.step"))
+doc.recompute()
+doc.saveAs(str(OUT/"drop_gearbox.FCStd"))
+(OUT/"inertias.json").write_text(json.dumps(inertias,indent=2))
+# Kinematic generalized inertia with shell and reaction angles as coordinates.
+M=[[0.,0.],[0.,0.]]
+for d in inertias:
+    a,b=d["a"],d["b"];J=d["J_kgm2"]
+    terms=[(J,a,b)]
+    if d["orbit"]:
+        r,az,a,b=d["orbit"]; terms.append((d["mass_kg"]*(r/1000)**2,a,b))
+    for J,a,b in terms:
+        M[0][0]+=J*a*a;M[0][1]+=J*a*b
+        M[1][0]+=J*a*b;M[1][1]+=J*b*b
+k=-M[0][1]/M[1][1]
+result=dict(mass_kg=sum(d["mass_kg"] for d in inertias),M=M,
+            free_reaction_per_shell=k,free_bottom_per_shell=64-63*k,
+            note="Lossless, zero initial spin, external torque on shell only. Geometry-derived concept inertias; bearings omitted.")
+(OUT/"physics.json").write_text(json.dumps(result,indent=2))
+Gui.getMainWindow().showMaximized()
+Gui.updateGui()
+view=Gui.activeDocument().activeView()
+view.setCameraType("Orthographic")
+rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),65))
+def camera():
+    node=view.getCameraNode()
+    node.orientation.setValue(*rot.Q)
+    pos=V(0,0,110)+rot.multVec(V(0,0,500))
+    node.position.setValue(pos.x,pos.y,pos.z)
+    node.height.setValue(280)
+    node.nearDistance.setValue(1)
+    node.farDistance.setValue(1000)
+    node.focalDistance.setValue(500)
+camera()
+Gui.updateGui()
+camera()
+view.saveImage(str(OUT/"overview.png"),1400,1100,"White")
+doc.saveAs(str(OUT/"drop_gearbox.FCStd"))
+(OUT/"build_complete.txt").write_text("FreeCAD document and two STEP exports created.\n")
+# Persistent animation controls; exact gear-speed ratios, with time slowed.
+class Animation(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Falling cylinder | 3-stage planetary experiment")
+        self.resize(460,240); self.angle=0
+        lay=QtWidgets.QVBoxLayout(self)
+        self.mode=QtWidgets.QComboBox()
+        self.mode.addItems(["Ideal: reaction held stationary (external restraint)",
+                           "Free: inertial reaction drum (lossless startup)",
+                           "Locked: all members co-rotate"])
+        lay.addWidget(self.mode)
+        label=QtWidgets.QLabel("Blue: shell/carriers   Purple: reaction drum/rings\nGold: suns/output   Green: three balanced planets per stage\n24T sun + 24T planets + 72T ring; 4 x 4 x 4 = 64\nDisplay: shell 1 deg/s (1,800x slower than 300 RPM).\nSTEP is a static model; animation runs in FreeCAD.")
+        lay.addWidget(label); self.status=QtWidgets.QLabel();lay.addWidget(self.status)
+        btn=QtWidgets.QPushButton("Pause / resume"); lay.addWidget(btn)
+        self.timer=QtCore.QTimer(self);self.timer.timeout.connect(self.tick)
+        btn.clicked.connect(lambda:self.timer.stop() if self.timer.isActive() else self.timer.start(50))
+        reset=QtWidgets.QPushButton("Reset phase");lay.addWidget(reset);reset.clicked.connect(self.reset)
+        self.timer.start(50)
+    def reset(self):self.angle=0;self.tick()
+    def tick(self):
+        self.angle+=.05
+        mode=self.mode.currentIndex()
+        r=0 if mode==0 else k if mode==1 else 1
+        pose(self.angle,r*self.angle)
+        self.status.setText("At shell 300 RPM: reaction %.1f RPM; bottom %.1f RPM"%(r*300,(64-63*r)*300))
+        Gui.updateGui()
+window=Animation()
+Gui.getMainWindow()._drop_gearbox_animation=window
+window.show()
+# Render six seconds of correctly slowed ideal motion for a portable preview.
+if os.getenv("DROP_RENDER")=="1":
+    window.timer.stop()
+    frames=OUT/"frames";frames.mkdir(exist_ok=True)
+    for frame in range(72):
+        pose(frame/12,0);Gui.updateGui();camera()
+        Gui.activeDocument().activeView().saveImage(str(frames/("%03d.png"%frame)),1000,800,"White")
+    pose(0,0)
+    (OUT/"render_complete.txt").write_text("72 frames at 12 fps; 1800x slow motion at shell 300 RPM")
+    window.timer.start(50)

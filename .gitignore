@@ -21,3 +21,9 @@ runs/
 # Local dashboard dependencies and build output
 node_modules/
 web/dist/
+
+# FreeCAD transient render frames, logs and backup revisions
+experiments/drop_gearbox/*.log
+experiments/drop_gearbox/output/frames/
+*.FCStd1
+*.FCBak

@@ -93,3 +93,10 @@ The four powered collars redirect flywheel angular momentum; a balanced
 spherical bearing supports the full weight. The default demonstration uses
 a 3 RPM donut and alternating 3000 RPM flywheels.
 See [design and controller limits](docs/supported-steering.md).
+
+## Falling cylinder / planetary gearbox experiment
+
+A separate FreeCAD study explores a fin-driven shell, three symmetric 4:1 planetary
+stages, and an independent reaction drum. Includes full and cutaway STEP exports,
+a slowed animation, and conditional RPM / energy calculations. See
+[the design and physics notes](docs/drop_gearbox.md).

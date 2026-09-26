@@ -1,0 +1,65 @@
+"""Reopen the saved model and animate it without rebuilding the STEP files."""
+from pathlib import Path
+import math,json,os
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore,QtWidgets
+from pivy import coin
+ROOT=Path(__file__).resolve().parent
+OUT=ROOT/"output"
+doc=App.openDocument(str(OUT/"drop_gearbox.FCStd"))
+moving=[]
+for ob in doc.Objects:
+    if not hasattr(ob,"ShellCoefficient"):continue
+    orbit=None
+    if "_planet_" in ob.Name:
+        i=int(ob.Name.split("_")[1])-1
+        j=int(ob.Name.split("_")[3])-1
+        ca=4**i
+        orbit=(24,j*120,ca,1-ca)
+    phase=2.5 if "_ring_72T" in ob.Name else 7.5 if orbit else 0
+    moving.append((ob,ob.Placement.Base.z,ob.ShellCoefficient,ob.ReactionCoefficient,phase,orbit))
+def pose(shell,react):
+    for ob,z,a,b,phase,orbit in moving:
+        x=y=0
+        if orbit:
+            radius,az,ca,cb=orbit
+            ang=math.radians(az+ca*shell+cb*react)
+            x=radius*math.cos(ang);y=radius*math.sin(ang)
+        ob.Placement=App.Placement(V(x,y,z),App.Rotation(V(0,0,1),phase+a*shell+b*react))
+    doc.recompute()
+pose(0,0)
+Gui.getMainWindow().showMaximized()
+Gui.updateGui()
+view=Gui.activeDocument().activeView()
+view.setCameraType("Orthographic")
+rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),65))
+def camera():
+    node=view.getCameraNode()
+    node.orientation.setValue(*rot.Q)
+    pos=V(0,0,110)+rot.multVec(V(0,0,500))
+    node.position.setValue(pos.x,pos.y,pos.z)
+    node.height.setValue(280)
+    node.nearDistance.setValue(1)
+    node.farDistance.setValue(1000)
+    node.focalDistance.setValue(500)
+camera()
+Gui.updateGui()
+camera()
+view.saveImage(str(OUT/"overview.png"),1400,1100,"White")
+doc.saveAs(str(OUT/"drop_gearbox.FCStd"))
+k=json.loads((OUT/"physics.json").read_text())["free_reaction_per_shell"]
+# Use the same user controls as the build macro.
+source=(ROOT/"build.FCMacro").read_text()
+controls=source[source.index("class Animation"):source.index("# Render six seconds")]
+exec(controls)
+if os.getenv("DROP_RENDER")=="1":
+    window.timer.stop()
+    frames=OUT/"frames";frames.mkdir(exist_ok=True)
+    (OUT/"render_complete.txt").unlink(missing_ok=True)
+    for frame in range(72):
+        pose(frame/12,0);Gui.updateGui();camera()
+        view.saveImage(str(frames/("%03d.png"%frame)),1000,800,"White")
+    pose(0,0);camera()
+    (OUT/"render_complete.txt").write_text("72 frames at 12 fps; 1800x slow motion at shell 300 RPM")
+    window.timer.start(50)

@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "object_count": 50,
+  "step_solid_count": 50,
+  "step_volume_mm3": 231398.93234900848,
+  "free_bottom_at_300rpm": 2266.7310431139335,
+  "checked": [
+    "CAD validity",
+    "six-fin radial balance",
+    "planet orbit radii",
+    "three sampled gear phases",
+    "positive kinetic energy",
+    "free generalized reaction momentum",
+    "cutaway STEP roundtrip volume"
+  ]
+}

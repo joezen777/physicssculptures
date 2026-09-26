@@ -1,0 +1,447 @@
+[
+  {
+    "name": "Blue_rotating_shell_FULL",
+    "mass_kg": 0.1630531826147314,
+    "J_kgm2": 0.00037583758592695654,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Upper_pitched_fin_1",
+    "mass_kg": 0.00124992,
+    "J_kgm2": 4.338784799999999e-06,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Upper_pitched_fin_2",
+    "mass_kg": 0.0012499199999999994,
+    "J_kgm2": 4.338784799999997e-06,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Upper_pitched_fin_3",
+    "mass_kg": 0.0012499199999999994,
+    "J_kgm2": 4.338784799999997e-06,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Upper_pitched_fin_4",
+    "mass_kg": 0.00124992,
+    "J_kgm2": 4.338784799999999e-06,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Upper_pitched_fin_5",
+    "mass_kg": 0.0012499199999999994,
+    "J_kgm2": 4.338784799999997e-06,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Upper_pitched_fin_6",
+    "mass_kg": 0.0012499199999999994,
+    "J_kgm2": 4.338784799999999e-06,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Shell_top_cap",
+    "mass_kg": 0.028059709068674315,
+    "J_kgm2": 3.368582103548904e-05,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Shell_bottom_cap",
+    "mass_kg": 0.027767657819137176,
+    "J_kgm2": 3.368216893461359e-05,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Reaction_flywheel",
+    "mass_kg": 0.4128505136159106,
+    "J_kgm2": 0.0004128505136159128,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Reaction_spine_1",
+    "mass_kg": 0.015878865908304254,
+    "J_kgm2": 2.804207719406531e-05,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Reaction_spine_2",
+    "mass_kg": 0.015878865908304243,
+    "J_kgm2": 2.8042077194065288e-05,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Reaction_spine_3",
+    "mass_kg": 0.015878865908304247,
+    "J_kgm2": 2.8042077194065298e-05,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Input_carrier_lug_0",
+    "mass_kg": 0.00040919999999999997,
+    "J_kgm2": 5.476801e-07,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Input_carrier_lug_1",
+    "mass_kg": 0.0004091999999999999,
+    "J_kgm2": 5.476800999999999e-07,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Input_carrier_lug_2",
+    "mass_kg": 0.0004091999999999999,
+    "J_kgm2": 5.476800999999999e-07,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_ring_72T",
+    "mass_kg": 0.005180701746458557,
+    "J_kgm2": 7.256401550502059e-06,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_ring_lug_0",
+    "mass_kg": 7.935999999999999e-05,
+    "J_kgm2": 1.2718762666666666e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_ring_lug_1",
+    "mass_kg": 7.935999999999996e-05,
+    "J_kgm2": 1.271876266666666e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_ring_lug_2",
+    "mass_kg": 7.935999999999994e-05,
+    "J_kgm2": 1.2718762666666658e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_input_carrier",
+    "mass_kg": 0.002033352441483592,
+    "J_kgm2": 5.474219868807292e-07,
+    "a": 1,
+    "b": 0,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_sun_24T_output",
+    "mass_kg": 0.003089648714038249,
+    "J_kgm2": 2.379490049747346e-07,
+    "a": 4,
+    "b": -3,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_planet_1_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -2,
+    "b": 3,
+    "orbit": [
+      24,
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "name": "Stage_1_planet_2_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -2,
+    "b": 3,
+    "orbit": [
+      24,
+      120,
+      1,
+      0
+    ]
+  },
+  {
+    "name": "Stage_1_planet_3_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -2,
+    "b": 3,
+    "orbit": [
+      24,
+      240,
+      1,
+      0
+    ]
+  },
+  {
+    "name": "Stage_1_output_shaft",
+    "mass_kg": 0.009483211584126149,
+    "J_kgm2": 4.2674452128567896e-08,
+    "a": 4,
+    "b": -3,
+    "orbit": null
+  },
+  {
+    "name": "Stage_1_coupling_to_next_carrier",
+    "mass_kg": 0.00031554156612655885,
+    "J_kgm2": 7.099685237847612e-09,
+    "a": 4,
+    "b": -3,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_ring_72T",
+    "mass_kg": 0.005180701746458557,
+    "J_kgm2": 7.256401550502059e-06,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_ring_lug_0",
+    "mass_kg": 7.935999999999999e-05,
+    "J_kgm2": 1.2718762666666666e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_ring_lug_1",
+    "mass_kg": 7.935999999999996e-05,
+    "J_kgm2": 1.271876266666666e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_ring_lug_2",
+    "mass_kg": 7.935999999999994e-05,
+    "J_kgm2": 1.2718762666666658e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_input_carrier",
+    "mass_kg": 0.002033352441483592,
+    "J_kgm2": 5.474219868807292e-07,
+    "a": 4,
+    "b": -3,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_sun_24T_output",
+    "mass_kg": 0.003089648714038249,
+    "J_kgm2": 2.379490049747346e-07,
+    "a": 16,
+    "b": -15,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_planet_1_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -8,
+    "b": 9,
+    "orbit": [
+      24,
+      0,
+      4,
+      -3
+    ]
+  },
+  {
+    "name": "Stage_2_planet_2_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -8,
+    "b": 9,
+    "orbit": [
+      24,
+      120,
+      4,
+      -3
+    ]
+  },
+  {
+    "name": "Stage_2_planet_3_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -8,
+    "b": 9,
+    "orbit": [
+      24,
+      240,
+      4,
+      -3
+    ]
+  },
+  {
+    "name": "Stage_2_output_shaft",
+    "mass_kg": 0.009483211584126149,
+    "J_kgm2": 4.2674452128567896e-08,
+    "a": 16,
+    "b": -15,
+    "orbit": null
+  },
+  {
+    "name": "Stage_2_coupling_to_next_carrier",
+    "mass_kg": 0.00031554156612655885,
+    "J_kgm2": 7.099685237847612e-09,
+    "a": 16,
+    "b": -15,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_ring_72T",
+    "mass_kg": 0.005180701746458557,
+    "J_kgm2": 7.256401550502059e-06,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_ring_lug_0",
+    "mass_kg": 7.935999999999999e-05,
+    "J_kgm2": 1.2718762666666666e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_ring_lug_1",
+    "mass_kg": 7.935999999999996e-05,
+    "J_kgm2": 1.271876266666666e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_ring_lug_2",
+    "mass_kg": 7.935999999999994e-05,
+    "J_kgm2": 1.2718762666666658e-07,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_input_carrier",
+    "mass_kg": 0.002033352441483592,
+    "J_kgm2": 5.474219868807292e-07,
+    "a": 16,
+    "b": -15,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_sun_24T_output",
+    "mass_kg": 0.003089648714038249,
+    "J_kgm2": 2.379490049747346e-07,
+    "a": 64,
+    "b": -63,
+    "orbit": null
+  },
+  {
+    "name": "Stage_3_planet_1_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -32,
+    "b": 33,
+    "orbit": [
+      24,
+      0,
+      16,
+      -15
+    ]
+  },
+  {
+    "name": "Stage_3_planet_2_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -32,
+    "b": 33,
+    "orbit": [
+      24,
+      120,
+      16,
+      -15
+    ]
+  },
+  {
+    "name": "Stage_3_planet_3_24T",
+    "mass_kg": 0.003206515960751787,
+    "J_kgm2": 2.387086420783728e-07,
+    "a": -32,
+    "b": 33,
+    "orbit": [
+      24,
+      240,
+      16,
+      -15
+    ]
+  },
+  {
+    "name": "Stage_3_output_shaft",
+    "mass_kg": 0.012570768844074197,
+    "J_kgm2": 5.656845979833418e-08,
+    "a": 64,
+    "b": -63,
+    "orbit": null
+  },
+  {
+    "name": "Reaction_journal_4",
+    "mass_kg": 0.0007596371036380118,
+    "J_kgm2": 3.380385111189169e-08,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  },
+  {
+    "name": "Reaction_journal_20",
+    "mass_kg": 0.0007596371036380118,
+    "J_kgm2": 3.380385111189169e-08,
+    "a": 0,
+    "b": 1,
+    "orbit": null
+  }
+]

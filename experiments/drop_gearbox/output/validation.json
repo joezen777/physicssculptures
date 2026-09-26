@@ -1,0 +1,23 @@
+{
+  "invalid_objects": [],
+  "mesh_intersections_mm3": [
+    {
+      "shell_deg": 0,
+      "reaction_deg": 0,
+      "sun_planet": 0.0,
+      "ring_planet": 4.2431417472998e-05
+    },
+    {
+      "shell_deg": 2.3,
+      "reaction_deg": 0,
+      "sun_planet": 0.0,
+      "ring_planet": 0.0
+    },
+    {
+      "shell_deg": 8.7,
+      "reaction_deg": 4.2,
+      "sun_planet": 0.0,
+      "ring_planet": 4.897857949593618e-05
+    }
+  ]
+}
