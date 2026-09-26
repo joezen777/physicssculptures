@@ -1,0 +1,102 @@
+"""Contactless magnetic version: geometry and synchronous kinematics, not field FEA."""
+from pathlib import Path
+BASE=Path(__file__).resolve().parent
+source=(BASE/"build.FCMacro").read_text()
+prefix=source[:source.index("# A sealed envelope")]
+prefix=prefix.replace('OUT = ROOT / "output"','OUT = ROOT / "magnetic_output"').replace('App.newDocument("DropGearbox")','App.newDocument("MagneticDropGearbox")')
+exec(compile(prefix,str(BASE/"build.FCMacro"),"exec"))
+# Reuse the six-fin shell and independent reaction flywheel.
+body=source[source.index("# A sealed envelope"):source.index("stages=[")]
+body=body.replace('lug,184,','lug,188,').replace('Part.makeBox(22,5,3,V(25,-2.5,0))','Part.makeBox(17,5,3,V(30,-2.5,0))')
+exec(body)
+red=(0.87,0.20,0.20);cyan=(0.15,0.67,0.91)
+def sector(ro,ri,height,angle,phase):
+    s=Part.makeCylinder(ro,height,V(),V(0,0,1),angle).cut(Part.makeCylinder(ri,height))
+    s.rotate(V(),V(0,0,1),phase)
+    return s
+for i,z in enumerate([174,118,62]):
+    ca=4**i;cb=1-ca;sa=4**(i+1);sb=1-sa
+    item("M%d_outer_backiron"%(i+1),annulus(39,36,10),z,purple,0,1,density=7.8e-6)
+    for j in range(24):
+        ob=item("M%d_outer_pole_%02d"%(i+1,j+1),sector(36,33,10,14,j*15),
+                z,red if j%2==0 else cyan,0,1,density=7.5e-6)
+        ob.Role="12 pole pairs; radial polarity alternates. Color labels polarity, not field simulation."
+    for j in range(16):
+        ob=item("M%d_modulator_%02d"%(i+1,j+1),sector(31,28,10,13.5,j*22.5),
+                z,steel,ca,cb,density=7.65e-6)
+        ob.Role="Laminated steel pole-piece concept; laminations not resolved"
+    for j in range(8):
+        ob=item("M%d_inner_pole_%02d"%(i+1,j+1),sector(26,23,10,44,j*45),
+                z,red if j%2==0 else cyan,sa,sb,density=7.5e-6)
+        ob.Role="4 pole pairs; alternating radial polarity; retention sleeve omitted"
+    item("M%d_inner_backiron"%(i+1),annulus(23,21,10),z,gold,sa,sb,density=7.8e-6)
+    item("M%d_inner_output_disk"%(i+1),annulus(23,3,3),z-3,gold,sa,sb)
+    holder=annulus(32,27,4)
+    for j in range(3):
+        arm=Part.makeBox(25,4,3,V(7,-2,4));arm.rotate(V(),V(0,0,1),j*120)
+        holder=holder.fuse(arm)
+    hub=annulus(9,4.2,3);hub.translate(V(0,0,4))
+    holder=holder.fuse(hub)
+    item("M%d_input_modulator_holder"%(i+1),holder,z+10,blue,ca,cb)
+    item("M%d_output_shaft"%(i+1),Part.makeCylinder(3,45 if i<2 else 60),z-(39 if i<2 else 54),gold,sa,sb,density=7.8e-6)
+    if i<2:item("M%d_next_stage_hub"%(i+1),annulus(6,3,3),z-42,gold,sa,sb)
+    for j in range(3):
+        lug=Part.makeBox(4,4,4,V(38,-2,0));lug.rotate(V(),V(0,0,1),j*120)
+        item("M%d_reaction_lug_%d"%(i+1,j),lug,z+2,purple,0,1)
+pose(0,0)
+bad=[o.Name for o,*_ in moving if not o.Shape.isValid() or o.Shape.Volume<=0]
+assert not bad,bad
+import Import
+Import.export([x[0] for x in moving],str(OUT/"magnetic_full.step"))
+shell.Shape=shell.Shape.cut(Part.makeBox(140,100,250,V(-70,-100,-10)))
+shell.Label="Shell front half removed for inspection"
+Import.export([x[0] for x in moving],str(OUT/"magnetic_cutaway.step"))
+doc.recompute()
+# Geometry-derived inertia, with the same two-coordinate formulation.
+M=[[0.,0.],[0.,0.]]
+for d in inertias:
+    a,b,J=d["a"],d["b"],d["J_kgm2"]
+    M[0][0]+=J*a*a;M[0][1]+=J*a*b;M[1][0]+=J*a*b;M[1][1]+=J*b*b
+k=-M[0][1]/M[1][1]
+data=dict(mass_kg=sum(x["mass_kg"] for x in inertias),M=M,
+    free_reaction_per_shell=k,free_bottom_per_shell=64-63*k,
+    assumptions="Synchronous magnetic lock, zero initial spin, no magnetic losses or slip; no torque capacity established by FEA.")
+(OUT/"physics.json").write_text(json.dumps(data,indent=2))
+(OUT/"inertias.json").write_text(json.dumps(inertias,indent=2))
+# Keep exact gap specifications separate from rendered perspective.
+report=dict(status="geometry_valid",objects=len(moving),stages=3,inner_magnets_per_stage=8,
+    outer_magnets_per_stage=24,modulator_pieces_per_stage=16,
+    inner_radial_gap_mm=2,outer_radial_gap_mm=2,
+    scope="Solid validity and radial clearances only; NOT an electromagnetic or full interference validation")
+(OUT/"validation.json").write_text(json.dumps(report,indent=2))
+# Use tested camera positioning.
+cam=source[source.index("Gui.getMainWindow().showMaximized()"):source.index('(OUT/"build_complete.txt")')]
+cam=cam.replace('drop_gearbox.FCStd','magnetic.FCStd')
+exec(cam)
+# A second view exposes one concentric magnetic stage from above.
+vis={o.Name:o.ViewObject.Visibility for o,*_ in moving}
+for o,*_ in moving:o.ViewObject.Visibility=o.Name.startswith("M1_") and "holder" not in o.Name and "shaft" not in o.Name
+node=view.getCameraNode()
+node.orientation.setValue(0,0,0,1);node.position.setValue(0,0,600)
+node.height.setValue(96);node.focalDistance.setValue(421)
+Gui.updateGui()
+view.saveImage(str(OUT/"magnetic_stage.png"),1000,1000,"White")
+for o,*_ in moving:o.ViewObject.Visibility=vis[o.Name]
+camera()
+# Controls deliberately say assumed synchronous motion.
+controls=source[source.index("class Animation"):source.index("# Render six seconds")]
+controls=controls.replace("Falling cylinder | 3-stage planetary experiment","Contactless magnetic gearbox | assumed synchronous motion")
+controls=controls.replace("Green: three balanced planets per stage","Red/cyan: alternating magnetic poles")
+controls=controls.replace("24T sun + 24T planets + 72T ring; 4 x 4 x 4 = 64","4 inner pole pairs + 12 outer pole pairs + 16 modulators")
+controls=controls.replace("Gold: suns/output","Gold: output rotors").replace("Blue: shell/carriers","Blue: shell/modulators")
+exec(controls)
+if os.getenv("DROP_RENDER")=="1":
+    window.timer.stop()
+    frames=OUT/"frames";frames.mkdir(exist_ok=True)
+    for frame in range(72):
+        pose(frame/12,0);Gui.updateGui();camera()
+        view.saveImage(str(frames/("%03d.png"%frame)),1000,800,"White")
+    pose(0,0);camera()
+    (OUT/"render_complete.txt").write_text("72 frames, 12 fps, assumed synchronous coupling")
+    window.timer.start(50)
+(OUT/"build_complete.txt").write_text("Geometry and assumed synchronous animation complete; no electromagnetic FEA.")

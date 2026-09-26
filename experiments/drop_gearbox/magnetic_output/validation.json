@@ -1,0 +1,11 @@
+{
+  "status": "geometry_valid",
+  "objects": 186,
+  "stages": 3,
+  "inner_magnets_per_stage": 8,
+  "outer_magnets_per_stage": 24,
+  "modulator_pieces_per_stage": 16,
+  "inner_radial_gap_mm": 2,
+  "outer_radial_gap_mm": 2,
+  "scope": "Solid validity and radial clearances only; NOT an electromagnetic or full interference validation"
+}

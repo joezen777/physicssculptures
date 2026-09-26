@@ -27,3 +27,4 @@ experiments/drop_gearbox/*.log
 experiments/drop_gearbox/output/frames/
 *.FCStd1
 *.FCBak
+experiments/drop_gearbox/magnetic_output/frames/

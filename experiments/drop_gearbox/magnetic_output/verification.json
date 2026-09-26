@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "objects": 186,
+  "step_solids": 186,
+  "checks": [
+    "solid validity",
+    "magnet and modulator counts",
+    "two 2mm radial gaps",
+    "positive inertia matrix",
+    "free-reaction momentum",
+    "STEP roundtrip volume"
+  ],
+  "scope": "Geometry and imposed kinematics only; no electromagnetic or bearing validation"
+}

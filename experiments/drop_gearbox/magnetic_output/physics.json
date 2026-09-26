@@ -1,0 +1,16 @@
+{
+  "mass_kg": 1.3044056594419775,
+  "M": [
+    [
+      0.1499986121401105,
+      -0.14623021574525258
+    ],
+    [
+      -0.14623021574525258,
+      0.1440045317175039
+    ]
+  ],
+  "free_reaction_per_shell": 1.0154556526881726,
+  "free_bottom_per_shell": 0.026293880645127388,
+  "assumptions": "Synchronous magnetic lock, zero initial spin, no magnetic losses or slip; no torque capacity established by FEA."
+}

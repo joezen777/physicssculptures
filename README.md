@@ -100,3 +100,6 @@ A separate FreeCAD study explores a fin-driven shell, three symmetric 4:1 planet
 stages, and an independent reaction drum. Includes full and cutaway STEP exports,
 a slowed animation, and conditional RPM / energy calculations. See
 [the design and physics notes](docs/drop_gearbox.md).
+
+The [magnetic variant study](docs/magnetic_gearbox.md) adds contactless concentric
+magnet rotors, speed-ratio limits and a separate FreeCAD/STEP/animation set.
