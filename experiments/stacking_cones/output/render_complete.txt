@@ -1,0 +1,1 @@
+60 frames / 12fps; bottom 3 deg/sec, top fan 27 deg/sec

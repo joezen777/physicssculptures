@@ -103,3 +103,9 @@ a slowed animation, and conditional RPM / energy calculations. See
 
 The [magnetic variant study](docs/magnetic_gearbox.md) adds contactless concentric
 magnet rotors, speed-ratio limits and a separate FreeCAD/STEP/animation set.
+
+## Stackable cone tower draft
+
+A separate standing tower study implements two-row staggered teeth on every gear,
+split keyed ring inserts, 608 bearing seats, stationary carriers and hex stacking
+couplings. See [the first-draft notes](docs/stacking_cone_tower.md).

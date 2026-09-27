@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "objects": 53,
+  "step_solids": 149,
+  "sampled_mesh_poses": 4,
+  "checked_clearance_pairs": [
+    {
+      "a": "L0_center_gear_female_hex",
+      "b": "L0_output_inner_race_spacer",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_center_gear_female_hex",
+      "b": "L0_fixed_carrier",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_cone",
+      "b": "L0_fixed_carrier",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_snap_cap",
+      "b": "L0_planet_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_0",
+      "b": "L0_planet_spacer_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_1",
+      "b": "L0_planet_spacer_1",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_2",
+      "b": "L0_planet_spacer_2",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_center_gear_female_hex",
+      "b": "L1_output_inner_race_spacer",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_center_gear_female_hex",
+      "b": "L1_fixed_carrier",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_cone",
+      "b": "L1_fixed_carrier",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_snap_cap",
+      "b": "L1_planet_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_0",
+      "b": "L1_planet_spacer_0",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_1",
+      "b": "L1_planet_spacer_1",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_2",
+      "b": "L1_planet_spacer_2",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L0_center_gear_female_hex",
+      "b": "L1_cone",
+      "volume_mm3": 0.0
+    },
+    {
+      "a": "L1_center_gear_female_hex",
+      "b": "Top_fan_with_male_hex",
+      "volume_mm3": 0.0
+    }
+  ],
+  "step_roundtrip_relative_volume_error": 2.5993846868483817e-08,
+  "scope": "Selected static clearances and sampled mesh only, not complete assembly/strength validation"
+}

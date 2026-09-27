@@ -28,3 +28,7 @@ experiments/drop_gearbox/output/frames/
 *.FCStd1
 *.FCBak
 experiments/drop_gearbox/magnetic_output/frames/
+
+# Stacking-cone draft previews and local logs
+experiments/stacking_cones/*.log
+experiments/stacking_cones/output/frames/

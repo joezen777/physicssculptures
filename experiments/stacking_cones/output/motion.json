@@ -1,0 +1,532 @@
+[
+  {
+    "name": "Stationary_base",
+    "z": -12,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "Stationary_8mm_shaft",
+    "z": -12,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "Bottom_inner_race_spacer",
+    "z": -4,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_cone",
+    "z": 0.0,
+    "ratio": 1,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_cone_608",
+    "z": 2.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_fixed_carrier",
+    "z": 16.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_carrier_lower_spacer",
+    "z": 9.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_output_lower_spacer",
+    "z": 23.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_output_lower_608",
+    "z": 31.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_output_inner_race_spacer",
+    "z": 38.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_output_upper_608",
+    "z": 49.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_center_gear_female_hex",
+    "z": 31.0,
+    "ratio": -3,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_axle_0",
+    "z": 16.0,
+    "ratio": 0,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_spacer_0",
+    "z": 21.0,
+    "ratio": 0,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_0_608",
+    "z": 57.0,
+    "ratio": 0,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_0",
+    "z": 60.0,
+    "ratio": 3,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 7.5
+  },
+  {
+    "name": "L0_planet_axle_1",
+    "z": 16.0,
+    "ratio": 0,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_spacer_1",
+    "z": 21.0,
+    "ratio": 0,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_1_608",
+    "z": 57.0,
+    "ratio": 0,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_1",
+    "z": 60.0,
+    "ratio": 3,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 7.5
+  },
+  {
+    "name": "L0_planet_axle_2",
+    "z": 16.0,
+    "ratio": 0,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_spacer_2",
+    "z": 21.0,
+    "ratio": 0,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_2_608",
+    "z": 57.0,
+    "ratio": 0,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_planet_2",
+    "z": 60.0,
+    "ratio": 3,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 7.5
+  },
+  {
+    "name": "L0_split_ring_0",
+    "z": 60.0,
+    "ratio": 1,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_split_ring_1",
+    "z": 60.0,
+    "ratio": 1,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L0_snap_cap",
+    "z": 0.0,
+    "ratio": 1,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "Between_levels_spacer",
+    "z": 57,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_cone",
+    "z": 88.0,
+    "ratio": -3,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_cone_608",
+    "z": 90.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_fixed_carrier",
+    "z": 104.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_carrier_lower_spacer",
+    "z": 97.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_output_lower_spacer",
+    "z": 111.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_output_lower_608",
+    "z": 119.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_output_inner_race_spacer",
+    "z": 126.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_output_upper_608",
+    "z": 137.0,
+    "ratio": 0,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_center_gear_female_hex",
+    "z": 119.0,
+    "ratio": 9,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_axle_0",
+    "z": 104.0,
+    "ratio": 0,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_spacer_0",
+    "z": 109.0,
+    "ratio": 0,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_0_608",
+    "z": 145.0,
+    "ratio": 0,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_0",
+    "z": 148.0,
+    "ratio": -9,
+    "xy": [
+      36.0,
+      0.0
+    ],
+    "phase": 7.5
+  },
+  {
+    "name": "L1_planet_axle_1",
+    "z": 104.0,
+    "ratio": 0,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_spacer_1",
+    "z": 109.0,
+    "ratio": 0,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_1_608",
+    "z": 145.0,
+    "ratio": 0,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_1",
+    "z": 148.0,
+    "ratio": -9,
+    "xy": [
+      -17.999999999999993,
+      31.176914536239792
+    ],
+    "phase": 7.5
+  },
+  {
+    "name": "L1_planet_axle_2",
+    "z": 104.0,
+    "ratio": 0,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_spacer_2",
+    "z": 109.0,
+    "ratio": 0,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_2_608",
+    "z": 145.0,
+    "ratio": 0,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_planet_2",
+    "z": 148.0,
+    "ratio": -9,
+    "xy": [
+      -18.000000000000014,
+      -31.17691453623978
+    ],
+    "phase": 7.5
+  },
+  {
+    "name": "L1_split_ring_0",
+    "z": 148.0,
+    "ratio": -3,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_split_ring_1",
+    "z": 148.0,
+    "ratio": -3,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "L1_snap_cap",
+    "z": 88.0,
+    "ratio": -3,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  },
+  {
+    "name": "Top_fan_with_male_hex",
+    "z": 176,
+    "ratio": 9,
+    "xy": [
+      0,
+      0
+    ],
+    "phase": 0
+  }
+]
