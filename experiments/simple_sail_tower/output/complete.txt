@@ -1,0 +1,1 @@
+Four-level draft built. Test bearing fits, retention, startup and airflow before physical use.

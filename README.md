@@ -121,3 +121,7 @@ See [the pointed cone / bevel gear draft](docs/bevel_cone_tower.md) for the sepa
 ## Active wind-input variant
 
 [Roof-vent rotor with flowerpot multiplier](docs/roofvent_multiplier.md) replaces the wooden-blade concept as the active design.
+
+## Four-level circular-sail tower
+
+[Simple bottom sails, all-608 axles, and 2x stages](docs/simple_sail_tower.md) is the current four-level draft.

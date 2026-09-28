@@ -44,3 +44,6 @@ experiments/flowerpot_input/output/frames/
 experiments/roofvent_multiplier/*.log
 experiments/roofvent_multiplier/output/frames/
 experiments/flowerpot_input/output/
+
+# Four-level sail tower
+experiments/simple_sail_tower/*.log
