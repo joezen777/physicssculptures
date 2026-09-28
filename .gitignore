@@ -32,3 +32,6 @@ experiments/drop_gearbox/magnetic_output/frames/
 # Stacking-cone draft previews and local logs
 experiments/stacking_cones/*.log
 experiments/stacking_cones/output/frames/
+
+# Bevel cone generator logs
+experiments/bevel_cones/*.log

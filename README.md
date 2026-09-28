@@ -109,3 +109,7 @@ magnet rotors, speed-ratio limits and a separate FreeCAD/STEP/animation set.
 A separate standing tower study implements two-row staggered teeth on every gear,
 split keyed ring inserts, 608 bearing seats, stationary carriers and hex stacking
 couplings. See [the first-draft notes](docs/stacking_cone_tower.md).
+
+## Bevel cone variant
+
+See [the pointed cone / bevel gear draft](docs/bevel_cone_tower.md) for the separate FreeCAD experiment.

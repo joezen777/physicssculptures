@@ -1,0 +1,144 @@
+{
+  "native_components": 60,
+  "invalid_native": [],
+  "selected_clearances": [
+    {
+      "a": "L0_upper_bevel_hex",
+      "b": "L0_upper_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_fan_blade_insert",
+      "b": "L0_radial_pinion_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_radial_pinion_0",
+      "b": "L0_carrier_arm_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_fan_blade_insert",
+      "b": "L0_radial_pinion_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_radial_pinion_1",
+      "b": "L0_carrier_arm_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_fan_blade_insert",
+      "b": "L0_radial_pinion_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_radial_pinion_2",
+      "b": "L0_carrier_arm_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_upper_bevel_hex",
+      "b": "L1_upper_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_fan_blade_insert",
+      "b": "L1_radial_pinion_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_radial_pinion_0",
+      "b": "L1_carrier_arm_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_fan_blade_insert",
+      "b": "L1_radial_pinion_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_radial_pinion_1",
+      "b": "L1_carrier_arm_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_fan_blade_insert",
+      "b": "L1_radial_pinion_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_radial_pinion_2",
+      "b": "L1_carrier_arm_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_pointed_cone",
+      "b": "L0_upper_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_pointed_cone",
+      "b": "L0_upper_bevel_hex",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_upper_bevel_hex",
+      "b": "L2_upper_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_fan_blade_insert",
+      "b": "L2_radial_pinion_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_radial_pinion_0",
+      "b": "L2_carrier_arm_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_fan_blade_insert",
+      "b": "L2_radial_pinion_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_radial_pinion_1",
+      "b": "L2_carrier_arm_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_fan_blade_insert",
+      "b": "L2_radial_pinion_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_radial_pinion_2",
+      "b": "L2_carrier_arm_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_pointed_cone",
+      "b": "L1_upper_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_pointed_cone",
+      "b": "L1_upper_bevel_hex",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Fan",
+      "b": "L2_upper_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Fan",
+      "b": "L2_upper_bevel_hex",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "step_valid": true,
+  "step_solids": 60,
+  "status": "PASS"
+}

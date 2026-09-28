@@ -1,0 +1,167 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+"""Spherical-involute bevel cone tower concept; generated in FreeCAD."""
+from pathlib import Path
+import sys, math, json, os
+import FreeCAD as App, FreeCADGui as Gui, Part, Import
+from FreeCAD import Vector as V
+from PySide import QtCore, QtWidgets
+from pivy import coin
+import numpy as np
+ROOT=Path(__file__).resolve().parent
+sys.path.insert(0,str(ROOT/"vendor"))
+from pygears.bevel_tooth import BevelTooth
+from pygears._functions import rotation3D
+OUT=ROOT/"output";OUT.mkdir(exist_ok=True)
+(OUT/"complete.txt").unlink(missing_ok=True)
+STAGES=int(os.getenv("BEVEL_STAGES","3"))
+assert 1<=STAGES<=6
+doc=App.newDocument("IceCreamBevelCones")
+parts=[];motion=[];shells=[]
+blue=(.17,.56,.76);gold=(.98,.66,.20);green=(.23,.72,.51);steel=(.68,.72,.77);dark=(.28,.32,.38)
+def ann(ro,ri,h,z=0):
+ return Part.makeCylinder(ro,h,V(0,0,z)).cut(Part.makeCylinder(ri,h,V(0,0,z)))
+def hexagon(af,h,z=0):
+ r=af/math.sqrt(3);p=[V(r*math.cos(i*math.pi/3),r*math.sin(i*math.pi/3),z) for i in range(6)]
+ return Part.Face(Part.makePolygon(p+[p[0]])).extrude(V(0,0,h))
+def moved(s,v):
+ s=s.copy();s.translate(v);return s
+def radial(s,a):
+ s=s.copy();s.rotate(V(),V(0,0,1),a);return s
+def add(name,s,pos=V(),axis=V(0,0,1),ratio=0,phase=0,color=steel,section=False):
+ o=doc.addObject("PartDesign::Feature",name);o.Shape=Part.makeCompound([s])
+ o.ViewObject.ShapeColor=color;o.ViewObject.LineColor=(.16,.19,.23)
+ o.addProperty("App::PropertyFloat","SpeedRatio");o.SpeedRatio=ratio
+ parts.append(o);motion.append((o,pos,App.Rotation(V(0,0,1),axis),ratio,phase))
+ if section:shells.append(o)
+ return o
+def pose(a):
+ for o,p,r,k,ph in motion:o.Placement=App.Placement(p,r.multiply(App.Rotation(V(0,0,1),ph+k*a)))
+ doc.recompute()
+def bevel():
+ tooth=BevelTooth(z=24,module=2,pressure_angle=math.radians(70),pitch_angle=math.pi/4,backlash=.18,clearance=.25/24)
+ segments=list(tooth.points(num=18));allseg=list(segments)
+ rot=rotation3D(-2*math.pi/24)
+ for i in range(23):
+  segments=[rot(p) for p in segments]
+  allseg.append(np.array([allseg[-1][-1],segments[0][0]]));allseg.extend(segments)
+ allseg.append(np.array([allseg[-1][-1],allseg[0][0]]))
+ def wire(scale):
+  edges=[]
+  for seg in allseg:
+   points=[V(*[float(c)*scale for c in p]) for p in seg]
+   if len(points)==2:edges.append(Part.makeLine(*points))
+   else:
+    bs=Part.BSplineCurve();bs.interpolate(points);edges.append(bs.toShape())
+  return Part.Wire(edges)
+ full=Part.makeLoft([wire(14),wire(28)],True)
+ # Shared spherical band boundaries align across the intersecting gear axes.
+ first=full.common(Part.makeSphere(29.3)).cut(Part.makeSphere(25))
+ second=full.common(Part.makeSphere(34)).cut(Part.makeSphere(29.7))
+ second.rotate(V(),V(0,0,1),7.5)
+ root=Part.makeCone(12,24,14,V(0,0,14)).common(Part.makeSphere(34)).cut(Part.makeSphere(25))
+ return first.fuse(second).fuse(root).cut(Part.makeCylinder(6.3,40))
+gear=bevel()
+assert gear.isValid()
+params=doc.addObject("App::FeaturePython","DesignNotes")
+params.addProperty("App::PropertyString","Description")
+params.Description="24T / module 2 / 45 degree bevels; two half-pitch staggered spherical bands; fixed carrier; -1 per stage. Concept, not print-ready."
+add("Base",ann(83,4.1,8),V(0,0,-12),color=dark)
+add("Central_8mm_rod",Part.makeCylinder(4,170*STAGES+30),V(0,0,-12))
+for j in range(3):
+ a=math.radians(30+j*120)
+ add("Frame_post_%d"%j,Part.makeCylinder(3,170*(STAGES-1)+155),V(72*math.cos(a),72*math.sin(a),-4),color=dark)
+for level in range(STAGES):
+ b=170*level;k=(-1)**level;apex=V(0,0,b+130)
+ shell=Part.makeCone(14,55,100).cut(Part.makeCone(11.4,52.4,100))
+ shell=shell.fuse(ann(14,6.3,10)).cut(Part.makeCylinder(11.1,7.2,V(0,0,1)))
+ shell=shell.fuse(ann(55,52.4,4.5,100))
+ if level:shell=shell.fuse(hexagon(16,10,-10).cut(Part.makeCylinder(6.3,10,V(0,0,-10))))
+ add("L%d_pointed_cone"%level,shell,V(0,0,b),ratio=k,color=blue,section=True)
+ add("L%d_tip_608"%level,ann(11,4,7),V(0,0,b+1))
+ # Torque spokes extend from the cone rim to the lower bevel hub.
+ web=ann(15,6.3,8,100)
+ for a in range(0,360,60):
+  blade=Part.makeBox(41,12,1.8,V(13,-6,101.1))
+  blade.rotate(V(0,0,102),V(1,0,0),22*k)
+  web=web.fuse(radial(blade,a))
+ add("L%d_fan_blade_insert"%level,web,V(0,0,b),ratio=k,color=gold)
+ add("L%d_lower_bevel"%level,gear,apex,V(0,0,-1),-k,0,gold)
+ upper=gear.fuse(ann(14,6.3,12,24))
+ upper=upper.cut(hexagon(16.4,11,29))
+ add("L%d_upper_bevel_hex"%level,upper,apex,ratio=-k,color=gold)
+ add("L%d_upper_608"%level,ann(11,4,7),V(0,0,b+151))
+ # Hub bearing seat cut into the upper gear follows below after the common geometry.
+ o=parts[-2];local=o.Shape.copy()
+ o.Shape=local.cut(Part.makeCylinder(11.1,7.2,V(0,0,21)))
+ for j in range(3):
+  a=30+j*120;axis=V(math.cos(math.radians(a)),math.sin(math.radians(a)),0)
+  # Outboard hub provides a 608 seat behind the bevel's large end.
+  pinion=gear.fuse(ann(14,4.2,13,25))
+  pinion=pinion.cut(Part.makeCylinder(11.1,7.2,V(0,0,29)))
+  add("L%d_radial_pinion_%d"%(level,j),pinion,apex,axis,k,7.5,green)
+  add("L%d_pinion_608_%d"%(level,j),ann(11,4,7,29.1),apex,axis)
+  add("L%d_radial_axle_%d"%(level,j),Part.makeCylinder(4,39,V(0,0,27)),apex,axis)
+  # Stationary external support; it stays above the rotating cone rim.
+  support=Part.makeBox(31,9,12,V(41,-4.5,-6))
+  support=support.cut(Part.makeCylinder(4.1,32,V(40,0,0),V(1,0,0)))
+  add("L%d_carrier_arm_%d"%(level,j),radial(support,a),apex,color=dark)
+fan=ann(14,6.3,7).fuse(hexagon(16,10,-10).cut(Part.makeCylinder(6.3,10,V(0,0,-10))))
+for j in range(6):
+ blade=Part.makeBox(49,18,2,V(12,-9,0));blade.rotate(V(),V(1,0,0),24*(-1)**STAGES)
+ fan=fan.fuse(radial(blade,60*j))
+add("Fan",fan,V(0,0,170*STAGES),ratio=(-1)**STAGES,color=gold)
+pose(0)
+checks={"stages":STAGES,"scope":"Solid validity and sampled tooth mesh only; support/load-path design remains draft","invalid":[o.Name for o in parts if not o.Shape.isValid() or o.Shape.Volume<=0],"gear_mesh_samples":[]}
+# Validate tooth engagement independently of the still-conceptual supports.
+for a in [0,1.25,3.75,6.25]:
+ pose(a)
+ lo=doc.getObject("L0_lower_bevel").Shape
+ up=doc.getObject("L0_upper_bevel_hex").Shape
+ for j in range(3):
+  p=doc.getObject("L0_radial_pinion_%d"%j).Shape
+  checks["gear_mesh_samples"].append({"angle":a,"pinion":j,"lower_overlap_mm3":lo.common(p).Volume,"upper_overlap_mm3":up.common(p).Volume})
+pose(0)
+(OUT/"checks.json").write_text(json.dumps(checks,indent=2))
+Import.export(parts,str(OUT/"bevel_cones_full.step"))
+full={o.Name:o.Shape.copy() for o in shells}
+def section(on):
+ for o in shells:
+  o.Shape=full[o.Name].copy()
+  if on:o.Shape=o.Shape.cut(Part.makeBox(160,85,140,V(-80,-85,-20)))
+ pose(0)
+Gui.getMainWindow().showMaximized();Gui.updateGui()
+view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+rot=App.Rotation(V(0,0,1),-18).multiply(App.Rotation(V(1,0,0),72))
+def camera(center=V(0,0,85*STAGES),height=170*STAGES+80):
+ n=view.getCameraNode();n.orientation.setValue(*rot.Q);p=center+rot.multVec(V(0,0,750))
+ n.position.setValue(p.x,p.y,p.z);n.height.setValue(height)
+ n.nearDistance.setValue(1);n.farDistance.setValue(1600);n.focalDistance.setValue(750)
+camera();Gui.updateGui();camera()
+view.saveImage(str(OUT/"full_view.png"),1200,1400,"White")
+section(True);camera();Gui.updateGui()
+view.saveImage(str(OUT/"cutaway.png"),1200,1400,"White")
+doc.saveAs(str(OUT/"bevel_cones.FCStd"))
+visibility={o.Name:o.ViewObject.Visibility for o in parts}
+for o,p,r,k,ph in motion:
+ if p.z>160 or o.Name.startswith("Frame_post") or o.Name=="Central_8mm_rod":o.ViewObject.Visibility=False
+camera(V(0,0,125),140);Gui.updateGui()
+view.saveImage(str(OUT/"bevel_detail.png"),1400,1000,"White")
+for o in parts:o.ViewObject.Visibility=visibility[o.Name]
+camera()
+class Controls(QtWidgets.QDialog):
+ def __init__(self):
+  super().__init__();self.setWindowTitle("Ice-cream cone / bevel variant")
+  self.a=0;self.cut=True
+  l=QtWidgets.QVBoxLayout(self)
+  l.addWidget(QtWidgets.QLabel("Spherical-involute bevel gears / two staggered bands\nThree fixed radial pinions per level. Ratio -1 per level.\nSix pitched fan spokes in each open cone.\nPointed cone shells; 608 bearing envelopes.\nConcept: axial retention and print fits remain unfinished."))
+  b=QtWidgets.QPushButton("Full cones / cutaway");b.clicked.connect(self.toggle);l.addWidget(b)
+  p=QtWidgets.QPushButton("Pause / resume");l.addWidget(p)
+  self.timer=QtCore.QTimer(self);self.timer.timeout.connect(self.tick)
+  p.clicked.connect(lambda:self.timer.stop() if self.timer.isActive() else self.timer.start(60))
+  self.timer.start(60)
+ def toggle(self):
+  self.cut=not self.cut;section(self.cut)
+ def tick(self):
+  self.a+=.3;pose(self.a)
+window=Controls();Gui.getMainWindow()._bevel_controls=window;window.show()
+(OUT/"complete.txt").write_text("FreeCAD bevel variant built. See checks.json and design notes.")

@@ -1,0 +1,1 @@
+FreeCAD bevel variant built. See checks.json and design notes.

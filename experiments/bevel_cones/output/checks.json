@@ -1,0 +1,79 @@
+{
+  "stages": 3,
+  "scope": "Solid validity and sampled tooth mesh only; support/load-path design remains draft",
+  "invalid": [],
+  "gear_mesh_samples": [
+    {
+      "angle": 0,
+      "pinion": 0,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 0,
+      "pinion": 1,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 0,
+      "pinion": 2,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 1.25,
+      "pinion": 0,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 1.25,
+      "pinion": 1,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 1.25,
+      "pinion": 2,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 3.75,
+      "pinion": 0,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 3.75,
+      "pinion": 1,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 3.75,
+      "pinion": 2,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 6.25,
+      "pinion": 0,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 6.25,
+      "pinion": 1,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    },
+    {
+      "angle": 6.25,
+      "pinion": 2,
+      "lower_overlap_mm3": 0.0,
+      "upper_overlap_mm3": 0.0
+    }
+  ]
+}
