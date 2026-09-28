@@ -1,0 +1,20 @@
+"""Render the full STEP assembly in a temporary FreeCAD instance."""
+from pathlib import Path
+import FreeCAD as App,FreeCADGui as Gui,Import
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent/"output"
+doc=App.newDocument("RoofVentFullPreview")
+Import.insert(str(OUT/"tower_full.step"),doc.Name)
+doc.recompute();Gui.getMainWindow().showMaximized();Gui.updateGui()
+view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),65))
+node=view.getCameraNode();node.orientation.setValue(*rot.Q)
+p=V(0,0,82)+rot.multVec(V(0,0,600))
+node.position.setValue(p.x,p.y,p.z);node.height.setValue(285)
+node.nearDistance.setValue(1);node.farDistance.setValue(1400);node.focalDistance.setValue(600)
+Gui.updateGui();node.orientation.setValue(*rot.Q)
+view.saveImage(str(OUT/"full_view.png"),1400,1100,"White")
+App.closeDocument(doc.Name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

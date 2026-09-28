@@ -113,3 +113,11 @@ couplings. See [the first-draft notes](docs/stacking_cone_tower.md).
 ## Bevel cone variant
 
 See [the pointed cone / bevel gear draft](docs/bevel_cone_tower.md) for the separate FreeCAD experiment.
+
+## Flowerpot bottom input
+
+[Bottom drive and wooden blade concept](docs/flowerpot_bottom_input.md), retaining the two-stage multiplier.
+
+## Active wind-input variant
+
+[Roof-vent rotor with flowerpot multiplier](docs/roofvent_multiplier.md) replaces the wooden-blade concept as the active design.

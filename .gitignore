@@ -35,3 +35,12 @@ experiments/stacking_cones/output/frames/
 
 # Bevel cone generator logs
 experiments/bevel_cones/*.log
+
+# Bottom-input flowerpot build files
+experiments/flowerpot_input/*.log
+experiments/flowerpot_input/output/frames/
+
+# Roof-vent experiment and superseded wooden-blade renders
+experiments/roofvent_multiplier/*.log
+experiments/roofvent_multiplier/output/frames/
+experiments/flowerpot_input/output/

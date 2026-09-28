@@ -1,0 +1,298 @@
+"""First-draft stackable cone tower. Two-row staggered spur teeth, NOT bevel teeth.
+Run with the Linux FreeCAD GUI. This is a fit/kinematic draft, not a print release.
+"""
+from pathlib import Path
+import math,json,os
+import FreeCAD as App,FreeCADGui as Gui,Part,Import
+from FreeCAD import Vector as V
+from PySide import QtCore,QtWidgets
+from pivy import coin
+
+ROOT=Path(__file__).resolve().parent
+OUT=ROOT/"output";OUT.mkdir(exist_ok=True)
+for name in ["complete.txt","render_complete.txt"]:(OUT/name).unlink(missing_ok=True)
+doc=App.newDocument("RoofVentMultiplier")
+M=1.5;NS=24;NP=24;NR=72;ROW=4.;GAP=.4;FACE=2*ROW+GAP;PITCH=88.
+blue=(.13,.48,.73);gold=(.96,.64,.16);green=(.17,.69,.48)
+purple=(.58,.38,.77);steel=(.66,.71,.76);dark=(.23,.28,.34)
+parts=[];moving=[];cuttable=[];groups={}
+for key in ["Base","Level_1","Level_2","Fan","Hardware"]:
+    groups[key]=doc.addObject("App::DocumentObjectGroup",key)
+params=doc.addObject("App::FeaturePython","DesignParameters")
+for n,value in [("Module",M),("RowWidth",ROW),("RowGap",GAP),("StagePitch",PITCH),
+                ("ShaftDiameter",8.),("BearingPocketDiameter",22.2),("MaleHexAF",16.),
+                ("FemaleHexAF",16.4)]:
+    params.addProperty("App::PropertyLength",n,"Draft dimensions");setattr(params,n,value)
+for n,value in [("SunTeeth",NS),("PlanetTeeth",NP),("RingTeeth",NR)]:
+    params.addProperty("App::PropertyInteger",n,"Tooth counts");setattr(params,n,value)
+params.addProperty("App::PropertyString","Scope");params.Scope="Reference dimensions. Edit macro and regenerate; not a finished manufacturing design."
+
+def ann(ro,ri,h):
+    return Part.makeCylinder(ro,h).cut(Part.makeCylinder(ri,h))
+def hexagon(af,h):
+    r=af/math.sqrt(3)
+    pts=[V(r*math.cos(j*math.pi/3),r*math.sin(j*math.pi/3),0) for j in range(6)]
+    return Part.Face(Part.makePolygon(pts+[pts[0]])).extrude(V(0,0,h))
+def shifted(s,z):
+    s=s.copy();s.translate(V(0,0,z));return s
+def radial_box(r,w,length,h,z,angle):
+    s=Part.makeBox(length,w,h,V(r,-w/2,z));s.rotate(V(),V(0,0,1),angle);return s
+def inv(r,rb):
+    t=math.sqrt(max(0,(r/rb)**2-1));return t-math.atan(t)
+def profile(n,internal=False):
+    rp=M*n/2;rb=rp*math.cos(math.radians(20))
+    lo=rp-M if internal else rp-1.25*M
+    hi=rp+1.25*M if internal else rp+M
+    # 0.12 mm tooth thinning / slot widening at the pitch circle.
+    clearance=(.06/rp)*(1 if internal else -1)
+    pts=[]
+    for i in range(n):
+        a=2*math.pi*i/n
+        pts.append(V(lo*math.cos(a-math.pi/n),lo*math.sin(a-math.pi/n),0))
+        for j in range(13):
+            r=lo+(hi-lo)*j/12
+            half=math.pi/(2*n)+inv(rp,rb)-inv(max(r,rb),rb)+clearance
+            pts.append(V(r*math.cos(a-half),r*math.sin(a-half),0))
+        for j in range(13):
+            r=hi-(hi-lo)*j/12
+            half=math.pi/(2*n)+inv(rp,rb)-inv(max(r,rb),rb)+clearance
+            pts.append(V(r*math.cos(a+half),r*math.sin(a+half),0))
+        pts.append(V(lo*math.cos(a+math.pi/n),lo*math.sin(a+math.pi/n),0))
+    clean=[]
+    for p in pts:
+        if not clean or (p-clean[-1]).Length>1e-7:clean.append(p)
+    if (clean[-1]-clean[0]).Length<1e-7:clean.pop()
+    return Part.Face(Part.makePolygon(clean+[clean[0]]))
+def double_gear(n):
+    one=profile(n).extrude(V(0,0,ROW))
+    two=one.copy();two.rotate(V(),V(0,0,1),180/n);two.translate(V(0,0,ROW+GAP))
+    root=M*(n/2-1.25)-.02
+    return one.fuse(two).fuse(Part.makeCylinder(root,FACE))
+def double_ring():
+    rows=[]
+    for j in range(2):
+        hole=profile(NR,True).extrude(V(0,0,ROW))
+        hole.rotate(V(),V(0,0,1),2.5+j*180/NR)
+        rows.append(shifted(Part.makeCylinder(61.8,ROW).cut(hole),j*(ROW+GAP)))
+    result=rows[0].fuse(rows[1]).fuse(shifted(ann(61.8,56.1,GAP),ROW))
+    for a in [30,150,270]:result=result.fuse(radial_box(61.4,5,3.2,4,2,a))
+    return result
+def add(name,shape,z,color,ratio=0,xy=(0,0),phase=0,group="Hardware",cut=False,role=""):
+    o=doc.addObject("PartDesign::Feature",name)
+    o.Label=name.replace("_"," ")
+    o.Shape=Part.makeCompound([shape]);o.ViewObject.ShapeColor=color
+    o.ViewObject.LineColor=(.12,.15,.19)
+    o.addProperty("App::PropertyString","Function","Draft");o.Function=role
+    o.addProperty("App::PropertyFloat","SpeedPerBottomCone","Kinematics");o.SpeedPerBottomCone=ratio
+    groups[group].addObject(o);parts.append(o)
+    moving.append((o,z,ratio,xy,phase))
+    if cut:cuttable.append(o)
+    return o
+def pose(degrees):
+    for o,z,ratio,xy,phase in moving:
+        o.Placement=App.Placement(V(xy[0],xy[1],z),App.Rotation(V(0,0,1),phase+ratio*degrees))
+    doc.recompute()
+def bearing(name,z,xy=(0,0)):
+    # Envelope-correct visual 608: 8 x 22 x 7 mm; cage and race details simplified.
+    groove=Part.makeTorus(7.5,2.05,V(0,0,3.5))
+    shapes=[ann(6.4,4,7).cut(groove),ann(11,8.6,7).cut(groove)]
+    for j in range(7):
+        a=j*2*math.pi/7
+        shapes.append(Part.makeSphere(2,V(7.5*math.cos(a),7.5*math.sin(a),3.5)))
+    return add(name,Part.makeCompound(shapes),z,steel,xy=xy,
+               role="608 envelope; simplified balls/races, no cage dynamics")
+def cone_shape(upper=False):
+    body=Part.makeCone(42,66,58).cut(Part.makeCone(39.6,62.3,58))
+    body=body.fuse(shifted(ann(66,62,12),58))
+    body=body.fuse(shifted(ann(62.3,56.8,2),58))
+    body=body.fuse(ann(42,6.25,3)).fuse(ann(14,6.25,11))
+    body=body.cut(Part.makeCylinder(11.1,7.2,V(0,0,2)))
+    for a in [30,150,270]:body=body.cut(radial_box(61.2,5.4,3.7,4.4,61.8,a))
+    for a in [90,210,330]:body=body.cut(radial_box(65.25,8.6,2,1.6,61.8,a))
+    if not upper:
+        # Openings in the rotating floor; the hub and outer wall stay connected.
+        for a in range(0,360,60):
+            t=math.radians(a)
+            body=body.cut(Part.makeCylinder(6,5,V(27*math.cos(t),27*math.sin(t),-1)))
+        # Integral finger/belt drive flange under the 608 seat; clear of inner-race spacer.
+        body=body.fuse(shifted(ann(14,6.25,9),-7))
+        body=body.fuse(shifted(ann(28,6.25,5),-10))
+        for a in range(0,360,30):
+            t=math.radians(a)
+            body=body.cut(Part.makeCylinder(2,7,V(27*math.cos(t),27*math.sin(t),-11)))
+    if upper:body=body.fuse(shifted(hexagon(16,14).cut(Part.makeCylinder(6.25,14)),-14))
+    return body
+def cap_shape():
+    cap=shifted(ann(67.5,56.6,3),70)
+    cap=cap.fuse(shifted(ann(61.9,56.6,1.35),68.65))
+    for a in [90,210,330]:
+        cap=cap.fuse(radial_box(66.2,8,1.3,8,62,a))
+        # Draft retaining ledge. Flexibility and lead-in require coupon testing.
+        cap=cap.fuse(radial_box(65.45,8,2.05,1.1,62.05,a))
+    return cap
+def carrier_shape():
+    body=ann(13,4.15,7)
+    for a in [0,120,240]:
+        arm=radial_box(10,9,26,5,0,a)
+        end=Part.makeCylinder(7,5,V(36*math.cos(math.radians(a)),36*math.sin(math.radians(a)),0))
+        hole=Part.makeCylinder(4.1,7,V(36*math.cos(math.radians(a)),36*math.sin(math.radians(a)),-1))
+        body=body.fuse(arm).fuse(end).cut(hole)
+    body=body.cut(Part.makeBox(40,1.2,9,V(4,-.6,-1)))
+    body=body.cut(Part.makeCylinder(1.65,30,V(9,-15,3.5),V(0,1,0)))
+    return body
+
+add("Stationary_base",ann(82,4,8),-30,dark,group="Base",role="Bench base; shaft fixation hardware not detailed")
+add("Stationary_8mm_shaft",Part.makeCylinder(4,236),-30,steel,group="Hardware")
+add("Bottom_inner_race_spacer",ann(6,4.05,24),-22,steel)
+ring_template=double_ring()
+sun_template=double_gear(NS)
+planet_template=double_gear(NP)
+for level in range(2):
+    b=level*PITCH;ratio=(-3)**level;out=-3*ratio;grp="Level_%d"%(level+1)
+    cone=add("L%d_cone"%level,cone_shape(level>0),b,blue,ratio,group=grp,cut=True,
+             role="Rotating cone; ring keys carry torque; a separate bearing supports this rotor")
+    bearing("L%d_cone_608"%level,b+2)
+    add("L%d_fixed_carrier"%level,carrier_shape(),b+16,dark,group=grp,
+        role="Stationary split-clamp carrier on the 8mm rod; M3 clamp hardware needed")
+    add("L%d_carrier_lower_spacer"%level,ann(6,4.05,7),b+9,steel)
+    add("L%d_output_lower_spacer"%level,ann(6,4.05,8),b+23,steel)
+    bearing("L%d_output_lower_608"%level,b+31)
+    add("L%d_output_inner_race_spacer"%level,ann(6,4.05,11),b+38,steel)
+    bearing("L%d_output_upper_608"%level,b+49)
+    # Two bearing pockets in the output hub; output gear and next cone rotate together.
+    hub=ann(14,6.25,49)
+    for zz in [0,18]:hub=hub.cut(Part.makeCylinder(11.1,7.2,V(0,0,zz)))
+    hub=hub.cut(shifted(hexagon(16.4,10),41))
+    sun=shifted(sun_template,29).fuse(hub)
+    sun=sun.cut(Part.makeCylinder(6.25,60))
+    add("L%d_center_gear_female_hex"%level,sun,b+31,gold,out,group=grp,
+        role="24 teeth per row; second row offset 7.5 deg; female 16.4mm AF socket")
+    for j in range(3):
+        a=j*120;x=36*math.cos(math.radians(a));y=36*math.sin(math.radians(a))
+        add("L%d_planet_axle_%d"%(level,j),Part.makeCylinder(4,53),b+16,steel,xy=(x,y))
+        add("L%d_planet_spacer_%d"%(level,j),ann(6,4.05,36),b+21,steel,xy=(x,y))
+        bearing("L%d_planet_%d_608"%(level,j),b+57,(x,y))
+        gear=planet_template.fuse(shifted(Part.makeCylinder(14,9),-9))
+        gear=gear.cut(Part.makeCylinder(6.25,20,V(0,0,-10)))
+        gear=gear.cut(Part.makeCylinder(11.1,7.2,V(0,0,-3)))
+        add("L%d_planet_%d"%(level,j),gear,b+60,green,3*ratio,(x,y),7.5,grp,
+            role="24/24 staggered rows; fixed center, spins on its own 608")
+    for j in range(2):
+        box=Part.makeBox(100,200,20,V(.15 if j==0 else -100.15,-100,-1))
+        box.rotate(V(),V(0,0,1),2.5)
+        half=ring_template.common(box)
+        add("L%d_split_ring_%d"%(level,j),half,b+60,purple,ratio,group=grp,cut=True,
+            role="72 teeth per row; 2.5 deg row offset; semicircular keyed insert")
+    add("L%d_snap_cap"%level,cap_shape(),b,blue,ratio,group=grp,cut=True,
+        role="Draft three-tab cap; retention deflection and insertion lead-in not qualified")
+    if level==0:add("Between_levels_spacer",ann(6,4.05,33),57,steel)
+
+fan=ann(15,4.2,7)
+fan=fan.fuse(shifted(hexagon(16,14).cut(Part.makeCylinder(6.25,14)),-14))
+for j in range(6):
+    blade=Part.makeBox(56,20,2,V(14,-10,-1))
+    blade.rotate(V(),V(1,0,0),25)
+    blade.rotate(V(),V(0,0,1),j*60)
+    fan=fan.fuse(blade)
+add("Top_fan_with_male_hex",fan,176,gold,9,group="Fan",
+    role="Six pitched paddles, visual airflow input only; no aerodynamic design")
+# Roof-vent-inspired vertical-axis rotor; circumferential scoop vanes.
+# Repeated ruled sections keep the first draft robust for STEP export.
+def vane_section(z,r,twist):
+    points=[]
+    for side in [0,1]:
+        indices=range(9) if side==0 else range(8,-1,-1)
+        for j in indices:
+            t=j/8
+            angle=math.radians(-12+24*t+twist)
+            radius=r-12+12*t+side*1.6
+            points.append(V(radius*math.cos(angle),radius*math.sin(angle),z))
+    return Part.makePolygon(points+[points[0]])
+vane=Part.makeLoft([vane_section(z,r,tw) for z,r,tw in
+    [(8,84,-8),(26,100,-4),(50,110,0),(74,106,4),(98,90,8),(108,84,10)]],True,True)
+for j in range(12):
+    shape=vane.copy();shape.rotate(V(),V(0,0,1),j*30)
+    add("Wind_vane_%02d"%j,shape,0,(.74,.79,.84),1,group="Level_1",cut=True,
+        role="Curved scoop vane: aerodynamic concept, 1.6mm nominal radial thickness")
+for z in [8,106]:
+    add("Rotor_end_band_%d"%z,ann(86,70,2),z,steel,1,group="Level_1",cut=True)
+waist=ann(109.5,93,3)
+for j in range(3):
+    waist=waist.fuse(radial_box(65,8,31,3,0,30+j*120))
+add("Rotor_torque_spider",waist,70,blue,1,group="Level_1",cut=True,
+    role="Three arms connect rotor band to bottom cap; attachment hardware remains draft")
+pose(0)
+checks={"invalid":[o.Name for o in parts if not o.Shape.isValid() or o.Shape.Volume<=0],
+        "mesh_samples":[],"dimensions":{"module_mm":M,"center_distance_mm":36,
+        "bearing_mm":[8,22,7],"row_width_mm":ROW,"row_gap_mm":GAP,"stage_pitch_mm":PITCH},
+        "scope":"Draft solid and tooth-mesh checks; not a full collision sweep or print qualification"}
+assert not checks["invalid"],checks
+for deg in [0,1.3,4.7,9.2]:
+    pose(deg)
+    sun=doc.getObject("L0_center_gear_female_hex").Shape
+    ring=doc.getObject("L0_split_ring_0").Shape.fuse(doc.getObject("L0_split_ring_1").Shape)
+    planet=doc.getObject("L0_planet_0").Shape
+    checks["mesh_samples"].append(dict(bottom_angle=deg,
+        sun_planet_mm3=sun.common(planet).Volume,ring_planet_mm3=ring.common(planet).Volume))
+pose(0)
+(OUT/"checks.json").write_text(json.dumps(checks,indent=2))
+(OUT/"motion.json").write_text(json.dumps([dict(name=o.Name,z=z,ratio=r,xy=xy,phase=ph) for o,z,r,xy,ph in moving],indent=2))
+Import.export(parts,str(OUT/"tower_full.step"))
+fullshapes={}
+for o in cuttable:
+    local=o.Shape.copy();local.Placement=App.Placement();fullshapes[o.Name]=local
+    o.Shape=local.cut(Part.makeBox(260,140,240,V(-130,-140,-30)))
+# Cut is local to each part, exposing the front half; moving parts retain the cutaway.
+pose(0)
+Import.export(parts,str(OUT/"tower_cutaway.step"))
+Gui.getMainWindow().showMaximized();Gui.updateGui()
+view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),65))
+def camera():
+    node=view.getCameraNode();node.orientation.setValue(*rot.Q)
+    pos=V(0,0,82)+rot.multVec(V(0,0,600))
+    node.position.setValue(pos.x,pos.y,pos.z);node.height.setValue(285)
+    node.nearDistance.setValue(1);node.farDistance.setValue(1400);node.focalDistance.setValue(600)
+camera();Gui.updateGui();camera()
+view.saveImage(str(OUT/"tower_overview.png"),1400,1100,"White")
+doc.saveAs(str(OUT/"tower_draft.FCStd"))
+# Close-up for checking the staggered bands.
+node=view.getCameraNode()
+pos=V(0,0,62)+rot.multVec(V(0,0,600))
+node.position.setValue(pos.x,pos.y,pos.z);node.height.setValue(135)
+# Hide upper level/fan and long rod for this close-up only.
+vis={o.Name:o.ViewObject.Visibility for o in parts}
+for o,z,ratio,xy,ph in moving:
+    if z>=88 or o.Name=="Stationary_8mm_shaft":o.ViewObject.Visibility=False
+Gui.updateGui()
+view.saveImage(str(OUT/"gear_detail.png"),1400,1100,"White")
+for o in parts:o.ViewObject.Visibility=vis[o.Name]
+camera()
+class Controls(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__();self.setWindowTitle("Roof-vent wind rotor | flowerpot multiplier")
+        self.angle=0.;self.cut=True;self.resize(520,230)
+        lay=QtWidgets.QVBoxLayout(self)
+        lay.addWidget(QtWidgets.QLabel("Wind input: 12 curved vanes around the lowest flowerpot.\nVertical-axis wind rotor; speed ratios 1 : -3 : 9.\nEvery gear: two straight-tooth rows, offset half a tooth.\nBlue/purple: cone + keyed ring. Gold: center gear + next cone.\nGreen: three intermediate gears. Dark: fixed carrier.\nBottom cone +1 turn -> middle -3 turns -> top fan +9 turns.\nDriving the fan reverses this: bottom is 9x slower, ideally 9x torque.\nDraft cylindrical tooth bands inside conical housings; NOT bevel teeth."))
+        toggle=QtWidgets.QPushButton("Full housing / cutaway");lay.addWidget(toggle);toggle.clicked.connect(self.section)
+        pause=QtWidgets.QPushButton("Pause / resume");lay.addWidget(pause)
+        self.timer=QtCore.QTimer(self);self.timer.timeout.connect(self.tick)
+        pause.clicked.connect(lambda:self.timer.stop() if self.timer.isActive() else self.timer.start(50))
+        self.timer.start(50)
+    def section(self):
+        self.cut=not self.cut
+        for o in cuttable:
+            o.Shape=fullshapes[o.Name].copy()
+            if self.cut:o.Shape=o.Shape.cut(Part.makeBox(260,140,240,V(-130,-140,-30)))
+        pose(self.angle)
+    def tick(self):
+        self.angle+=.15;pose(self.angle);Gui.updateGui()
+window=Controls();Gui.getMainWindow()._cone_tower_controls=window;window.show()
+if os.getenv("TOWER_RENDER")=="1":
+    window.timer.stop();frames=OUT/"frames";frames.mkdir(exist_ok=True)
+    for i in range(60):
+        pose(i*.25);Gui.updateGui();camera()
+        view.saveImage(str(frames/("%03d.png"%i)),1000,800,"White")
+    pose(0);camera();window.timer.start(50)
+    (OUT/"render_complete.txt").write_text("60 frames / 12fps; bottom 3 deg/sec, top fan 27 deg/sec")
+(OUT/"complete.txt").write_text("Two-stage FreeCAD concept complete. Snap fits, axial bearing retention and full assembly clearances remain draft.")

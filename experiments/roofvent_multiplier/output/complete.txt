@@ -1,0 +1,1 @@
+Two-stage FreeCAD concept complete. Snap fits, axial bearing retention and full assembly clearances remain draft.
