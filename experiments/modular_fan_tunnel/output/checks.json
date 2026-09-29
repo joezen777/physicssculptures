@@ -29,11 +29,18 @@
     -8
   ],
   "modules": 3,
-  "bearing_envelope_mm": [
-    8,
-    22,
-    7
-  ],
+  "bearing_envelope_mm": {
+    "608": [
+      8,
+      22,
+      7
+    ],
+    "604": [
+      4,
+      12,
+      4
+    ]
+  },
   "gear_teeth": {
     "ring": 96,
     "sun": 48,

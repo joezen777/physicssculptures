@@ -23,7 +23,7 @@ The adapter stays in place when sails are removed. Stationary inner-race spacers
 
 A separate three-arm sail assembly fits the adapter's 28 mm AF external hex with a 28.4 mm AF female collar. It is placed below the fan sweep. The three shallow circular cups and collar are grouped as SailAddon in FreeCAD and can be hidden with a dedicated control. The collar is an assembly-time add-on: fit it before the bottom pot. Positive removable retention/fasteners are not finalized; this is not a validated snap-on attachment.
 
-All rotating axes retain 608 bearings (8 x 22 x 7 mm). The default model uses 20 bearings. The original gear and shaft fixtures remain conceptual where clamp screws, retaining hardware and printed fits have not yet been detailed.
+The main shaft, pots, sun gears and wind-sail support retain 608 bearings (8 x 22 x 7 mm). Each planet uses a 604 bearing (4 x 12 x 4 mm), a 4 mm axle, a 12.2 mm pocket and a smaller inner-race spacer. The default model uses eleven 608 and nine 604 bearings. The original gear and shaft fixtures remain conceptual where clamp screws, retaining hardware and printed fits have not yet been detailed.
 
 ## More modules
 
@@ -51,6 +51,16 @@ Previous four-level draft and bearing/gearing references: [simple_sail_tower.md]
 
 The base adapter has a 4.5 mm deep relief around its upper outside rim to clear the pitched blade roots. The standalone module underside preview shows the open fan floor without hiding the housing walls.
 
-## Verification
+## Curved arms and top grille revision
 
-Saved-model checks passed: 91 components, 20 bearing assemblies, all three intact shells and open fan floors, 38 selected static clearance pairs, and four sampled gear phases. STEP round-trip contains 251 solids with relative volume difference 1.55e-11. These are geometric checks, not full-motion collision, structural or airflow qualification. Results are in output/verification.json.
+Sail arms, stationary planet-carrier arms and the top guard spokes now use smooth curved radial paths. Threefold or sixfold repetition preserves nominal mass symmetry and endpoint positions. Fan blades and gear teeth remain unchanged. The slimmer planet axles require load/stiffness validation; gearing ratios are unchanged.
+
+The top guard has six curved 5 mm wide spokes and ten concentric 2.5 mm wide rings, all 4 mm thick. Ring center radii run from 17 to 71 mm in 6 mm steps. Nominal radial openings are 3.5 mm between rings and 3.75 mm at the central hub. The grille underside is 18 mm above the blade reference plane; blade pitch consumes part of this clearance. This reduces access from above, but is not a certified child-safe guard: printed stiffness, probe access, retention, breakage and other assembly openings need physical evaluation. The added grille also changes airflow resistance.
+
+604 envelope confirmed in the [SKF bearing catalog](https://cdn.skfmediahub.skf.com/api/public/0901d196807026e8/pdf_preview_medium/0901d196807026e8_pdf_preview_medium.pdf). Bearing pocket allowances remain draft printing tolerances, not production fits.
+
+Detail previews: output/guard_detail.png, output/sails_detail.png and output/planets_detail.png. Run inspect_details.FCMacro to regenerate them; the inspection window closes automatically.
+
+## Verification of curved-arm revision
+
+Passed native solid validity, 604 envelopes and 4 mm axle dimensions, 65 selected static clearance pairs, all fan floors and walls, all six grille spokes and ten rings, and clearance from a full rotational blade envelope. Four sampled gear phases have no tooth overlap. STEP round-trip: 251 valid solids, relative volume error 2.38e-9. Bearing count is eleven 608 plus nine 604. These checks do not establish structural strength or child-safety compliance.

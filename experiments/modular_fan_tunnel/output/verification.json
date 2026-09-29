@@ -1,7 +1,8 @@
 {
   "status": "PASS",
   "components": 91,
-  "bearings_608": 20,
+  "bearings_608": 11,
+  "bearings_604": 9,
   "ratios": [
     1,
     -2,
@@ -50,13 +51,58 @@
       "overlap_mm3": 0.0
     },
     {
+      "a": "L0_planet_0",
+      "b": "L0_planet_0_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_0",
+      "b": "L0_planet_axle_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_spacer_0",
+      "b": "L0_planet_axle_0",
+      "overlap_mm3": 0.0
+    },
+    {
       "a": "L0_planet_1",
       "b": "L0_planet_spacer_1",
       "overlap_mm3": 0.0
     },
     {
+      "a": "L0_planet_1",
+      "b": "L0_planet_1_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_1",
+      "b": "L0_planet_axle_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_spacer_1",
+      "b": "L0_planet_axle_1",
+      "overlap_mm3": 0.0
+    },
+    {
       "a": "L0_planet_2",
       "b": "L0_planet_spacer_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_2",
+      "b": "L0_planet_2_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_2",
+      "b": "L0_planet_axle_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_spacer_2",
+      "b": "L0_planet_axle_2",
       "overlap_mm3": 0.0
     },
     {
@@ -90,13 +136,58 @@
       "overlap_mm3": 0.0
     },
     {
+      "a": "L1_planet_0",
+      "b": "L1_planet_0_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_0",
+      "b": "L1_planet_axle_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_spacer_0",
+      "b": "L1_planet_axle_0",
+      "overlap_mm3": 0.0
+    },
+    {
       "a": "L1_planet_1",
       "b": "L1_planet_spacer_1",
       "overlap_mm3": 0.0
     },
     {
+      "a": "L1_planet_1",
+      "b": "L1_planet_1_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_1",
+      "b": "L1_planet_axle_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_spacer_1",
+      "b": "L1_planet_axle_1",
+      "overlap_mm3": 0.0
+    },
+    {
       "a": "L1_planet_2",
       "b": "L1_planet_spacer_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_2",
+      "b": "L1_planet_2_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_2",
+      "b": "L1_planet_axle_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_spacer_2",
+      "b": "L1_planet_axle_2",
       "overlap_mm3": 0.0
     },
     {
@@ -130,13 +221,58 @@
       "overlap_mm3": 0.0
     },
     {
+      "a": "L2_planet_0",
+      "b": "L2_planet_0_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_0",
+      "b": "L2_planet_axle_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_spacer_0",
+      "b": "L2_planet_axle_0",
+      "overlap_mm3": 0.0
+    },
+    {
       "a": "L2_planet_1",
       "b": "L2_planet_spacer_1",
       "overlap_mm3": 0.0
     },
     {
+      "a": "L2_planet_1",
+      "b": "L2_planet_1_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_1",
+      "b": "L2_planet_axle_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_spacer_1",
+      "b": "L2_planet_axle_1",
+      "overlap_mm3": 0.0
+    },
+    {
       "a": "L2_planet_2",
       "b": "L2_planet_spacer_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_2",
+      "b": "L2_planet_2_604",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_2",
+      "b": "L2_planet_axle_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_spacer_2",
+      "b": "L2_planet_axle_2",
       "overlap_mm3": 0.0
     },
     {
@@ -221,6 +357,6 @@
     }
   ],
   "step_solids": 251,
-  "step_relative_volume_error": 1.5468135460610366e-11,
+  "step_relative_volume_error": 2.381235932616907e-09,
   "scope": "Sampled geometry only; no airtightness, startup, load or airflow qualification"
 }

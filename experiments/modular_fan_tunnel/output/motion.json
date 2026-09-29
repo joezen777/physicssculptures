@@ -170,7 +170,7 @@
     "phase": 0
   },
   {
-    "name": "L0_planet_0_608",
+    "name": "L0_planet_0_604",
     "z": 57.0,
     "ratio": 0,
     "xy": [
@@ -210,7 +210,7 @@
     "phase": 0
   },
   {
-    "name": "L0_planet_1_608",
+    "name": "L0_planet_1_604",
     "z": 57.0,
     "ratio": 0,
     "xy": [
@@ -250,7 +250,7 @@
     "phase": 0
   },
   {
-    "name": "L0_planet_2_608",
+    "name": "L0_planet_2_604",
     "z": 57.0,
     "ratio": 0,
     "xy": [
@@ -420,7 +420,7 @@
     "phase": 0
   },
   {
-    "name": "L1_planet_0_608",
+    "name": "L1_planet_0_604",
     "z": 145.0,
     "ratio": 0,
     "xy": [
@@ -460,7 +460,7 @@
     "phase": 0
   },
   {
-    "name": "L1_planet_1_608",
+    "name": "L1_planet_1_604",
     "z": 145.0,
     "ratio": 0,
     "xy": [
@@ -500,7 +500,7 @@
     "phase": 0
   },
   {
-    "name": "L1_planet_2_608",
+    "name": "L1_planet_2_604",
     "z": 145.0,
     "ratio": 0,
     "xy": [
@@ -670,7 +670,7 @@
     "phase": 0
   },
   {
-    "name": "L2_planet_0_608",
+    "name": "L2_planet_0_604",
     "z": 233.0,
     "ratio": 0,
     "xy": [
@@ -710,7 +710,7 @@
     "phase": 0
   },
   {
-    "name": "L2_planet_1_608",
+    "name": "L2_planet_1_604",
     "z": 233.0,
     "ratio": 0,
     "xy": [
@@ -750,7 +750,7 @@
     "phase": 0
   },
   {
-    "name": "L2_planet_2_608",
+    "name": "L2_planet_2_604",
     "z": 233.0,
     "ratio": 0,
     "xy": [

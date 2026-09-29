@@ -1,0 +1,27 @@
+from pathlib import Path
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent/"output"
+doc=App.openDocument(str(OUT/"tower_draft.FCStd"))
+Gui.getMainWindow().showMaximized()
+view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+def render(names,target,height,tilt,filename):
+    for o in doc.Objects:
+        if o.TypeId=="PartDesign::Feature":o.ViewObject.Visibility=o.Name in names
+    rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),tilt))
+    node=view.getCameraNode();node.orientation.setValue(*rot.Q)
+    p=V(*target)+rot.multVec(V(0,0,600))
+    node.position.setValue(p.x,p.y,p.z);node.height.setValue(height)
+    node.nearDistance.setValue(1);node.farDistance.setValue(1400);node.focalDistance.setValue(600)
+    Gui.updateGui()
+    view.saveImage(str(OUT/filename),1200,1000,"White")
+render(["Stationary_top_ring_and_spider","Top_ring_fan"],(0,0,275),185,28,"guard_detail.png")
+render(["Bottom_sail_arms"]+["Circular_wind_sail_%d"%j for j in range(3)],(0,0,-7),285,25,"sails_detail.png")
+render(["L0_fixed_carrier"]+["L0_planet_%d"%j for j in range(3)]+
+       ["L0_planet_%d_604"%j for j in range(3)]+
+       ["L0_planet_axle_%d"%j for j in range(3)]+
+       ["L0_planet_spacer_%d"%j for j in range(3)],(0,0,43),180,115,"planets_detail.png")
+App.closeDocument(doc.Name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)
