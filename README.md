@@ -120,12 +120,42 @@ See [the pointed cone / bevel gear draft](docs/bevel_cone_tower.md) for the sepa
 
 ## Active wind-input variant
 
-[Roof-vent rotor with flowerpot multiplier](docs/roofvent_multiplier.md) replaces the wooden-blade concept as the active design.
+[Roof-vent rotor with flowerpot multiplier](docs/roofvent_multiplier.md) is the earlier wind-input study.
 
 ## Four-level circular-sail tower
 
-[Simple bottom sails, all-608 axles, and 2x stages](docs/simple_sail_tower.md) is the current four-level draft.
+[Simple bottom sails, all-608 axles, and 2x stages](docs/simple_sail_tower.md) is the earlier four-level draft.
 
 ## Modular fan tunnel
 
 [Full-wall pots with fan floors and a removable sail add-on](docs/modular_fan_tunnel.md) is the current revision.
+
+### Assembly order for the current four-level draft
+
+Use [the full FreeCAD model](experiments/modular_fan_tunnel/output/tower_draft.FCStd) as the part reference. The assembly uses **eleven 608 bearings, nine 604 bearings, one fixed 8 mm center shaft, and nine fixed 4 mm planet axles**. Pots 1 and 3 share one blade handedness; pot 2 and the top fan use the opposite handedness.
+
+This is the intended assembly order for the CAD draft. Some bearing pockets are enclosed in the present geometry; insertion access, shaft locks, and bearing/axle retention still need detailing before this becomes a build-ready procedure.
+
+1. Prepare the three flowerpots, three gearbox sets, base drive adapter, optional sail assembly, and top fan and guard.
+2. Fit one 608 bearing into the central hub of each flowerpot.
+3. Fit one 604 bearing into each of the nine planet gears.
+4. Assemble each of the three sun-gear hubs with two 608 bearings and the 11 mm inner-race spacer between them.
+5. Prepare each curved stationary carrier with three 4 mm planet axles. Place a 36 mm planet spacer on each axle, then its planet gear and 604 bearing.
+6. Secure the fixed 8 mm center shaft to the stationary base.
+7. Slide the 15 mm lower inner-race spacer onto the center shaft.
+8. Fit the lower 608 bearing into the base drive adapter, then lower the adapter onto the shaft so the bearing's inner race rests on the spacer.
+9. If using wind sails, fit the three cups to the curved sail arms and slide the arm collar onto the adapter's external hex **before installing the bottom pot**.
+10. Slide the 17 mm between-bearing spacer onto the center shaft.
+11. Lower pot 1 onto the shaft and engage its male hex with the base adapter's female socket.
+12. Add the 7 mm carrier spacer above pot 1's hub bearing, then lower the first prepared carrier and planet assembly into the pot.
+13. Add the 8 mm lower sun-bearing spacer above the carrier. Lower the first prepared sun-gear hub onto the shaft and mesh its teeth with the three planets.
+14. Insert the two keyed ring-gear halves into pot 1's upper rim, mesh both staggered tooth rows with the planets, and install the snap cap and air-transition collar.
+15. Add the 33 mm between-level spacer above the first sun hub's upper bearing. Lower pot 2 onto the shaft and engage its male hex with the first sun gear's female socket.
+16. Install pot 2's 7 mm carrier spacer, prepared carrier and planets, 8 mm lower sun-bearing spacer, prepared sun hub, split ring gear, snap cap, and air-transition collar, in that order.
+17. Add the next 33 mm between-level spacer. Lower pot 3 onto the shaft and engage its male hex with the second sun gear's female socket.
+18. Install pot 3's 7 mm carrier spacer, prepared carrier and planets, 8 mm lower sun-bearing spacer, prepared sun hub, split ring gear, snap cap, and shorter terminal air-transition collar, in that order.
+19. Fit the remaining 608 bearing into the top fan hub.
+20. Add the 35 mm top-fan inner-race spacer above the third sun hub's upper bearing. Lower the top fan onto the shaft and engage its male hex with the third sun gear's female socket.
+21. Lower the stationary top guard over the fan, with its six curved spokes and concentric rings above the blades.
+22. Install the shaft locks and axial retainers once their designs are finalized. The base, center shaft, planet carriers, planet axles, and top guard must stay stationary; the pots, sun gears, planet gears, and fan must remain free to turn.
+23. Turn the bottom adapter gently by hand. Check that each successive level reverses direction and doubles speed, both tooth rows mesh, the transition collars do not rub, and the fan clears the guard. Do not use the wind sails to force a binding assembly.
