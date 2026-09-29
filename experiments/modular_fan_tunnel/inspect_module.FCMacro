@@ -1,0 +1,20 @@
+from pathlib import Path
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+OUT=Path(__file__).resolve().parent/"output"
+doc=App.openDocument(str(OUT/"tower_draft.FCStd"))
+for o in doc.Objects:
+    if o.TypeId=="PartDesign::Feature":o.ViewObject.Visibility=(o.Name=="L0_cone")
+Gui.getMainWindow().showMaximized();Gui.updateGui()
+view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),135))
+node=view.getCameraNode();node.orientation.setValue(*rot.Q)
+p=V(0,0,28)+rot.multVec(V(0,0,600))
+node.position.setValue(p.x,p.y,p.z);node.height.setValue(205)
+node.nearDistance.setValue(1);node.farDistance.setValue(1400);node.focalDistance.setValue(600)
+Gui.updateGui();node.orientation.setValue(*rot.Q)
+view.saveImage(str(OUT/"module_underside.png"),1200,1000,"White")
+App.closeDocument(doc.Name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

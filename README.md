@@ -125,3 +125,7 @@ See [the pointed cone / bevel gear draft](docs/bevel_cone_tower.md) for the sepa
 ## Four-level circular-sail tower
 
 [Simple bottom sails, all-608 axles, and 2x stages](docs/simple_sail_tower.md) is the current four-level draft.
+
+## Modular fan tunnel
+
+[Full-wall pots with fan floors and a removable sail add-on](docs/modular_fan_tunnel.md) is the current revision.

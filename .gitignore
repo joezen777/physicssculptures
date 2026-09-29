@@ -47,3 +47,6 @@ experiments/flowerpot_input/output/
 
 # Four-level sail tower
 experiments/simple_sail_tower/*.log
+
+# Modular fan tunnel
+experiments/modular_fan_tunnel/*.log

@@ -1,0 +1,16 @@
+from pathlib import Path
+import traceback
+source=Path(__file__).resolve().with_name("build.FCMacro")
+error=source.with_name("build_error.log")
+error.unlink(missing_ok=True)
+try:
+    globals()["__file__"]=str(source)
+    exec(compile(source.read_text(),str(source),"exec"),globals(),globals())
+except BaseException:
+    error.write_text(traceback.format_exc())
+
+    if __import__('os').getenv('TOWER_KEEP_OPEN') != '1':
+        import FreeCAD as App, FreeCADGui as Gui
+        from PySide import QtCore
+        for name in list(App.listDocuments()): App.closeDocument(name)
+        QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

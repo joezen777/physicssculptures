@@ -1,0 +1,226 @@
+{
+  "status": "PASS",
+  "components": 91,
+  "bearings_608": 20,
+  "ratios": [
+    1,
+    -2,
+    4,
+    -8
+  ],
+  "module_checks": [
+    {
+      "level": 1,
+      "fan_floor": true,
+      "open_floor_gap": true,
+      "full_circumference": true
+    },
+    {
+      "level": 2,
+      "fan_floor": true,
+      "open_floor_gap": true,
+      "full_circumference": true
+    },
+    {
+      "level": 3,
+      "fan_floor": true,
+      "open_floor_gap": true,
+      "full_circumference": true
+    }
+  ],
+  "static_clearances": [
+    {
+      "a": "L0_cone",
+      "b": "L0_fixed_carrier",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_center_gear_female_hex",
+      "b": "L0_fixed_carrier",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_center_gear_female_hex",
+      "b": "L0_output_inner_race_spacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_0",
+      "b": "L0_planet_spacer_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_1",
+      "b": "L0_planet_spacer_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_planet_2",
+      "b": "L0_planet_spacer_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_center_gear_female_hex",
+      "b": "L1_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_air_transition",
+      "b": "L1_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_cone",
+      "b": "L1_fixed_carrier",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_center_gear_female_hex",
+      "b": "L1_fixed_carrier",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_center_gear_female_hex",
+      "b": "L1_output_inner_race_spacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_0",
+      "b": "L1_planet_spacer_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_1",
+      "b": "L1_planet_spacer_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_planet_2",
+      "b": "L1_planet_spacer_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_center_gear_female_hex",
+      "b": "L2_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L1_air_transition",
+      "b": "L2_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_cone",
+      "b": "L2_fixed_carrier",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_center_gear_female_hex",
+      "b": "L2_fixed_carrier",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_center_gear_female_hex",
+      "b": "L2_output_inner_race_spacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_0",
+      "b": "L2_planet_spacer_0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_1",
+      "b": "L2_planet_spacer_1",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_planet_2",
+      "b": "L2_planet_spacer_2",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Top_ring_fan",
+      "b": "Stationary_top_ring_and_spider",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Top_ring_fan",
+      "b": "Top_fan_inner_spacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Top_ring_fan",
+      "b": "L2_center_gear_female_hex",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L2_air_transition",
+      "b": "Stationary_top_ring_and_spider",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Universal_base_drive_adapter",
+      "b": "L0_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Universal_base_drive_adapter",
+      "b": "Bottom_extra_608",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Universal_base_drive_adapter",
+      "b": "Bottom_sail_arms",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Universal_base_drive_adapter",
+      "b": "Bottom_between_bearings_spacer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "L0_cone",
+      "b": "Bottom_sail_arms",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Bottom_sail_arms",
+      "b": "Stationary_base",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Circular_wind_sail_0",
+      "b": "Stationary_base",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Circular_wind_sail_0",
+      "b": "L0_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Circular_wind_sail_1",
+      "b": "Stationary_base",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Circular_wind_sail_1",
+      "b": "L0_cone",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Circular_wind_sail_2",
+      "b": "Stationary_base",
+      "overlap_mm3": 0.0
+    },
+    {
+      "a": "Circular_wind_sail_2",
+      "b": "L0_cone",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "step_solids": 251,
+  "step_relative_volume_error": 1.5468135460610366e-11,
+  "scope": "Sampled geometry only; no airtightness, startup, load or airflow qualification"
+}
