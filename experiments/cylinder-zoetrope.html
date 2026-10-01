@@ -1,0 +1,89 @@
+<div id="brick-cylinder">
+  <div class="viz-controls">
+    <label class="form-label">View
+      <select class="form-select" id="bc-mode">
+        <option value="sample">Strobe-sampled illusion</option>
+        <option value="continuous">Continuous rotation</option>
+        <option value="strip">Unwrapped drawings</option>
+      </select>
+    </label>
+    <label class="form-label">Rotation <span id="bc-speed">30 rpm</span>
+      <input class="form-range" id="bc-rpm" type="range" min="6" max="60" value="30" step="1">
+    </label>
+    <button class="btn" id="bc-play" type="button">Pause</button>
+    <button class="btn" id="bc-step" type="button">Next pose</button>
+  </div>
+  <canvas id="bc-canvas" role="img" aria-label="Rotating cylinder with four rows of silhouettes receiving bricks from above and handing them down.">Animated cylindrical zoetrope.</canvas>
+  <div class="viz-row text-small"><span id="bc-status" aria-live="polite"></span></div>
+</div>
+<style>
+#brick-cylinder canvas {display:block;width:100%;height:auto;aspect-ratio: 7 / 5;}
+#brick-cylinder .viz-controls {margin-bottom:8px;}
+</style>
+<script>
+(() => {
+const root=document.getElementById('brick-cylinder'), c=root.querySelector('canvas'), ctx=c.getContext('2d');
+const mode=root.querySelector('#bc-mode'), rpm=root.querySelector('#bc-rpm'), play=root.querySelector('#bc-play'), step=root.querySelector('#bc-step'), status=root.querySelector('#bc-status');
+const N=24, TAU=Math.PI*2;
+let turns=0, running=!matchMedia('(prefers-reduced-motion: reduce)').matches, last=0, width=700, height=500;
+const mod=x=>((x%1)+1)%1, mix=(a,b,t)=>a+(b-a)*t, ease=t=>t*t*(3-2*t);
+function color(name) { const p=document.createElement('span');p.style.color='var('+name+')';root.append(p);const v=getComputedStyle(p).color;p.remove();return v; }
+let ink,surface,muted,brick,border;
+function colors(){ink=color('--foreground');surface=color('--background');muted=color('--muted');brick=color('--orange');border=color('--border');}
+function resize(){width=root.clientWidth;height=width*5/7;const d=devicePixelRatio||1;c.width=Math.round(width*d);c.height=Math.round(height*d);draw();}
+function line(points,w,col=ink){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.stroke();}
+function circle(x,y,r,col=ink){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fill();}
+function pose(p){
+ const keys=[[0,-4],[.22,34],[.48,43],[.75,92],[1,-4]];
+ let y=0;for(let k=0;k<keys.length-1;k++)if(p>=keys[k][0]&&p<keys[k+1][0])y=mix(keys[k][1],keys[k+1][1],ease((p-keys[k][0])/(keys[k+1][0]-keys[k][0])));
+ const bend=7*Math.sin(Math.PI*Math.min(p/.75,1)), hx=2+bend*.5, hy=22+bend;
+ circle(hx,hy,6.7);line([[hx,hy+9],[bend,52],[0,60]],9);
+ line([[0,59],[-9,73],[-12,86]],5);line([[0,59],[9,73],[13,86]],5);
+ const handX=17;
+ line([[hx,hy+13],[8,Math.max(18,(hy+y)/2)],[handX-6,y+2]],4.3);
+ line([[hx+1,hy+14],[17,(hy+y)/2+7],[handX+5,y+2]],4.1);
+ if(p<.75){ctx.fillStyle=brick;ctx.fillRect(handX-9,y-5,18,9);ctx.strokeStyle=ink;ctx.lineWidth=.8;ctx.strokeRect(handX-9,y-5,18,9);}
+}
+function figure(j,row,angle,strip=false){
+ const phase=mod(-j/N-row*.75);
+ if(strip){ctx.save();ctx.translate(24+j*48,51+row*96);ctx.scale(.82,1);pose(phase);ctx.restore();return;}
+ const a=j*TAU/N+angle, front=Math.cos(a);if(front<=0)return;
+ const x=350+220*Math.sin(a), y=57+row*96+25*(1-front);
+ ctx.save();ctx.translate(x,y);ctx.scale(front,1);pose(phase);ctx.restore();
+}
+function draw(){
+ if(!ctx)return;ctx.setTransform(c.width/700,0,0,c.height/500,0,0);ctx.clearRect(0,0,700,500);
+ const sampled=Math.floor(turns*N+1e-8)/N;
+ const angle=(mode.value==='continuous'?turns:sampled)*TAU;
+ if(mode.value==='strip'){
+  ctx.save();ctx.beginPath();ctx.rect(8,34,684,430);ctx.clip();
+  // Twelve adjacent fixed drawings; the strip itself never animates.
+  for(let r=0;r<4;r++)for(let j=0;j<14;j++)figure(j,r,0,true);
+  ctx.restore();
+  return;
+ }
+ ctx.fillStyle=muted;ctx.beginPath();ctx.ellipse(350,461,231,17,0,0,TAU);ctx.fill();
+ const grad=ctx.createLinearGradient(130,0,570,0);grad.addColorStop(0,muted);grad.addColorStop(.35,surface);grad.addColorStop(.65,surface);grad.addColorStop(1,muted);
+ ctx.fillStyle=grad;ctx.beginPath();ctx.ellipse(350,430,220,27,0,0,Math.PI);ctx.lineTo(130,54);ctx.ellipse(350,54,220,27,0,Math.PI,TAU);ctx.lineTo(570,430);ctx.fill();
+ ctx.fillStyle=muted;ctx.beginPath();ctx.ellipse(350,54,220,27,0,0,TAU);ctx.fill();
+ ctx.strokeStyle=border;ctx.lineWidth=1;
+ for(let r=0;r<5;r++){ctx.beginPath();ctx.ellipse(350,54+r*96,220,27,0,0,Math.PI);ctx.stroke();}
+ // A fixed marker on the rim makes rotation and sampling visible.
+ const a=angle, x=350+220*Math.sin(a), y=54+27*Math.cos(a);
+ circle(x,y,4,brick);
+ for(let r=0;r<4;r++)for(let j=0;j<N;j++)figure(j,r,angle);
+}
+function update(){
+ root.querySelector('#bc-speed').textContent=rpm.value+' rpm';
+ play.textContent=running?'Pause':'Play';
+ status.textContent=mode.value==='strip'?'14 of 24 fixed poses per row · left → right around the cylinder':mode.value==='sample'?'24 poses / turn · '+(Number(rpm.value)*N/60).toFixed(1)+' samples / second · held frames, no flashing':'24 fixed poses / row · four rows · continuous rotation';
+ draw();
+}
+rpm.oninput=update;mode.onchange=update;
+play.onclick=()=>{running=!running;update();};
+step.onclick=()=>{running=false;turns=(Math.floor(turns*N+1e-8)+1)/N;update();};
+function tick(now){if(last&&running)turns+=(Math.min(now-last,100)/1000)*Number(rpm.value)/60;last=now;draw();requestAnimationFrame(tick);}
+colors();new ResizeObserver(resize).observe(root);new MutationObserver(()=>{colors();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});
+update();resize();requestAnimationFrame(tick);
+})();
+</script>
