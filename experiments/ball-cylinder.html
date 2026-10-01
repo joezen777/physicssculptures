@@ -1,0 +1,92 @@
+<div id="ball-cylinder">
+  <div class="viz-controls">
+    <label class="form-label">View
+      <select class="form-select" id="ball-mode">
+        <option value="sample">Strobe-sampled illusion</option>
+        <option value="continuous">Continuous rotation</option>
+        <option value="strip">Unwrapped drawings</option>
+      </select>
+    </label>
+    <label class="form-label">Rotation <span id="ball-speed">30 rpm</span>
+      <input class="form-range" id="ball-rpm" type="range" min="6" max="60" value="30" step="1">
+    </label>
+    <button class="btn" id="ball-play" type="button">Pause</button>
+    <button class="btn" id="ball-step" type="button">Next pose</button>
+  </div>
+  <canvas id="ball-canvas" role="img" aria-label="Rotating cylinder with balls bouncing downward between five alternating tilted rectangular platforms.">Animated cylindrical zoetrope.</canvas>
+  <div class="viz-row text-small"><span id="ball-status" aria-live="polite"></span></div>
+</div>
+<style>
+#ball-cylinder canvas {display:block;width:100%;height:auto;aspect-ratio: 7 / 5;}
+#ball-cylinder .viz-controls {margin-bottom:8px;}
+</style>
+<script>
+(() => {
+const root=document.getElementById('ball-cylinder'), c=root.querySelector('canvas'), ctx=c.getContext('2d');
+const mode=root.querySelector('#ball-mode'), rpm=root.querySelector('#ball-rpm'), play=root.querySelector('#ball-play'), step=root.querySelector('#ball-step'), status=root.querySelector('#ball-status');
+const N=24, TAU=Math.PI*2;
+let turns=0, running=!matchMedia('(prefers-reduced-motion: reduce)').matches, last=0, width=700, height=500;
+const mod=x=>((x%1)+1)%1, mix=(a,b,t)=>a+(b-a)*t, ease=t=>t*t*(3-2*t);
+function color(name) { const p=document.createElement('span');p.style.color='var('+name+')';root.append(p);const v=getComputedStyle(p).color;p.remove();return v; }
+let ink,surface,muted,brick,border;
+function colors(){ink=color('--foreground');surface=color('--background');muted=color('--muted');brick=color('--viz-series-1');border=color('--border');}
+function resize(){width=root.clientWidth;height=width*5/7;const d=devicePixelRatio||1;c.width=Math.round(width*d);c.height=Math.round(height*d);draw();}
+function line(points,w,col=ink){ctx.strokeStyle=col;ctx.lineWidth=w;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(...p):ctx.moveTo(...p));ctx.stroke();}
+function circle(x,y,r,col=ink){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r,0,TAU);ctx.fill();}
+function pose(p){
+ const radius=4.5, tilt=.36, pitch=84;
+ // Every sector is a fixed drawing of the entire four-bounce sequence.
+ for(let row=0;row<5;row++){
+  const side=row%2===0?-1:1, x=side*14, y=22+pitch*row;
+  ctx.save();ctx.translate(x,y);ctx.rotate(-side*tilt);
+  ctx.fillStyle=ink;ctx.fillRect(-10,0,20,5);ctx.restore();
+ }
+ const stage=Math.min(3,Math.floor(p*4)), u=p*4-stage;
+ const side=stage%2===0?-1:1;
+ const x0=side*14-side*radius*Math.sin(tilt), x1=-x0;
+ const x=mix(x0,x1,u), y=22+pitch*stage-radius*Math.cos(tilt)+pitch*u-180*u*(1-u);
+ circle(x,y,radius,brick);
+}
+function figure(j,angle,strip=false){
+ const phase=mod(-j/N);
+ if(strip){ctx.save();ctx.translate(24+j*48,51);pose(phase);ctx.restore();return;}
+ const a=j*TAU/N+angle, front=Math.cos(a);if(front<=0)return;
+ const x=350+220*Math.sin(a), y=57+25*(1-front);
+ ctx.save();ctx.translate(x,y);ctx.scale(front,1);pose(phase);ctx.restore();
+}
+function draw(){
+ if(!ctx)return;ctx.setTransform(c.width/700,0,0,c.height/500,0,0);ctx.clearRect(0,0,700,500);
+ const sampled=Math.floor(turns*N+1e-8)/N;
+ const angle=(mode.value==='continuous'?turns:sampled)*TAU;
+ if(mode.value==='strip'){
+  ctx.save();ctx.beginPath();ctx.rect(8,34,684,430);ctx.clip();
+  // Fourteen adjacent fixed drawings; the strip itself never animates.
+  for(let j=0;j<14;j++)figure(j,0,true);
+  ctx.restore();
+  return;
+ }
+ ctx.fillStyle=muted;ctx.beginPath();ctx.ellipse(350,461,231,17,0,0,TAU);ctx.fill();
+ const grad=ctx.createLinearGradient(130,0,570,0);grad.addColorStop(0,muted);grad.addColorStop(.35,surface);grad.addColorStop(.65,surface);grad.addColorStop(1,muted);
+ ctx.fillStyle=grad;ctx.beginPath();ctx.ellipse(350,430,220,27,0,0,Math.PI);ctx.lineTo(130,54);ctx.ellipse(350,54,220,27,0,Math.PI,TAU);ctx.lineTo(570,430);ctx.fill();
+ ctx.fillStyle=muted;ctx.beginPath();ctx.ellipse(350,54,220,27,0,0,TAU);ctx.fill();
+ ctx.strokeStyle=border;ctx.lineWidth=1;
+ 
+ // A fixed marker on the rim makes rotation and sampling visible.
+ const a=angle, x=350+220*Math.sin(a), y=54+27*Math.cos(a);
+ circle(x,y,4,brick);
+ for(let j=0;j<N;j++)figure(j,angle);
+}
+function update(){
+ root.querySelector('#ball-speed').textContent=rpm.value+' rpm';
+ play.textContent=running?'Pause':'Play';
+ status.textContent=mode.value==='strip'?'14 of 24 fixed drawings · five tilted platforms per drawing':mode.value==='sample'?'Four bounces / loop · '+(Number(rpm.value)*N/60).toFixed(1)+' samples / second · held frames, no flashing':'24 fixed drawings · continuous rotation';
+ draw();
+}
+rpm.oninput=update;mode.onchange=update;
+play.onclick=()=>{running=!running;update();};
+step.onclick=()=>{running=false;turns=(Math.floor(turns*N+1e-8)+1)/N;update();};
+function tick(now){if(last&&running)turns+=(Math.min(now-last,100)/1000)*Number(rpm.value)/60;last=now;draw();requestAnimationFrame(tick);}
+colors();new ResizeObserver(resize).observe(root);new MutationObserver(()=>{colors();draw();}).observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});
+update();resize();requestAnimationFrame(tick);
+})();
+</script>
