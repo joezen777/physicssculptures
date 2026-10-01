@@ -159,3 +159,9 @@ This is the intended assembly order for the CAD draft. Some bearing pockets are 
 21. Lower the stationary top guard over the fan, with its six curved spokes and concentric rings above the blades.
 22. Install the shaft locks and axial retainers once their designs are finalized. The base, center shaft, planet carriers, planet axles, and top guard must stay stationary; the pots, sun gears, planet gears, and fan must remain free to turn.
 23. Turn the bottom adapter gently by hand. Check that each successive level reverses direction and doubles speed, both tooth rows mesh, the transition collars do not rub, and the fan clears the guard. Do not use the wind sails to force a binding assembly.
+
+## Passive rotating whistle workbench
+
+Run `bash launch_whistle.sh` in WSL and open http://localhost:8767. This separate experiment integrates radial piston motion, pneumatic pressure, passive reset mechanisms, acoustic resonance and rotor imbalance. It includes RPM sweeps, balance fault tests, a bounded design search and audible resonance preview.
+
+The starting small-bore design settles rather than cycling. A tuned wide-piston pressure-dump model cycles within a narrow tested RPM window; it remains an ideal-model result rather than a validated printable mechanism. See [physics, results and assumptions](docs/passive-whistle.md).
