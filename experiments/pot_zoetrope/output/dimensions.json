@@ -1,0 +1,45 @@
+{
+  "pot_mm": {
+    "bottom_diameter": 120,
+    "top_diameter": 168,
+    "body_height": 58
+  },
+  "frames": 24,
+  "platforms_per_frame": 5,
+  "ball_diameter_mm": 1.6,
+  "platform_mm": [
+    4,
+    1
+  ],
+  "contact_gap_mm": 0.35,
+  "suggested_relief_mm": 0.5,
+  "uv_width_mm": 452.3893421169302,
+  "slant_height_mm": 62.76941930590086,
+  "sector_angle_degrees": 137.6466453814679,
+  "developed_page_mm": [
+    409.71460983537537,
+    163.00511559005446
+  ],
+  "files": {
+    "ball-cone-wrap-ccw.svg": {
+      "closed_paths": 144,
+      "width_mm": 409.71460983537537,
+      "height_mm": 163.00511559005446
+    },
+    "ball-uv-strip-ccw.svg": {
+      "closed_paths": 144,
+      "width_mm": 452.3893421169302,
+      "height_mm": 58
+    },
+    "ball-cone-wrap-cw.svg": {
+      "closed_paths": 144,
+      "width_mm": 409.71460983537537,
+      "height_mm": 163.00511559005446
+    },
+    "ball-uv-strip-cw.svg": {
+      "closed_paths": 144,
+      "width_mm": 452.3893421169302,
+      "height_mm": 58
+    }
+  }
+}

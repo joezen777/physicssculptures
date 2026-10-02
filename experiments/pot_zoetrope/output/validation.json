@@ -1,0 +1,18 @@
+{
+  "ball-cone-wrap-ccw.svg": {
+    "valid_closed_regions": 144,
+    "minimum_gap_mm": 0.3730715310120406
+  },
+  "ball-cone-wrap-cw.svg": {
+    "valid_closed_regions": 144,
+    "minimum_gap_mm": 0.3730839810375987
+  },
+  "ball-uv-strip-ccw.svg": {
+    "valid_closed_regions": 144,
+    "minimum_gap_mm": 0.35042849796520986
+  },
+  "ball-uv-strip-cw.svg": {
+    "valid_closed_regions": 144,
+    "minimum_gap_mm": 0.35042849796520653
+  }
+}
