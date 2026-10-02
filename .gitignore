@@ -53,3 +53,6 @@ experiments/modular_fan_tunnel/*.log
 
 # PETG print-prototype diagnostics
 experiments/print_petg_12/*.log
+
+# Resin sprue generation diagnostics
+experiments/resin_sprues/*.log

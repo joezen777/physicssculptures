@@ -1,0 +1,44 @@
+from pathlib import Path
+import json,traceback
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent
+OUT=ROOT.parent/"print_petg_12/output/stl/resin_sprue_sheets"
+PRE=ROOT/"previews";PRE.mkdir(exist_ok=True)
+try:
+    doc=App.openDocument(str(ROOT/"resin_sprue_sheets.FCStd"))
+    rows=json.loads((OUT/"sprue_manifest.json").read_text())
+    Gui.getMainWindow().showMaximized();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+    rot=App.Rotation(V(0,0,1),-25).multiply(App.Rotation(V(1,0,0),55))
+    for o in doc.Objects:
+        o.ViewObject.Visibility=False;o.ViewObject.DisplayMode="Flat Lines";o.ViewObject.LineColor=(.12,.2,.25)
+        colors=[]
+        for face in o.Shape.Faces:
+            b=face.BoundBox
+            if b.ZMin>=2.299 and 2.401<b.ZMax<3.201:color=(.95,.63,.13)
+            elif b.ZMax<=2.401:color=(.43,.49,.54)
+            else:color=(.19,.53,.70)
+            colors.append(color)
+        o.ViewObject.DiffuseColor=colors
+    def frame(o):
+        b=o.Shape.BoundBox;c=b.Center
+        corners=[rot.inverted().multVec(V(x,y,z)-c) for x in [b.XMin,b.XMax] for y in [b.YMin,b.YMax] for z in [b.ZMin,b.ZMax]]
+        span=max(max(v.x for v in corners)-min(v.x for v in corners),max(v.y for v in corners)-min(v.y for v in corners))
+        node=view.getCameraNode();node.orientation.setValue(*rot.Q);p=c+rot.multVec(V(0,0,1500))
+        node.position.setValue(p.x,p.y,p.z);node.height.setValue(span*1.12)
+        node.nearDistance.setValue(1);node.farDistance.setValue(3500);node.focalDistance.setValue(1500)
+        Gui.updateGui();view.redraw()
+    for row in rows:
+        o=doc.getObject(row["id"]);o.ViewObject.Visibility=True;frame(o)
+        view.saveImage(str(PRE/(row["id"]+".png")),900,900,"White")
+        if row["id"]=="R07":view.saveImage(str(OUT/"embossed_labels_detail.png"),2400,2400,"White")
+        o.ViewObject.Visibility=False
+    doc.getObject("R07").ViewObject.Visibility=True;frame(doc.getObject("R07"));doc.save()
+    App.closeDocument(doc.Name)
+    (ROOT/"render_complete.txt").write_text("All 19 sheets rendered; FreeCAD closes.")
+except BaseException:
+    (ROOT/"render_error.log").write_text(traceback.format_exc())
+    for name in list(App.listDocuments()):App.closeDocument(name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

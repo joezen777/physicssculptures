@@ -2,6 +2,8 @@
 
 **Latest print files:** [1.2 mm PETG STL set](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
 
+**Resin sprue sheets:** [Photon Mono M5s / ABS-Like Pro 2 kit](experiments/print_petg_12/output/stl/resin_sprue_sheets) with raised 12-point part IDs. [Sheet index](experiments/print_petg_12/output/stl/resin_sprue_sheets/sprue_sheets_preview.png). Add final resin supports in the slicer.
+
 Local Python/MuJoCo physics with a React/MUI control panel and a Three.js 3D view. Choose radial collars or upper-hemisphere ball joints, solid flywheels or propellers, two shared speed targets, and a spring-loaded centrifugal release pin at each mount.
 
 ## Open the dashboard
