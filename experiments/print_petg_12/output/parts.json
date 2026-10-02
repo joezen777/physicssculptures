@@ -1,0 +1,338 @@
+[
+  {
+    "id": "P01",
+    "name": "608_retainer",
+    "quantity": 8,
+    "file": "P01_608_retainer_print-8x.stl",
+    "size_mm": [
+      44.0,
+      44.0,
+      3.6
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "Three M3 screws. Cap contacts housing; 0.4 mm nominal bearing end clearance.",
+    "triangles": 1692,
+    "volume_mm3": 4343.276976329118
+  },
+  {
+    "id": "P02",
+    "name": "pot_fan_A",
+    "quantity": 2,
+    "file": "P02_pot_fan_A_print-2x.stl",
+    "size_mm": [
+      192.0,
+      192.0,
+      108.4
+    ],
+    "support": "Build-plate supports under fan and connector; keep bearing seat clean",
+    "orientation": "upright",
+    "note": "Levels 1 and 3.",
+    "triangles": 11090,
+    "volume_mm3": 229336.4731428583
+  },
+  {
+    "id": "P03",
+    "name": "pot_fan_B",
+    "quantity": 1,
+    "file": "P03_pot_fan_B_print-1x.stl",
+    "size_mm": [
+      192.0,
+      192.0,
+      108.4
+    ],
+    "support": "Build-plate supports under fan and connector; keep bearing seat clean",
+    "orientation": "upright",
+    "note": "Level 2; reversed blade pitch.",
+    "triangles": 11102,
+    "volume_mm3": 229336.47368425562
+  },
+  {
+    "id": "P04",
+    "name": "fixed_curved_carrier",
+    "quantity": 3,
+    "file": "P04_fixed_curved_carrier_print-3x.stl",
+    "size_mm": [
+      99.0,
+      111.53,
+      12.0
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "Captured M8 nut underneath, second nut above. M4 metal planet bolts.",
+    "triangles": 6282,
+    "volume_mm3": 37052.8983838346
+  },
+  {
+    "id": "P05",
+    "name": "sun_lower_bearing_housing",
+    "quantity": 3,
+    "file": "P05_sun_lower_bearing_housing_print-3x.stl",
+    "size_mm": [
+      44.0,
+      44.0,
+      18.0
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "608 enters bottom; three radial nut slots retain lower cap.",
+    "triangles": 5844,
+    "volume_mm3": 17034.24411255206
+  },
+  {
+    "id": "P06",
+    "name": "sun_36T_socket",
+    "quantity": 3,
+    "file": "P06_sun_36T_socket_print-3x.stl",
+    "size_mm": [
+      75.18,
+      75.18,
+      52.0
+    ],
+    "support": "Support gear underside when required; block supports in bearing and nut slots",
+    "orientation": "upside_down",
+    "note": "Upper 608 inserts from bottom; lower housing closes it.",
+    "triangles": 13214,
+    "volume_mm3": 83081.42060679829
+  },
+  {
+    "id": "P07",
+    "name": "planet_18T_604",
+    "quantity": 9,
+    "file": "P07_planet_18T_604_print-9x.stl",
+    "size_mm": [
+      39.17,
+      39.17,
+      10.4
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "604 inserts from top; three M2.5 nuts load from underside.",
+    "triangles": 5460,
+    "volume_mm3": 7957.45118393105
+  },
+  {
+    "id": "P08",
+    "name": "604_retainer",
+    "quantity": 9,
+    "file": "P08_604_retainer_print-9x.stl",
+    "size_mm": [
+      30.0,
+      30.0,
+      7.2
+    ],
+    "support": "None",
+    "orientation": "upside_down",
+    "note": "Fits counterbore; M2.5 x16 bolts and nuts.",
+    "triangles": 2028,
+    "volume_mm3": 2810.1577702287236
+  },
+  {
+    "id": "P09",
+    "name": "72T_ring_half",
+    "quantity": 6,
+    "file": "P09_72T_ring_half_print-6x.stl",
+    "size_mm": [
+      95.7,
+      192.0,
+      15.2
+    ],
+    "support": "None",
+    "orientation": "upside_down",
+    "note": "Two identical halves per stage; second half rotated 180 degrees.",
+    "triangles": 9756,
+    "volume_mm3": 50819.719569075045
+  },
+  {
+    "id": "P10",
+    "name": "interstage_air_collar",
+    "quantity": 2,
+    "file": "P10_interstage_air_collar_print-2x.stl",
+    "size_mm": [
+      192.0,
+      188.8,
+      28.8
+    ],
+    "support": "Local support for mounting bosses if slicer requires",
+    "orientation": "upside_down",
+    "note": "Noncontact overlap at next pot; do not glue adjacent rotating levels.",
+    "triangles": 7448,
+    "volume_mm3": 52553.528134035514
+  },
+  {
+    "id": "P11",
+    "name": "terminal_air_collar",
+    "quantity": 1,
+    "file": "P11_terminal_air_collar_print-1x.stl",
+    "size_mm": [
+      192.0,
+      188.8,
+      20.8
+    ],
+    "support": "Local support for mounting bosses if slicer requires",
+    "orientation": "upside_down",
+    "note": "",
+    "triangles": 7288,
+    "volume_mm3": 41433.065657494844
+  },
+  {
+    "id": "P12",
+    "name": "stationary_base",
+    "quantity": 1,
+    "file": "P12_stationary_base_print-1x.stl",
+    "size_mm": [
+      192.0,
+      192.0,
+      18.0
+    ],
+    "support": "None",
+    "orientation": "upside_down",
+    "note": "M8 nut below and above base; feet recess rod end.",
+    "triangles": 1872,
+    "volume_mm3": 354202.69977053965
+  },
+  {
+    "id": "P13",
+    "name": "base_drive_adapter",
+    "quantity": 1,
+    "file": "P13_base_drive_adapter_print-1x.stl",
+    "size_mm": [
+      60.0,
+      60.0,
+      35.0
+    ],
+    "support": "Support flange underside; block supports in socket",
+    "orientation": "upside_down",
+    "note": "Bottom 608 inserts from below; P01 cap and M3 x16 fasteners.",
+    "triangles": 6102,
+    "volume_mm3": 36017.90120131313
+  },
+  {
+    "id": "P14",
+    "name": "sail_hex_hub",
+    "quantity": 1,
+    "file": "P14_sail_hex_hub_print-1x.stl",
+    "size_mm": [
+      77.3,
+      86.21,
+      12.0
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "Three M4 x20 adapter bolts; six recessed M4 x10 button-head arm bolts.",
+    "triangles": 5920,
+    "volume_mm3": 22311.050067258835
+  },
+  {
+    "id": "P15",
+    "name": "curved_sail_arm",
+    "quantity": 3,
+    "file": "P15_curved_sail_arm_print-3x.stl",
+    "size_mm": [
+      92.75,
+      33.59,
+      16.0
+    ],
+    "support": "Build-plate support under arm; upright end mounting tab",
+    "orientation": "flat",
+    "note": "Each cup bolts to end tab using M4 x25.",
+    "triangles": 3514,
+    "volume_mm3": 6813.044667284894
+  },
+  {
+    "id": "P16",
+    "name": "wind_cup",
+    "quantity": 3,
+    "file": "P16_wind_cup_print-3x.stl",
+    "size_mm": [
+      43.63,
+      43.63,
+      18.0
+    ],
+    "support": "Build-plate support under bowl around mounting boss",
+    "orientation": "upright",
+    "note": "Through M4 bolt, washer and nut accessible from open bowl.",
+    "triangles": 3110,
+    "volume_mm3": 7253.081462796181
+  },
+  {
+    "id": "P17",
+    "name": "top_fan_B",
+    "quantity": 1,
+    "file": "P17_top_fan_B_print-1x.stl",
+    "size_mm": [
+      144.0,
+      133.73,
+      33.4
+    ],
+    "support": "Build-plate support under blades and connector",
+    "orientation": "upright",
+    "note": "",
+    "triangles": 2330,
+    "volume_mm3": 41369.343118475284
+  },
+  {
+    "id": "P18",
+    "name": "top_guard_shroud",
+    "quantity": 1,
+    "file": "P18_top_guard_shroud_print-1x.stl",
+    "size_mm": [
+      176.0,
+      176.0,
+      40.0
+    ],
+    "support": "None",
+    "orientation": "upside_down",
+    "note": "Six M4 x16 bolts join grille.",
+    "triangles": 3604,
+    "volume_mm3": 95713.39271948696
+  },
+  {
+    "id": "P19",
+    "name": "curved_guard_grille",
+    "quantity": 1,
+    "file": "P19_curved_guard_grille_print-1x.stl",
+    "size_mm": [
+      176.0,
+      176.0,
+      12.0
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "Nine rings, six spokes, nominal ring gaps 2.4 mm; not a certified child guard.",
+    "triangles": 14768,
+    "volume_mm3": 118844.24749478129
+  },
+  {
+    "id": "C01",
+    "name": "608_fit_coupon",
+    "quantity": 1,
+    "file": "C01_608_fit_coupon_print-1x.stl",
+    "size_mm": [
+      90.0,
+      38.0,
+      10.0
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "Left to right: 22.2 / 22.4 / 22.6 mm. Print this first.",
+    "triangles": 1032,
+    "volume_mm3": 22376.930207480174
+  },
+  {
+    "id": "C02",
+    "name": "604_fit_coupon",
+    "quantity": 1,
+    "file": "C02_604_fit_coupon_print-1x.stl",
+    "size_mm": [
+      66.0,
+      28.0,
+      6.0
+    ],
+    "support": "None",
+    "orientation": "flat",
+    "note": "Left to right: 12.2 / 12.4 / 12.6 mm.",
+    "triangles": 1032,
+    "volume_mm3": 8913.89222000972
+  }
+]

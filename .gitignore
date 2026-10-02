@@ -50,3 +50,6 @@ experiments/simple_sail_tower/*.log
 
 # Modular fan tunnel
 experiments/modular_fan_tunnel/*.log
+
+# PETG print-prototype diagnostics
+experiments/print_petg_12/*.log

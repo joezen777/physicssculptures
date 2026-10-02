@@ -1,5 +1,7 @@
 # Flywheel Lab
 
+**Latest print files:** [1.2 mm PETG STL set](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
+
 Local Python/MuJoCo physics with a React/MUI control panel and a Three.js 3D view. Choose radial collars or upper-hemisphere ball joints, solid flywheels or propellers, two shared speed targets, and a spring-loaded centrifugal release pin at each mount.
 
 ## Open the dashboard
@@ -128,40 +130,49 @@ See [the pointed cone / bevel gear draft](docs/bevel_cone_tower.md) for the sepa
 
 ## Modular fan tunnel
 
-[Full-wall pots with fan floors and a removable sail add-on](docs/modular_fan_tunnel.md) is the current revision.
+[Full-wall pots with fan floors and a removable sail add-on](docs/modular_fan_tunnel.md) is the earlier concept revision; the printable PETG prototype is below.
 
-### Assembly order for the current four-level draft
+## PETG prototype for a 1.2 mm nozzle
 
-Use [the full FreeCAD model](experiments/modular_fan_tunnel/output/tower_draft.FCStd) as the part reference. The assembly uses **eleven 608 bearings, nine 604 bearings, one fixed 8 mm center shaft, and nine fixed 4 mm planet axles**. Pots 1 and 3 share one blade handedness; pot 2 and the top fan use the opposite handedness.
+The current print set is in [experiments/print_petg_12/output/stl](experiments/print_petg_12/output/stl). Each filename includes its total print quantity. Print the two fit coupons first.
 
-This is the intended assembly order for the CAD draft. Some bearing pockets are enclosed in the present geometry; insertion access, shaft locks, and bearing/axle retention still need detailing before this becomes a build-ready procedure.
+- [Labeled exploded assembly image](experiments/print_petg_12/output/exploded_assembly_labeled.png)
+- [Print settings, supports and full assembly guide](experiments/print_petg_12/output/PRINT_AND_ASSEMBLE.md)
+- [Printed-part quantities](experiments/print_petg_12/output/print_manifest.csv)
+- [Purchased bearings, spacers and fasteners](experiments/print_petg_12/output/hardware_bom.csv)
+- [FreeCAD assembly](experiments/print_petg_12/output/print_prototype.FCStd)
+- [Complete print package ZIP](experiments/print_petg_12/print_package_PETG_1p2mm.zip)
 
-1. Prepare the three flowerpots, three gearbox sets, base drive adapter, optional sail assembly, and top fan and guard.
-2. Fit one 608 bearing into the central hub of each flowerpot.
-3. Fit one 604 bearing into each of the nine planet gears.
-4. Assemble each of the three sun-gear hubs with two 608 bearings and the 11 mm inner-race spacer between them.
-5. Prepare each curved stationary carrier with three 4 mm planet axles. Place a 36 mm planet spacer on each axle, then its planet gear and 604 bearing.
-6. Secure the fixed 8 mm center shaft to the stationary base.
-7. Slide the 15 mm lower inner-race spacer onto the center shaft.
-8. Fit the lower 608 bearing into the base drive adapter, then lower the adapter onto the shaft so the bearing's inner race rests on the spacer.
-9. If using wind sails, fit the three cups to the curved sail arms and slide the arm collar onto the adapter's external hex **before installing the bottom pot**.
-10. Slide the 17 mm between-bearing spacer onto the center shaft.
-11. Lower pot 1 onto the shaft and engage its male hex with the base adapter's female socket.
-12. Add the 7 mm carrier spacer above pot 1's hub bearing, then lower the first prepared carrier and planet assembly into the pot.
-13. Add the 8 mm lower sun-bearing spacer above the carrier. Lower the first prepared sun-gear hub onto the shaft and mesh its teeth with the three planets.
-14. Insert the two keyed ring-gear halves into pot 1's upper rim, mesh both staggered tooth rows with the planets, and install the snap cap and air-transition collar.
-15. Add the 33 mm between-level spacer above the first sun hub's upper bearing. Lower pot 2 onto the shaft and engage its male hex with the first sun gear's female socket.
-16. Install pot 2's 7 mm carrier spacer, prepared carrier and planets, 8 mm lower sun-bearing spacer, prepared sun hub, split ring gear, snap cap, and air-transition collar, in that order.
-17. Add the next 33 mm between-level spacer. Lower pot 3 onto the shaft and engage its male hex with the second sun gear's female socket.
-18. Install pot 3's 7 mm carrier spacer, prepared carrier and planets, 8 mm lower sun-bearing spacer, prepared sun hub, split ring gear, snap cap, and shorter terminal air-transition collar, in that order.
-19. Fit the remaining 608 bearing into the top fan hub.
-20. Add the 35 mm top-fan inner-race spacer above the third sun hub's upper bearing. Lower the top fan onto the shaft and engage its male hex with the third sun gear's female socket.
-21. Lower the stationary top guard over the fan, with its six curved spokes and concentric rings above the blades.
-22. Install the shaft locks and axial retainers once their designs are finalized. The base, center shaft, planet carriers, planet axles, and top guard must stay stationary; the pots, sun gears, planet gears, and fan must remain free to turn.
-23. Turn the bottom adapter gently by hand. Check that each successive level reverses direction and doubles speed, both tooth rows mesh, the transition collars do not rub, and the fan clears the guard. Do not use the wind sails to force a binding assembly.
+Use this kit as a complete set; its coarser teeth, larger hex couplings and taller module spacing do not match the earlier draft. Physical PETG fit and airflow still need testing.
 
-## Passive rotating whistle workbench
+### Linear assembly order
 
-Run `bash launch_whistle.sh` in WSL and open http://localhost:8767. This separate experiment integrates radial piston motion, pneumatic pressure, passive reset mechanisms, acoustic resonance and rotor imbalance. It includes RPM sweeps, balance fault tests, a bounded design search and audible resonance preview.
-
-The starting small-bore design settles rather than cycling. A tuned wide-piston pressure-dump model cycles within a narrow tested RPM window; it remains an ideal-model result rather than a validated printable mechanism. See [physics, results and assumptions](docs/passive-whistle.md).
+1. Print and inspect the coupons, then all P01-P19 parts in their filename quantities. Clean support, nut slots and bearing seats. Sort A-pitch pots P02 for levels 1 and 3, B-pitch pot P03 for level 2, and B-pitch top fan P17.
+2. Load three M3 nuts into the underside pockets of each pot hub and the top fan hub. Insert one 608 from above into each hub. Attach one P01 retainer to each with three M3 x16 screws. These are four of the eight P01 caps.
+3. For each of the nine P07 planet gears, load three M2.5 nuts from below, insert one 604 from above, and fit P08 with three M2.5 x16 screws. The cap's small projecting collar goes into the bearing counterbore.
+4. Prepare each of the three sun assemblies. Slide three M3 nuts into the radial slots of P06. Insert its upper 608 through the open bottom face.
+5. Load three M3 nuts into P05's side slots. Insert its lower 608 from below. Place an 11 mm ID8.2/OD12 steel spacer between the two bearing inner races and bring P05 and P06 together.
+6. Join each P05/P06 pair using three M3 x20 screws through P05's RECESSED head pockets. Seat these heads completely before installing the bottom bearing cap.
+7. Fit a P01 under each sun assembly with three M3 x16 screws. Rotate this cap 60 degrees relative to the housing-join screw pattern so its holes align with the other three holes. These use three more P01 caps.
+8. Load the M3 nuts into P13's side slots, insert its lower 608 from below, and attach the final P01 with three M3 x16 screws.
+9. Fit an M8 nut into the underside hex pocket of base P12. Thread in the 468 mm rod, leaving about 2 mm below the base's central bottom face, within the feet recess. Tighten another M8 nut against the top of the base.
+10. Slide the 12.5 mm ID8.2/OD12 spacer over the rod. Lower the P13 base-drive assembly until its lower bearing's inner race rests on that spacer.
+11. If using sails, preload six M4 nuts into the underside arm-root pockets of P14. Fit each P15 into its curved root pocket and use two recessed M4 x10 button-head screws per arm.
+12. Fit one P16 cup to each arm's upright end tab. Pass an M4 x25 screw from the recessed back of the tab through the cup boss; fit the OD9 washer and nut from inside the cup. All cup openings must face the same tangential sense around the rotor.
+13. Load three M4 nuts into P13's outward-opening flange slots. Slide P14 over P13's external hex and secure it using three M4 x20 bolts. Omit P14-P16 and their fasteners if testing without wind sails.
+14. Slide the 32 mm ID8.2/OD12 spacer down the rod. Lower the first P02 pot and engage its male hex with P13's socket.
+15. Add a 15 mm ID8.2/OD12 spacer above the pot bearing. Thread an M8 nut onto the rod until it seats against that spacer. Lower P04 over this nut so its underside hex pocket captures it; secure P04 with a second M8 nut above.
+16. Install three M4 x75 bolts upward through P04. Secure each bolt to the carrier with an M4 nut above the carrier. Slide a 37.2 mm ID4.2/OD6 spacer onto each stationary bolt.
+17. Add the 5.9 mm ID8.2/OD12 spacer above the carrier's upper M8 nut. Lower one prepared sun assembly onto the central rod.
+18. Lower the three prepared P07/P08 planet assemblies onto the outer bolts and mesh them with the sun. Align both staggered tooth rows. Add a 10 mm ID4.2/OD6 spacer above each 604 inner race, then an OD7 washer and an M4 nut. Snug the nuts against the inner-race stack without binding the gear.
+19. Load six M4 nuts into the outward-facing slots under the pot's upper flange. Fit two P09 ring halves SIDEWAYS around the planets, rotating the second identical half 180 degrees. Align both tooth rows before seating the halves.
+20. Fit P10 over the ring halves and fasten the collar, ring halves and pot together using six M4 x20 bolts. The collar has recessed screw-head access above each mounting pad. Align the halves concentrically and check free mesh before final tightening.
+21. Hand-turn the bottom adapter. Confirm that the sun reverses direction and turns twice as fast as the pot. Resolve any rubbing or binding before adding another level.
+22. Add a 44.6 mm ID8.2/OD12 spacer above the first sun's upper bearing. Lower P03 for level 2 and engage its male hex with the sun socket.
+23. Assemble level 2 in this order: 15 mm center spacer, lower M8 nut, P04, upper M8 nut, three M4 axle bolts and their lower nuts, three 37.2 mm axle spacers, 5.9 mm center spacer, prepared sun, three prepared planets, three 10 mm axle spacers with washers/nuts, two P09 halves and P10 with six M4 x20 bolts. Hand-check rotation.
+24. Add the next 44.6 mm center spacer and lower the second P02 for level 3. Assemble its carrier, spacers, sun, planets and ring halves in the same order as level 2, but use the shorter P11 terminal collar instead of P10.
+25. Add the final 44.6 mm center spacer. Lower the prepared P17 top fan and engage its male hex with the third sun socket.
+26. Add the 21 mm center spacer above the top fan bearing. Thread the ninth ordinary M8 nut onto the rod until it seats against that spacer.
+27. Load six M4 nuts into the underside flange pockets of shroud P18. Lower the shroud around the top fan. Lower grille P19 over the central M8 nut so its hex pocket captures the nut.
+28. Join P19 to P18 with six M4 x16 bolts. Fit the M8 acorn nut at the top of the rod and confirm the rod end fits inside it without bottoming out.
+29. Hand-turn the input through several revolutions. Confirm speeds +1, -2, +4 and -8, clear fan/guard gaps, non-rubbing air collars and free bearings. Fix each fault before applying wind or a motor.

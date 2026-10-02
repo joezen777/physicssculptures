@@ -1,0 +1,360 @@
+{
+  "status": "PASS",
+  "stl": [
+    {
+      "id": "P01",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        44.0,
+        44.0,
+        3.6
+      ]
+    },
+    {
+      "id": "P02",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        192.0,
+        192.0,
+        108.4
+      ]
+    },
+    {
+      "id": "P03",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        192.0,
+        192.0,
+        108.4
+      ]
+    },
+    {
+      "id": "P04",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        99.0,
+        111.53,
+        12.0
+      ]
+    },
+    {
+      "id": "P05",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        44.0,
+        44.0,
+        18.0
+      ]
+    },
+    {
+      "id": "P06",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        75.18,
+        75.18,
+        52.0
+      ]
+    },
+    {
+      "id": "P07",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        39.17,
+        39.17,
+        10.4
+      ]
+    },
+    {
+      "id": "P08",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        30.0,
+        30.0,
+        7.2
+      ]
+    },
+    {
+      "id": "P09",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        95.7,
+        192.0,
+        15.2
+      ]
+    },
+    {
+      "id": "P10",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        192.0,
+        188.8,
+        28.8
+      ]
+    },
+    {
+      "id": "P11",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        192.0,
+        188.8,
+        20.8
+      ]
+    },
+    {
+      "id": "P12",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        192.0,
+        192.0,
+        18.0
+      ]
+    },
+    {
+      "id": "P13",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        60.0,
+        60.0,
+        35.0
+      ]
+    },
+    {
+      "id": "P14",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        77.3,
+        86.21,
+        12.0
+      ]
+    },
+    {
+      "id": "P15",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        92.75,
+        33.59,
+        16.0
+      ]
+    },
+    {
+      "id": "P16",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        43.63,
+        43.63,
+        18.0
+      ]
+    },
+    {
+      "id": "P17",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        144.0,
+        133.73,
+        33.4
+      ]
+    },
+    {
+      "id": "P18",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        176.0,
+        176.0,
+        40.0
+      ]
+    },
+    {
+      "id": "P19",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        176.0,
+        176.0,
+        12.0
+      ]
+    },
+    {
+      "id": "C01",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        90.0,
+        38.0,
+        10.0
+      ]
+    },
+    {
+      "id": "C02",
+      "closed": true,
+      "components": 1,
+      "size_mm": [
+        66.0,
+        28.0,
+        6.0
+      ]
+    }
+  ],
+  "collisions": [],
+  "mesh_phases": [
+    {
+      "angle": 0,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 0.7,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 1.3,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 2.1,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 3.7,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 4.7,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 6.1,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 8.3,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 9.2,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle": 10,
+      "overlap_mm3": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "bearing_insertion_paths": [
+    {
+      "part": "P02",
+      "path": "608 from above",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P03",
+      "path": "608 from above",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P05",
+      "path": "lower sun 608 from below",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P06",
+      "path": "upper sun 608 from below before lower housing",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P13",
+      "path": "base 608 from below",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P17",
+      "path": "top fan 608 from above",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P07",
+      "path": "604 from above with cap removed",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "terminal_blade_sweep_clear": true,
+  "scope": "Nominal CAD and mesh checks; physical PETG fit, gear wear, strength and child safety unverified.",
+  "stl_sha256": {
+    "C01_608_fit_coupon_print-1x.stl": "9bc243e9a0a34c8ea11d1bb720458ee6ada70cf305bd5dec0bcc867904519f80",
+    "C02_604_fit_coupon_print-1x.stl": "1efa9efbe4421940659b842d42ce45b558934f1a3033c308faaefd1fdf45ddd2",
+    "P01_608_retainer_print-8x.stl": "af3328e984eafef40093841ed62b82b524b2323c46b5c5cf4cbc0a6bb9c17b88",
+    "P02_pot_fan_A_print-2x.stl": "a7674cf16e116f4fc2fcf2af317a4e3a206b7dacade277d502a00e4c6cc90f65",
+    "P03_pot_fan_B_print-1x.stl": "88a36b4ef3dae1719738fc5d61ae37189e94119998968e7d0bf6f74b2cbfda96",
+    "P04_fixed_curved_carrier_print-3x.stl": "2891b0eec5affd61d52f991621d1a5686d2f1d3d7f8dbcba0e640ec644bafd0e",
+    "P05_sun_lower_bearing_housing_print-3x.stl": "15c732277debae2cbf1fd33af28e19856fe8b8ed9d275e1507762a5a22c5dfe6",
+    "P06_sun_36T_socket_print-3x.stl": "08ce1e6bcca9a00fd1a282531809085a11b2e5f1325491db3855d5b73fc42ae2",
+    "P07_planet_18T_604_print-9x.stl": "e8222cbf83da0fca6cf7d96e24630b72fc915ca133b86a9ec83572964786254c",
+    "P08_604_retainer_print-9x.stl": "351d156a39c070064ebd6da1af420d0504c371a2ba6db17caa3767cd9f881788",
+    "P09_72T_ring_half_print-6x.stl": "5ebcb58085e825dd6365c6ced876eeb878c38a26b6620d9ffe257f857d2b8695",
+    "P10_interstage_air_collar_print-2x.stl": "0f16eb094a1dddc2d7ae0f297fef83ea13eb8905dc62dbe9b1ef1e7e465db00a",
+    "P11_terminal_air_collar_print-1x.stl": "661dd0bad69b223587c186fb38a3e46a4abf386078d8decd3f1ba8a9b2125548",
+    "P12_stationary_base_print-1x.stl": "c4f8a1465d41bdd241520b500b592c69a41b1614c473d4c987bd2e760d39e819",
+    "P13_base_drive_adapter_print-1x.stl": "a5b05c883a0c2f98066e7b4fb743a0eaa05dc6df9a180956981b641ef411c22c",
+    "P14_sail_hex_hub_print-1x.stl": "ad419008f746780133ac5cad7356832142e3a138fb91dd8bac6622f44c4f9bc8",
+    "P15_curved_sail_arm_print-3x.stl": "e934e920b411a219599e50ed19649c76840093c14425e06b32f8bf43b077bbed",
+    "P16_wind_cup_print-3x.stl": "446b72d4c719ae822f772a886152a70630df36025552248d68769e8fa0df4853",
+    "P17_top_fan_B_print-1x.stl": "6823ca0dfc1387c29af72d164891d622ad1ba31bd36fc828141dcb23b3d83d03",
+    "P18_top_guard_shroud_print-1x.stl": "96b93c403277bbb26b68fdda254ad086f15ac9167ebc180c5acba4019cca7aff",
+    "P19_curved_guard_grille_print-1x.stl": "8eb224581cae2372ee7ba99f2a0ade54298146676f1b187b993536b5085d2166"
+  }
+}

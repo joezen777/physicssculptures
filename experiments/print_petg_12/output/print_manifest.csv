@@ -1,0 +1,22 @@
+id,name,quantity,file,size_mm,support,orientation,note,triangles,volume_mm3
+P01,608_retainer,8,P01_608_retainer_print-8x.stl,"[44.0, 44.0, 3.6]",None,flat,Three M3 screws. Cap contacts housing; 0.4 mm nominal bearing end clearance.,1692,4343.276976329118
+P02,pot_fan_A,2,P02_pot_fan_A_print-2x.stl,"[192.0, 192.0, 108.4]",Build-plate supports under fan and connector; keep bearing seat clean,upright,Levels 1 and 3.,11090,229336.4731428583
+P03,pot_fan_B,1,P03_pot_fan_B_print-1x.stl,"[192.0, 192.0, 108.4]",Build-plate supports under fan and connector; keep bearing seat clean,upright,Level 2; reversed blade pitch.,11102,229336.47368425562
+P04,fixed_curved_carrier,3,P04_fixed_curved_carrier_print-3x.stl,"[99.0, 111.53, 12.0]",None,flat,"Captured M8 nut underneath, second nut above. M4 metal planet bolts.",6282,37052.8983838346
+P05,sun_lower_bearing_housing,3,P05_sun_lower_bearing_housing_print-3x.stl,"[44.0, 44.0, 18.0]",None,flat,608 enters bottom; three radial nut slots retain lower cap.,5844,17034.24411255206
+P06,sun_36T_socket,3,P06_sun_36T_socket_print-3x.stl,"[75.18, 75.18, 52.0]",Support gear underside when required; block supports in bearing and nut slots,upside_down,Upper 608 inserts from bottom; lower housing closes it.,13214,83081.42060679829
+P07,planet_18T_604,9,P07_planet_18T_604_print-9x.stl,"[39.17, 39.17, 10.4]",None,flat,604 inserts from top; three M2.5 nuts load from underside.,5460,7957.45118393105
+P08,604_retainer,9,P08_604_retainer_print-9x.stl,"[30.0, 30.0, 7.2]",None,upside_down,Fits counterbore; M2.5 x16 bolts and nuts.,2028,2810.1577702287236
+P09,72T_ring_half,6,P09_72T_ring_half_print-6x.stl,"[95.7, 192.0, 15.2]",None,upside_down,Two identical halves per stage; second half rotated 180 degrees.,9756,50819.719569075045
+P10,interstage_air_collar,2,P10_interstage_air_collar_print-2x.stl,"[192.0, 188.8, 28.8]",Local support for mounting bosses if slicer requires,upside_down,Noncontact overlap at next pot; do not glue adjacent rotating levels.,7448,52553.528134035514
+P11,terminal_air_collar,1,P11_terminal_air_collar_print-1x.stl,"[192.0, 188.8, 20.8]",Local support for mounting bosses if slicer requires,upside_down,,7288,41433.065657494844
+P12,stationary_base,1,P12_stationary_base_print-1x.stl,"[192.0, 192.0, 18.0]",None,upside_down,M8 nut below and above base; feet recess rod end.,1872,354202.69977053965
+P13,base_drive_adapter,1,P13_base_drive_adapter_print-1x.stl,"[60.0, 60.0, 35.0]",Support flange underside; block supports in socket,upside_down,Bottom 608 inserts from below; P01 cap and M3 x16 fasteners.,6102,36017.90120131313
+P14,sail_hex_hub,1,P14_sail_hex_hub_print-1x.stl,"[77.3, 86.21, 12.0]",None,flat,Three M4 x20 adapter bolts; six recessed M4 x10 button-head arm bolts.,5920,22311.050067258835
+P15,curved_sail_arm,3,P15_curved_sail_arm_print-3x.stl,"[92.75, 33.59, 16.0]",Build-plate support under arm; upright end mounting tab,flat,Each cup bolts to end tab using M4 x25.,3514,6813.044667284894
+P16,wind_cup,3,P16_wind_cup_print-3x.stl,"[43.63, 43.63, 18.0]",Build-plate support under bowl around mounting boss,upright,"Through M4 bolt, washer and nut accessible from open bowl.",3110,7253.081462796181
+P17,top_fan_B,1,P17_top_fan_B_print-1x.stl,"[144.0, 133.73, 33.4]",Build-plate support under blades and connector,upright,,2330,41369.343118475284
+P18,top_guard_shroud,1,P18_top_guard_shroud_print-1x.stl,"[176.0, 176.0, 40.0]",None,upside_down,Six M4 x16 bolts join grille.,3604,95713.39271948696
+P19,curved_guard_grille,1,P19_curved_guard_grille_print-1x.stl,"[176.0, 176.0, 12.0]",None,flat,"Nine rings, six spokes, nominal ring gaps 2.4 mm; not a certified child guard.",14768,118844.24749478129
+C01,608_fit_coupon,1,C01_608_fit_coupon_print-1x.stl,"[90.0, 38.0, 10.0]",None,flat,Left to right: 22.2 / 22.4 / 22.6 mm. Print this first.,1032,22376.930207480174
+C02,604_fit_coupon,1,C02_604_fit_coupon_print-1x.stl,"[66.0, 28.0, 6.0]",None,flat,Left to right: 12.2 / 12.4 / 12.6 mm.,1032,8913.89222000972

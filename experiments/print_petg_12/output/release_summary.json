@@ -1,0 +1,20 @@
+{
+  "material": "PETG",
+  "nozzle_mm": 1.2,
+  "bed_mm": [
+    220,
+    220
+  ],
+  "stl_files": 21,
+  "production_part_types": 19,
+  "production_print_count": 59,
+  "coupon_print_count": 2,
+  "max_part_footprint_mm": [
+    192,
+    192
+  ],
+  "nominal_checks": "PASS",
+  "slice_checks": "PASS",
+  "fastener_envelopes_checked": 96,
+  "physical_testing": "Not yet performed"
+}

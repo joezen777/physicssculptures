@@ -1,0 +1,76 @@
+from pathlib import Path
+import json,math,traceback
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent;OUT=ROOT/"output"
+(ROOT/"render_error.log").unlink(missing_ok=True)
+(OUT/"render_complete.txt").unlink(missing_ok=True)
+try:
+    doc=App.openDocument(str(OUT/"print_prototype.FCStd"))
+    scene=json.loads((OUT/"scene.json").read_text())
+    colors=json.loads((OUT/"colors.json").read_text())
+    for s in scene:
+        o=doc.getObject(s["name"]);o.ViewObject.ShapeColor=tuple(colors.get(s["key"],[.67,.71,.75]))
+        o.ViewObject.LineColor=(.12,.17,.21)
+        o.ViewObject.DisplayMode="Flat Lines"
+        o.ViewObject.Visibility=True
+    Gui.getMainWindow().showMaximized();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+    def camera(target,height,rot):
+        view.redraw()
+        node=view.getCameraNode();node.orientation.setValue(*rot.Q)
+        p=V(*target)+rot.multVec(V(0,0,3000))
+        node.position.setValue(p.x,p.y,p.z);node.height.setValue(height)
+        node.nearDistance.setValue(1);node.farDistance.setValue(6500);node.focalDistance.setValue(3000)
+        Gui.updateGui()
+    rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),72))
+    camera((0,0,160),540*1400/2000,rot)
+    view.saveImage(str(OUT/"assembled.png"),1400,2000,"White")
+    camera((0,0,160),540,rot)
+    doc.save()
+    annotations=[]
+    for s in scene:
+        o=doc.getObject(s["name"]);c=o.Shape.BoundBox.Center
+        key=s["key"];stage=s["stage"];order=s["order"]
+        if s.get("hardware"):
+            if key not in ["H608","H604"]:
+                o.ViewObject.Visibility=False;continue
+            if stage==-1:z=78
+            elif stage==3:z=1690
+            elif key=="H604":z=300+stage*450+225
+            else:
+                z=300+stage*450+{1:92,5:193,7:242}[order]
+            x,y=c.x*1.35,c.y*1.35
+        elif stage==-1:
+            z={"P12":0,"P01":48,"P13":116,"P14":185,"P15":213,"P16":253}[key]
+            x,y=c.x,c.y
+            if key in ["P15","P16"]:x*=1.12;y*=1.12
+        elif stage<3:
+            base=300+stage*450
+            z=base+{"P02":32.2,"P03":32.2,"P04":145,"P05":214,"P06":286,"P07":245,"P08":283,"P09":342,"P10":385,"P11":385}.get(key,110 if order==2 else 175)
+            x,y=c.x,c.y
+            if key in ["P07","P08"]:x*=1.35;y*=1.35
+            if key=="P09":x+=18 if x>0 else -18
+        else:
+            z={"P17":1650,"P01":1710,"P18":1775,"P19":1860}[key]
+            x,y=c.x,c.y
+        o.Placement=App.Placement(V(x-c.x,y-c.y,z-c.z),App.Rotation()).multiply(o.Placement)
+        annotations.append(dict(key=key,stage=stage,order=order,point=[x,y,z],hardware=s.get("hardware",False)))
+    doc.recompute()
+    target=(0,0,915);height=2070
+    camera(target,height*1400/7600,rot)
+    view.saveImage(str(OUT/"exploded_raw.png"),1400,7600,"White")
+    camera(target,height,rot)
+    doc.saveCopy(str(OUT/"exploded_assembly.FCStd"))
+    # Orthographic projection parameters match the image aspect and camera.
+    for a in annotations:
+        p=rot.inverted().multVec(V(*a["point"])-V(*target))
+        a["pixel"]=[700+p.x*7600/height,3800-p.y*7600/height]
+    (OUT/"annotations.json").write_text(json.dumps(annotations,indent=2))
+    App.closeDocument(doc.Name)
+    (OUT/"render_complete.txt").write_text("Rendered assembled and exploded CAD.")
+except BaseException:
+    (ROOT/"render_error.log").write_text(traceback.format_exc())
+    for name in list(App.listDocuments()):App.closeDocument(name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)
