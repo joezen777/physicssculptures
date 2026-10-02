@@ -21,4 +21,5 @@ with (ROOT/"render.log").open("w") as log:
     subprocess.run([str(exe),str(ROOT/"render.FCMacro")],env=env,stdout=log,stderr=log,check=True)
 assert (ROOT/"output/render_complete.txt").exists()
 run("make_poster.py")
+subprocess.run(["python3",str(ROOT/"package.py")],check=True)
 print("CAD and previews saved. FreeCAD has exited.")

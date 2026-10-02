@@ -84,7 +84,7 @@ The main shaft and planet bolts remain stationary. Bearings rotate around clampe
 28. Join P19 to P18 with six M4 x16 bolts. Fit the M8 acorn nut at the top of the rod and confirm the rod end fits inside it without bottoming out.
 29. Hand-turn the input through several revolutions. Confirm speeds +1, -2, +4 and -8, clear fan/guard gaps, non-rubbing air collars and free bearings. Fix each fault before applying wind or a motor.
 
-Small fasteners and steel spacer tubes are listed in the image and this guide rather than drawn at every joint. The exploded picture is a placement guide; the bearing and fastener subassembly sequence above takes precedence.
+Every required purchased component is shown separately in the exploded image: 295 bearings, fasteners, washers and steel spacer/shaft pieces alongside 59 printed assembly parts. Gray hardware is labeled by specification, count at that location, and joint. Enlarged planet_joint_labeled.png and cup_joint_labeled.png views show the two small connection stacks in detail. The M8 rod is offset beside the base at its actual 468 mm length; the much taller exploded layout is not a shaft-cutting dimension. Threads and fastener details are simplified. The numbered assembly sequence above specifies insertion and tightening order.
 
 ## Design and verification references
 

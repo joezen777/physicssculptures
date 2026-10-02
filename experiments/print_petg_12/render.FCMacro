@@ -1,75 +1,115 @@
 from pathlib import Path
-import json,math,traceback
+import json,math,traceback,sys
 import FreeCAD as App,FreeCADGui as Gui
 from FreeCAD import Vector as V
 from PySide import QtCore
 from pivy import coin
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/"output"
+sys.path.insert(0,str(ROOT))
+from hardware_view import complete_hardware
 (ROOT/"render_error.log").unlink(missing_ok=True)
 (OUT/"render_complete.txt").unlink(missing_ok=True)
 try:
     doc=App.openDocument(str(OUT/"print_prototype.FCStd"))
-    scene=json.loads((OUT/"scene.json").read_text())
+    scene=complete_hardware(doc,json.loads((OUT/"scene.json").read_text()),OUT)
     colors=json.loads((OUT/"colors.json").read_text())
     for s in scene:
-        o=doc.getObject(s["name"]);o.ViewObject.ShapeColor=tuple(colors.get(s["key"],[.67,.71,.75]))
-        o.ViewObject.LineColor=(.12,.17,.21)
-        o.ViewObject.DisplayMode="Flat Lines"
-        o.ViewObject.Visibility=True
+        o=doc.getObject(s["name"]);o.ViewObject.ShapeColor=tuple(colors.get(s["key"],[.60,.65,.70]))
+        o.ViewObject.LineColor=(.12,.17,.21);o.ViewObject.DisplayMode="Flat Lines";o.ViewObject.Visibility=True
     Gui.getMainWindow().showMaximized();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
     def camera(target,height,rot):
-        view.redraw()
-        node=view.getCameraNode();node.orientation.setValue(*rot.Q)
-        p=V(*target)+rot.multVec(V(0,0,3000))
+        view.redraw();node=view.getCameraNode();node.orientation.setValue(*rot.Q)
+        p=V(*target)+rot.multVec(V(0,0,7000))
         node.position.setValue(p.x,p.y,p.z);node.height.setValue(height)
-        node.nearDistance.setValue(1);node.farDistance.setValue(6500);node.focalDistance.setValue(3000)
+        node.nearDistance.setValue(1);node.farDistance.setValue(14000);node.focalDistance.setValue(7000)
         Gui.updateGui()
     rot=App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),72))
     camera((0,0,160),540*1400/2000,rot)
     view.saveImage(str(OUT/"assembled.png"),1400,2000,"White")
-    camera((0,0,160),540,rot)
-    doc.save()
+    camera((0,0,160),540,rot);doc.save()
     annotations=[]
+    # Axial separation preserves each fastener's direction and radial mounting pattern.
+    stage_z={"pot retainer nuts":-38,"pot bearing":132,"pot retainer screws":192,
+        "pot upper spacer":230,"carrier lower nut":268,"carrier upper nut":330,
+        "planet axle":222,"planet lower nut":330,"planet lower spacer":375,
+        "carrier upper spacer":365,"sun retainer screws":390,"lower sun bearing":456,
+        "sun retainer nuts":522,"sun join screws":446,"sun inner spacer":540,
+        "upper sun bearing":566,"sun join nuts":650,
+        "planet retainer nuts":412,"planet bearing":480,"planet retainer screws":552,
+        "planet upper spacer":590,"planet washer":616,"planet upper nut":638,
+        "ring collar nuts":680,"ring collar screws":830,"interstage spacer":900}
+    base_z={"base lower nut":-42,"base upper nut":36,"base lower spacer":66,
+        "base retainer screws":76,"base bearing":142,"base retainer nuts":220,
+        "base upper spacer":250,"sail hub nuts":274,"sail hub screws":325,
+        "arm root nuts":340,"arm root screws":416,"cup screws":382,"cup washers":382,"cup nuts":382}
+    top_z={"top retainer nuts":3790,"top bearing":3930,"top retainer screws":4010,
+        "top spacer":4060,"top shaft nut":4110,"guard nuts":4190,"guard screws":4300,"top acorn":4360}
     for s in scene:
         o=doc.getObject(s["name"]);c=o.Shape.BoundBox.Center
-        key=s["key"];stage=s["stage"];order=s["order"]
+        key=s["key"];stage=s["stage"];order=s["order"];x,y=c.x,c.y
         if s.get("hardware"):
-            if key not in ["H608","H604"]:
-                o.ViewObject.Visibility=False;continue
-            if stage==-1:z=78
-            elif stage==3:z=1690
-            elif key=="H604":z=300+stage*450+225
-            else:
-                z=300+stage*450+{1:92,5:193,7:242}[order]
-            x,y=c.x*1.35,c.y*1.35
+            role=s["role"]
+            if role=="main rod":x,y,z=-145,0,180
+            elif stage==-1:
+                z=base_z[role]
+                if role.startswith("cup "):
+                    # Pull screw backwards and washer/nut forwards along the horizontal joint.
+                    v=o.Shape.Placement.Rotation.multVec(V(0,0,1))
+                    amount={"cup screws":-42,"cup washers":78,"cup nuts":95}[role]
+                    x+=v.x*amount;y+=v.y*amount
+            elif stage==3:z=top_z[role]
+            else:z=650+stage*1050+stage_z[role]
         elif stage==-1:
-            z={"P12":0,"P01":48,"P13":116,"P14":185,"P15":213,"P16":253}[key]
-            x,y=c.x,c.y
-            if key in ["P15","P16"]:x*=1.12;y*=1.12
+            z={"P12":0,"P01":104,"P13":186,"P14":302,"P15":382,"P16":382}[key]
+            if key=="P16":
+                # Local cup axis is tangential; translate out along it.
+                v=o.Shape.Placement.Rotation.multVec(V(0,0,1))
+                # Compound geometry may bake its rotation: recover axis from cup location.
+                a=math.atan2(c.y,c.x)-math.atan2(12,108)
+                x+=-math.sin(a)*55;y+=math.cos(a)*55
         elif stage<3:
-            base=300+stage*450
-            z=base+{"P02":32.2,"P03":32.2,"P04":145,"P05":214,"P06":286,"P07":245,"P08":283,"P09":342,"P10":385,"P11":385}.get(key,110 if order==2 else 175)
-            x,y=c.x,c.y
-            if key in ["P07","P08"]:x*=1.35;y*=1.35
+            z=650+stage*1050+{"P02":40,"P03":40,"P04":294,"P05":493,
+                "P06":607,"P07":446,"P08":516,"P09":725,"P10":783,"P11":783}.get(key,164 if order==2 else 419)
             if key=="P09":x+=18 if x>0 else -18
-        else:
-            z={"P17":1650,"P01":1710,"P18":1775,"P19":1860}[key]
-            x,y=c.x,c.y
+        else:z={"P17":3840,"P01":3970,"P18":4150,"P19":4250}[key]
         o.Placement=App.Placement(V(x-c.x,y-c.y,z-c.z),App.Rotation()).multiply(o.Placement)
-        annotations.append(dict(key=key,stage=stage,order=order,point=[x,y,z],hardware=s.get("hardware",False)))
+        annotations.append(dict(key=key,stage=stage,order=order,point=[x,y,z],
+            hardware=s.get("hardware",False),spec=s.get("spec",key),role=s.get("role",key),name=s["name"]))
     doc.recompute()
-    target=(0,0,915);height=2070
-    camera(target,height*1400/7600,rot)
-    view.saveImage(str(OUT/"exploded_raw.png"),1400,7600,"White")
-    camera(target,height,rot)
-    doc.saveCopy(str(OUT/"exploded_assembly.FCStd"))
-    # Orthographic projection parameters match the image aspect and camera.
+    target=(0,0,2110);height=4780;rw,rh=1600,14500
+    camera(target,height*rw/rh,rot)
+    view.saveImage(str(OUT/"exploded_raw.png"),rw,rh,"White")
+    camera(target,height,rot);doc.saveCopy(str(OUT/"exploded_assembly.FCStd"))
     for a in annotations:
         p=rot.inverted().multVec(V(*a["point"])-V(*target))
-        a["pixel"]=[700+p.x*7600/height,3800-p.y*7600/height]
+        a["pixel"]=[rw/2+p.x*rh/height,rh/2-p.y*rh/height]
     (OUT/"annotations.json").write_text(json.dumps(annotations,indent=2))
+    assert len(annotations)==len(scene) and all(doc.getObject(s["name"]).ViewObject.Visibility for s in scene)
+    (OUT/"exploded_hardware_validation.json").write_text(json.dumps({
+        **json.loads((OUT/"exploded_hardware_validation.json").read_text()),
+        "visible_instances":len(annotations),"all_instances_visible":True},indent=2))
+    # Enlarged joint views use the very same separated objects as the full tower.
+    detail_defs=[
+        ("planet_joint",(20,0,1100),570,1400,2600,rot),
+        ("cup_joint",(78,35,382),220,1400,1600,App.Rotation(V(0,0,1),-20).multiply(App.Rotation(V(1,0,0),28)))]
+    for detail,target2,h2,w2,rh2,rot2 in detail_defs:
+        selected=[]
+        for a in annotations:
+            x,y,z=a["point"];role=a["role"]
+            if detail=="planet_joint":
+                take=a["stage"]==0 and ((a["key"]=="P04") or
+                    ((role.startswith("planet ") or a["key"] in ["P07","P08"]) and x>40 and abs(y)<16))
+            else:
+                take=a["stage"]==-1 and next(s["center"][0] for s in scene if s["name"]==a["name"])>60 and (a["key"] in ["P15","P16"] or role.startswith("cup "))
+            doc.getObject(a["name"]).ViewObject.Visibility=take
+            if take:
+                b=dict(a);p=rot2.inverted().multVec(V(*a["point"])-V(*target2))
+                b["pixel"]=[w2/2+p.x*rh2/h2,rh2/2-p.y*rh2/h2];selected.append(b)
+        camera(target2,h2*w2/rh2,rot2)
+        view.saveImage(str(OUT/(detail+"_raw.png")),w2,rh2,"White")
+        (OUT/(detail+"_annotations.json")).write_text(json.dumps(selected,indent=2))
     App.closeDocument(doc.Name)
-    (OUT/"render_complete.txt").write_text("Rendered assembled and exploded CAD.")
+    (OUT/"render_complete.txt").write_text("Rendered every printed and purchased assembly item.")
 except BaseException:
     (ROOT/"render_error.log").write_text(traceback.format_exc())
     for name in list(App.listDocuments()):App.closeDocument(name)

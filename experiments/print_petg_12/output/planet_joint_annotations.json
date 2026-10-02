@@ -1,0 +1,290 @@
+[
+  {
+    "key": "P04",
+    "stage": 0,
+    "order": 3,
+    "point": [
+      13.504750266214678,
+      0.0067305647058475415,
+      944
+    ],
+    "hardware": false,
+    "spec": "P04",
+    "role": "P04",
+    "name": "P04_13",
+    "pixel": [
+      672.1487989339769,
+      1979.874206616917
+    ]
+  },
+  {
+    "key": "P07",
+    "stage": 0,
+    "order": 7,
+    "point": [
+      54.00000000000001,
+      0.0,
+      1096
+    ],
+    "hardware": false,
+    "spec": "P07",
+    "role": "P07",
+    "name": "P07_17",
+    "pixel": [
+      845.7347853990777,
+      1300.9613833765661
+    ]
+  },
+  {
+    "key": "P08",
+    "stage": 0,
+    "order": 9,
+    "point": [
+      54.0,
+      -4.440892098500626e-15,
+      1166
+    ],
+    "hardware": false,
+    "spec": "P08",
+    "role": "P08",
+    "name": "P08_18",
+    "pixel": [
+      845.7347853990777,
+      997.2907062437275
+    ]
+  },
+  {
+    "key": "M4x75",
+    "stage": 0,
+    "order": 3,
+    "point": [
+      54.0,
+      -4.440892098500626e-16,
+      872
+    ],
+    "hardware": true,
+    "spec": "M4 x75 axle bolt",
+    "role": "planet axle",
+    "name": "Hardware_15",
+    "pixel": [
+      845.7347853990777,
+      2272.707550201649
+    ]
+  },
+  {
+    "key": "M4_nut",
+    "stage": 0,
+    "order": 3,
+    "point": [
+      54.0,
+      0.0,
+      980
+    ],
+    "hardware": true,
+    "spec": "M4 nut",
+    "role": "planet lower nut",
+    "name": "Hardware_16",
+    "pixel": [
+      845.7347853990777,
+      1804.1870769109842
+    ]
+  },
+  {
+    "key": "T4_37.2",
+    "stage": 0,
+    "order": 4,
+    "point": [
+      54.007696014912156,
+      0.0,
+      1025
+    ],
+    "hardware": true,
+    "spec": "Tube ID4.2 OD6 L37.2",
+    "role": "planet lower spacer",
+    "name": "Hardware_17",
+    "pixel": [
+      845.7677729603028,
+      1608.9665028303014
+    ]
+  },
+  {
+    "key": "H604",
+    "stage": 0,
+    "order": 6,
+    "point": [
+      54.00455545070005,
+      0.0,
+      1130
+    ],
+    "hardware": true,
+    "spec": "604 bearing",
+    "role": "planet bearing",
+    "name": "Hardware_18",
+    "pixel": [
+      845.7543115058473,
+      1153.4620011810468
+    ]
+  },
+  {
+    "key": "T4_10",
+    "stage": 0,
+    "order": 9,
+    "point": [
+      54.00365392461026,
+      2.220446049250313e-16,
+      1240
+    ],
+    "hardware": true,
+    "spec": "Tube ID4.2 OD6 L10",
+    "role": "planet upper spacer",
+    "name": "Hardware_19",
+    "pixel": [
+      845.7504472790465,
+      676.2656574505775
+    ]
+  },
+  {
+    "key": "M4_washer",
+    "stage": 0,
+    "order": 10,
+    "point": [
+      54.0,
+      0.0,
+      1266
+    ],
+    "hardware": true,
+    "spec": "M4 washer OD7",
+    "role": "planet washer",
+    "name": "Hardware_20",
+    "pixel": [
+      845.7347853990777,
+      563.4754531968155
+    ]
+  },
+  {
+    "key": "M4_nut",
+    "stage": 0,
+    "order": 10,
+    "point": [
+      54.0,
+      0.0,
+      1288
+    ],
+    "hardware": true,
+    "spec": "M4 nut",
+    "role": "planet upper nut",
+    "name": "Hardware_21",
+    "pixel": [
+      845.7347853990777,
+      468.0360975264948
+    ]
+  },
+  {
+    "key": "M2.5 x16 screw",
+    "stage": 0,
+    "order": 0,
+    "point": [
+      64.33595248737282,
+      1.823305865502769,
+      1202
+    ],
+    "hardware": true,
+    "spec": "M2.5 x16 screw",
+    "role": "planet retainer screws",
+    "name": "AddedHardware222",
+    "pixel": [
+      887.19343182733,
+      833.7192547030711
+    ]
+  },
+  {
+    "key": "M2.5 nut",
+    "stage": 0,
+    "order": 0,
+    "point": [
+      64.34048140662819,
+      1.823305865502769,
+      1062
+    ],
+    "hardware": true,
+    "spec": "M2.5 nut",
+    "role": "planet retainer nuts",
+    "name": "AddedHardware223",
+    "pixel": [
+      887.2128442119114,
+      1441.058425599853
+    ]
+  },
+  {
+    "key": "M2.5 x16 screw",
+    "stage": 0,
+    "order": 0,
+    "point": [
+      47.24620117903598,
+      8.043466652749268,
+      1202
+    ],
+    "hardware": true,
+    "spec": "M2.5 x16 screw",
+    "role": "planet retainer screws",
+    "name": "AddedHardware224",
+    "pixel": [
+      804.2373142016627,
+      833.7192547030711
+    ]
+  },
+  {
+    "key": "M2.5 nut",
+    "stage": 0,
+    "order": 0,
+    "point": [
+      47.250730098291335,
+      8.043466652749268,
+      1062
+    ],
+    "hardware": true,
+    "spec": "M2.5 nut",
+    "role": "planet retainer nuts",
+    "name": "AddedHardware225",
+    "pixel": [
+      804.2567265862441,
+      1441.058425599853
+    ]
+  },
+  {
+    "key": "M2.5 x16 screw",
+    "stage": 0,
+    "order": 0,
+    "point": [
+      50.40425957582512,
+      -9.866772518252038,
+      1202
+    ],
+    "hardware": true,
+    "spec": "M2.5 x16 screw",
+    "role": "planet retainer screws",
+    "name": "AddedHardware226",
+    "pixel": [
+      845.7153730144962,
+      855.9196861410605
+    ]
+  },
+  {
+    "key": "M2.5 nut",
+    "stage": 0,
+    "order": 0,
+    "point": [
+      50.40878849508048,
+      -9.866772518252038,
+      1062
+    ],
+    "hardware": true,
+    "spec": "M2.5 nut",
+    "role": "planet retainer nuts",
+    "name": "AddedHardware227",
+    "pixel": [
+      845.7347853990777,
+      1463.2588570378425
+    ]
+  }
+]

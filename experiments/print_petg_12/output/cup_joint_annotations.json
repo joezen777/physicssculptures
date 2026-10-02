@@ -1,0 +1,92 @@
+[
+  {
+    "key": "P15",
+    "stage": -1,
+    "order": 4,
+    "point": [
+      69.62694906052774,
+      -10.815739337484038,
+      382
+    ],
+    "hardware": false,
+    "spec": "P15",
+    "role": "P15",
+    "name": "P15_5",
+    "pixel": [
+      756.7404476617539,
+      1094.8496842572804
+    ]
+  },
+  {
+    "key": "P16",
+    "stage": -1,
+    "order": 5,
+    "point": [
+      108.0,
+      67.0,
+      382
+    ],
+    "hardware": false,
+    "spec": "P16",
+    "role": "P16",
+    "name": "P16_6",
+    "pixel": [
+      825.4264293611335,
+      541.0185114955143
+    ]
+  },
+  {
+    "key": "M4 x25 screw",
+    "stage": -1,
+    "order": 0,
+    "point": [
+      108.00704498550833,
+      -34.5,
+      382
+    ],
+    "hardware": true,
+    "spec": "M4 x25 screw",
+    "role": "cup screws",
+    "name": "AddedHardware175",
+    "pixel": [
+      1077.9476269498687,
+      1153.4720044069572
+    ]
+  },
+  {
+    "key": "M4 washer OD9",
+    "stage": -1,
+    "order": 0,
+    "point": [
+      108.0,
+      92.4,
+      382
+    ],
+    "hardware": true,
+    "spec": "M4 washer OD9",
+    "role": "cup washers",
+    "name": "AddedHardware176",
+    "pixel": [
+      762.2459810667918,
+      387.75041568623834
+    ]
+  },
+  {
+    "key": "M4 nut",
+    "stage": -1,
+    "order": 0,
+    "point": [
+      108.0,
+      111.4,
+      382
+    ],
+    "hardware": true,
+    "spec": "M4 nut",
+    "role": "cup nuts",
+    "name": "AddedHardware177",
+    "pixel": [
+      714.9850158072448,
+      273.10105267929964
+    ]
+  }
+]

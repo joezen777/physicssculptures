@@ -4,7 +4,7 @@ from collections import defaultdict
 import json,csv,textwrap
 from PIL import Image,ImageDraw,ImageFont,ImageChops
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/"output"
-W,H=4200,8300
+W,H=4700,15200
 im=Image.new("RGB",(W,H),"white");d=ImageDraw.Draw(im)
 FONT="/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 BOLD="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
@@ -17,14 +17,14 @@ def wrap(x,y,s,width=52,size=30,b=False,color=ink):
     return y
 text(70,48,"FOUR-LEVEL FAN TUNNEL",78,True)
 text(74,146,"PETG  |  1.2 mm nozzle  |  Separate parts and assembly order",36,color=muted)
-d.line((70,220,4130,220),fill=blue,width=6)
+d.line((70,220,4630,220),fill=blue,width=6)
 raw=Image.open(OUT/"exploded_raw.png").convert("RGB")
-im.paste(raw,(700,300))
+im.paste(raw,(800,300))
 # Guide axis, unobtrusive and dashed.
-for y in range(360,7850,45):d.line((1400,y,1400,y+18),fill="#d2dce1",width=2)
+for y in range(360,14800,45):d.line((1600,y,1600,y+18),fill="#d2dce1",width=2)
 # Restore opaque render over guide; guide remains in white gaps only.
 mask=ImageChops.difference(raw,Image.new("RGB",raw.size,"white")).convert("L").point(lambda x:255 if x>12 else 0)
-im.paste(raw,(700,300),mask)
+im.paste(raw,(800,300),mask)
 names={
 "P01":"608 bearing retainer","P02":"Pot + fan floor A","P03":"Pot + fan floor B",
 "P04":"Fixed curved carrier","P05":"Lower sun bearing housing","P06":"36-tooth sun + hex socket",
@@ -36,7 +36,7 @@ names={
 "C01":"608 fit coupon","C02":"604 fit coupon"}
 ann=json.loads((OUT/"annotations.json").read_text())
 groups=defaultdict(list)
-for a in ann:groups[(a["stage"],a["key"],a["order"])].append(a)
+for a in ann:groups[(a["stage"],a["key"],a["role"] if a["hardware"] else a["order"])].append(a)
 ordered=sorted(groups.items(),key=lambda item:sum(a["pixel"][1] for a in item[1])/len(item[1]))
 columns=[[],[]]
 for i,(key,items) in enumerate(ordered):
@@ -45,22 +45,28 @@ for i,(key,items) in enumerate(ordered):
 for side,items in enumerate(columns):
     prev=290
     for key,points,target in items:
-        y=max(target-35,prev+104);prev=y
-        x=60 if side==0 else 2180
+        y=max(target-35,prev+140);prev=y
+        x=60 if side==0 else 2480
         stage,pid,order=key
         count=len(points)
         # Leader ends stop outside labels, never through the type.
-        edge=645 if side==0 else 2160
+        edge=735 if side==0 else 2460
         for a in points:
-            ax=700+a["pixel"][0];ay=300+a["pixel"][1]
-            elbow=675 if side==0 else 2130
+            ax=800+a["pixel"][0];ay=300+a["pixel"][1]
+            elbow=765 if side==0 else 2430
             d.line([(ax,ay),(elbow,ay),(edge,y+24)],fill=line,width=2)
             d.ellipse((ax-5,ay-5,ax+5,ay+5),fill=blue)
-        text(x,y,pid+"  x"+str(count),34,True,color=blue if not pid.startswith("H") else muted)
-        wrap(x,y+43,names[pid],width=29,size=27)
+        if points[0]["hardware"]:
+            label=points[0]["spec"]
+            wrap(x,y,label+"  x"+str(count),width=35,size=27,b=True,color=muted)
+            wrap(x,y+70,str(order).capitalize(),width=36,size=24)
+        else:
+            text(x,y,pid+"  x"+str(count),34,True,color=blue)
+            wrap(x,y+43,names[pid],width=29,size=27)
+        assert y+135 < H-280,("Label overflow",key,y)
 # Right-hand reference column.
-x=2930
-d.line((2850,265,2850,8050),fill="#d9e2e7",width=3)
+x=3410
+d.line((3320,265,3320,14930),fill="#d9e2e7",width=3)
 text(x,285,"ASSEMBLED REFERENCE",38,True)
 ref=Image.open(OUT/"assembled.png").convert("RGB")
 bb=ImageChops.difference(ref,Image.new("RGB",ref.size,"white")).getbbox()
@@ -108,12 +114,20 @@ for item in [
 "Build upward from the base. Preassemble bearings and their removable caps before stacking.",
 "Pot sequence: A, B, A; then the top fan B. Adjacent stages reverse rotation.",
 "Fit the ring halves sideways after meshing the sun and three planets. Rotate the second identical half 180 degrees.",
-"Small screws and spacer tubes are listed here rather than drawn at every joint. Gray rings in the exploded view are purchased bearings.",
+"Every required bearing, bolt, screw, nut, washer and steel spacer is drawn individually in gray, beside its joint. Threads are simplified.",
 "Use the numbered assembly guide for bolt lengths, nut pockets and spacer locations."]:
     y=wrap(x,y,item,width=59,size=28)+26
-text(70,7990,"ALL PRINTED ASSEMBLY PARTS SHOWN SEPARATELY  •  Part IDs match STL filenames",36,True)
-text(70,8050,"Prototype fit set: verify coupon fit, remove supports, and hand-turn each stage before adding the next.",30,color=muted)
-text(70,8095,"Nominal CAD and slicing checks are not physical load, airflow, durability or child-safety certification.",28,color=muted)
+text(70,14920,"ALL PRINTED AND PURCHASED ASSEMBLY PARTS SHOWN  •  Part IDs match STL filenames",36,True)
+text(70,14980,"Prototype fit set: verify coupon fit, remove supports, and hand-turn each stage before adding the next.",30,color=muted)
+text(70,15030,"Nominal CAD and slicing checks are not physical load, airflow, durability or child-safety certification.",28,color=muted)
+import runpy
+runpy.run_path(str(ROOT/"make_joint_posters.py"),run_name="__main__")
+for stem,yy in [("planet_joint",7800),("cup_joint",9800)]:
+    detail=Image.open(OUT/(stem+"_labeled.png")).convert("RGB")
+    detail.thumbnail((1210,1900));im.paste(detail,(3410,yy))
+text(3410,11400,"EVERY PIECE ACCOUNTED FOR",34,True)
+wrap(3410,11465,"295 purchased hardware pieces + 59 printed assembly pieces. Counts checked against the hardware list. Fit coupons are print trials and are not part of the assembled tower.",width=57,size=30)
+wrap(3410,11750,"The M8 rod is drawn alongside the base at its actual 468 mm length. Exploded spacing is enlarged for clarity; do not cut the rod to match the height of this separated view.",width=57,size=30)
 im.save(OUT/"exploded_assembly_labeled.png")
-preview=im.copy();preview.thumbnail((1260,2490));preview.save(OUT/"assembly_guide_preview.png")
+preview=im.copy();preview.thumbnail((1410,4560));preview.save(OUT/"assembly_guide_preview.png")
 print("Poster saved",im.size)

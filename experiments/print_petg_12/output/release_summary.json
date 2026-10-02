@@ -16,5 +16,8 @@
   "nominal_checks": "PASS",
   "slice_checks": "PASS",
   "fastener_envelopes_checked": 96,
-  "physical_testing": "Not yet performed"
+  "physical_testing": "Not yet performed",
+  "purchased_hardware_count": 295,
+  "exploded_assembly_instances": 354,
+  "hardware_representation": "All purchased items shown; threads simplified"
 }

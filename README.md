@@ -139,6 +139,8 @@ The current print set is in [experiments/print_petg_12/output/stl](experiments/p
 - [Labeled exploded assembly image](experiments/print_petg_12/output/exploded_assembly_labeled.png)
 - [Print settings, supports and full assembly guide](experiments/print_petg_12/output/PRINT_AND_ASSEMBLE.md)
 - [Printed-part quantities](experiments/print_petg_12/output/print_manifest.csv)
+- [604 bearing / P04 axle detail](experiments/print_petg_12/output/planet_joint_labeled.png)
+- [P16 cup / P15 arm detail](experiments/print_petg_12/output/cup_joint_labeled.png)
 - [Purchased bearings, spacers and fasteners](experiments/print_petg_12/output/hardware_bom.csv)
 - [FreeCAD assembly](experiments/print_petg_12/output/print_prototype.FCStd)
 - [Complete print package ZIP](experiments/print_petg_12/print_package_PETG_1p2mm.zip)

@@ -11,3 +11,13 @@ The print set has 19 production part types plus two bearing-fit coupons. The lar
 See [the assembly and printing guide](../experiments/print_petg_12/output/PRINT_AND_ASSEMBLE.md), [the exploded image](../experiments/print_petg_12/output/exploded_assembly_labeled.png), and the JSON verification reports in the output folder. Physical friction, wind startup, structural durability and child access are not validated by these CAD checks.
 
 Final checks passed: 21 single-component closed STL meshes, all footprints within 192 mm; nominal assembly-pair checks across 159 CAD instances; ten sampled gear phases; seven bearing insertion corridors; terminal blade sweep; 96 small-fastener shaft/head envelopes; and PrusaSlicer toolpath generation for every STL using the 1.2 mm inspection settings. The package contains 59 production prints plus two calibration coupons.
+
+## Complete purchased-hardware exploded view (2026-10-02)
+
+The exploded illustration and FreeCAD document now include every required purchased item individually, including screw heads, nuts, washers, axle bolts, and both spacer diameters. The previous view hid small hardware and only listed it; that omission is corrected. The 59 printed assembly instances plus 295 purchased instances give 354 visible objects. Quantity checks are written to exploded_hardware_validation.json.
+
+hardware_view.py supplements the original CAD scene with the 195 previously unrepresented screws, nuts, and cup washers. Geometry is simplified (no helical threads); existing planet axle shafts receive visible heads. The renderer adds these objects idempotently and saves both the assembled and exploded FreeCAD documents. All printing geometry and STL files remain unchanged, so the earlier slicing and mesh checks still apply. The original 159-instance collision report describes the earlier validation scope; this documentation update does not claim a new full collision analysis of all 354 objects.
+
+The full poster includes hardware at each repeated joint plus enlarged cup-to-arm and planet-axle views. The main rod is offset next to the base at actual length; exploded spacing is illustrative. FreeCAD closes after rendering.
+
+The packaging check independently reads hardware_bom.csv, matches every quantity against the annotation instances, verifies all 354 object names in the native exploded document, checks both joint-detail selections, and checks every ZIP entry against its source file. The launcher refreshes the ZIP after rendering.
