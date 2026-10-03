@@ -1,0 +1,18 @@
+sheet,file,print_copies,items_per_sheet,size_mm,calibration_only
+H00,H00_thread_fit_test_print-1x.stl,1,"{'M2.5 x8 screw': 1, 'M2.5 nut': 1, 'M3 x8 screw': 1, 'M3 nut': 1, 'M4 x8 screw': 1, 'M4 nut': 1, 'M8 x8 screw': 1, 'M8 nut': 1}","[109.288, 54.255, 24.112]",True
+H01,H01_M2p5x16_screws_print-3x.stl,3,{'M2.5 x16 screw': 9},"[94.239, 60.255, 24.713]",False
+H02,H02_M3x16_screws_print-3x.stl,3,{'M3 x16 screw': 8},"[101.195, 42.932, 25.415]",False
+H03,H03_M3x20_screws_print-1x.stl,1,{'M3 x20 screw': 9},"[76.742, 66.005, 29.278]",False
+H04,H04_M4x20_screws_print-3x.stl,3,{'M4 x20 screw': 7},"[101.323, 47.813, 30.512]",False
+H05,H05_M4x10_button_screws_print-1x.stl,1,{'M4 x10 button screw': 6},"[94.543, 41.145, 18.812]",False
+H06,H06_M4x25_screws_print-1x.stl,1,{'M4 x25 screw': 3},"[76.383, 26.794, 35.318]",False
+H07,H07_M4x16_screws_print-1x.stl,1,{'M4 x16 screw': 6},"[76.646, 45.899, 26.644]",False
+H08,H08_M4x75_axle_bolts_print-3x.stl,3,{'M4 x75 axle bolt': 3},"[76.383, 33.064, 84.748]",False
+H09,H09_M2p5_nuts_print-3x.stl,3,{'M2.5 nut': 9},"[79.662, 52.148, 9.589]",False
+H10,H10_M3_nuts_print-3x.stl,3,{'M3 nut': 11},"[81.76, 53.967, 10.136]",False
+H11,H11_M4_nuts_print-3x.stl,3,{'M4 nut': 18},"[121.139, 59.017, 11.401]",False
+H12,H12_M8_nuts_print-1x.stl,1,{'M8 nut': 9},"[62.07, 79.317, 16.554]",False
+H13,H13_M8_acorn_nut_print-1x.stl,1,{'M8 acorn nut': 1},"[30.616, 28.764, 20.824]",False
+H14,H14_washers_OD7_and_OD9_print-1x.stl,1,"{'M4 washer OD7': 9, 'M4 washer OD9': 3}","[88.777, 42.462, 9.83]",False
+H15,H15_ID8p2_OD12_spacers_print-1x.stl,1,"{'Tube ID8.2 OD12 L12.5': 1, 'Tube ID8.2 OD12 L32': 1, 'Tube ID8.2 OD12 L15': 3, 'Tube ID8.2 OD12 L5.9': 3, 'Tube ID8.2 OD12 L11': 3, 'Tube ID8.2 OD12 L44.6': 3, 'Tube ID8.2 OD12 L21': 1}","[165.372, 95.0, 50.6]",False
+H16,H16_ID4p2_OD6_spacers_print-1x.stl,1,"{'Tube ID4.2 OD6 L37.2': 9, 'Tube ID4.2 OD6 L10': 9}","[186.52, 71.0, 43.2]",False

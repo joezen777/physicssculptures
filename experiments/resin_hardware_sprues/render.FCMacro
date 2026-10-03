@@ -1,0 +1,55 @@
+from pathlib import Path
+import json,traceback
+import FreeCAD as App,FreeCADGui as Gui,Mesh
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent
+OUT=ROOT.parent/"print_petg_12/output/stl/resin_hardware_sprues"
+PRE=ROOT/"previews";PRE.mkdir(exist_ok=True)
+try:
+    doc=App.newDocument("HardwareSprues")
+    rows=json.loads((OUT/"sprue_manifest.json").read_text())
+    Gui.getMainWindow().showMaximized();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+    rot=App.Rotation(V(0,0,1),-25).multiply(App.Rotation(V(1,0,0),55))
+    groups={}
+    for row in rows:
+        check=Mesh.Mesh(str(OUT/row["file"]))
+        assert check.isSolid() and check.countComponents()==1,row["id"]
+        objs=[]
+        for suffix,color in [("frame",(.43,.49,.54)),("labels",(.95,.63,.13)),("parts",(.19,.53,.70))]:
+            o=doc.addObject("Mesh::Feature",row["id"]+"_"+suffix)
+            o.Label=row["id"]+" "+suffix+" | print "+str(row["print_copies"])+"x"
+            o.Mesh=Mesh.Mesh(str(ROOT/"render_meshes"/(row["id"]+"_"+suffix+".stl")))
+            o.ViewObject.ShapeColor=color;o.ViewObject.Visibility=False
+            o.ViewObject.DisplayMode="Shaded"
+            objs.append(o)
+        groups[row["id"]]=objs
+    validation=json.loads((OUT/"validation.json").read_text());validation["independent_freecad_stl_reload_pass"]=True
+    (OUT/"validation.json").write_text(json.dumps(validation,indent=2))
+    def frame(objs):
+        b=App.BoundBox()
+        for o in objs:b.add(o.Mesh.BoundBox)
+        c=b.Center
+        corners=[rot.inverted().multVec(V(x,y,z)-c) for x in [b.XMin,b.XMax] for y in [b.YMin,b.YMax] for z in [b.ZMin,b.ZMax]]
+        span=max(max(v.x for v in corners)-min(v.x for v in corners),max(v.y for v in corners)-min(v.y for v in corners))
+        node=view.getCameraNode();node.orientation.setValue(*rot.Q);p=c+rot.multVec(V(0,0,1500))
+        node.position.setValue(p.x,p.y,p.z);node.height.setValue(span*1.12)
+        node.nearDistance.setValue(1);node.farDistance.setValue(3500);node.focalDistance.setValue(1500)
+        Gui.updateGui();view.redraw()
+    for row in rows:
+        objs=groups[row["id"]]
+        for o in objs:o.ViewObject.Visibility=True
+        frame(objs)
+        view.saveImage(str(PRE/(row["id"]+".png")),900,900,"White")
+        if row["id"]=="H01":view.saveImage(str(OUT/"embossed_labels_detail.png"),2400,2400,"White")
+        if row["id"]=="H15":view.saveImage(str(OUT/"spacers_detail.png"),2400,2400,"White")
+        for o in objs:o.ViewObject.Visibility=False
+    for o in groups["H01"]:o.ViewObject.Visibility=True
+    frame(groups["H01"]);doc.recompute();doc.saveAs(str(ROOT/"hardware_sprues.FCStd"))
+    App.closeDocument(doc.Name)
+    (ROOT/"render_complete.txt").write_text("Hardware STL meshes independently checked and rendered; FreeCAD closes.")
+except BaseException:
+    (ROOT/"render_error.log").write_text(traceback.format_exc())
+    for name in list(App.listDocuments()):App.closeDocument(name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

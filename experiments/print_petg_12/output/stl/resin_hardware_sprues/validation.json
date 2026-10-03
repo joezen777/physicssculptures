@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "sheet_files": 17,
+  "production_hardware_count": 274,
+  "production_quantities": {
+    "M2.5 x16 screw": 27,
+    "M3 x16 screw": 24,
+    "M3 x20 screw": 9,
+    "M4 x20 screw": 21,
+    "M4 x10 button screw": 6,
+    "M4 x25 screw": 3,
+    "M4 x16 screw": 6,
+    "M4 x75 axle bolt": 9,
+    "M2.5 nut": 27,
+    "M3 nut": 33,
+    "M4 nut": 54,
+    "M8 nut": 9,
+    "M8 acorn nut": 1,
+    "M4 washer OD7": 9,
+    "M4 washer OD9": 3,
+    "Tube ID8.2 OD12 L12.5": 1,
+    "Tube ID8.2 OD12 L32": 1,
+    "Tube ID8.2 OD12 L15": 3,
+    "Tube ID8.2 OD12 L5.9": 3,
+    "Tube ID8.2 OD12 L11": 3,
+    "Tube ID8.2 OD12 L44.6": 3,
+    "Tube ID8.2 OD12 L21": 1,
+    "Tube ID4.2 OD6 L37.2": 9,
+    "Tube ID4.2 OD6 L10": 9
+  },
+  "calibration_items": 8,
+  "thread_checks": [
+    {
+      "size": 2.5,
+      "rotation_degrees": 0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 2.5,
+      "rotation_degrees": 90,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 2.5,
+      "rotation_degrees": 180,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 3,
+      "rotation_degrees": 0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 3,
+      "rotation_degrees": 90,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 3,
+      "rotation_degrees": 180,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 4,
+      "rotation_degrees": 0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 4,
+      "rotation_degrees": 90,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 4,
+      "rotation_degrees": 180,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 8,
+      "rotation_degrees": 0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 8,
+      "rotation_degrees": 90,
+      "overlap_mm3": 0.0
+    },
+    {
+      "size": 8,
+      "rotation_degrees": 180,
+      "overlap_mm3": 0.0
+    }
+  ],
+  "thread_method": "Analytic radial profile sampled as closed helical mesh, Manifold Boolean operations",
+  "thread_resolution": "48 angular samples (64 for M8), 24 axial steps per pitch",
+  "labels_font_pt": 12,
+  "emboss_mm": 0.8,
+  "all_closed_connected_meshes": true,
+  "all_fit_M5s": true,
+  "excluded_purchased_parts": {
+    "608 bearings": 11,
+    "604 bearings": 9,
+    "M8 steel rod 468 mm": 1
+  },
+  "independent_freecad_stl_reload_pass": true
+}

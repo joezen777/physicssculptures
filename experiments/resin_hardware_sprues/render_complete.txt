@@ -1,0 +1,1 @@
+Hardware STL meshes independently checked and rendered; FreeCAD closes.

@@ -56,3 +56,10 @@ experiments/print_petg_12/*.log
 
 # Resin sprue generation diagnostics
 experiments/resin_sprues/*.log
+
+# Resin hardware sprue diagnostics
+experiments/resin_hardware_sprues/*.log
+
+experiments/resin_hardware_sprues/render_meshes/
+experiments/resin_hardware_sprues/label_request.json
+experiments/resin_hardware_sprues/label_meshes.json
