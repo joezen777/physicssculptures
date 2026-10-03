@@ -35,7 +35,7 @@ report=json.loads((OUT/"exploded_hardware_validation.json").read_text())
 report.update(bom_csv_quantities_match=True,native_exploded_object_names_match=True,joint_details_checked=True)
 (OUT/"exploded_hardware_validation.json").write_text(json.dumps(report,indent=2)+"\n")
 names=["PRINT_AND_ASSEMBLE.md","print_manifest.csv","hardware_bom.csv","parts.json","release_summary.json",
-       "validation.json","fastener_validation.json","slice_validation.json","exploded_hardware_validation.json",
+       "dovetail_validation.json","sun_housing_dovetails.png","ring_half_dovetails.png","validation.json","fastener_validation.json","slice_validation.json","exploded_hardware_validation.json",
        "exploded_assembly_labeled.png","assembly_guide_preview.png","assembled.png",
        "planet_joint_labeled.png","cup_joint_labeled.png","print_prototype.FCStd","exploded_assembly.FCStd"]
 files=[(p,"stl/"+p.name) for p in sorted((OUT/"stl").glob("*.stl"))]

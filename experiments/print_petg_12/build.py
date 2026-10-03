@@ -6,7 +6,7 @@ from FreeCAD import Vector as V
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/"output";STL=OUT/"stl"
 OUT.mkdir(exist_ok=True);STL.mkdir(exist_ok=True)
-for name in ["complete.txt","validation.json","fastener_validation.json","slice_validation.json","render_complete.txt"]:(OUT/name).unlink(missing_ok=True)
+for name in ["complete.txt","dovetail_validation.json","dovetail_render_complete.txt","validation.json","fastener_validation.json","slice_validation.json","render_complete.txt"]:(OUT/name).unlink(missing_ok=True)
 M=2.;NS=36;NP=18;NR=72;ROW=4.8;GAP=.8;FACE=10.4;PITCH=116.
 COLORS={"pot":(.12,.48,.72),"gear":(.95,.62,.14),"planet":(.18,.65,.45),"ring":(.58,.38,.75),"fixed":(.28,.33,.39),"metal":(.68,.72,.76)}
 catalog={};instances=[];hardware=[]
@@ -131,10 +131,18 @@ register("P04","fixed_curved_carrier",carrier,"fixed","flat","None","Captured M8
 
 log("Coarse gear templates")
 sun_teeth=double_gear(NS);planet_teeth=double_gear(NP)
+# Axially sliding dovetail keys locate the split housing; M3 screws retain it.
+def dovetail_key(clearance=0):
+    c=clearance
+    pts=[V(11.8-c,-2.7-c,64),V(12.7,-2.7-c,64),V(15.8+c,-4.05-c,64),
+         V(15.8+c,4.05+c,64),V(12.7,2.7+c,64),V(11.8-c,2.7+c,64)]
+    return Part.Face(Part.makePolygon(pts+[pts[0]])).extrude(V(0,0,4.4 if c else 4))
 # Sun housing splits at z64. Both bearing pockets open onto accessible assembly faces.
 lower=shift(ann(22,6.3,14),50)
 lower=lower.cut(cyl(11.2,7.4,50))
 lower=lower.fuse(shift(ann(12.4,9.5,4),64))
+for a in [30,150,270]:
+    key=dovetail_key();key.rotate(V(),V(0,0,1),a);lower=lower.fuse(key)
 lower=holes(lower,17.5,[0,120,240],1.8,49,17)
 lower=holes(lower,17.5,[0,120,240],3.1,50,3.4)
 lower=holes(lower,17.5,[60,180,300],1.8,49,15)
@@ -145,6 +153,8 @@ upper=upper.cut(cyl(6.3,60,63))
 upper=upper.cut(shift(ann(24,20,5.5),110.5))
 upper=holes(upper,17.5,[0,120,240],2.6,113,4)
 upper=upper.cut(cyl(12.7,4.4,64)).cut(cyl(11.2,7,68.4))
+for a in [30,150,270]:
+    socket=dovetail_key(.3);socket.rotate(V(),V(0,0,1),a);upper=upper.cut(socket)
 upper=upper.cut(shift(hexagon(24.6,22.2),94))
 upper=holes(upper,17.5,[0,120,240],1.8,63,13)
 upper=radial_nut_slots(upper,17.5,[0,120,240],68.8)
@@ -167,7 +177,16 @@ ring=rows[0].fuse(rows[1]).fuse(shift(ann(82,74.6,GAP),ROW))
 ring=ring.fuse(shift(ann(96,74.8,4.8),FACE))
 ring=holes(ring,90,list(range(0,360,60)),2.25,-1,18)
 half=ring.common(Part.makeBox(110,220,30,V(.3,-110,-1)))
-register("P09","72T_ring_half",half,"ring","upside_down","None","Two identical halves per stage; second half rotated 180 degrees.")
+# Identical halves: male north seam, female south seam; assemble axially.
+def ring_dovetail(clearance=0):
+    c=clearance
+    pts=[V(1.5+c,88-2.7-c,FACE),V(.3,88-2.7-c,FACE),V(-4.5-c,88-4.2-c,FACE),
+         V(-4.5-c,88+4.2+c,FACE),V(.3,88+2.7+c,FACE),V(1.5+c,88+2.7+c,FACE)]
+    return Part.Face(Part.makePolygon(pts+[pts[0]])).extrude(V(0,0,4.8))
+half=half.fuse(ring_dovetail())
+socket=ring_dovetail(.3);socket.rotate(V(),V(0,0,1),180)
+socket=socket.fuse(shift(socket,.1)).fuse(shift(socket,-.1));half=half.cut(socket)
+register("P09","72T_ring_half",half,"ring","upside_down","None","Two identical halves per stage; rotate second 180 degrees and slide axially into the two dovetails before bolting the collar.")
 
 def collar(top_r,height):
     s=Part.makeCone(94.4,top_r,height).cut(Part.makeCone(90.8,top_r-3.6,height))

@@ -10,7 +10,7 @@ exe=Path(os.getenv("FREECAD_APP",str(Path.home()/"Applications/freecad-experimen
 env=os.environ.copy();env["PYTHONPATH"]=str(exe.parent/"usr/lib")
 def run(script):subprocess.run([str(exe),"python",str(ROOT/script)],env=env,check=True)
 if not args.render_only:
-    run("build.py");run("validate.py");run("check_fasteners.py")
+    run("build.py");run("validate.py");run("check_fasteners.py");run("check_dovetails.py")
     for f in ["validation.json","fastener_validation.json"]:
         assert json.loads((ROOT/"output"/f).read_text())["status"]=="PASS",f
     if args.slice_check:subprocess.run(["python3",str(ROOT/"check_slicing.py")],check=True)
@@ -20,6 +20,9 @@ env["QTWEBENGINE_DISABLE_SANDBOX"]="1"
 with (ROOT/"render.log").open("w") as log:
     subprocess.run([str(exe),str(ROOT/"render.FCMacro")],env=env,stdout=log,stderr=log,check=True)
 assert (ROOT/"output/render_complete.txt").exists()
+with (ROOT/"dovetail_render.log").open("w") as log:
+    subprocess.run([str(exe),str(ROOT/"render_dovetails.FCMacro")],env=env,stdout=log,stderr=log,check=True)
+assert (ROOT/"output/dovetail_render_complete.txt").exists()
 run("make_poster.py")
 subprocess.run(["python3",str(ROOT/"package.py")],check=True)
 print("CAD and previews saved. FreeCAD has exited.")

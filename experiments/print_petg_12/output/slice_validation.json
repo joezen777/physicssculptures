@@ -21,9 +21,9 @@
       "supports": true,
       "warnings": "",
       "layers": 374,
-      "extrusion_moves": 303967,
+      "extrusion_moves": 304180,
       "filament_mm": [
-        "317922.97"
+        "317923.41"
       ]
     },
     {
@@ -32,9 +32,9 @@
       "supports": true,
       "warnings": "",
       "layers": 374,
-      "extrusion_moves": 303810,
+      "extrusion_moves": 303863,
       "filament_mm": [
-        "317639.94"
+        "317639.90"
       ]
     },
     {
@@ -54,9 +54,9 @@
       "supports": false,
       "warnings": "",
       "layers": 45,
-      "extrusion_moves": 42430,
+      "extrusion_moves": 43878,
       "filament_mm": [
-        "7234.78"
+        "7350.45"
       ]
     },
     {
@@ -65,9 +65,9 @@
       "supports": true,
       "warnings": "",
       "layers": 152,
-      "extrusion_moves": 138928,
+      "extrusion_moves": 139224,
       "filament_mm": [
-        "52263.02"
+        "52102.71"
       ]
     },
     {
@@ -98,9 +98,9 @@
       "supports": false,
       "warnings": "",
       "layers": 38,
-      "extrusion_moves": 88053,
+      "extrusion_moves": 89648,
       "filament_mm": [
-        "21793.55"
+        "21780.04"
       ]
     },
     {
@@ -109,9 +109,9 @@
       "supports": true,
       "warnings": "",
       "layers": 72,
-      "extrusion_moves": 74691,
+      "extrusion_moves": 74672,
       "filament_mm": [
-        "67678.11"
+        "67678.10"
       ]
     },
     {
@@ -120,9 +120,9 @@
       "supports": true,
       "warnings": "",
       "layers": 68,
-      "extrusion_moves": 52447,
+      "extrusion_moves": 52431,
       "filament_mm": [
-        "20932.32"
+        "20932.34"
       ]
     },
     {
@@ -142,9 +142,9 @@
       "supports": true,
       "warnings": "",
       "layers": 104,
-      "extrusion_moves": 67234,
+      "extrusion_moves": 67222,
       "filament_mm": [
-        "26814.44"
+        "26812.05"
       ]
     },
     {
@@ -164,9 +164,9 @@
       "supports": true,
       "warnings": "",
       "layers": 44,
-      "extrusion_moves": 11132,
+      "extrusion_moves": 11102,
       "filament_mm": [
-        "5135.63"
+        "5135.75"
       ]
     },
     {

@@ -3,11 +3,11 @@ R01,R01_608_retainers_print-1x.stl,1,P01 x8,191.0,107.798,27.858,54.761,YES
 R02,R02_pot_fan_A_print-2x.stl,2,P02 x1,215.0,114.4,198.0,237.742,YES
 R03,R03_pot_fan_B_print-1x.stl,1,P03 x1,215.0,114.4,198.0,237.742,YES
 R04,R04_fixed_carrier_print-3x.stl,3,P04 x1,117.531,108.796,58.715,42.918,YES
-R05,R05_lower_sun_housings_print-1x.stl,1,P05 x3,144.0,59.794,37.284,59.833,YES
-R06,R06_sun_socket_print-3x.stl,3,P06 x1,81.182,84.248,72.033,87.951,YES
+R05,R05_lower_sun_housings_print-1x.stl,1,P05 x3,144.0,59.794,37.284,60.664,YES
+R06,R06_sun_socket_print-3x.stl,3,P06 x1,81.182,84.248,72.033,87.655,YES
 R07,R07_planet_gears_print-1x.stl,1,P07 x9,129.507,113.732,45.747,88.293,YES
 R08,R08_604_retainers_print-1x.stl,1,P08 x9,102.0,96.469,32.639,36.006,YES
-R09,R09_ring_half_print-6x.stl,6,P09 x1,197.999,99.279,67.014,58.49,YES
+R09,R09_ring_half_print-6x.stl,6,P09 x1,197.999,103.436,67.014,58.044,YES
 R10,R10_interstage_collar_print-2x.stl,2,P10 x1,198.0,96.06,183.414,58.789,YES
 R11,R11_terminal_collar_print-1x.stl,1,P11 x1,198.0,94.288,183.414,47.603,YES
 R12,R12_stationary_base_print-1x.stl,1,P12 x1,198.0,90.944,190.525,360.259,YES

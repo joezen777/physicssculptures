@@ -54,3 +54,11 @@ The main shaft and planet bolts remain stationary. Bearings rotate around clampe
 29. Hand-turn the input through several revolutions. Confirm speeds +1, -2, +4 and -8, clear fan/guard gaps, non-rubbing air collars and free bearings. Fix each fault before applying wind or a motor.
 
 Every required purchased component is shown separately in the exploded image: 295 bearings, fasteners, washers and steel spacer/shaft pieces alongside 59 printed assembly parts. Gray hardware is labeled by specification, count at that location, and joint. Enlarged planet_joint_labeled.png and cup_joint_labeled.png views show the two small connection stacks in detail. The M8 rod is offset beside the base at its actual 468 mm length; the much taller exploded layout is not a shaft-cutting dimension. Threads and fastener details are simplified. The numbered assembly sequence above specifies insertion and tightening order.
+
+## Split-part dovetail assembly
+
+1. After inserting the sun bearings, align the three P05 keys with P06 and slide the housing together axially. Install the existing three M3 housing screws.
+2. Rotate the second P09 ring half 180 degrees. Align both flange dovetails and slide the halves together axially before placing the ring in the pot.
+3. Seat the complete ring and install the P10/P11 collar and its existing bolts. The bolts prevent axial separation. Do not force resin dovetails or try to snap them together sideways.
+
+Socket clearance is 0.30 mm per side. Hardware sprue components are one-piece prints.

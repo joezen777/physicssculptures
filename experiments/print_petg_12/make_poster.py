@@ -1,3 +1,4 @@
+import os
 """Compose the engineering assembly poster from native CAD renders."""
 from pathlib import Path
 from collections import defaultdict
@@ -128,6 +129,7 @@ for stem,yy in [("planet_joint",7800),("cup_joint",9800)]:
 text(3410,11400,"EVERY PIECE ACCOUNTED FOR",34,True)
 wrap(3410,11465,"295 purchased hardware pieces + 59 printed assembly pieces. Counts checked against the hardware list. Fit coupons are print trials and are not part of the assembled tower.",width=57,size=30)
 wrap(3410,11750,"The M8 rod is drawn alongside the base at its actual 468 mm length. Exploded spacing is enlarged for clarity; do not cut the rod to match the height of this separated view.",width=57,size=30)
-im.save(OUT/"exploded_assembly_labeled.png")
+im.save(OUT/"exploded_assembly_labeled_new.png")
+os.replace(OUT/"exploded_assembly_labeled_new.png",OUT/"exploded_assembly_labeled.png")
 preview=im.copy();preview.thumbnail((1410,4560));preview.save(OUT/"assembly_guide_preview.png")
 print("Poster saved",im.size)

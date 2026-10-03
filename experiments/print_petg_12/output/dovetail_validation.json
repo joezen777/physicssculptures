@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "socket_clearance_mm": 0.3,
+  "axial_insertion_checks": [
+    {
+      "joint": "P05/P06 sun housing",
+      "axial_separation_mm": 12,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P05/P06 sun housing",
+      "axial_separation_mm": 8,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P05/P06 sun housing",
+      "axial_separation_mm": 4,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P05/P06 sun housing",
+      "axial_separation_mm": 2,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P05/P06 sun housing",
+      "axial_separation_mm": 1,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P05/P06 sun housing",
+      "axial_separation_mm": 0,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P09 ring halves",
+      "axial_separation_mm": 12,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P09 ring halves",
+      "axial_separation_mm": 8,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P09 ring halves",
+      "axial_separation_mm": 4,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P09 ring halves",
+      "axial_separation_mm": 2,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P09 ring halves",
+      "axial_separation_mm": 1,
+      "overlap_mm3": 0.0
+    },
+    {
+      "joint": "P09 ring halves",
+      "axial_separation_mm": 0,
+      "overlap_mm3": 0.0
+    }
+  ],
+  "physical_fit_tested": false
+}

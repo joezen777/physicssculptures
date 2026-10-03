@@ -86,7 +86,7 @@
       "closed": true,
       "components": 1,
       "size_mm": [
-        95.7,
+        100.5,
         192.0,
         15.2
       ]
@@ -147,7 +147,7 @@
       "components": 1,
       "size_mm": [
         92.75,
-        33.59,
+        33.53,
         16.0
       ]
     },
@@ -338,20 +338,20 @@
     "C01_608_fit_coupon_print-1x.stl": "9bc243e9a0a34c8ea11d1bb720458ee6ada70cf305bd5dec0bcc867904519f80",
     "C02_604_fit_coupon_print-1x.stl": "1efa9efbe4421940659b842d42ce45b558934f1a3033c308faaefd1fdf45ddd2",
     "P01_608_retainer_print-8x.stl": "af3328e984eafef40093841ed62b82b524b2323c46b5c5cf4cbc0a6bb9c17b88",
-    "P02_pot_fan_A_print-2x.stl": "a7674cf16e116f4fc2fcf2af317a4e3a206b7dacade277d502a00e4c6cc90f65",
-    "P03_pot_fan_B_print-1x.stl": "88a36b4ef3dae1719738fc5d61ae37189e94119998968e7d0bf6f74b2cbfda96",
+    "P02_pot_fan_A_print-2x.stl": "fca8a7751d55ebb54e29d63b7d7789d7dbc238f608187f823ebef4081e547c14",
+    "P03_pot_fan_B_print-1x.stl": "9cd8fbc13a686abf3833905953539b4972bc40306f63bcce7a6a1a15e8c3dd49",
     "P04_fixed_curved_carrier_print-3x.stl": "2891b0eec5affd61d52f991621d1a5686d2f1d3d7f8dbcba0e640ec644bafd0e",
-    "P05_sun_lower_bearing_housing_print-3x.stl": "15c732277debae2cbf1fd33af28e19856fe8b8ed9d275e1507762a5a22c5dfe6",
-    "P06_sun_36T_socket_print-3x.stl": "08ce1e6bcca9a00fd1a282531809085a11b2e5f1325491db3855d5b73fc42ae2",
+    "P05_sun_lower_bearing_housing_print-3x.stl": "df66c19d47a0130ebb8c54152aafeba7bd6033551e92bfdde6924d62ffdf9300",
+    "P06_sun_36T_socket_print-3x.stl": "ffa67d3c940b5930b5af4d2f578ea857ca379e768b8805eb80ad325bf1c7b79d",
     "P07_planet_18T_604_print-9x.stl": "e8222cbf83da0fca6cf7d96e24630b72fc915ca133b86a9ec83572964786254c",
     "P08_604_retainer_print-9x.stl": "351d156a39c070064ebd6da1af420d0504c371a2ba6db17caa3767cd9f881788",
-    "P09_72T_ring_half_print-6x.stl": "5ebcb58085e825dd6365c6ced876eeb878c38a26b6620d9ffe257f857d2b8695",
-    "P10_interstage_air_collar_print-2x.stl": "0f16eb094a1dddc2d7ae0f297fef83ea13eb8905dc62dbe9b1ef1e7e465db00a",
-    "P11_terminal_air_collar_print-1x.stl": "661dd0bad69b223587c186fb38a3e46a4abf386078d8decd3f1ba8a9b2125548",
+    "P09_72T_ring_half_print-6x.stl": "078258f0c644b0eea6fc1991e75eea65ac9934be60de2b7f40899ea984b1d7b8",
+    "P10_interstage_air_collar_print-2x.stl": "612b021c514b02032690020d2b7eca15ca78a95c4ad9f9a7efa65ebb0701533a",
+    "P11_terminal_air_collar_print-1x.stl": "f13ce79897bbe9b3d2f0695f08204f9c9a05951ec36af7a51a5999c089a40805",
     "P12_stationary_base_print-1x.stl": "c4f8a1465d41bdd241520b500b592c69a41b1614c473d4c987bd2e760d39e819",
-    "P13_base_drive_adapter_print-1x.stl": "a5b05c883a0c2f98066e7b4fb743a0eaa05dc6df9a180956981b641ef411c22c",
+    "P13_base_drive_adapter_print-1x.stl": "df99f2c046bba99619bb139818ee989a926da47a89ba9776b1e8d7f59e0e0423",
     "P14_sail_hex_hub_print-1x.stl": "ad419008f746780133ac5cad7356832142e3a138fb91dd8bac6622f44c4f9bc8",
-    "P15_curved_sail_arm_print-3x.stl": "e934e920b411a219599e50ed19649c76840093c14425e06b32f8bf43b077bbed",
+    "P15_curved_sail_arm_print-3x.stl": "4b7753c75624115647bd7cb48cadb6cb9bc8749e86812281758ff8ccfbba0748",
     "P16_wind_cup_print-3x.stl": "446b72d4c719ae822f772a886152a70630df36025552248d68769e8fa0df4853",
     "P17_top_fan_B_print-1x.stl": "6823ca0dfc1387c29af72d164891d622ad1ba31bd36fc828141dcb23b3d83d03",
     "P18_top_guard_shroud_print-1x.stl": "96b93c403277bbb26b68fdda254ad086f15ac9167ebc180c5acba4019cca7aff",

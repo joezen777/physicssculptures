@@ -2,7 +2,9 @@
 
 **Latest print files:** [1.2 mm PETG STL set](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
 
-**Resin sprue sheets:** [Photon Mono M5s / ABS-Like Pro 2 kit](experiments/print_petg_12/output/stl/resin_sprue_sheets) with raised 12-point part IDs. [Sheet index](experiments/print_petg_12/output/stl/resin_sprue_sheets/sprue_sheets_preview.png). Add final resin supports in the slicer.
+**Hardware sprues:** [Resin screws, nuts, washers and tube spacers](experiments/print_petg_12/output/stl/resin_hardware_sprues), with modeled threads and raised 12-point size labels. [Hardware sheet index](experiments/print_petg_12/output/stl/resin_hardware_sprues/hardware_sprues_preview.png). Print H00 to test the thread fit first.
+
+**Plastic-body sprues (earlier variation):** [Photon Mono M5s / ABS-Like Pro 2 kit](experiments/print_petg_12/output/stl/resin_sprue_sheets) with raised 12-point part IDs. [Sheet index](experiments/print_petg_12/output/stl/resin_sprue_sheets/sprue_sheets_preview.png). Add final resin supports in the slicer.
 
 Local Python/MuJoCo physics with a React/MUI control panel and a Three.js 3D view. Choose radial collars or upper-hemisphere ball joints, solid flywheels or propellers, two shared speed targets, and a spring-loaded centrifugal release pin at each mount.
 
@@ -180,3 +182,7 @@ Use this kit as a complete set; its coarser teeth, larger hex couplings and tall
 27. Load six M4 nuts into the underside flange pockets of shroud P18. Lower the shroud around the top fan. Lower grille P19 over the central M8 nut so its hex pocket captures the nut.
 28. Join P19 to P18 with six M4 x16 bolts. Fit the M8 acorn nut at the top of the rod and confirm the rod end fits inside it without bottoming out.
 29. Hand-turn the input through several revolutions. Confirm speeds +1, -2, +4 and -8, clear fan/guard gaps, non-rubbing air collars and free bearings. Fix each fault before applying wind or a motor.
+
+### Split-part dovetail joints
+
+The P09 ring halves and P05/P06 sun-bearing housing now have axial sliding dovetails with 0.30 mm side clearance. Their existing bolts provide axial retention. Both the loose PETG STLs and plastic-body resin sprues include the joints. See [assembly details](docs/printed_dovetail_joints.md), [ring joint preview](experiments/print_petg_12/output/ring_half_dovetails.png), and [sun housing preview](experiments/print_petg_12/output/sun_housing_dovetails.png). Hardware sprue parts remain one-piece prints.

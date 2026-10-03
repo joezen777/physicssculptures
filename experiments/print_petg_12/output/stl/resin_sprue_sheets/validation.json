@@ -36,7 +36,7 @@
   "all_sheet_envelopes_fit": true,
   "all_part_labels_font_pt": 12,
   "all_part_labels_emboss_mm": 0.8,
-  "nominal_solid_resin_ml": 2663.582,
+  "nominal_solid_resin_ml": 2660.849,
   "geometry_scope": "Original 1:1 parts; rotation and translation only, plus sacrificial sprues.",
   "support_scope": "Frames and sprue connections are included. Full print supports and exposure must be prepared in resin slicer; not physically print-tested."
 }

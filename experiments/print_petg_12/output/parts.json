@@ -29,7 +29,7 @@
     "orientation": "upright",
     "note": "Levels 1 and 3.",
     "triangles": 11090,
-    "volume_mm3": 229336.4731428583
+    "volume_mm3": 229336.47314286305
   },
   {
     "id": "P03",
@@ -45,7 +45,7 @@
     "orientation": "upright",
     "note": "Level 2; reversed blade pitch.",
     "triangles": 11102,
-    "volume_mm3": 229336.47368425562
+    "volume_mm3": 229336.47368425218
   },
   {
     "id": "P04",
@@ -76,8 +76,8 @@
     "support": "None",
     "orientation": "flat",
     "note": "608 enters bottom; three radial nut slots retain lower cap.",
-    "triangles": 5844,
-    "volume_mm3": 17034.24411255206
+    "triangles": 5848,
+    "volume_mm3": 17311.179405014016
   },
   {
     "id": "P06",
@@ -92,8 +92,8 @@
     "support": "Support gear underside when required; block supports in bearing and nut slots",
     "orientation": "upside_down",
     "note": "Upper 608 inserts from bottom; lower housing closes it.",
-    "triangles": 13214,
-    "volume_mm3": 83081.42060679829
+    "triangles": 13202,
+    "volume_mm3": 82742.11837613012
   },
   {
     "id": "P07",
@@ -133,15 +133,15 @@
     "quantity": 6,
     "file": "P09_72T_ring_half_print-6x.stl",
     "size_mm": [
-      95.7,
+      100.5,
       192.0,
       15.2
     ],
     "support": "None",
     "orientation": "upside_down",
-    "note": "Two identical halves per stage; second half rotated 180 degrees.",
-    "triangles": 9756,
-    "volume_mm3": 50819.719569075045
+    "note": "Two identical halves per stage; rotate second 180 degrees and slide axially into the two dovetails before bolting the collar.",
+    "triangles": 9788,
+    "volume_mm3": 50812.88380436917
   },
   {
     "id": "P10",
@@ -157,7 +157,7 @@
     "orientation": "upside_down",
     "note": "Noncontact overlap at next pot; do not glue adjacent rotating levels.",
     "triangles": 7448,
-    "volume_mm3": 52553.528134035514
+    "volume_mm3": 52553.52813404125
   },
   {
     "id": "P11",
@@ -173,7 +173,7 @@
     "orientation": "upside_down",
     "note": "",
     "triangles": 7288,
-    "volume_mm3": 41433.065657494844
+    "volume_mm3": 41433.0656161583
   },
   {
     "id": "P12",
@@ -205,7 +205,7 @@
     "orientation": "upside_down",
     "note": "Bottom 608 inserts from below; P01 cap and M3 x16 fasteners.",
     "triangles": 6102,
-    "volume_mm3": 36017.90120131313
+    "volume_mm3": 36017.90120131315
   },
   {
     "id": "P14",
@@ -230,14 +230,14 @@
     "file": "P15_curved_sail_arm_print-3x.stl",
     "size_mm": [
       92.75,
-      33.59,
+      33.53,
       16.0
     ],
     "support": "Build-plate support under arm; upright end mounting tab",
     "orientation": "flat",
     "note": "Each cup bolts to end tab using M4 x25.",
     "triangles": 3514,
-    "volume_mm3": 6813.044667284894
+    "volume_mm3": 6813.044667284883
   },
   {
     "id": "P16",

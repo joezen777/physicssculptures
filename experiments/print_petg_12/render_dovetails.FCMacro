@@ -1,0 +1,29 @@
+from pathlib import Path
+import json,traceback
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent;OUT=ROOT/"output"
+try:
+    source=App.openDocument(str(OUT/"print_prototype.FCStd"))
+    scene=json.loads((OUT/"scene.json").read_text())
+    def shapes(key):return [source.getObject(r["name"]).Shape.copy() for r in scene if r["key"]==key and r["stage"]==0]
+    pairs=[("sun_housing_dovetails",shapes("P05")[0],shapes("P06")[0],16),("ring_half_dovetails",*shapes("P09"),20)]
+    for name,a,b,lift in pairs:
+        doc=App.newDocument(name)
+        b.translate(V(0,0,lift))
+        for i,s in enumerate([a,b]):
+            o=doc.addObject("PartDesign::Feature","Half"+str(i));o.Shape=s
+            o.ViewObject.ShapeColor=[(.95,.62,.14),(.2,.55,.76)][i];o.ViewObject.DisplayMode="Flat Lines"
+        doc.recompute();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+        view.viewAxonometric();view.fitAll();Gui.updateGui()
+        node=view.getCameraNode();node.height.setValue(node.height.getValue()*1.12)
+        view.saveImage(str(OUT/(name+".png")),1500,1500,"White")
+        App.closeDocument(doc.Name)
+    App.closeDocument(source.Name)
+    (OUT/"dovetail_render_complete.txt").write_text("Rendered both dovetail connections")
+except BaseException:
+    (OUT/"dovetail_render_error.log").write_text(traceback.format_exc())
+    for n in list(App.listDocuments()):App.closeDocument(n)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)
