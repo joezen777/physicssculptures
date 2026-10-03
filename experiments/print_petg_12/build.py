@@ -3,6 +3,7 @@ from pathlib import Path
 import math,json,csv,os,time,traceback
 import FreeCAD as App,Part,Mesh,MeshPart
 from FreeCAD import Vector as V
+from etch_zoetrope import engraved_shell
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/"output";STL=OUT/"stl"
 OUT.mkdir(exist_ok=True);STL.mkdir(exist_ok=True)
@@ -109,7 +110,7 @@ def blade_set(rend,hand):
         b.rotate(V(),V(1,0,0),22*hand);b.rotate(V(),V(0,0,1),a);blades.append(b)
     return blades
 def pot(hand):
-    body=Part.makeCone(60,88,80).cut(Part.makeCone(56.4,84.4,80))
+    body=engraved_shell("ccw" if hand==1 else "cw")
     body=body.fuse(ann(60,56.4,4.8)).fuse(fan_hub())
     for b in blade_set(60,hand):body=body.fuse(b)
     body=body.fuse(shift(ann(86,75.4,4),72))
@@ -118,8 +119,8 @@ def pot(hand):
     body=nuttraps(body,90,list(range(0,360,60)),7.4,80,3.4)
     body=radial_nut_slots(body,90,list(range(0,360,60)),80,7.4,3.4)
     return body
-register("P02","pot_fan_A",pot(1),"pot","upright","Build-plate supports under fan and connector; keep bearing seat clean","Levels 1 and 3.")
-register("P03","pot_fan_B",pot(-1),"pot","upright","Build-plate supports under fan and connector; keep bearing seat clean","Level 2; reversed blade pitch.")
+register("P02","pot_fan_A",pot(1),"pot","upright","Build-plate supports under fan and connector; keep bearing seat clean","Levels 1 and 3; 0.6 mm recessed CCW bouncing-ball zoetrope.")
+register("P03","pot_fan_B",pot(-1),"pot","upright","Build-plate supports under fan and connector; keep bearing seat clean","Level 2; reversed blade pitch and CW bouncing-ball zoetrope.")
 
 # M8 nut pockets provide positive stationary reaction rather than an unsupported slit clamp.
 carrier=ann(22,4.3,12);carrier=carrier.cut(hexagon(13.5,6.8))
@@ -328,8 +329,8 @@ def export_all():
     for key,d in catalog.items():
         s=d["shape"].copy()
         if d["orientation"]=="upside_down":s.rotate(V(),V(1,0,0),180)
-        box=s.BoundBox;s.translate(V(-box.XMin,-box.YMin,-box.ZMin))
-        box=s.BoundBox
+        box=s.optimalBoundingBox(False,False) if key in ("P02","P03") else s.BoundBox;s.translate(V(-box.XMin,-box.YMin,-box.ZMin))
+        box=s.optimalBoundingBox(False,False) if key in ("P02","P03") else s.BoundBox
         assert box.XLength<=200 and box.YLength<=200 and box.ZLength<=240,(key,box)
         mesh=MeshPart.meshFromShape(Shape=s,LinearDeflection=.06,AngularDeflection=.15,Relative=False)
         if not mesh.isSolid():raise ValueError((key,"mesh not closed"))

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "parts": {
+    "P02": {
+      "recess_path_moves": 12917,
+      "recess_path_layers": 73,
+      "outer_wall_moves": 27429
+    },
+    "P03": {
+      "recess_path_moves": 12919,
+      "recess_path_layers": 73,
+      "outer_wall_moves": 27429
+    }
+  },
+  "baseline": {
+    "P02": {
+      "recess_path_moves": 0,
+      "recess_path_layers": 0,
+      "outer_wall_moves": 10509
+    },
+    "P03": {
+      "recess_path_moves": 0,
+      "recess_path_layers": 0,
+      "outer_wall_moves": 10525
+    }
+  },
+  "scope": "External wall toolpaths include radial recess detail; physical print fidelity untested."
+}

@@ -1,0 +1,46 @@
+from pathlib import Path
+import json,math,traceback
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent;OUT=ROOT.parent/"pot_zoetrope/output"
+(OUT/"zoetrope_render_complete.txt").unlink(missing_ok=True)
+try:
+    source=App.openDocument(str(OUT/"engraved_P02_P03.FCStd"))
+    doc=App.newDocument("Engraved_Zoetrope_Pots")
+    objects=[]
+    for key,x,color in [("P02",-108,(.12,.48,.72)),("P03",108,(.13,.58,.60))]:
+        shape=source.getObject(key).Shape.copy()
+        shape.translate(V(x,0,0))
+        obj=doc.addObject("PartDesign::Feature",key);obj.Label=key+" recessed "+("CCW" if key=="P02" else "CW")
+        obj.Shape=shape;obj.ViewObject.DisplayMode="Flat Lines";obj.ViewObject.LineColor=(.09,.16,.2)
+        colors=[];dark=0
+        for f in shape.Faces:
+            c=f.CenterOfMass;r=math.hypot(c.x-x,c.y)
+            floor=20<c.z<66 and abs(r-(60+.35*c.z-.6))<.09 and f.Area<20
+            colors.append((.045,.09,.12) if floor else color)
+            dark+=floor
+        assert dark>=120,(key,dark)
+        obj.ViewObject.DiffuseColor=colors;objects.append(obj)
+    doc.recompute()
+    Gui.getMainWindow().showMaximized();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+    def camera(target,height,rotation):
+        node=view.getCameraNode();node.orientation.setValue(*rotation.Q)
+        c=V(*target);p=c+rotation.multVec(V(0,0,1500))
+        node.position.setValue(p.x,p.y,p.z);node.height.setValue(height)
+        node.nearDistance.setValue(1);node.farDistance.setValue(3000);node.focalDistance.setValue(1500)
+        Gui.updateGui();view.redraw()
+    rot=App.Rotation(V(1,0,0),70)
+    camera((0,0,33),255,rot)
+    view.saveImage(str(OUT/"zoetrope_pots_raw.png"),2200,1200,"White")
+    doc.saveAs(str(OUT/"engraved_pots_detail.FCStd"))
+    objects[1].ViewObject.Visibility=False
+    camera((-108,-73,43),64,App.Rotation(V(1,0,0),85))
+    view.saveImage(str(OUT/"zoetrope_etch_closeup_raw.png"),1600,1100,"White")
+    App.closeDocument(doc.Name);App.closeDocument(source.Name)
+    (OUT/"zoetrope_render_complete.txt").write_text("P02 CCW and P03 CW recesses rendered; dark floors are illustrative.")
+except BaseException:
+    (OUT/"zoetrope_render_error.log").write_text(traceback.format_exc())
+    for name in list(App.listDocuments()):App.closeDocument(name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

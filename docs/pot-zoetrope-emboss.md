@@ -48,3 +48,7 @@ Run in WSL Ubuntu:
 The generator accepts --bottom-diameter, --top-diameter and --height for other outward-tapered pots; defaults match the current CAD. Regeneration overwrites SVGs and dimensions.json; regenerate validation and preview after changing dimensions. Preserve the page origin during import.
 
 Default files passed XML parsing, 144-closed-path count, page containment, positive polygon area, polygon validity and all-pairs separation checks using Shapely. Minimum measured gap: approximately 0.37307 mm in developed artwork and 0.35043 mm in UV artwork. Chromium rendered the conical SVG for visual inspection. CAD wrapping, relief fusion, slicing and physical embossing have not been performed.
+
+## Applied engraving variant
+
+The current P02/P03 print kit now uses these UV paths as recessed engraving, with mapping adapted to its 80 mm body height. See [pot-zoetrope-engraving.md](pot-zoetrope-engraving.md) for the implemented depth, handedness, CAD and print checks. The original SVGs and their emboss intent remain available separately.

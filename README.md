@@ -4,7 +4,6 @@
 
 **Hardware sprues:** [Resin screws, nuts, washers and tube spacers](experiments/print_petg_12/output/stl/resin_hardware_sprues), with modeled threads and raised 12-point size labels. [Hardware sheet index](experiments/print_petg_12/output/stl/resin_hardware_sprues/hardware_sprues_preview.png). Print H00 to test the thread fit first.
 
-**Plastic-body sprues (earlier variation):** [Photon Mono M5s / ABS-Like Pro 2 kit](experiments/print_petg_12/output/stl/resin_sprue_sheets) with raised 12-point part IDs. [Sheet index](experiments/print_petg_12/output/stl/resin_sprue_sheets/sprue_sheets_preview.png). Add final resin supports in the slicer.
 
 Local Python/MuJoCo physics with a React/MUI control panel and a Three.js 3D view. Choose radial collars or upper-hemisphere ball joints, solid flywheels or propellers, two shared speed targets, and a spring-loaded centrifugal release pin at each mount.
 
@@ -185,4 +184,8 @@ Use this kit as a complete set; its coarser teeth, larger hex couplings and tall
 
 ### Split-part dovetail joints
 
-The P09 ring halves and P05/P06 sun-bearing housing now have axial sliding dovetails with 0.30 mm side clearance. Their existing bolts provide axial retention. Both the loose PETG STLs and plastic-body resin sprues include the joints. See [assembly details](docs/printed_dovetail_joints.md), [ring joint preview](experiments/print_petg_12/output/ring_half_dovetails.png), and [sun housing preview](experiments/print_petg_12/output/sun_housing_dovetails.png). Hardware sprue parts remain one-piece prints.
+The P09 ring halves and P05/P06 sun-bearing housing now have axial sliding dovetails with 0.30 mm side clearance. Their existing bolts provide axial retention. The loose PETG STLs include the joints. See [assembly details](docs/printed_dovetail_joints.md), [ring joint preview](experiments/print_petg_12/output/ring_half_dovetails.png), and [sun housing preview](experiments/print_petg_12/output/sun_housing_dovetails.png). Hardware sprue parts remain one-piece prints.
+
+### Engraved zoetrope pots
+
+P02 and P03 now carry the pot_zoetrope bouncing-ball artwork as 0.6 mm recesses: CCW on P02, CW on P03. Only the loose P02 and P03 STLs are updated for this change; the complete assembly and ZIP retain the earlier unengraved pots. The mistaken plastic-part sprue output folder was removed; only hardware belongs on sprues. See [the pot preview](experiments/pot_zoetrope/output/zoetrope_pots_preview.png) and [mapping and print notes](docs/pot-zoetrope-engraving.md).

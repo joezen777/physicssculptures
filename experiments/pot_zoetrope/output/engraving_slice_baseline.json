@@ -1,0 +1,15 @@
+{
+  "parts": {
+    "P02": {
+      "recess_path_moves": 0,
+      "recess_path_layers": 0,
+      "outer_wall_moves": 10509
+    },
+    "P03": {
+      "recess_path_moves": 0,
+      "recess_path_layers": 0,
+      "outer_wall_moves": 10525
+    }
+  },
+  "scope": "Unengraved P02/P03 toolpaths before artwork was added."
+}

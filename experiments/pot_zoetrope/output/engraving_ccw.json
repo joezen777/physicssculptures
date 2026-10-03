@@ -1,0 +1,599 @@
+{
+  "status": "PASS",
+  "source": "experiments/pot_zoetrope/output/ball-uv-strip-ccw.svg",
+  "source_sha256": "b690018fdf81cc6798e429b2884dfa4add4c2d1833612c8b2ef5b82b38d66141",
+  "direction_viewed_from_above": "ccw",
+  "frames": 24,
+  "closed_paths": 144,
+  "recess_depth_radial_mm": 0.6,
+  "minimum_remaining_radial_wall_mm": 3.0,
+  "uv_width_mm": 452.38934,
+  "uv_height_mm": 58.0,
+  "z_offset_mm": 11.0,
+  "pot_outer_radii_mm": [
+    60.0,
+    88.0
+  ],
+  "pot_height_mm": 80.0,
+  "removed_volume_mm3": 327.3751702634181,
+  "liner_missing_mm3": 0.0,
+  "per_path": [
+    {
+      "path": "frame-00-platform-0",
+      "removed_mm3": 2.6847019954988864
+    },
+    {
+      "path": "frame-00-platform-1",
+      "removed_mm3": 2.5797045872308826
+    },
+    {
+      "path": "frame-00-platform-2",
+      "removed_mm3": 2.47468899557628
+    },
+    {
+      "path": "frame-00-platform-3",
+      "removed_mm3": 2.369690847154941
+    },
+    {
+      "path": "frame-00-platform-4",
+      "removed_mm3": 2.264675995650327
+    },
+    {
+      "path": "frame-00-ball",
+      "removed_mm3": 1.349738949033987
+    },
+    {
+      "path": "frame-01-platform-0",
+      "removed_mm3": 2.6847019954988682
+    },
+    {
+      "path": "frame-01-platform-1",
+      "removed_mm3": 2.5797045872308804
+    },
+    {
+      "path": "frame-01-platform-2",
+      "removed_mm3": 2.4746889953479188
+    },
+    {
+      "path": "frame-01-platform-3",
+      "removed_mm3": 2.3696908469380213
+    },
+    {
+      "path": "frame-01-platform-4",
+      "removed_mm3": 2.2646759954513773
+    },
+    {
+      "path": "frame-01-ball",
+      "removed_mm3": 1.164099426878113
+    },
+    {
+      "path": "frame-02-platform-0",
+      "removed_mm3": 2.6847019954989033
+    },
+    {
+      "path": "frame-02-platform-1",
+      "removed_mm3": 2.579704587230901
+    },
+    {
+      "path": "frame-02-platform-2",
+      "removed_mm3": 2.4746889953478917
+    },
+    {
+      "path": "frame-02-platform-3",
+      "removed_mm3": 2.3696908469380507
+    },
+    {
+      "path": "frame-02-platform-4",
+      "removed_mm3": 2.2646759954514053
+    },
+    {
+      "path": "frame-02-ball",
+      "removed_mm3": 1.1820615225883706
+    },
+    {
+      "path": "frame-03-platform-0",
+      "removed_mm3": 2.684701995498896
+    },
+    {
+      "path": "frame-03-platform-1",
+      "removed_mm3": 2.5797045872308817
+    },
+    {
+      "path": "frame-03-platform-2",
+      "removed_mm3": 2.474688995347926
+    },
+    {
+      "path": "frame-03-platform-3",
+      "removed_mm3": 2.369690846938059
+    },
+    {
+      "path": "frame-03-platform-4",
+      "removed_mm3": 2.2646759954513946
+    },
+    {
+      "path": "frame-03-ball",
+      "removed_mm3": 1.1938750431576182
+    },
+    {
+      "path": "frame-04-platform-0",
+      "removed_mm3": 2.684701995498883
+    },
+    {
+      "path": "frame-04-platform-1",
+      "removed_mm3": 2.5797045872309083
+    },
+    {
+      "path": "frame-04-platform-2",
+      "removed_mm3": 2.474688995347875
+    },
+    {
+      "path": "frame-04-platform-3",
+      "removed_mm3": 2.3696908469380444
+    },
+    {
+      "path": "frame-04-platform-4",
+      "removed_mm3": 2.264675995451393
+    },
+    {
+      "path": "frame-04-ball",
+      "removed_mm3": 1.1995438054620182
+    },
+    {
+      "path": "frame-05-platform-0",
+      "removed_mm3": 2.684701995498859
+    },
+    {
+      "path": "frame-05-platform-1",
+      "removed_mm3": 2.5797045870701303
+    },
+    {
+      "path": "frame-05-platform-2",
+      "removed_mm3": 2.474688995347881
+    },
+    {
+      "path": "frame-05-platform-3",
+      "removed_mm3": 2.3696908471549385
+    },
+    {
+      "path": "frame-05-platform-4",
+      "removed_mm3": 2.2646759956503217
+    },
+    {
+      "path": "frame-05-ball",
+      "removed_mm3": 1.1990582405382972
+    },
+    {
+      "path": "frame-06-platform-0",
+      "removed_mm3": 2.6847019954988984
+    },
+    {
+      "path": "frame-06-platform-1",
+      "removed_mm3": 2.5797045872308924
+    },
+    {
+      "path": "frame-06-platform-2",
+      "removed_mm3": 2.4746889955762823
+    },
+    {
+      "path": "frame-06-platform-3",
+      "removed_mm3": 2.369690847154958
+    },
+    {
+      "path": "frame-06-platform-4",
+      "removed_mm3": 2.2646759956503404
+    },
+    {
+      "path": "frame-06-ball",
+      "removed_mm3": 1.192419835235676
+    },
+    {
+      "path": "frame-07-platform-0",
+      "removed_mm3": 2.6847019954988585
+    },
+    {
+      "path": "frame-07-platform-1",
+      "removed_mm3": 2.5797045872308786
+    },
+    {
+      "path": "frame-07-platform-2",
+      "removed_mm3": 2.474688995347902
+    },
+    {
+      "path": "frame-07-platform-3",
+      "removed_mm3": 2.3696908469380293
+    },
+    {
+      "path": "frame-07-platform-4",
+      "removed_mm3": 2.2646759954513787
+    },
+    {
+      "path": "frame-07-ball",
+      "removed_mm3": 1.2165383619193306
+    },
+    {
+      "path": "frame-08-platform-0",
+      "removed_mm3": 2.6847019954988953
+    },
+    {
+      "path": "frame-08-platform-1",
+      "removed_mm3": 2.5797045872309305
+    },
+    {
+      "path": "frame-08-platform-2",
+      "removed_mm3": 2.4746889953479334
+    },
+    {
+      "path": "frame-08-platform-3",
+      "removed_mm3": 2.3696908469380724
+    },
+    {
+      "path": "frame-08-platform-4",
+      "removed_mm3": 2.2646759954514164
+    },
+    {
+      "path": "frame-08-ball",
+      "removed_mm3": 1.2344995371584968
+    },
+    {
+      "path": "frame-09-platform-0",
+      "removed_mm3": 2.684701995498875
+    },
+    {
+      "path": "frame-09-platform-1",
+      "removed_mm3": 2.57970458723087
+    },
+    {
+      "path": "frame-09-platform-2",
+      "removed_mm3": 2.474688995347931
+    },
+    {
+      "path": "frame-09-platform-3",
+      "removed_mm3": 2.3696908469380387
+    },
+    {
+      "path": "frame-09-platform-4",
+      "removed_mm3": 2.264675995451396
+    },
+    {
+      "path": "frame-09-ball",
+      "removed_mm3": 1.2463157118420234
+    },
+    {
+      "path": "frame-10-platform-0",
+      "removed_mm3": 2.684701995498882
+    },
+    {
+      "path": "frame-10-platform-1",
+      "removed_mm3": 2.5797045872308413
+    },
+    {
+      "path": "frame-10-platform-2",
+      "removed_mm3": 2.4746889953478677
+    },
+    {
+      "path": "frame-10-platform-3",
+      "removed_mm3": 2.3696908469380205
+    },
+    {
+      "path": "frame-10-platform-4",
+      "removed_mm3": 2.264675995451375
+    },
+    {
+      "path": "frame-10-ball",
+      "removed_mm3": 1.2519811597943744
+    },
+    {
+      "path": "frame-11-platform-0",
+      "removed_mm3": 2.68470199549886
+    },
+    {
+      "path": "frame-11-platform-1",
+      "removed_mm3": 2.579704587070121
+    },
+    {
+      "path": "frame-11-platform-2",
+      "removed_mm3": 2.4746889953478757
+    },
+    {
+      "path": "frame-11-platform-3",
+      "removed_mm3": 2.3696908471549576
+    },
+    {
+      "path": "frame-11-platform-4",
+      "removed_mm3": 2.2646759956503453
+    },
+    {
+      "path": "frame-11-ball",
+      "removed_mm3": 1.2514986046813443
+    },
+    {
+      "path": "frame-12-platform-0",
+      "removed_mm3": 2.6847020032441775
+    },
+    {
+      "path": "frame-12-platform-1",
+      "removed_mm3": 2.5797045874654883
+    },
+    {
+      "path": "frame-12-platform-2",
+      "removed_mm3": 2.4746890014265484
+    },
+    {
+      "path": "frame-12-platform-3",
+      "removed_mm3": 2.369690848069524
+    },
+    {
+      "path": "frame-12-platform-4",
+      "removed_mm3": 2.264675997811756
+    },
+    {
+      "path": "frame-12-ball",
+      "removed_mm3": 1.244858563920779
+    },
+    {
+      "path": "frame-13-platform-0",
+      "removed_mm3": 2.6847020032442273
+    },
+    {
+      "path": "frame-13-platform-1",
+      "removed_mm3": 2.5797045880790948
+    },
+    {
+      "path": "frame-13-platform-2",
+      "removed_mm3": 2.4746889946018213
+    },
+    {
+      "path": "frame-13-platform-3",
+      "removed_mm3": 2.369690845530251
+    },
+    {
+      "path": "frame-13-platform-4",
+      "removed_mm3": 2.264675993555345
+    },
+    {
+      "path": "frame-13-ball",
+      "removed_mm3": 1.268981042684726
+    },
+    {
+      "path": "frame-14-platform-0",
+      "removed_mm3": 2.684702003244187
+    },
+    {
+      "path": "frame-14-platform-1",
+      "removed_mm3": 2.5797045885057974
+    },
+    {
+      "path": "frame-14-platform-2",
+      "removed_mm3": 2.474688995107215
+    },
+    {
+      "path": "frame-14-platform-3",
+      "removed_mm3": 2.369690845818134
+    },
+    {
+      "path": "frame-14-platform-4",
+      "removed_mm3": 2.2646759938726277
+    },
+    {
+      "path": "frame-14-ball",
+      "removed_mm3": 1.2869412895894312
+    },
+    {
+      "path": "frame-15-platform-0",
+      "removed_mm3": 2.684702003244163
+    },
+    {
+      "path": "frame-15-platform-1",
+      "removed_mm3": 2.5797045884265586
+    },
+    {
+      "path": "frame-15-platform-2",
+      "removed_mm3": 2.4746889951727296
+    },
+    {
+      "path": "frame-15-platform-3",
+      "removed_mm3": 2.369690845764884
+    },
+    {
+      "path": "frame-15-platform-4",
+      "removed_mm3": 2.2646759939118244
+    },
+    {
+      "path": "frame-15-ball",
+      "removed_mm3": 1.298757418595364
+    },
+    {
+      "path": "frame-16-platform-0",
+      "removed_mm3": 2.6847020032441598
+    },
+    {
+      "path": "frame-16-platform-1",
+      "removed_mm3": 2.5797045877927633
+    },
+    {
+      "path": "frame-16-platform-2",
+      "removed_mm3": 2.4746889948198447
+    },
+    {
+      "path": "frame-16-platform-3",
+      "removed_mm3": 2.3696908453530137
+    },
+    {
+      "path": "frame-16-platform-4",
+      "removed_mm3": 2.264675993700589
+    },
+    {
+      "path": "frame-16-ball",
+      "removed_mm3": 1.3044213978357084
+    },
+    {
+      "path": "frame-17-platform-0",
+      "removed_mm3": 2.6847020032441495
+    },
+    {
+      "path": "frame-17-platform-1",
+      "removed_mm3": 2.579704595143901
+    },
+    {
+      "path": "frame-17-platform-2",
+      "removed_mm3": 2.4746889942228094
+    },
+    {
+      "path": "frame-17-platform-3",
+      "removed_mm3": 2.369690850812023
+    },
+    {
+      "path": "frame-17-platform-4",
+      "removed_mm3": 2.264675997055197
+    },
+    {
+      "path": "frame-17-ball",
+      "removed_mm3": 1.3039389687942908
+    },
+    {
+      "path": "frame-18-platform-0",
+      "removed_mm3": 2.6847019954988935
+    },
+    {
+      "path": "frame-18-platform-1",
+      "removed_mm3": 2.5797045872308884
+    },
+    {
+      "path": "frame-18-platform-2",
+      "removed_mm3": 2.4746889955762876
+    },
+    {
+      "path": "frame-18-platform-3",
+      "removed_mm3": 2.3696908471549767
+    },
+    {
+      "path": "frame-18-platform-4",
+      "removed_mm3": 2.264675995650341
+    },
+    {
+      "path": "frame-18-ball",
+      "removed_mm3": 1.2973003782240848
+    },
+    {
+      "path": "frame-19-platform-0",
+      "removed_mm3": 2.68470199549891
+    },
+    {
+      "path": "frame-19-platform-1",
+      "removed_mm3": 2.579704587230869
+    },
+    {
+      "path": "frame-19-platform-2",
+      "removed_mm3": 2.47468899534788
+    },
+    {
+      "path": "frame-19-platform-3",
+      "removed_mm3": 2.369690846938059
+    },
+    {
+      "path": "frame-19-platform-4",
+      "removed_mm3": 2.26467599545138
+    },
+    {
+      "path": "frame-19-ball",
+      "removed_mm3": 1.3214211152764122
+    },
+    {
+      "path": "frame-20-platform-0",
+      "removed_mm3": 2.684701995498867
+    },
+    {
+      "path": "frame-20-platform-1",
+      "removed_mm3": 2.5797045872308804
+    },
+    {
+      "path": "frame-20-platform-2",
+      "removed_mm3": 2.4746889953478886
+    },
+    {
+      "path": "frame-20-platform-3",
+      "removed_mm3": 2.369690846938039
+    },
+    {
+      "path": "frame-20-platform-4",
+      "removed_mm3": 2.2646759954514057
+    },
+    {
+      "path": "frame-20-ball",
+      "removed_mm3": 1.3393798821882523
+    },
+    {
+      "path": "frame-21-platform-0",
+      "removed_mm3": 2.684701995498924
+    },
+    {
+      "path": "frame-21-platform-1",
+      "removed_mm3": 2.5797045872308915
+    },
+    {
+      "path": "frame-21-platform-2",
+      "removed_mm3": 2.4746889953479276
+    },
+    {
+      "path": "frame-21-platform-3",
+      "removed_mm3": 2.3696908469380906
+    },
+    {
+      "path": "frame-21-platform-4",
+      "removed_mm3": 2.2646759954514204
+    },
+    {
+      "path": "frame-21-ball",
+      "removed_mm3": 1.3511972795982259
+    },
+    {
+      "path": "frame-22-platform-0",
+      "removed_mm3": 2.684701995498902
+    },
+    {
+      "path": "frame-22-platform-1",
+      "removed_mm3": 2.579704587230914
+    },
+    {
+      "path": "frame-22-platform-2",
+      "removed_mm3": 2.474688995347899
+    },
+    {
+      "path": "frame-22-platform-3",
+      "removed_mm3": 2.369690846938047
+    },
+    {
+      "path": "frame-22-platform-4",
+      "removed_mm3": 2.2646759954514137
+    },
+    {
+      "path": "frame-22-ball",
+      "removed_mm3": 1.3568648978815383
+    },
+    {
+      "path": "frame-23-platform-0",
+      "removed_mm3": 2.6847019954989246
+    },
+    {
+      "path": "frame-23-platform-1",
+      "removed_mm3": 2.5797045870701254
+    },
+    {
+      "path": "frame-23-platform-2",
+      "removed_mm3": 2.4746889953479245
+    },
+    {
+      "path": "frame-23-platform-3",
+      "removed_mm3": 2.369690847154941
+    },
+    {
+      "path": "frame-23-platform-4",
+      "removed_mm3": 2.2646759956503484
+    },
+    {
+      "path": "frame-23-ball",
+      "removed_mm3": 1.3563809981229507
+    }
+  ],
+  "artwork_scale": "Original UV heights and 24 angular cells; no outline or background cut"
+}

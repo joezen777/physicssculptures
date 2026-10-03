@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "Only loose P02/P03 STLs replaced; full assembly and print archives not rebuilt.",
+  "parts": [
+    {
+      "part": "P02",
+      "file": "P02_pot_fan_A_print-2x.stl",
+      "direction": "ccw",
+      "recess_depth_mm": 0.6,
+      "remaining_radial_wall_mm": 3.0,
+      "engraved_paths": 144,
+      "frames": 24,
+      "removed_volume_mm3": 327.3787883500336,
+      "closed_single_mesh": true,
+      "unchanged_envelope": true,
+      "sha256": "4de7ae3d2392f7a47fcd9ab5a82674b4012ea29808cc9005185ca184f7c64587"
+    },
+    {
+      "part": "P03",
+      "file": "P03_pot_fan_B_print-1x.stl",
+      "direction": "cw",
+      "recess_depth_mm": 0.6,
+      "remaining_radial_wall_mm": 3.0,
+      "engraved_paths": 144,
+      "frames": 24,
+      "removed_volume_mm3": 327.3783455934026,
+      "closed_single_mesh": true,
+      "unchanged_envelope": true,
+      "sha256": "1b225ced54a5ae8d7d1207bf3cf618a3776ba3ca9b763f0368906cd1407b1547"
+    }
+  ]
+}
