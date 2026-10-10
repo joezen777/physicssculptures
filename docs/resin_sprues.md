@@ -1,7 +1,5 @@
 # Resin sprue sheets
 
-> Stale since 2026-10-10: these sheets predate the one-piece helical P06/P07/P09 gear revision in print_petg_12. Rebuild before printing the gear sheets.
-
 Target: Anycubic Photon Mono M5s, 218 x 123 x 200 mm; Anycubic ABS-Like Resin Pro 2. The user requested sprue sheets with embossed 12-point part labels on the disposable skeleton.
 
 ## Geometry and layout

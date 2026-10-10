@@ -35,5 +35,3 @@ The packaging check independently reads hardware_bom.csv, matches every quantity
 Renders: [mesh](../experiments/print_petg_12/output/helical_gear_mesh.png) and [ring being lowered over the planets](../experiments/print_petg_12/output/helical_ring_assembly.png).
 
 **Compatibility.** Only P06, P07 and P09 change; all other STLs and the purchased-hardware BOM are unchanged. The kit is now 56 printed instances. validate.py adds an axial insertion check that lowers a planet into the sun and ring and the ring over a planet in steps from 12 mm to 0, each turned by its helix rate. All 21 STLs generate toolpaths with the 0.4 mm inspection profile.
-
-The resin sprue sheets in experiments/resin_sprues were generated from the previous split-ring gears and are stale for P06, P07 and P09 until that project is rebuilt.
