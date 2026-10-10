@@ -1,0 +1,31 @@
+"""Render one stage of the helical sun/planet/one-piece-ring mesh, plus a lifted-ring assembly view."""
+from pathlib import Path
+import json,math,traceback
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent;OUT=ROOT/"output"
+try:
+    source=App.openDocument(str(OUT/"print_prototype.FCStd"))
+    scene=json.loads((OUT/"scene.json").read_text())
+    def shapes(key):return [source.getObject(r["name"]).Shape.copy() for r in scene if r["key"]==key and r["stage"]==0]
+    colors={"P06":(.95,.62,.14),"P07":(.18,.65,.45),"P09":(.58,.38,.75)}
+    for name,lift in [("helical_gear_mesh",0),("helical_ring_assembly",22)]:
+        doc=App.newDocument(name)
+        for key in ["P06","P07","P09"]:
+            for i,s in enumerate(shapes(key)):
+                if key=="P09" and lift:s.rotate(V(),V(0,0,1),math.degrees(-math.tan(math.radians(15))*lift/72));s.translate(V(0,0,lift))
+                o=doc.addObject("Part::Feature",key+"_"+str(i));o.Shape=s
+                o.ViewObject.ShapeColor=colors[key];o.ViewObject.DisplayMode="Flat Lines"
+        doc.recompute();view=Gui.activeDocument().activeView();view.setCameraType("Orthographic")
+        view.viewAxonometric();view.fitAll();Gui.updateGui()
+        node=view.getCameraNode();node.height.setValue(node.height.getValue()*.92)
+        view.saveImage(str(OUT/(name+".png")),1600,1300,"White")
+        App.closeDocument(doc.Name)
+    App.closeDocument(source.Name)
+    (OUT/"gear_render_complete.txt").write_text("Rendered helical gear mesh views")
+except BaseException:
+    (OUT/"gear_render_error.log").write_text(traceback.format_exc())
+    for n in list(App.listDocuments()):App.closeDocument(n)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

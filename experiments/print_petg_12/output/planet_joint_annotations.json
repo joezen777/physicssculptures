@@ -22,8 +22,8 @@
     "stage": 0,
     "order": 7,
     "point": [
-      54.00000000000001,
-      0.0,
+      54.0,
+      1.7763568394002505e-15,
       1096
     ],
     "hardware": false,
@@ -191,7 +191,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware222",
+    "name": "AddedHardware219",
     "pixel": [
       887.19343182733,
       833.7192547030711
@@ -209,7 +209,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware223",
+    "name": "AddedHardware220",
     "pixel": [
       887.2128442119114,
       1441.058425599853
@@ -227,7 +227,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware224",
+    "name": "AddedHardware221",
     "pixel": [
       804.2373142016627,
       833.7192547030711
@@ -245,7 +245,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware225",
+    "name": "AddedHardware222",
     "pixel": [
       804.2567265862441,
       1441.058425599853
@@ -263,7 +263,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware226",
+    "name": "AddedHardware223",
     "pixel": [
       845.7153730144962,
       855.9196861410605
@@ -281,7 +281,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware227",
+    "name": "AddedHardware224",
     "pixel": [
       845.7347853990777,
       1463.2588570378425

@@ -1,4 +1,4 @@
-"""PETG / 1.2 mm nozzle fit prototype. Run using bundled FreeCAD Python."""
+"""PETG fit prototype; gears revised for a 0.4 mm nozzle. Run using bundled FreeCAD Python."""
 from pathlib import Path
 import math,json,csv,os,time,traceback
 import FreeCAD as App,Part,Mesh,MeshPart
@@ -8,7 +8,8 @@ ROOT=Path(__file__).resolve().parent
 OUT=ROOT/"output";STL=OUT/"stl"
 OUT.mkdir(exist_ok=True);STL.mkdir(exist_ok=True)
 for name in ["complete.txt","dovetail_validation.json","dovetail_render_complete.txt","validation.json","fastener_validation.json","slice_validation.json","render_complete.txt"]:(OUT/name).unlink(missing_ok=True)
-M=2.;NS=36;NP=18;NR=72;ROW=4.8;GAP=.8;FACE=10.4;PITCH=116.
+# Single-row 15-degree helical gears: continuous teeth slide together axially (staggered rows cannot).
+M=2.;NS=36;NP=18;NR=72;FACE=10.4;PITCH=116.;BETA=15.;ADDENDUM=1.;BACKLASH=.12
 COLORS={"pot":(.12,.48,.72),"gear":(.95,.62,.14),"planet":(.18,.65,.45),"ring":(.58,.38,.75),"fixed":(.28,.33,.39),"metal":(.68,.72,.76)}
 catalog={};instances=[];hardware=[]
 def log(s):print(s,flush=True)
@@ -47,30 +48,38 @@ def curved(r0,r1,w,h,z=0,a=0,bow=18):
     return Part.Face(Part.Wire([e,Part.makeLine(p[-1],q[-1]),f.reversed(),Part.makeLine(q[0],p[0])])).extrude(V(0,0,h))
 def inv(r,rb):
     t=math.sqrt(max(0,(r/rb)**2-1));return t-math.atan(t)
-def profile(n,internal=False):
+def tooth_wire(n,internal=False):
     rp=M*n/2;rb=rp*math.cos(math.radians(20))
-    lo=rp-.8*M if internal else rp-1.25*M
-    hi=rp+1.25*M if internal else rp+.8*M
-    clearance=(.12/rp)*(1 if internal else -1)
-    pts=[]
+    lo=rp-ADDENDUM*M if internal else rp-1.25*M
+    hi=rp+1.25*M if internal else rp+ADDENDUM*M
+    clearance=(BACKLASH/rp)*(1 if internal else -1)
+    def flank(a,side):
+        pts=[]
+        for j in range(13):
+            r=lo+(hi-lo)*j/12;half=math.pi/(2*n)+inv(rp,rb)-inv(max(r,rb),rb)+clearance
+            p=V(r*math.cos(a+side*half),r*math.sin(a+side*half),0)
+            if not pts or (p-pts[-1]).Length>1e-6:pts.append(p)
+        c=Part.BSplineCurve();c.interpolate(pts);return c.toShape(),pts
+    edges=[];prev=None
     for i in range(n):
         a=2*math.pi*i/n
-        pts.append(V(lo*math.cos(a-math.pi/n),lo*math.sin(a-math.pi/n),0))
-        for values in [range(13),range(12,-1,-1)]:
-            side=-1 if values.start==0 else 1
-            for j in values:
-                r=lo+(hi-lo)*j/12;half=math.pi/(2*n)+inv(rp,rb)-inv(max(r,rb),rb)+clearance
-                pts.append(V(r*math.cos(a+side*half),r*math.sin(a+side*half),0))
-        pts.append(V(lo*math.cos(a+math.pi/n),lo*math.sin(a+math.pi/n),0))
-    clean=[]
-    for p in pts:
-        if not clean or (p-clean[-1]).Length>1e-7:clean.append(p)
-    if (clean[-1]-clean[0]).Length<1e-7:clean.pop()
-    return Part.Face(Part.makePolygon(clean+[clean[0]]))
-def double_gear(n):
-    one=profile(n).extrude(V(0,0,ROW));two=one.copy()
-    two.rotate(V(),V(0,0,1),180/n);two.translate(V(0,0,ROW+GAP))
-    return one.fuse(two).fuse(cyl(M*(n/2-1.25)-.02,FACE))
+        for side in [-1,1]:
+            e,pts=flank(a,side)
+            if side==1:e.reverse();pts=pts[::-1]
+            if prev is not None:edges.append(Part.makeLine(prev,pts[0]))
+            edges.append(e);prev=pts[-1]
+    edges.append(Part.makeLine(prev,edges[0].Vertexes[0].Point))
+    return Part.Wire(Part.__sortEdges__(edges))
+def helical_gear(n,hand,internal=False,h=FACE):
+    """Involute prism swept along a helix; hand=+1 twists CCW upward. Mating external gears use opposite hands."""
+    twist=hand*h*math.tan(math.radians(BETA))/(M*n/2)
+    spine=Part.Wire(Part.makeLine(V(0,0,0),V(0,0,h)))
+    shell=Part.BRepOffsetAPI.MakePipeShell(spine)
+    shell.setAuxiliarySpine(Part.Wire(Part.makeHelix(2*math.pi*h/abs(twist),h,10.,0,twist<0)),True,0)
+    shell.add(tooth_wire(n,internal));shell.build();shell.makeSolid()
+    solid=shell.shape()
+    if not solid.isValid():raise ValueError(("helical gear invalid",n))
+    return solid
 def register(key,label,shape,color,orientation="flat",support="None",note=""):
     log("Part "+key+" "+label)
     shape=shape.removeSplitter()
@@ -131,7 +140,7 @@ for a in [0,120,240]:
 register("P04","fixed_curved_carrier",carrier,"fixed","flat","None","Captured M8 nut underneath, second nut above. M4 metal planet bolts.")
 
 log("Coarse gear templates")
-sun_teeth=double_gear(NS);planet_teeth=double_gear(NP)
+sun_teeth=helical_gear(NS,1);planet_teeth=helical_gear(NP,-1)
 # Axially sliding dovetail keys locate the split housing; M3 screws retain it.
 def dovetail_key(clearance=0):
     c=clearance
@@ -159,35 +168,23 @@ for a in [30,150,270]:
 upper=upper.cut(shift(hexagon(24.6,22.2),94))
 upper=holes(upper,17.5,[0,120,240],1.8,63,13)
 upper=radial_nut_slots(upper,17.5,[0,120,240],68.8)
-register("P06","sun_36T_socket",shift(upper,-64),"gear","upside_down","Support gear underside when required; block supports in bearing and nut slots","Upper 608 inserts from bottom; lower housing closes it.")
+register("P06","sun_36T_helical_socket",shift(upper,-64),"gear","upside_down","Support gear underside when required; block supports in bearing and nut slots","Upper 608 inserts from bottom; lower housing closes it.")
 
 planet=planet_teeth.cut(cyl(3.5,FACE))
 planet=planet.cut(cyl(6.2,4.4,2.4)).cut(cyl(8.9,3.6,6.8))
 planet=holes(planet,10.5,[0,120,240],1.45,-1,13)
 planet=nuttraps(planet,10.5,[0,120,240],5.4,0,2.4)
-register("P07","planet_18T_604",planet,"planet","flat","None","604 inserts from top; three M2.5 nuts load from underside.")
+register("P07","planet_18T_helical_604",planet,"planet","flat","None","604 inserts from top; three M2.5 nuts load from underside.")
 pcap=shift(ann(15,4.7,3.6),3.6).fuse(ann(8.6,4.7,3.6))
 pcap=holes(pcap,10.5,[0,120,240],1.45,3.5,5)
 register("P08","604_retainer",pcap,"planet","upside_down","None","Fits counterbore; M2.5 x16 bolts and nuts.")
 
-rows=[]
-for j in range(2):
-    hole=profile(NR,True).extrude(V(0,0,ROW));hole.rotate(V(),V(0,0,1),180/NR+j*180/NR)
-    rows.append(shift(cyl(82,ROW).cut(hole),j*(ROW+GAP)))
-ring=rows[0].fuse(rows[1]).fuse(shift(ann(82,74.6,GAP),ROW))
+# One-piece ring: 192 mm flange fits the 220 mm bed like the pots, and helical teeth assemble axially.
+hole=helical_gear(NR,-1,internal=True);hole.rotate(V(),V(0,0,1),180/NR)
+ring=cyl(82,FACE).cut(hole)
 ring=ring.fuse(shift(ann(96,74.8,4.8),FACE))
 ring=holes(ring,90,list(range(0,360,60)),2.25,-1,18)
-half=ring.common(Part.makeBox(110,220,30,V(.3,-110,-1)))
-# Identical halves: male north seam, female south seam; assemble axially.
-def ring_dovetail(clearance=0):
-    c=clearance
-    pts=[V(1.5+c,88-2.7-c,FACE),V(.3,88-2.7-c,FACE),V(-4.5-c,88-4.2-c,FACE),
-         V(-4.5-c,88+4.2+c,FACE),V(.3,88+2.7+c,FACE),V(1.5+c,88+2.7+c,FACE)]
-    return Part.Face(Part.makePolygon(pts+[pts[0]])).extrude(V(0,0,4.8))
-half=half.fuse(ring_dovetail())
-socket=ring_dovetail(.3);socket.rotate(V(),V(0,0,1),180)
-socket=socket.fuse(shift(socket,.1)).fuse(shift(socket,-.1));half=half.cut(socket)
-register("P09","72T_ring_half",half,"ring","upside_down","None","Two identical halves per stage; rotate second 180 degrees and slide axially into the two dovetails before bolting the collar.")
+register("P09","72T_helical_ring",ring,"ring","upside_down","None","One piece per stage, flange on bed. Lower over the meshed planets; it turns as the helical teeth engage.")
 
 def collar(top_r,height):
     s=Part.makeCone(94.4,top_r,height).cut(Part.makeCone(90.8,top_r-3.6,height))
@@ -291,7 +288,7 @@ for level in range(3):
         metal("T4_10","Steel tube ID4.2 OD6 L10",ann(3,2.1,10),b+82.4,x,y,level,9)
         metal("M4_washer","M4 washer OD7",ann(3.5,2.1,.8),b+92.4,x,y,level,10)
         metal("M4_nut","M4 nut",hexagon(7,3.2).cut(cyl(2,3.2)),b+93.2,x,y,level,10)
-    for a in [0,180]:put("P09",b+76,angle=a,stage=level,order=10,ratio=ratio)
+    put("P09",b+76,stage=level,order=10,ratio=ratio)
     put("P10" if level<2 else "P11",b+91.2,stage=level,order=11,ratio=ratio)
     spacer8(b+75.4,44.6,level)
 put("P17",348,stage=3,order=0,ratio=-8)

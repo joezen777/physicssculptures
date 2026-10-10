@@ -17,7 +17,7 @@ def wrap(x,y,s,width=52,size=30,b=False,color=ink):
         text(x,y,a,size,b,color);y+=int(size*1.4)
     return y
 text(70,48,"FOUR-LEVEL FAN TUNNEL",78,True)
-text(74,146,"PETG  |  1.2 mm nozzle  |  Separate parts and assembly order",36,color=muted)
+text(74,146,"PETG  |  0.4 mm nozzle for helical gears  |  Separate parts and assembly order",36,color=muted)
 d.line((70,220,4630,220),fill=blue,width=6)
 raw=Image.open(OUT/"exploded_raw.png").convert("RGB")
 im.paste(raw,(800,300))
@@ -28,8 +28,8 @@ mask=ImageChops.difference(raw,Image.new("RGB",raw.size,"white")).convert("L").p
 im.paste(raw,(800,300),mask)
 names={
 "P01":"608 bearing retainer","P02":"Pot + fan floor A","P03":"Pot + fan floor B",
-"P04":"Fixed curved carrier","P05":"Lower sun bearing housing","P06":"36-tooth sun + hex socket",
-"P07":"18-tooth planet / 604 seat","P08":"604 bearing retainer","P09":"72-tooth ring half",
+"P04":"Fixed curved carrier","P05":"Lower sun bearing housing","P06":"36T helical sun + hex socket",
+"P07":"18T helical planet / 604 seat","P08":"604 bearing retainer","P09":"72T one-piece helical ring",
 "P10":"Interstage air collar","P11":"Terminal air collar","P12":"Stationary base",
 "P13":"Bottom drive adapter","P14":"Removable sail hub","P15":"Curved sail arm",
 "P16":"Circular wind cup","P17":"Top fan, pitch B","P18":"Stationary guard shroud",
@@ -114,7 +114,7 @@ text(x,y,"HOW TO READ THIS VIEW",34,True);y+=58
 for item in [
 "Build upward from the base. Preassemble bearings and their removable caps before stacking.",
 "Pot sequence: A, B, A; then the top fan B. Adjacent stages reverse rotation.",
-"Fit the ring halves sideways after meshing the sun and three planets. Rotate the second identical half 180 degrees.",
+"Lower the one-piece ring over the meshed planets; it turns as the helical teeth engage. Then align its bolt holes.",
 "Every required bearing, bolt, screw, nut, washer and steel spacer is drawn individually in gray, beside its joint. Threads are simplified.",
 "Use the numbered assembly guide for bolt lengths, nut pockets and spacer locations."]:
     y=wrap(x,y,item,width=59,size=28)+26

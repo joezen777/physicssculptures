@@ -27,9 +27,9 @@
     ],
     "support": "Build-plate supports under fan and connector; keep bearing seat clean",
     "orientation": "upright",
-    "note": "Levels 1 and 3.",
-    "triangles": 11090,
-    "volume_mm3": 229336.47314286305
+    "note": "Levels 1 and 3; 0.6 mm recessed CCW bouncing-ball zoetrope.",
+    "triangles": 15986,
+    "volume_mm3": 229009.09435549547
   },
   {
     "id": "P03",
@@ -43,9 +43,9 @@
     ],
     "support": "Build-plate supports under fan and connector; keep bearing seat clean",
     "orientation": "upright",
-    "note": "Level 2; reversed blade pitch.",
-    "triangles": 11102,
-    "volume_mm3": 229336.47368425218
+    "note": "Level 2; reversed blade pitch and CW bouncing-ball zoetrope.",
+    "triangles": 15998,
+    "volume_mm3": 229009.09533961132
   },
   {
     "id": "P04",
@@ -81,35 +81,35 @@
   },
   {
     "id": "P06",
-    "name": "sun_36T_socket",
+    "name": "sun_36T_helical_socket",
     "quantity": 3,
-    "file": "P06_sun_36T_socket_print-3x.stl",
+    "file": "P06_sun_36T_helical_socket_print-3x.stl",
     "size_mm": [
-      75.18,
-      75.18,
+      76.02,
+      76.02,
       52.0
     ],
     "support": "Support gear underside when required; block supports in bearing and nut slots",
     "orientation": "upside_down",
     "note": "Upper 608 inserts from bottom; lower housing closes it.",
-    "triangles": 13202,
-    "volume_mm3": 82742.11837613012
+    "triangles": 11630,
+    "volume_mm3": 83317.55890643537
   },
   {
     "id": "P07",
-    "name": "planet_18T_604",
+    "name": "planet_18T_helical_604",
     "quantity": 9,
-    "file": "P07_planet_18T_604_print-9x.stl",
+    "file": "P07_planet_18T_helical_604_print-9x.stl",
     "size_mm": [
-      39.17,
-      39.17,
+      40.04,
+      40.01,
       10.4
     ],
     "support": "None",
     "orientation": "flat",
     "note": "604 inserts from top; three M2.5 nuts load from underside.",
-    "triangles": 5460,
-    "volume_mm3": 7957.45118393105
+    "triangles": 5628,
+    "volume_mm3": 8208.152400647043
   },
   {
     "id": "P08",
@@ -129,19 +129,19 @@
   },
   {
     "id": "P09",
-    "name": "72T_ring_half",
-    "quantity": 6,
-    "file": "P09_72T_ring_half_print-6x.stl",
+    "name": "72T_helical_ring",
+    "quantity": 3,
+    "file": "P09_72T_helical_ring_print-3x.stl",
     "size_mm": [
-      100.5,
+      192.0,
       192.0,
       15.2
     ],
     "support": "None",
     "orientation": "upside_down",
-    "note": "Two identical halves per stage; rotate second 180 degrees and slide axially into the two dovetails before bolting the collar.",
-    "triangles": 9788,
-    "volume_mm3": 50812.88380436917
+    "note": "One piece per stage, flange on bed. Lower over the meshed planets; it turns as the helical teeth engage.",
+    "triangles": 12636,
+    "volume_mm3": 103205.45019432533
   },
   {
     "id": "P10",

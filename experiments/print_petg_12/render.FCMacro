@@ -70,7 +70,6 @@ try:
         elif stage<3:
             z=650+stage*1050+{"P02":40,"P03":40,"P04":294,"P05":493,
                 "P06":607,"P07":446,"P08":516,"P09":725,"P10":783,"P11":783}.get(key,164 if order==2 else 419)
-            if key=="P09":x+=18 if x>0 else -18
         else:z={"P17":3840,"P01":3970,"P18":4150,"P19":4250}[key]
         o.Placement=App.Placement(V(x-c.x,y-c.y,z-c.z),App.Rotation()).multiply(o.Placement)
         annotations.append(dict(key=key,stage=stage,order=order,point=[x,y,z],

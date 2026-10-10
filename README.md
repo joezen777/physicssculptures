@@ -1,6 +1,6 @@
 # Flywheel Lab
 
-**Latest print files:** [1.2 mm PETG STL set](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
+**Latest print files:** [PETG STL set with 0.4 mm-nozzle helical gears](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
 
 **Hardware sprues:** [Resin screws, nuts, washers and tube spacers](experiments/print_petg_12/output/stl/resin_hardware_sprues), with modeled threads and raised 12-point size labels. [Hardware sheet index](experiments/print_petg_12/output/stl/resin_hardware_sprues/hardware_sprues_preview.png). Print H00 to test the thread fit first.
 

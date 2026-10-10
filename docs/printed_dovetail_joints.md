@@ -1,6 +1,6 @@
 # Dovetails for split printed parts
 
-P09 ring halves now use matching through dovetails in the outer flange, clear of the gear teeth. Each identical half has a male north connection and a female south connection. Rotate the second half 180 degrees, align both joints and slide it axially downward. Assemble the complete ring before seating it in the pot and bolting on P10 or P11. Do not force the halves together sideways. The collar screws retain the assembled ring axially.
+Superseded 2026-10-10: P09 is now a one-piece helical ring with no dovetails (see print_petg_12.md). Previously, P09 ring halves used matching through dovetails in the outer flange, clear of the gear teeth. Each identical half has a male north connection and a female south connection. Rotate the second half 180 degrees, align both joints and slide it axially downward. Assemble the complete ring before seating it in the pot and bolting on P10 or P11. Do not force the halves together sideways. The collar screws retain the assembled ring axially.
 
 P05 and P06, the split sun-bearing housing, now have three dovetail keys around the existing central locating pilot. Insert the 608 bearings as before, align all three keys, and lower P06 onto P05. Tighten the three existing M3 housing screws after seating; the keys locate the housing and transmit rotational load but do not replace axial retention.
 

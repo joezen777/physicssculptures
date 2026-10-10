@@ -47,7 +47,7 @@
     "hardware": true,
     "spec": "M4 x25 screw",
     "role": "cup screws",
-    "name": "AddedHardware175",
+    "name": "AddedHardware172",
     "pixel": [
       1077.9476269498687,
       1153.4720044069572
@@ -65,7 +65,7 @@
     "hardware": true,
     "spec": "M4 washer OD9",
     "role": "cup washers",
-    "name": "AddedHardware176",
+    "name": "AddedHardware173",
     "pixel": [
       762.2459810667918,
       387.75041568623834
@@ -83,7 +83,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "cup nuts",
-    "name": "AddedHardware177",
+    "name": "AddedHardware174",
     "pixel": [
       714.9850158072448,
       273.10105267929964

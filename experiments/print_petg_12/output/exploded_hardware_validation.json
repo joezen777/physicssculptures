@@ -1,7 +1,7 @@
 {
   "status": "PASS",
   "hardware_instances": 295,
-  "printed_instances": 59,
+  "printed_instances": 56,
   "counts": {
     "604 bearing": 9,
     "608 bearing": 11,
@@ -32,7 +32,7 @@
     "Tube ID8.2 OD12 L5.9": 3
   },
   "scope": "Every required purchased item represented; simplified unthreaded hardware geometry.",
-  "visible_instances": 354,
+  "visible_instances": 351,
   "all_instances_visible": true,
   "bom_csv_quantities_match": true,
   "native_exploded_object_names_match": true,

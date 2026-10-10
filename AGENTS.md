@@ -39,5 +39,5 @@ These instructions apply throughout this repository.
 - FreeCAD, OpenSCAD, and Open STEP Viewer are available for mechanical design and inspection.
 - Design mechanical parts with the intent to print them on one of the following available setups:
   - Anycubic Photon Mono 5s using Anycubic ABS Pro 2 resin.
-  - Ender 3 V2 with a Sprite Pro extruder and a 0.2 mm nozzle; select filament appropriate to the application.
+  - Ender 3 V2 with a Sprite Pro extruder and a 0.4 mm nozzle (as of 2026-10-10); select filament appropriate to the application.
 - Account for the selected printer, material, print orientation, supports, tolerances, and mechanical requirements when designing printable parts.
