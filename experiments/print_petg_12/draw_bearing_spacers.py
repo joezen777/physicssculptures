@@ -1,6 +1,6 @@
 from pathlib import Path
 import html
-r=Path('/mnt/c/Users/josep/OneDrive/Documents/angularmomflyer')
+r=Path(__file__).resolve().parents[2]
 out=r/'experiments/print_petg_12/output'
 s=[]
 def text(x,y,t,size=20,color='#243449',weight='normal'):

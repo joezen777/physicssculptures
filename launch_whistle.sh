@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
-PYTHON="${WHISTLE_PYTHON:-$HOME/.venvs/angularmomflyer/bin/python}"
+PYTHON="${WHISTLE_PYTHON:-${ANGULARMOMFLYER_PYTHON:-.venv/bin/python}}"
 if [ ! -f web/dist/whistle.html ]; then
   echo "Build the frontend first: cd web && npm run build"
   exit 1

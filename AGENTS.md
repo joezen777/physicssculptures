@@ -6,7 +6,7 @@ These instructions apply throughout this repository.
 - Never use PowerShell.
 - Run all coding, execution commands, and scripts in the user's WSL2 Ubuntu environment.
 - When a Windows tool requires a launcher, use cmd.exe only to invoke wsl.exe; execute the actual command or script inside Ubuntu.
-- WSL repository path: /mnt/c/Users/josep/OneDrive/Documents/angularmomflyer.
+- WSL repository path: /home/joezen777/angularmomflyer (native ext4; moved from /mnt/c/Users/josep/OneDrive/Documents/angularmomflyer).
 
 ## Preferred stack
 - Prefer Python for application logic, scripts, and backend work.

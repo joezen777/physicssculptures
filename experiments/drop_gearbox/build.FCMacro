@@ -8,7 +8,7 @@ from FreeCAD import Vector as V
 from PySide import QtCore, QtWidgets
 from pivy import coin
 
-ROOT = Path(__file__).resolve().parent if "__file__" in globals() else Path("/mnt/c/Users/josep/OneDrive/Documents/angularmomflyer/experiments/drop_gearbox")
+ROOT = Path(__file__).resolve().parent if "__file__" in globals() else Path.home() / "angularmomflyer/experiments/drop_gearbox"
 OUT = ROOT / "output"
 OUT.mkdir(exist_ok=True)
 for marker in ["build_complete.txt","render_complete.txt"]:
