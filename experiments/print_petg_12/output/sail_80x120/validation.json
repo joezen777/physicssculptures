@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "root_symmetric_difference_mm3": 0.0,
+  "P14_sha256": "ad419008f746780133ac5cad7356832142e3a138fb91dd8bac6622f44c4f9bc8",
+  "parts": [
+    {
+      "id": "P15",
+      "file": "P15_arm_180mm_print-3x.stl",
+      "quantity": 3,
+      "size_mm": [
+        167.74610187894453,
+        58.93769502210855,
+        24.0
+      ],
+      "volume_mm3": 17564.560757950345,
+      "triangles": 2616,
+      "closed_mesh": true
+    },
+    {
+      "id": "P16",
+      "file": "P16_scoop_80x120mm_print-3x.stl",
+      "quantity": 3,
+      "size_mm": [
+        80.0,
+        45.00000000000001,
+        120.0
+      ],
+      "volume_mm3": 49919.918992023566,
+      "triangles": 1368,
+      "closed_mesh": true
+    }
+  ],
+  "checks": [
+    {
+      "part": "P15",
+      "sampled_rotation_step_degrees": 10,
+      "interference": false
+    },
+    {
+      "part": "P16",
+      "sampled_rotation_step_degrees": 10,
+      "interference": false
+    }
+  ],
+  "physical_tested": false,
+  "notes": "Original full assembly unchanged; angular collision sampling is not structural validation."
+}

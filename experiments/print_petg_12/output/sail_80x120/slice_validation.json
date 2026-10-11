@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "nozzle_mm": 0.2,
+  "layer_mm": 0.12,
+  "results": [
+    {
+      "part": "P15",
+      "status": "PASS",
+      "layers": 263,
+      "warnings": ""
+    },
+    {
+      "part": "P16",
+      "status": "PASS",
+      "layers": 1776,
+      "warnings": ""
+    }
+  ],
+  "scope": "Geometry toolpath check only; no calibrated machine G-code supplied."
+}

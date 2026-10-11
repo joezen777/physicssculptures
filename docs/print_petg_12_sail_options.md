@@ -65,3 +65,6 @@ NASA drag equation: https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/dra
 Pindado et al. (2012): https://pmc.ncbi.nlm.nih.gov/articles/PMC3386737/
 Local build.py, output/parts.json, output/PRINT_AND_ASSEMBLE.md.
 Research supports relative-wind/angle modeling, not our assumed coefficients or this drivetrain.
+
+## Implemented retrofit (2026-10-11)
+The 80 x 120 mm half-cylinder scoop and reinforced 180 mm arm are now in experiments/print_petg_12/output/sail_80x120. Print three of each. P14 and the original release are unchanged. The keyed saddle uses M4 x30 steel bolts; the original root screws remain M4 x10 button-head. See that folder's README, CAD assembly, validation reports and previews. This is a printable prototype; aerodynamic and structural performance still require physical testing.

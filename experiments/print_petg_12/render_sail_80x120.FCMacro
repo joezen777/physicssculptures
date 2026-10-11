@@ -1,0 +1,39 @@
+from pathlib import Path
+import FreeCAD as App,FreeCADGui as Gui
+from FreeCAD import Vector as V
+from PySide import QtCore
+import traceback,Part,math
+ROOT=Path(__file__).resolve().parent;OUT=ROOT/'output/sail_80x120'
+try:
+    parts=App.openDocument(str(OUT/'P15_P16_sail_80x120.FCStd'))
+    arm=parts.getObject('P15').Shape.copy();sail=parts.getObject('P16').Shape.copy()
+    App.closeDocument(parts.Name)
+    doc=App.openDocument(str(ROOT/'output/print_prototype.FCStd'))
+    for o in list(doc.Objects):
+        if hasattr(o,'PartID') and o.PartID in ('P15','P16'):doc.removeObject(o.Name)
+    for o in list(doc.Objects):
+        if hasattr(o,'Shape') and hasattr(o,'PartID') and not o.PartID.startswith('P'):
+            c=o.Shape.BoundBox.Center
+            if 90<math.hypot(c.x,c.y)<135 and -20<c.z<5:doc.removeObject(o.Name)
+    for angle in [0,120,240]:
+        for key,shape,color in [('P15',arm,(.12,.48,.72)),('P16',sail,(.95,.62,.14))]:
+            o=doc.addObject('PartDesign::Feature',key+'New'+str(angle));o.Shape=shape.copy()
+            o.Placement=App.Placement(V(),App.Rotation(V(0,0,1),angle))
+            o.addProperty('App::PropertyString','PartID');o.PartID=key
+            o.ViewObject.ShapeColor=color
+        bolt=Part.makeCylinder(2,30,V(180,-53,-9),V(0,1,0)).fuse(Part.makeCylinder(3.5,4,V(180,-57,-9),V(0,1,0)))
+        washer=Part.makeCylinder(4.5,.8,V(180,-32,-9),V(0,1,0)).cut(Part.makeCylinder(2.1,.8,V(180,-32,-9),V(0,1,0)))
+        nut=Part.makeCylinder(4,3.2,V(180,-31.2,-9),V(0,1,0)).cut(Part.makeCylinder(2,3.2,V(180,-31.2,-9),V(0,1,0)))
+        o=doc.addObject('PartDesign::Feature','SailSteel'+str(angle));o.Shape=Part.makeCompound([bolt,washer,nut]);o.Placement=App.Placement(V(),App.Rotation(V(0,0,1),angle));o.ViewObject.ShapeColor=(.7,.7,.7)
+    doc.recompute()
+    view=Gui.activeDocument().activeView();view.setCameraType('Orthographic');view.viewAxonometric();view.fitAll();Gui.updateGui()
+    view.saveImage(str(OUT/'assembled.png'),1400,1400,'White')
+    doc.saveAs(str(OUT/'assembly_with_sails.FCStd'))
+    for o in doc.Objects:
+        if hasattr(o,'PartID') and o.PartID not in ('P12','P13','P14','P15','P16'):o.ViewObject.Visibility=False
+    view.fitAll();Gui.updateGui();view.saveImage(str(OUT/'sails_detail.png'),1400,1000,'White')
+    (OUT/'render_complete.txt').write_text('PASS')
+except BaseException:
+    (OUT/'render_error.txt').write_text(traceback.format_exc())
+for name in list(App.listDocuments()):App.closeDocument(name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)
