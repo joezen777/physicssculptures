@@ -68,3 +68,6 @@ Research supports relative-wind/angle modeling, not our assumed coefficients or 
 
 ## Implemented retrofit (2026-10-11)
 The 80 x 120 mm half-cylinder scoop and reinforced 180 mm arm are now in experiments/print_petg_12/output/sail_80x120. Print three of each. P14 and the original release are unchanged. The keyed saddle uses M4 x30 steel bolts; the original root screws remain M4 x10 button-head. See that folder's README, CAD assembly, validation reports and previews. This is a printable prototype; aerodynamic and structural performance still require physical testing.
+
+### Krull aesthetic retained
+P15 now uses a flowing swept-crescent outline and matching curved reinforcing spine instead of the straight retrofit strut. Preserve this Krull-inspired visual language in future wind-arm revisions. The P14 root interface, 180 mm sail lever and P16 scoop geometry are unchanged. Edges remain blunt for a functional PETG part.

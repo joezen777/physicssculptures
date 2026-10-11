@@ -13,13 +13,19 @@ oldarm=get('P15');hub=get('P14')
 def box(x,y,z,dx,dy,dz):return Part.makeBox(dx,dy,dz,V(x,y,z))
 # Preserve the complete original root and its holes in assembly coordinates.
 root=oldarm.common(box(-100,-100,-50,155,200,100))
-pts=[(48,-24),(60,-28),(166,-53),(191,-53),(191,-45),(169,-45),(64,-12),(48,-10)]
-wire=Part.makePolygon([V(x,y,-12) for x,y in pts]+[V(*pts[0],-12)])
-body=Part.Face(wire).extrude(V(0,0,6))
-arm=root.fuse(body).fuse(box(169,-51,-17,22,6,24))
-# Broad vertical web outside preserved hub engagement.
-ribpts=[(58,-22),(164,-49),(169,-49),(169,-45),(164,-45),(58,-18)]
-rib=Part.Face(Part.makePolygon([V(x,y,-12) for x,y in ribpts]+[V(*ribpts[0],-12)])).extrude(V(0,0,12))
+# Krull-inspired swept crescent: flowing blade outline, blunt edges and curved spine.
+# Root and end saddle remain at their original coordinates.
+def spline_edge(points,z):
+    c=Part.BSplineCurve();c.interpolate([V(x,y,z) for x,y in points]);return c.toShape()
+def curved_strip(outer,inner,z,height):
+    a=spline_edge(outer,z);b=spline_edge(inner,z)
+    w=Part.Wire([a,Part.makeLine(V(*outer[-1],z),V(*inner[-1],z)),b.reversed(),Part.makeLine(V(*inner[0],z),V(*outer[0],z))])
+    return Part.Face(w).extrude(V(0,0,height))
+body=curved_strip([(48,-24),(75,-46),(110,-68),(144,-72),(169,-62),(180,-53)],
+                  [(48,-10),(75,-21),(110,-43),(144,-47),(166,-47),(180,-45)],-12,6)
+arm=root.fuse(body).fuse(box(169,-53,-17,22,8,24))
+rib=curved_strip([(65,-33),(90,-49),(120,-61),(145,-63),(169,-54)],
+                 [(65,-29),(90,-45),(120,-57),(145,-59),(169,-50)],-12,10)
 arm=arm.fuse(rib)
 # Anti-twist cheeks with 0.30 mm side clearance around 16 mm P16 boss.
 arm=arm.fuse(box(169,-49,-17,2.7,9,16)).fuse(box(188.3,-49,-17,2.7,9,16))
@@ -60,13 +66,14 @@ for key,shape in [('P15',arm),('P16',sail)]:
 doc.recompute();doc.saveAs(str(OUT/'P15_P16_sail_80x120.FCStd'))
 # Swept axisymmetric envelope: all other existing printed parts must stay inside 100 mm
 # wherever tall scoop overlaps vertically. Validate actual sampled angular positions too.
-fixed=[(source.getObject(r['name']).Shape,r.get('ratio',0)) for r in scene if r['key'] not in ('P15','P16')]
+fixed=[(source.getObject(r['name']).Shape,getattr(source.getObject(r['name']),'SpeedRatio',0)) for r in scene if r['key'] not in ('P15','P16')]
 checks=[]
 for key,s in [('P15',arm),('P16',sail)]:
     min_distance=1e9
     for deg in range(0,360,10):
         test=s.copy();test.rotate(V(),V(0,0,1),deg)
         for original,ratio in fixed:
+            if ratio==1 and deg!=0:continue  # shared rigid rotation; relative geometry unchanged
             if key=='P16':
                 bb=original.BoundBox
                 bound=math.hypot(max(abs(bb.XMin),abs(bb.XMax)),max(abs(bb.YMin),abs(bb.YMax)))

@@ -1,7 +1,7 @@
 # Larger wind-sail retrofit: P15 / P16
 Print **3 of each STL**, at 100% scale in millimeters. Each file contains one part.
 
-- P15_arm_180mm_print-3x.stl: reinforced arm, original P14 root and screw holes, keyed sail saddle.
+- P15_arm_180mm_print-3x.stl: Krull-inspired swept crescent arm with a curved reinforcing spine, original P14 root and screw holes, and keyed sail saddle.
 - P16_scoop_80x120mm_print-3x.stl: 80 mm wide, 120 mm tall half-cylinder scoop, 3.2 mm shell and reinforced rims.
 - P15_P16_sail_80x120.FCStd: editable replacement geometry in assembly coordinates.
 - assembly_with_sails.FCStd: full assembly preview with replacements.
