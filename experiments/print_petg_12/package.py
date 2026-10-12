@@ -20,7 +20,7 @@ actual=Counter(a["spec"] for a in ann if a["hardware"])
 expected=Counter()
 for row in csv.DictReader((OUT/"hardware_bom.csv").open()):expected[bom_key(row)]+=int(row["quantity"])
 assert actual==expected,(actual,expected)
-assert len(ann)==354 and sum(actual.values())==295
+assert len(ann)==351 and sum(actual.values())==295
 assert len({a["name"] for a in ann})==len(ann)
 with zipfile.ZipFile(OUT/"exploded_assembly.FCStd") as z:
     root=ET.fromstring(z.read("Document.xml"))
@@ -35,16 +35,16 @@ report=json.loads((OUT/"exploded_hardware_validation.json").read_text())
 report.update(bom_csv_quantities_match=True,native_exploded_object_names_match=True,joint_details_checked=True)
 (OUT/"exploded_hardware_validation.json").write_text(json.dumps(report,indent=2)+"\n")
 names=["PRINT_AND_ASSEMBLE.md","print_manifest.csv","hardware_bom.csv","parts.json","release_summary.json",
-       "dovetail_validation.json","sun_housing_dovetails.png","ring_half_dovetails.png","validation.json","fastener_validation.json","slice_validation.json","exploded_hardware_validation.json",
+       "dovetail_validation.json","sun_housing_dovetails.png","helical_gear_mesh.png","helical_ring_assembly.png","validation.json","fastener_validation.json","slice_validation.json","exploded_hardware_validation.json",
        "exploded_assembly_labeled.png","assembly_guide_preview.png","assembled.png",
        "planet_joint_labeled.png","cup_joint_labeled.png","print_prototype.FCStd","exploded_assembly.FCStd"]
 files=[(p,"stl/"+p.name) for p in sorted((OUT/"stl").glob("*.stl"))]
 files += [(OUT/name,name) for name in names]+[(ROOT/"slicer_check.ini","slicer_check.ini")]
-target=ROOT/"print_package_PETG_1p2mm.zip"
+target=ROOT/"print_package_PETG.zip"
 with zipfile.ZipFile(target,"w",zipfile.ZIP_DEFLATED) as z:
-    for path,name in files:z.write(path,"fan_tunnel_PETG_1p2mm/"+name)
+    for path,name in files:z.write(path,"fan_tunnel_PETG/"+name)
 with zipfile.ZipFile(target) as z:
     assert z.testzip() is None
-    for path,name in files:assert z.read("fan_tunnel_PETG_1p2mm/"+name)==path.read_bytes()
-print("PASS: all BOM quantities, 354 native objects, joint detail coverage, syntax, and ZIP contents.")
+    for path,name in files:assert z.read("fan_tunnel_PETG/"+name)==path.read_bytes()
+print("PASS: all BOM quantities, 351 native objects, joint detail coverage, syntax, and ZIP contents.")
 print("Package:",round(target.stat().st_size/1024**2,1),"MiB")

@@ -1,6 +1,6 @@
 # Flywheel Lab
 
-**Latest print files:** [1.2 mm PETG STL set](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
+**Latest print files:** [PETG STL set with 0.4 mm-nozzle helical gears](experiments/print_petg_12/output/stl) and [labeled exploded guide](experiments/print_petg_12/output/exploded_assembly_labeled.png).
 
 **Hardware sprues:** [Resin screws, nuts, washers and tube spacers](experiments/print_petg_12/output/stl/resin_hardware_sprues), with modeled threads and raised 12-point size labels. [Hardware sheet index](experiments/print_petg_12/output/stl/resin_hardware_sprues/hardware_sprues_preview.png). Print H00 to test the thread fit first.
 
@@ -29,11 +29,11 @@ The default latch estimates a 38.7 RPM release speed. Try a 20 RPM donut target 
 
 ## Install/build
 
-Keep Python dependencies on the Linux filesystem to avoid slow package operations in OneDrive. Use Node 24 (available under the user's WSL nvm installation) for the frontend.
+The repository lives on the WSL2 Linux filesystem (`~/angularmomflyer`), so the Python environment is the in-repo `.venv` (git-ignored). `requirements.txt` also pulls in the resin-sprue mesh dependencies. Use Node 24 (available under the user's WSL nvm installation) for the frontend. Launch scripts use `.venv/bin/python` unless `ANGULARMOMFLYER_PYTHON` is set.
 
 ```bash
-python3 -m venv ~/.venvs/angularmomflyer
-source ~/.venvs/angularmomflyer/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
 cd web
 npm ci

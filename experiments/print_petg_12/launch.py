@@ -23,6 +23,9 @@ assert (ROOT/"output/render_complete.txt").exists()
 with (ROOT/"dovetail_render.log").open("w") as log:
     subprocess.run([str(exe),str(ROOT/"render_dovetails.FCMacro")],env=env,stdout=log,stderr=log,check=True)
 assert (ROOT/"output/dovetail_render_complete.txt").exists()
+with (ROOT/"gear_render.log").open("w") as log:
+    subprocess.run([str(exe),str(ROOT/"render_gears.FCMacro")],env=env,stdout=log,stderr=log,check=True)
+assert (ROOT/"output/gear_render_complete.txt").exists()
 run("make_poster.py")
 subprocess.run(["python3",str(ROOT/"package.py")],check=True)
 print("CAD and previews saved. FreeCAD has exited.")

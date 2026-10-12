@@ -43,6 +43,15 @@ for angle in [0,.7,1.3,2.1,3.7,4.7,6.1,8.3,9.2,10]:
     overlaps=[s.common(p).Volume]+[r.common(p).Volume for r in ring_shapes]
     checks["mesh_phases"].append(dict(angle=angle,overlap_mm3=overlaps))
     print("Mesh phase",angle,overlaps,flush=True)
+# Axial assembly: lowering a helical gear requires turning it by its helix rate; staggered rows failed this.
+def helix_deg_per_mm(n,hand):return math.degrees(hand*math.tan(math.radians(15.))/(n))  # M=2: pitch radius = n
+assembly=[]
+for dz in [12,8,4,2,1,.5,0]:
+    p=planet.copy();p.rotate(V(54,0,0),V(0,0,1),helix_deg_per_mm(18,-1)*dz);p.translate(V(0,0,dz))
+    r=rings[0].copy();r.rotate(V(),V(0,0,1),helix_deg_per_mm(72,-1)*dz);r.translate(V(0,0,dz))
+    item=dict(lift_mm=dz,planet_into_sun_mm3=sun.common(p).Volume,planet_into_ring_mm3=rings[0].common(p).Volume,ring_over_planet_mm3=r.common(planet).Volume)
+    assembly.append(item);print("Axial insertion",item,flush=True)
+checks["axial_gear_insertion"]=assembly
 def objs(k):return [o for o in doc.Objects if hasattr(o,"PartID") and o.PartID==k]
 # Insertion corridors, with removable retainers absent.
 access=[]
@@ -67,7 +76,7 @@ sweep=Part.makeCylinder(72.7,10.2,V(0,0,342.9)).cut(Part.makeCylinder(22,10.2,V(
 for k in ["P18","P19"]:assert objs(k)[0].Shape.common(sweep).Volume<1e-4,k
 checks["terminal_blade_sweep_clear"]=True
 
-checks["status"]="PASS" if not checks["collisions"] and all(max(x["overlap_mm3"])<1e-4 for x in checks["mesh_phases"]) else "FAIL"
+checks["status"]="PASS" if not checks["collisions"] and all(max(x["overlap_mm3"])<1e-4 for x in checks["mesh_phases"]) and all(max(v for k,v in x.items() if k!="lift_mm")<1e-4 for x in checks["axial_gear_insertion"]) else "FAIL"
 checks["scope"]="Nominal CAD and mesh checks; physical PETG fit, gear wear, strength and child safety unverified."
 checks["stl_sha256"]={f.name:hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted((OUT/"stl").glob("*.stl"))}
 (OUT/"validation.json").write_text(json.dumps(checks,indent=2))

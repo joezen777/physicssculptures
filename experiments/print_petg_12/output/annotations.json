@@ -184,7 +184,7 @@
     "stage": 0,
     "order": 0,
     "point": [
-      0.0,
+      0.0039631352845788115,
       0.0,
       690
     ],
@@ -193,8 +193,8 @@
     "role": "P02",
     "name": "P02_11",
     "pixel": [
-      800.0,
-      11346.705788811132
+      800.0112970439833,
+      11346.704518198841
     ]
   },
   {
@@ -292,8 +292,8 @@
     "stage": 0,
     "order": 7,
     "point": [
-      54.00000000000001,
-      0.0,
+      54.0,
+      1.7763568394002505e-15,
       1096
     ],
     "hardware": false,
@@ -328,7 +328,7 @@
     "stage": 0,
     "order": 7,
     "point": [
-      -26.999999999999993,
+      -26.99999999999999,
       46.76537180435969,
       1096
     ],
@@ -337,7 +337,7 @@
     "role": "P07",
     "name": "P07_19",
     "pixel": [
-      674.5161508447364,
+      674.5161508447366,
       10142.856667776578
     ]
   },
@@ -364,7 +364,7 @@
     "stage": 0,
     "order": 7,
     "point": [
-      -27.00000000000002,
+      -27.00000000000003,
       -46.765371804359674,
       1096
     ],
@@ -400,7 +400,7 @@
     "stage": 0,
     "order": 10,
     "point": [
-      63.75,
+      0.0,
       0.0,
       1375
     ],
@@ -409,26 +409,8 @@
     "role": "P09",
     "name": "P09_23",
     "pixel": [
-      981.7214155520867,
-      9350.039245760527
-    ]
-  },
-  {
-    "key": "P09",
-    "stage": 0,
-    "order": 10,
-    "point": [
-      -63.75,
-      0.0,
-      1375
-    ],
-    "hardware": false,
-    "spec": "P09",
-    "role": "P09",
-    "name": "P09_24",
-    "pixel": [
-      618.2785844479133,
-      9390.916746881983
+      800.0,
+      9370.477996321255
     ]
   },
   {
@@ -443,7 +425,7 @@
     "hardware": false,
     "spec": "P10",
     "role": "P10",
-    "name": "P10_25",
+    "name": "P10_24",
     "pixel": [
       800.0,
       9203.147759876856
@@ -454,17 +436,17 @@
     "stage": 1,
     "order": 0,
     "point": [
-      0.0,
+      0.0039631352845788115,
       0.0,
       1740
     ],
     "hardware": false,
     "spec": "P03",
     "role": "P03",
-    "name": "P03_26",
+    "name": "P03_25",
     "pixel": [
-      800.0,
-      8317.451508352196
+      800.0112970439833,
+      8317.450237739906
     ]
   },
   {
@@ -479,7 +461,7 @@
     "hardware": false,
     "spec": "P01",
     "role": "P01",
-    "name": "P01_27",
+    "name": "P01_26",
     "pixel": [
       800.0,
       7959.711002850379
@@ -497,7 +479,7 @@
     "hardware": false,
     "spec": "P04",
     "role": "P04",
-    "name": "P04_28",
+    "name": "P04_27",
     "pixel": [
       838.4887398826758,
       7580.324815210755
@@ -515,7 +497,7 @@
     "hardware": false,
     "spec": "P01",
     "role": "P01",
-    "name": "P01_29",
+    "name": "P01_28",
     "pixel": [
       800.0,
       7224.034963310352
@@ -533,7 +515,7 @@
     "hardware": false,
     "spec": "P05",
     "role": "P05",
-    "name": "P05_30",
+    "name": "P05_29",
     "pixel": [
       800.0,
       7010.544661639913
@@ -551,7 +533,7 @@
     "hardware": false,
     "spec": "P06",
     "role": "P06",
-    "name": "P06_31",
+    "name": "P06_30",
     "pixel": [
       800.0,
       6681.654196904371
@@ -562,14 +544,14 @@
     "stage": 1,
     "order": 7,
     "point": [
-      54.00000000000001,
-      0.0,
+      54.0,
+      1.7763568394002505e-15,
       2146
     ],
     "hardware": false,
     "spec": "P07",
     "role": "P07",
-    "name": "P07_32",
+    "name": "P07_31",
     "pixel": [
       953.9287284676499,
       7128.827029237026
@@ -587,7 +569,7 @@
     "hardware": false,
     "spec": "P08",
     "role": "P08",
-    "name": "P08_33",
+    "name": "P08_32",
     "pixel": [
       953.9287284676499,
       6926.876743873097
@@ -598,16 +580,16 @@
     "stage": 1,
     "order": 7,
     "point": [
-      -26.999999999999993,
+      -26.99999999999999,
       46.76537180435969,
       2146
     ],
     "hardware": false,
     "spec": "P07",
     "role": "P07",
-    "name": "P07_34",
+    "name": "P07_33",
     "pixel": [
-      674.5161508447364,
+      674.5161508447366,
       7113.602387317643
     ]
   },
@@ -623,7 +605,7 @@
     "hardware": false,
     "spec": "P08",
     "role": "P08",
-    "name": "P08_35",
+    "name": "P08_34",
     "pixel": [
       674.5161508447364,
       6911.652101953714
@@ -634,14 +616,14 @@
     "stage": 1,
     "order": 7,
     "point": [
-      -27.00000000000002,
+      -27.00000000000003,
       -46.765371804359674,
       2146
     ],
     "hardware": false,
     "spec": "P07",
     "role": "P07",
-    "name": "P07_36",
+    "name": "P07_35",
     "pixel": [
       771.5551206876136,
       7195.990143169554
@@ -659,7 +641,7 @@
     "hardware": false,
     "spec": "P08",
     "role": "P08",
-    "name": "P08_37",
+    "name": "P08_36",
     "pixel": [
       771.5551206876136,
       6994.039857805626
@@ -670,35 +652,17 @@
     "stage": 1,
     "order": 10,
     "point": [
-      63.75,
+      0.0,
       0.0,
       2425
     ],
     "hardware": false,
     "spec": "P09",
     "role": "P09",
-    "name": "P09_38",
+    "name": "P09_37",
     "pixel": [
-      981.7214155520867,
-      6320.784965301591
-    ]
-  },
-  {
-    "key": "P09",
-    "stage": 1,
-    "order": 10,
-    "point": [
-      -63.75,
-      0.0,
-      2425
-    ],
-    "hardware": false,
-    "spec": "P09",
-    "role": "P09",
-    "name": "P09_39",
-    "pixel": [
-      618.2785844479133,
-      6361.662466423048
+      800.0,
+      6341.223715862319
     ]
   },
   {
@@ -713,7 +677,7 @@
     "hardware": false,
     "spec": "P10",
     "role": "P10",
-    "name": "P10_40",
+    "name": "P10_38",
     "pixel": [
       800.0,
       6173.893479417921
@@ -724,17 +688,17 @@
     "stage": 2,
     "order": 0,
     "point": [
-      0.0,
+      0.0039631352845788115,
       0.0,
       2790
     ],
     "hardware": false,
     "spec": "P02",
     "role": "P02",
-    "name": "P02_41",
+    "name": "P02_39",
     "pixel": [
-      800.0,
-      5288.197227893261
+      800.0112970439833,
+      5288.19595728097
     ]
   },
   {
@@ -749,7 +713,7 @@
     "hardware": false,
     "spec": "P01",
     "role": "P01",
-    "name": "P01_42",
+    "name": "P01_40",
     "pixel": [
       800.0,
       4930.456722391444
@@ -767,7 +731,7 @@
     "hardware": false,
     "spec": "P04",
     "role": "P04",
-    "name": "P04_43",
+    "name": "P04_41",
     "pixel": [
       838.4887398826758,
       4551.07053475182
@@ -785,7 +749,7 @@
     "hardware": false,
     "spec": "P01",
     "role": "P01",
-    "name": "P01_44",
+    "name": "P01_42",
     "pixel": [
       800.0,
       4194.780682851417
@@ -803,7 +767,7 @@
     "hardware": false,
     "spec": "P05",
     "role": "P05",
-    "name": "P05_45",
+    "name": "P05_43",
     "pixel": [
       800.0,
       3981.2903811809774
@@ -821,7 +785,7 @@
     "hardware": false,
     "spec": "P06",
     "role": "P06",
-    "name": "P06_46",
+    "name": "P06_44",
     "pixel": [
       800.0,
       3652.399916445436
@@ -832,14 +796,14 @@
     "stage": 2,
     "order": 7,
     "point": [
-      54.00000000000001,
-      0.0,
+      54.0,
+      1.7763568394002505e-15,
       3196
     ],
     "hardware": false,
     "spec": "P07",
     "role": "P07",
-    "name": "P07_47",
+    "name": "P07_45",
     "pixel": [
       953.9287284676499,
       4099.572748778091
@@ -857,7 +821,7 @@
     "hardware": false,
     "spec": "P08",
     "role": "P08",
-    "name": "P08_48",
+    "name": "P08_46",
     "pixel": [
       953.9287284676499,
       3897.6224634141627
@@ -868,16 +832,16 @@
     "stage": 2,
     "order": 7,
     "point": [
-      -26.999999999999993,
+      -26.99999999999999,
       46.76537180435969,
       3196
     ],
     "hardware": false,
     "spec": "P07",
     "role": "P07",
-    "name": "P07_49",
+    "name": "P07_47",
     "pixel": [
-      674.5161508447364,
+      674.5161508447366,
       4084.348106858707
     ]
   },
@@ -893,7 +857,7 @@
     "hardware": false,
     "spec": "P08",
     "role": "P08",
-    "name": "P08_50",
+    "name": "P08_48",
     "pixel": [
       674.5161508447364,
       3882.397821494779
@@ -904,14 +868,14 @@
     "stage": 2,
     "order": 7,
     "point": [
-      -27.00000000000002,
+      -27.00000000000003,
       -46.765371804359674,
       3196
     ],
     "hardware": false,
     "spec": "P07",
     "role": "P07",
-    "name": "P07_51",
+    "name": "P07_49",
     "pixel": [
       771.5551206876136,
       4166.735862710619
@@ -929,7 +893,7 @@
     "hardware": false,
     "spec": "P08",
     "role": "P08",
-    "name": "P08_52",
+    "name": "P08_50",
     "pixel": [
       771.5551206876136,
       3964.7855773466904
@@ -940,35 +904,17 @@
     "stage": 2,
     "order": 10,
     "point": [
-      63.75,
+      0.0,
       0.0,
       3475
     ],
     "hardware": false,
     "spec": "P09",
     "role": "P09",
-    "name": "P09_53",
+    "name": "P09_51",
     "pixel": [
-      981.7214155520867,
-      3291.530684842656
-    ]
-  },
-  {
-    "key": "P09",
-    "stage": 2,
-    "order": 10,
-    "point": [
-      -63.75,
-      0.0,
-      3475
-    ],
-    "hardware": false,
-    "spec": "P09",
-    "role": "P09",
-    "name": "P09_54",
-    "pixel": [
-      618.2785844479133,
-      3332.408185964113
+      800.0,
+      3311.9694354033836
     ]
   },
   {
@@ -983,7 +929,7 @@
     "hardware": false,
     "spec": "P11",
     "role": "P11",
-    "name": "P11_55",
+    "name": "P11_52",
     "pixel": [
       800.051682069554,
       3144.6333861222056
@@ -1001,7 +947,7 @@
     "hardware": false,
     "spec": "P17",
     "role": "P17",
-    "name": "P17_56",
+    "name": "P17_53",
     "pixel": [
       800.0,
       2258.942947434325
@@ -1019,7 +965,7 @@
     "hardware": false,
     "spec": "P01",
     "role": "P01",
-    "name": "P01_57",
+    "name": "P01_54",
     "pixel": [
       800.0,
       1883.8924174727426
@@ -1037,7 +983,7 @@
     "hardware": false,
     "spec": "P18",
     "role": "P18",
-    "name": "P18_58",
+    "name": "P18_55",
     "pixel": [
       800.0,
       1364.5916836797824
@@ -1055,7 +1001,7 @@
     "hardware": false,
     "spec": "P19",
     "role": "P19",
-    "name": "P19_59",
+    "name": "P19_56",
     "pixel": [
       800.0,
       1076.0912760170268
@@ -2873,7 +2819,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "base retainer screws",
-    "name": "AddedHardware159",
+    "name": "AddedHardware156",
     "pixel": [
       849.8984301286072,
       13112.486066335616
@@ -2891,7 +2837,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "base retainer nuts",
-    "name": "AddedHardware160",
+    "name": "AddedHardware157",
     "pixel": [
       849.8843101515532,
       12697.047067417256
@@ -2909,7 +2855,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "base retainer screws",
-    "name": "AddedHardware161",
+    "name": "AddedHardware158",
     "pixel": [
       759.3480577508112,
       13107.552154602483
@@ -2927,7 +2873,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "base retainer nuts",
-    "name": "AddedHardware162",
+    "name": "AddedHardware159",
     "pixel": [
       759.3339377737572,
       12692.113155684121
@@ -2945,7 +2891,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "base retainer screws",
-    "name": "AddedHardware163",
+    "name": "AddedHardware160",
     "pixel": [
       790.7958720517436,
       13134.251890295232
@@ -2963,7 +2909,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "base retainer nuts",
-    "name": "AddedHardware164",
+    "name": "AddedHardware161",
     "pixel": [
       790.7817520746896,
       12718.81289137687
@@ -2981,7 +2927,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "sail hub screws",
-    "name": "AddedHardware165",
+    "name": "AddedHardware162",
     "pixel": [
       848.7289974279312,
       12381.782148987004
@@ -2999,7 +2945,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "sail hub nuts",
-    "name": "AddedHardware166",
+    "name": "AddedHardware163",
     "pixel": [
       848.7469683078181,
       12528.915335656457
@@ -3017,7 +2963,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "sail hub screws",
-    "name": "AddedHardware167",
+    "name": "AddedHardware164",
     "pixel": [
       725.2973407379111,
       12395.664876208342
@@ -3035,7 +2981,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "sail hub nuts",
-    "name": "AddedHardware168",
+    "name": "AddedHardware165",
     "pixel": [
       725.315311617798,
       12542.798062877791
@@ -3053,7 +2999,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "sail hub screws",
-    "name": "AddedHardware169",
+    "name": "AddedHardware166",
     "pixel": [
       825.919749194497,
       12421.755868860888
@@ -3071,7 +3017,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "sail hub nuts",
-    "name": "AddedHardware170",
+    "name": "AddedHardware167",
     "pixel": [
       825.9377200743838,
       12568.88905553034
@@ -3089,7 +3035,7 @@
     "hardware": true,
     "spec": "M4 x10 button screw",
     "role": "arm root screws",
-    "name": "AddedHardware171",
+    "name": "AddedHardware168",
     "pixel": [
       884.2807744774988,
       12129.406262558754
@@ -3107,7 +3053,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "arm root nuts",
-    "name": "AddedHardware172",
+    "name": "AddedHardware169",
     "pixel": [
       884.2807744774988,
       12348.666572382448
@@ -3125,7 +3071,7 @@
     "hardware": true,
     "spec": "M4 x10 button screw",
     "role": "arm root screws",
-    "name": "AddedHardware173",
+    "name": "AddedHardware170",
     "pixel": [
       916.3531147093887,
       12130.582717200668
@@ -3143,7 +3089,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "arm root nuts",
-    "name": "AddedHardware174",
+    "name": "AddedHardware171",
     "pixel": [
       916.3531147093887,
       12349.843027024364
@@ -3161,7 +3107,7 @@
     "hardware": true,
     "spec": "M4 x25 screw",
     "role": "cup screws",
-    "name": "AddedHardware175",
+    "name": "AddedHardware172",
     "pixel": [
       1143.6715925946414,
       12231.048905488144
@@ -3179,7 +3125,7 @@
     "hardware": true,
     "spec": "M4 washer OD9",
     "role": "cup washers",
-    "name": "AddedHardware176",
+    "name": "AddedHardware173",
     "pixel": [
       1011.991643540377,
       12119.269670571091
@@ -3197,7 +3143,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "cup nuts",
-    "name": "AddedHardware177",
+    "name": "AddedHardware174",
     "pixel": [
       992.2789762838452,
       12102.533276731065
@@ -3215,7 +3161,7 @@
     "hardware": true,
     "spec": "M4 x10 button screw",
     "role": "arm root screws",
-    "name": "AddedHardware178",
+    "name": "AddedHardware175",
     "pixel": [
       736.0262020178686,
       12118.53729587368
@@ -3233,7 +3179,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "arm root nuts",
-    "name": "AddedHardware179",
+    "name": "AddedHardware176",
     "pixel": [
       736.0262020178686,
       12337.797605697375
@@ -3251,7 +3197,7 @@
     "hardware": true,
     "spec": "M4 x10 button screw",
     "role": "arm root screws",
-    "name": "AddedHardware180",
+    "name": "AddedHardware177",
     "pixel": [
       723.2870661260763,
       12109.365978953629
@@ -3269,7 +3215,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "arm root nuts",
-    "name": "AddedHardware181",
+    "name": "AddedHardware178",
     "pixel": [
       723.2870661260763,
       12328.626288777323
@@ -3287,7 +3233,7 @@
     "hardware": true,
     "spec": "M4 x25 screw",
     "role": "cup screws",
-    "name": "AddedHardware182",
+    "name": "AddedHardware179",
     "pixel": [
       616.7020580897317,
       12144.745993926024
@@ -3305,7 +3251,7 @@
     "hardware": true,
     "spec": "M4 washer OD9",
     "role": "cup washers",
-    "name": "AddedHardware183",
+    "name": "AddedHardware180",
     "pixel": [
       368.866349543905,
       12236.56399249229
@@ -3323,7 +3269,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "cup nuts",
-    "name": "AddedHardware184",
+    "name": "AddedHardware181",
     "pixel": [
       331.8158109098354,
       12250.206888650322
@@ -3341,7 +3287,7 @@
     "hardware": true,
     "spec": "M4 x10 button screw",
     "role": "arm root screws",
-    "name": "AddedHardware185",
+    "name": "AddedHardware182",
     "pixel": [
       779.6930235046326,
       12163.647158988813
@@ -3359,7 +3305,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "arm root nuts",
-    "name": "AddedHardware186",
+    "name": "AddedHardware183",
     "pixel": [
       779.6930235046326,
       12382.907468812507
@@ -3377,7 +3323,7 @@
     "hardware": true,
     "spec": "M4 x10 button screw",
     "role": "arm root screws",
-    "name": "AddedHardware187",
+    "name": "AddedHardware184",
     "pixel": [
       760.359819164535,
       12171.642021266947
@@ -3395,7 +3341,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "arm root nuts",
-    "name": "AddedHardware188",
+    "name": "AddedHardware185",
     "pixel": [
       760.359819164535,
       12390.902331090641
@@ -3413,7 +3359,7 @@
     "hardware": true,
     "spec": "M4 x25 screw",
     "role": "cup screws",
-    "name": "AddedHardware189",
+    "name": "AddedHardware186",
     "pixel": [
       638.30159221309,
       12328.918080672265
@@ -3431,7 +3377,7 @@
     "hardware": true,
     "spec": "M4 washer OD9",
     "role": "cup washers",
-    "name": "AddedHardware190",
+    "name": "AddedHardware187",
     "pixel": [
       1019.1454940281837,
       12350.027077967918
@@ -3449,7 +3395,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "cup nuts",
-    "name": "AddedHardware191",
+    "name": "AddedHardware188",
     "pixel": [
       1075.905212806319,
       12353.12096785587
@@ -3467,7 +3413,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware192",
+    "name": "AddedHardware189",
     "pixel": [
       849.8701901744992,
       10902.576119870922
@@ -3485,7 +3431,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware193",
+    "name": "AddedHardware190",
     "pixel": [
       849.8843101515532,
       11566.125469379254
@@ -3503,7 +3449,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware194",
+    "name": "AddedHardware191",
     "pixel": [
       759.3198177967032,
       10897.64220813779
@@ -3521,7 +3467,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware195",
+    "name": "AddedHardware192",
     "pixel": [
       759.3339377737572,
       11561.19155764612
@@ -3539,7 +3485,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware196",
+    "name": "AddedHardware193",
     "pixel": [
       790.7676320976356,
       10924.34194383054
@@ -3557,7 +3503,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware197",
+    "name": "AddedHardware194",
     "pixel": [
       790.7817520746896,
       11587.89129333887
@@ -3575,7 +3521,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware198",
+    "name": "AddedHardware195",
     "pixel": [
       809.2323679023644,
       10320.79758732469
@@ -3593,7 +3539,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware199",
+    "name": "AddedHardware196",
     "pixel": [
       809.2182479253104,
       9939.978637325861
@@ -3611,7 +3557,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware200",
+    "name": "AddedHardware197",
     "pixel": [
       750.1298098255008,
       10342.563411284307
@@ -3629,7 +3575,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware201",
+    "name": "AddedHardware198",
     "pixel": [
       750.1156898484468,
       9961.744461285476
@@ -3647,7 +3593,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware202",
+    "name": "AddedHardware199",
     "pixel": [
       840.6801822032968,
       10347.49732301744
@@ -3665,7 +3611,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware203",
+    "name": "AddedHardware200",
     "pixel": [
       840.6660622262428,
       9966.67837301861
@@ -3683,7 +3629,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware204",
+    "name": "AddedHardware201",
     "pixel": [
       849.9000888318112,
       10169.781721616204
@@ -3701,7 +3647,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware205",
+    "name": "AddedHardware202",
     "pixel": [
       849.8843101515532,
       9581.242664659494
@@ -3719,7 +3665,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware206",
+    "name": "AddedHardware203",
     "pixel": [
       759.3497164540153,
       10164.84780988307
@@ -3737,7 +3683,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware207",
+    "name": "AddedHardware204",
     "pixel": [
       759.3339377737572,
       9576.308752926361
@@ -3755,7 +3701,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware208",
+    "name": "AddedHardware205",
     "pixel": [
       790.7975307549476,
       10191.547545575819
@@ -3773,7 +3719,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware209",
+    "name": "AddedHardware206",
     "pixel": [
       790.7817520746896,
       9603.00848861911
@@ -3791,7 +3737,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware210",
+    "name": "AddedHardware207",
     "pixel": [
       1056.5299098995295,
       9038.699882839946
@@ -3809,7 +3755,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware211",
+    "name": "AddedHardware208",
     "pixel": [
       1056.5478807794166,
       9471.448473095525
@@ -3827,7 +3773,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware212",
+    "name": "AddedHardware209",
     "pixel": [
       847.3901613074237,
       8984.470772967004
@@ -3845,7 +3791,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware213",
+    "name": "AddedHardware210",
     "pixel": [
       847.4081321873106,
       9417.219363222583
@@ -3863,7 +3809,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware214",
+    "name": "AddedHardware211",
     "pixel": [
       590.8422805280072,
       9013.325479640975
@@ -3881,7 +3827,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware215",
+    "name": "AddedHardware212",
     "pixel": [
       590.8602514078941,
       9446.074069896553
@@ -3899,7 +3845,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware216",
+    "name": "AddedHardware213",
     "pixel": [
       543.4341483406967,
       9096.409296187885
@@ -3917,7 +3863,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware217",
+    "name": "AddedHardware214",
     "pixel": [
       543.4521192205835,
       9529.157886443463
@@ -3935,7 +3881,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware218",
+    "name": "AddedHardware215",
     "pixel": [
       752.5738969328024,
       9150.638406060827
@@ -3953,7 +3899,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware219",
+    "name": "AddedHardware216",
     "pixel": [
       752.5918678126893,
       9583.386996316407
@@ -3971,7 +3917,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware220",
+    "name": "AddedHardware217",
     "pixel": [
       1009.121777712219,
       9121.783699386859
@@ -3989,7 +3935,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware221",
+    "name": "AddedHardware218",
     "pixel": [
       1009.1397485921059,
       9554.532289642437
@@ -4007,7 +3953,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware222",
+    "name": "AddedHardware219",
     "pixel": [
       981.4999959869212,
       9847.35100767742
@@ -4025,7 +3971,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware223",
+    "name": "AddedHardware220",
     "pixel": [
       981.5129058162232,
       10251.250126398203
@@ -4043,7 +3989,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware224",
+    "name": "AddedHardware221",
     "pixel": [
       926.3316412897744,
       9847.35100767742
@@ -4061,7 +4007,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware225",
+    "name": "AddedHardware222",
     "pixel": [
       926.3445511190765,
       10251.250126398203
@@ -4079,7 +4025,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware226",
+    "name": "AddedHardware223",
     "pixel": [
       953.9158186383478,
       9862.114973386704
@@ -4097,7 +4043,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware227",
+    "name": "AddedHardware224",
     "pixel": [
       953.9287284676499,
       10266.014092107489
@@ -4115,7 +4061,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware228",
+    "name": "AddedHardware225",
     "pixel": [
       702.0874183640078,
       9832.126365758037
@@ -4133,7 +4079,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware229",
+    "name": "AddedHardware226",
     "pixel": [
       702.1003281933099,
       10236.02548447882
@@ -4151,7 +4097,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware230",
+    "name": "AddedHardware227",
     "pixel": [
       646.9190636668611,
       9832.126365758037
@@ -4169,7 +4115,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware231",
+    "name": "AddedHardware228",
     "pixel": [
       646.9319734961631,
       10236.02548447882
@@ -4187,7 +4133,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware232",
+    "name": "AddedHardware229",
     "pixel": [
       674.5032410154345,
       9846.89033146732
@@ -4205,7 +4151,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware233",
+    "name": "AddedHardware230",
     "pixel": [
       674.5161508447366,
       10250.789450188104
@@ -4223,7 +4169,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware234",
+    "name": "AddedHardware231",
     "pixel": [
       799.1263882068849,
       9914.514121609947
@@ -4241,7 +4187,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware235",
+    "name": "AddedHardware232",
     "pixel": [
       799.139298036187,
       10318.413240330732
@@ -4259,7 +4205,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware236",
+    "name": "AddedHardware233",
     "pixel": [
       743.9580335097382,
       9914.514121609947
@@ -4277,7 +4223,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware237",
+    "name": "AddedHardware234",
     "pixel": [
       743.9709433390402,
       10318.413240330732
@@ -4295,7 +4241,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware238",
+    "name": "AddedHardware235",
     "pixel": [
       771.5422108583116,
       9929.278087319233
@@ -4313,7 +4259,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware239",
+    "name": "AddedHardware236",
     "pixel": [
       771.5551206876136,
       10333.177206040016
@@ -4331,7 +4277,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware240",
+    "name": "AddedHardware237",
     "pixel": [
       849.8701901744992,
       7873.321839411988
@@ -4349,7 +4295,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware241",
+    "name": "AddedHardware238",
     "pixel": [
       849.8843101515532,
       8536.871188920319
@@ -4367,7 +4313,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware242",
+    "name": "AddedHardware239",
     "pixel": [
       759.3198177967032,
       7868.387927678854
@@ -4385,7 +4331,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware243",
+    "name": "AddedHardware240",
     "pixel": [
       759.3339377737572,
       8531.937277187184
@@ -4403,7 +4349,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware244",
+    "name": "AddedHardware241",
     "pixel": [
       790.7676320976356,
       7895.087663371603
@@ -4421,7 +4367,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware245",
+    "name": "AddedHardware242",
     "pixel": [
       790.7817520746896,
       8558.637012879934
@@ -4439,7 +4385,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware246",
+    "name": "AddedHardware243",
     "pixel": [
       809.2323679023644,
       7291.543306865756
@@ -4457,7 +4403,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware247",
+    "name": "AddedHardware244",
     "pixel": [
       809.2182479253104,
       6910.7243568669255
@@ -4475,7 +4421,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware248",
+    "name": "AddedHardware245",
     "pixel": [
       750.1298098255008,
       7313.3091308253715
@@ -4493,7 +4439,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware249",
+    "name": "AddedHardware246",
     "pixel": [
       750.1156898484468,
       6932.490180826541
@@ -4511,7 +4457,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware250",
+    "name": "AddedHardware247",
     "pixel": [
       840.6801822032968,
       7318.243042558504
@@ -4529,7 +4475,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware251",
+    "name": "AddedHardware248",
     "pixel": [
       840.6660622262428,
       6937.424092559674
@@ -4547,7 +4493,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware252",
+    "name": "AddedHardware249",
     "pixel": [
       849.9000888318112,
       7140.527441157268
@@ -4565,7 +4511,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware253",
+    "name": "AddedHardware250",
     "pixel": [
       849.8843101515532,
       6551.988384200558
@@ -4583,7 +4529,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware254",
+    "name": "AddedHardware251",
     "pixel": [
       759.3497164540153,
       7135.593529424134
@@ -4601,7 +4547,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware255",
+    "name": "AddedHardware252",
     "pixel": [
       759.3339377737572,
       6547.0544724674255
@@ -4619,7 +4565,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware256",
+    "name": "AddedHardware253",
     "pixel": [
       790.7975307549476,
       7162.293265116884
@@ -4637,7 +4583,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware257",
+    "name": "AddedHardware254",
     "pixel": [
       790.7817520746896,
       6573.754208160175
@@ -4655,7 +4601,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware258",
+    "name": "AddedHardware255",
     "pixel": [
       1056.5299098995295,
       6009.445602381012
@@ -4673,7 +4619,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware259",
+    "name": "AddedHardware256",
     "pixel": [
       1056.5478807794166,
       6442.19419263659
@@ -4691,7 +4637,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware260",
+    "name": "AddedHardware257",
     "pixel": [
       847.3901613074237,
       5955.21649250807
@@ -4709,7 +4655,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware261",
+    "name": "AddedHardware258",
     "pixel": [
       847.4081321873106,
       6387.965082763648
@@ -4727,7 +4673,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware262",
+    "name": "AddedHardware259",
     "pixel": [
       590.8422805280072,
       5984.071199182039
@@ -4745,7 +4691,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware263",
+    "name": "AddedHardware260",
     "pixel": [
       590.8602514078941,
       6416.819789437617
@@ -4763,7 +4709,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware264",
+    "name": "AddedHardware261",
     "pixel": [
       543.4341483406967,
       6067.15501572895
@@ -4781,7 +4727,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware265",
+    "name": "AddedHardware262",
     "pixel": [
       543.4521192205835,
       6499.903605984529
@@ -4799,7 +4745,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware266",
+    "name": "AddedHardware263",
     "pixel": [
       752.5738969328024,
       6121.384125601892
@@ -4817,7 +4763,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware267",
+    "name": "AddedHardware264",
     "pixel": [
       752.5918678126893,
       6554.132715857471
@@ -4835,7 +4781,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware268",
+    "name": "AddedHardware265",
     "pixel": [
       1009.121777712219,
       6092.529418927923
@@ -4853,7 +4799,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware269",
+    "name": "AddedHardware266",
     "pixel": [
       1009.1397485921059,
       6525.278009183501
@@ -4871,7 +4817,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware270",
+    "name": "AddedHardware267",
     "pixel": [
       981.4999959869212,
       6818.096727218484
@@ -4889,7 +4835,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware271",
+    "name": "AddedHardware268",
     "pixel": [
       981.5129058162232,
       7221.995845939268
@@ -4907,7 +4853,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware272",
+    "name": "AddedHardware269",
     "pixel": [
       926.3316412897744,
       6818.096727218484
@@ -4925,7 +4871,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware273",
+    "name": "AddedHardware270",
     "pixel": [
       926.3445511190765,
       7221.995845939268
@@ -4943,7 +4889,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware274",
+    "name": "AddedHardware271",
     "pixel": [
       953.9158186383478,
       6832.8606929277685
@@ -4961,7 +4907,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware275",
+    "name": "AddedHardware272",
     "pixel": [
       953.9287284676499,
       7236.759811648552
@@ -4979,7 +4925,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware276",
+    "name": "AddedHardware273",
     "pixel": [
       702.0874183640078,
       6802.872085299101
@@ -4997,7 +4943,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware277",
+    "name": "AddedHardware274",
     "pixel": [
       702.1003281933099,
       7206.771204019885
@@ -5015,7 +4961,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware278",
+    "name": "AddedHardware275",
     "pixel": [
       646.9190636668611,
       6802.872085299101
@@ -5033,7 +4979,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware279",
+    "name": "AddedHardware276",
     "pixel": [
       646.9319734961631,
       7206.771204019885
@@ -5051,7 +4997,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware280",
+    "name": "AddedHardware277",
     "pixel": [
       674.5032410154345,
       6817.636051008385
@@ -5069,7 +5015,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware281",
+    "name": "AddedHardware278",
     "pixel": [
       674.5161508447366,
       7221.535169729169
@@ -5087,7 +5033,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware282",
+    "name": "AddedHardware279",
     "pixel": [
       799.1263882068849,
       6885.2598411510135
@@ -5105,7 +5051,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware283",
+    "name": "AddedHardware280",
     "pixel": [
       799.139298036187,
       7289.158959871797
@@ -5123,7 +5069,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware284",
+    "name": "AddedHardware281",
     "pixel": [
       743.9580335097382,
       6885.2598411510135
@@ -5141,7 +5087,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware285",
+    "name": "AddedHardware282",
     "pixel": [
       743.9709433390402,
       7289.158959871797
@@ -5159,7 +5105,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware286",
+    "name": "AddedHardware283",
     "pixel": [
       771.5422108583116,
       6900.023806860298
@@ -5177,7 +5123,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware287",
+    "name": "AddedHardware284",
     "pixel": [
       771.5551206876136,
       7303.9229255810815
@@ -5195,7 +5141,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware288",
+    "name": "AddedHardware285",
     "pixel": [
       849.8701901744992,
       4844.067558953053
@@ -5213,7 +5159,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware289",
+    "name": "AddedHardware286",
     "pixel": [
       849.8843101515532,
       5507.616908461383
@@ -5231,7 +5177,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware290",
+    "name": "AddedHardware287",
     "pixel": [
       759.3198177967032,
       4839.133647219918
@@ -5249,7 +5195,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware291",
+    "name": "AddedHardware288",
     "pixel": [
       759.3339377737572,
       5502.68299672825
@@ -5267,7 +5213,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "pot retainer screws",
-    "name": "AddedHardware292",
+    "name": "AddedHardware289",
     "pixel": [
       790.7676320976356,
       4865.833382912668
@@ -5285,7 +5231,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "pot retainer nuts",
-    "name": "AddedHardware293",
+    "name": "AddedHardware290",
     "pixel": [
       790.7817520746896,
       5529.382732420999
@@ -5303,7 +5249,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware294",
+    "name": "AddedHardware291",
     "pixel": [
       809.2323679023644,
       4262.28902640682
@@ -5321,7 +5267,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware295",
+    "name": "AddedHardware292",
     "pixel": [
       809.2182479253104,
       3881.4700764079903
@@ -5339,7 +5285,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware296",
+    "name": "AddedHardware293",
     "pixel": [
       750.1298098255008,
       4284.054850366436
@@ -5357,7 +5303,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware297",
+    "name": "AddedHardware294",
     "pixel": [
       750.1156898484468,
       3903.235900367606
@@ -5375,7 +5321,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "sun retainer screws",
-    "name": "AddedHardware298",
+    "name": "AddedHardware295",
     "pixel": [
       840.6801822032968,
       4288.98876209957
@@ -5393,7 +5339,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun retainer nuts",
-    "name": "AddedHardware299",
+    "name": "AddedHardware296",
     "pixel": [
       840.6660622262428,
       3908.1698121007394
@@ -5411,7 +5357,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware300",
+    "name": "AddedHardware297",
     "pixel": [
       849.9000888318112,
       4111.2731606983325
@@ -5429,7 +5375,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware301",
+    "name": "AddedHardware298",
     "pixel": [
       849.8843101515532,
       3522.734103741623
@@ -5447,7 +5393,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware302",
+    "name": "AddedHardware299",
     "pixel": [
       759.3497164540153,
       4106.339248965199
@@ -5465,7 +5411,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware303",
+    "name": "AddedHardware300",
     "pixel": [
       759.3339377737572,
       3517.8001920084894
@@ -5483,7 +5429,7 @@
     "hardware": true,
     "spec": "M3 x20 screw",
     "role": "sun join screws",
-    "name": "AddedHardware304",
+    "name": "AddedHardware301",
     "pixel": [
       790.7975307549476,
       4133.038984657947
@@ -5501,7 +5447,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "sun join nuts",
-    "name": "AddedHardware305",
+    "name": "AddedHardware302",
     "pixel": [
       790.7817520746896,
       3544.4999277012394
@@ -5519,7 +5465,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware306",
+    "name": "AddedHardware303",
     "pixel": [
       1056.5299098995295,
       2980.191321922076
@@ -5537,7 +5483,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware307",
+    "name": "AddedHardware304",
     "pixel": [
       1056.5478807794166,
       3412.939912177654
@@ -5555,7 +5501,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware308",
+    "name": "AddedHardware305",
     "pixel": [
       847.3901613074237,
       2925.962212049134
@@ -5573,7 +5519,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware309",
+    "name": "AddedHardware306",
     "pixel": [
       847.4081321873106,
       3358.710802304712
@@ -5591,7 +5537,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware310",
+    "name": "AddedHardware307",
     "pixel": [
       590.8422805280072,
       2954.8169187231033
@@ -5609,7 +5555,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware311",
+    "name": "AddedHardware308",
     "pixel": [
       590.8602514078941,
       3387.5655089786824
@@ -5627,7 +5573,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware312",
+    "name": "AddedHardware309",
     "pixel": [
       543.4341483406967,
       3037.9007352700155
@@ -5645,7 +5591,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware313",
+    "name": "AddedHardware310",
     "pixel": [
       543.4521192205835,
       3470.649325525593
@@ -5663,7 +5609,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware314",
+    "name": "AddedHardware311",
     "pixel": [
       752.5738969328024,
       3092.1298451429566
@@ -5681,7 +5627,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware315",
+    "name": "AddedHardware312",
     "pixel": [
       752.5918678126893,
       3524.878435398535
@@ -5699,7 +5645,7 @@
     "hardware": true,
     "spec": "M4 x20 screw",
     "role": "ring collar screws",
-    "name": "AddedHardware316",
+    "name": "AddedHardware313",
     "pixel": [
       1009.121777712219,
       3063.2751384689873
@@ -5717,7 +5663,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "ring collar nuts",
-    "name": "AddedHardware317",
+    "name": "AddedHardware314",
     "pixel": [
       1009.1397485921059,
       3496.023728724566
@@ -5735,7 +5681,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware318",
+    "name": "AddedHardware315",
     "pixel": [
       981.4999959869212,
       3788.8424467595487
@@ -5753,7 +5699,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware319",
+    "name": "AddedHardware316",
     "pixel": [
       981.5129058162232,
       4192.7415654803335
@@ -5771,7 +5717,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware320",
+    "name": "AddedHardware317",
     "pixel": [
       926.3316412897744,
       3788.8424467595487
@@ -5789,7 +5735,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware321",
+    "name": "AddedHardware318",
     "pixel": [
       926.3445511190765,
       4192.7415654803335
@@ -5807,7 +5753,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware322",
+    "name": "AddedHardware319",
     "pixel": [
       953.9158186383478,
       3803.6064124688332
@@ -5825,7 +5771,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware323",
+    "name": "AddedHardware320",
     "pixel": [
       953.9287284676499,
       4207.505531189618
@@ -5843,7 +5789,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware324",
+    "name": "AddedHardware321",
     "pixel": [
       702.0874183640078,
       3773.6178048401657
@@ -5861,7 +5807,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware325",
+    "name": "AddedHardware322",
     "pixel": [
       702.1003281933099,
       4177.51692356095
@@ -5879,7 +5825,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware326",
+    "name": "AddedHardware323",
     "pixel": [
       646.9190636668611,
       3773.6178048401657
@@ -5897,7 +5843,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware327",
+    "name": "AddedHardware324",
     "pixel": [
       646.9319734961631,
       4177.51692356095
@@ -5915,7 +5861,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware328",
+    "name": "AddedHardware325",
     "pixel": [
       674.5032410154345,
       3788.38177054945
@@ -5933,7 +5879,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware329",
+    "name": "AddedHardware326",
     "pixel": [
       674.5161508447366,
       4192.280889270234
@@ -5951,7 +5897,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware330",
+    "name": "AddedHardware327",
     "pixel": [
       799.1263882068849,
       3856.005560692078
@@ -5969,7 +5915,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware331",
+    "name": "AddedHardware328",
     "pixel": [
       799.139298036187,
       4259.904679412862
@@ -5987,7 +5933,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware332",
+    "name": "AddedHardware329",
     "pixel": [
       743.9580335097382,
       3856.005560692078
@@ -6005,7 +5951,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware333",
+    "name": "AddedHardware330",
     "pixel": [
       743.9709433390402,
       4259.904679412862
@@ -6023,7 +5969,7 @@
     "hardware": true,
     "spec": "M2.5 x16 screw",
     "role": "planet retainer screws",
-    "name": "AddedHardware334",
+    "name": "AddedHardware331",
     "pixel": [
       771.5422108583116,
       3870.769526401362
@@ -6041,7 +5987,7 @@
     "hardware": true,
     "spec": "M2.5 nut",
     "role": "planet retainer nuts",
-    "name": "AddedHardware335",
+    "name": "AddedHardware332",
     "pixel": [
       771.5551206876136,
       4274.668645122147
@@ -6059,7 +6005,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "top retainer screws",
-    "name": "AddedHardware336",
+    "name": "AddedHardware333",
     "pixel": [
       849.8701901744992,
       1762.8832051148202
@@ -6077,7 +6023,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "top retainer nuts",
-    "name": "AddedHardware337",
+    "name": "AddedHardware334",
     "pixel": [
       849.8843101515532,
       2397.582513856876
@@ -6095,7 +6041,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "top retainer screws",
-    "name": "AddedHardware338",
+    "name": "AddedHardware335",
     "pixel": [
       759.3198177967032,
       1757.9492933816873
@@ -6113,7 +6059,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "top retainer nuts",
-    "name": "AddedHardware339",
+    "name": "AddedHardware336",
     "pixel": [
       759.3339377737572,
       2392.6486021237424
@@ -6131,7 +6077,7 @@
     "hardware": true,
     "spec": "M3 x16 screw",
     "role": "top retainer screws",
-    "name": "AddedHardware340",
+    "name": "AddedHardware337",
     "pixel": [
       790.7676320976356,
       1784.649029074436
@@ -6149,7 +6095,7 @@
     "hardware": true,
     "spec": "M3 nut",
     "role": "top retainer nuts",
-    "name": "AddedHardware341",
+    "name": "AddedHardware338",
     "pixel": [
       790.7817520746896,
       2419.348337816492
@@ -6167,7 +6113,7 @@
     "hardware": true,
     "spec": "M4 x16 screw",
     "role": "guard screws",
-    "name": "AddedHardware342",
+    "name": "AddedHardware339",
     "pixel": [
       1033.743624710135,
       905.5512283271446
@@ -6185,7 +6131,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "guard nuts",
-    "name": "AddedHardware343",
+    "name": "AddedHardware340",
     "pixel": [
       1033.743624710135,
       1222.9016767561743
@@ -6203,7 +6149,7 @@
     "hardware": true,
     "spec": "M4 x16 screw",
     "role": "guard screws",
-    "name": "AddedHardware344",
+    "name": "AddedHardware341",
     "pixel": [
       843.194075992883,
       856.1424837762415
@@ -6221,7 +6167,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "guard nuts",
-    "name": "AddedHardware345",
+    "name": "AddedHardware342",
     "pixel": [
       843.194075992883,
       1173.4929322052722
@@ -6239,7 +6185,7 @@
     "hardware": true,
     "spec": "M4 x16 screw",
     "role": "guard screws",
-    "name": "AddedHardware346",
+    "name": "AddedHardware343",
     "pixel": [
       609.450451282748,
       882.4323276347477
@@ -6257,7 +6203,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "guard nuts",
-    "name": "AddedHardware347",
+    "name": "AddedHardware344",
     "pixel": [
       609.450451282748,
       1199.7827760637774
@@ -6275,7 +6221,7 @@
     "hardware": true,
     "spec": "M4 x16 screw",
     "role": "guard screws",
-    "name": "AddedHardware348",
+    "name": "AddedHardware345",
     "pixel": [
       566.256375289865,
       958.1309160441551
@@ -6293,7 +6239,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "guard nuts",
-    "name": "AddedHardware349",
+    "name": "AddedHardware346",
     "pixel": [
       566.256375289865,
       1275.4813644731857
@@ -6311,7 +6257,7 @@
     "hardware": true,
     "spec": "M4 x16 screw",
     "role": "guard screws",
-    "name": "AddedHardware350",
+    "name": "AddedHardware347",
     "pixel": [
       756.8059240071169,
       1007.5396605950573
@@ -6329,7 +6275,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "guard nuts",
-    "name": "AddedHardware351",
+    "name": "AddedHardware348",
     "pixel": [
       756.8059240071169,
       1324.8901090240888
@@ -6347,7 +6293,7 @@
     "hardware": true,
     "spec": "M4 x16 screw",
     "role": "guard screws",
-    "name": "AddedHardware352",
+    "name": "AddedHardware349",
     "pixel": [
       990.549548717252,
       981.249816736552
@@ -6365,7 +6311,7 @@
     "hardware": true,
     "spec": "M4 nut",
     "role": "guard nuts",
-    "name": "AddedHardware353",
+    "name": "AddedHardware350",
     "pixel": [
       990.549548717252,
       1298.6002651655836

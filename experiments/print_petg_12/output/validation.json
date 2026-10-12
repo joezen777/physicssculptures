@@ -56,8 +56,8 @@
       "closed": true,
       "components": 1,
       "size_mm": [
-        75.18,
-        75.18,
+        76.02,
+        76.02,
         52.0
       ]
     },
@@ -66,8 +66,8 @@
       "closed": true,
       "components": 1,
       "size_mm": [
-        39.17,
-        39.17,
+        40.04,
+        40.01,
         10.4
       ]
     },
@@ -86,7 +86,7 @@
       "closed": true,
       "components": 1,
       "size_mm": [
-        100.5,
+        192.0,
         192.0,
         15.2
       ]
@@ -218,14 +218,12 @@
       "angle": 0,
       "overlap_mm3": [
         0.0,
-        0.0,
         0.0
       ]
     },
     {
       "angle": 0.7,
       "overlap_mm3": [
-        0.0,
         0.0,
         0.0
       ]
@@ -234,14 +232,12 @@
       "angle": 1.3,
       "overlap_mm3": [
         0.0,
-        0.0,
         0.0
       ]
     },
     {
       "angle": 2.1,
       "overlap_mm3": [
-        0.0,
         0.0,
         0.0
       ]
@@ -250,14 +246,12 @@
       "angle": 3.7,
       "overlap_mm3": [
         0.0,
-        0.0,
         0.0
       ]
     },
     {
       "angle": 4.7,
       "overlap_mm3": [
-        0.0,
         0.0,
         0.0
       ]
@@ -266,14 +260,12 @@
       "angle": 6.1,
       "overlap_mm3": [
         0.0,
-        0.0,
         0.0
       ]
     },
     {
       "angle": 8.3,
       "overlap_mm3": [
-        0.0,
         0.0,
         0.0
       ]
@@ -282,7 +274,6 @@
       "angle": 9.2,
       "overlap_mm3": [
         0.0,
-        0.0,
         0.0
       ]
     },
@@ -290,9 +281,52 @@
       "angle": 10,
       "overlap_mm3": [
         0.0,
-        0.0,
         0.0
       ]
+    }
+  ],
+  "axial_gear_insertion": [
+    {
+      "lift_mm": 12,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
+    },
+    {
+      "lift_mm": 8,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
+    },
+    {
+      "lift_mm": 4,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
+    },
+    {
+      "lift_mm": 2,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
+    },
+    {
+      "lift_mm": 1,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
+    },
+    {
+      "lift_mm": 0.5,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
+    },
+    {
+      "lift_mm": 0,
+      "planet_into_sun_mm3": 0.0,
+      "planet_into_ring_mm3": 0.0,
+      "ring_over_planet_mm3": 0.0
     }
   ],
   "bearing_insertion_paths": [
@@ -338,14 +372,14 @@
     "C01_608_fit_coupon_print-1x.stl": "9bc243e9a0a34c8ea11d1bb720458ee6ada70cf305bd5dec0bcc867904519f80",
     "C02_604_fit_coupon_print-1x.stl": "1efa9efbe4421940659b842d42ce45b558934f1a3033c308faaefd1fdf45ddd2",
     "P01_608_retainer_print-8x.stl": "af3328e984eafef40093841ed62b82b524b2323c46b5c5cf4cbc0a6bb9c17b88",
-    "P02_pot_fan_A_print-2x.stl": "fca8a7751d55ebb54e29d63b7d7789d7dbc238f608187f823ebef4081e547c14",
-    "P03_pot_fan_B_print-1x.stl": "9cd8fbc13a686abf3833905953539b4972bc40306f63bcce7a6a1a15e8c3dd49",
+    "P02_pot_fan_A_print-2x.stl": "4de7ae3d2392f7a47fcd9ab5a82674b4012ea29808cc9005185ca184f7c64587",
+    "P03_pot_fan_B_print-1x.stl": "1b225ced54a5ae8d7d1207bf3cf618a3776ba3ca9b763f0368906cd1407b1547",
     "P04_fixed_curved_carrier_print-3x.stl": "2891b0eec5affd61d52f991621d1a5686d2f1d3d7f8dbcba0e640ec644bafd0e",
     "P05_sun_lower_bearing_housing_print-3x.stl": "df66c19d47a0130ebb8c54152aafeba7bd6033551e92bfdde6924d62ffdf9300",
-    "P06_sun_36T_socket_print-3x.stl": "ffa67d3c940b5930b5af4d2f578ea857ca379e768b8805eb80ad325bf1c7b79d",
-    "P07_planet_18T_604_print-9x.stl": "e8222cbf83da0fca6cf7d96e24630b72fc915ca133b86a9ec83572964786254c",
+    "P06_sun_36T_helical_socket_print-3x.stl": "74c5a8a4e1641599cc273c5e08f2777c8ed22c2330dfc90c0eba5468f8390814",
+    "P07_planet_18T_helical_604_print-9x.stl": "a1f55feea5ccf5803ce6b8643d94115bc0289ac6ce0c07e186e983994c99d714",
     "P08_604_retainer_print-9x.stl": "351d156a39c070064ebd6da1af420d0504c371a2ba6db17caa3767cd9f881788",
-    "P09_72T_ring_half_print-6x.stl": "078258f0c644b0eea6fc1991e75eea65ac9934be60de2b7f40899ea984b1d7b8",
+    "P09_72T_helical_ring_print-3x.stl": "50dc3d160f55e9479251ce28a10fb9a331d72c0f4b9aef280d52410949a19694",
     "P10_interstage_air_collar_print-2x.stl": "612b021c514b02032690020d2b7eca15ca78a95c4ad9f9a7efa65ebb0701533a",
     "P11_terminal_air_collar_print-1x.stl": "f13ce79897bbe9b3d2f0695f08204f9c9a05951ec36af7a51a5999c089a40805",
     "P12_stationary_base_print-1x.stl": "c4f8a1465d41bdd241520b500b592c69a41b1614c473d4c987bd2e760d39e819",

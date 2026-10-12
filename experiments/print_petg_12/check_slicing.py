@@ -22,4 +22,4 @@ def check(row):
     print(result,flush=True)
     return result
 with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:results=list(pool.map(check,rows))
-(OUT/"slice_validation.json").write_text(json.dumps(dict(status="PASS" if all(r["exit_code"]==0 for r in results) else "FAIL",nozzle_mm=1.2,layer_mm=.4,line_width_mm=1.32,results=results,scope="Toolpath generation only; not a calibrated machine profile. G-code retained outside the print package."),indent=2))
+(OUT/"slice_validation.json").write_text(json.dumps(dict(status="PASS" if all(r["exit_code"]==0 for r in results) else "FAIL",nozzle_mm=.4,layer_mm=.2,line_width_mm=.45,results=results,scope="Toolpath generation only; not a calibrated machine profile. G-code retained outside the print package."),indent=2))
