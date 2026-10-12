@@ -1,18 +1,20 @@
 {
   "status": "PASS",
-  "nozzle_mm": 0.2,
-  "layer_mm": 0.12,
+  "nozzle_mm": 0.4,
+  "layer_mm": 0.2,
   "results": [
     {
       "part": "P15",
       "status": "PASS",
-      "layers": 263,
+      "layers": 141,
+      "filament_mm": 9246.68,
       "warnings": ""
     },
     {
       "part": "P16",
       "status": "PASS",
-      "layers": 1776,
+      "layers": 850,
+      "filament_mm": 28601.33,
       "warnings": ""
     }
   ],

@@ -71,3 +71,7 @@ The 80 x 120 mm half-cylinder scoop and reinforced 180 mm arm are now in experim
 
 ### Krull aesthetic retained
 P15 now uses a flowing swept-crescent outline and matching curved reinforcing spine instead of the straight retrofit strut. Preserve this Krull-inspired visual language in future wind-arm revisions. The P14 root interface, 180 mm sail lever and P16 scoop geometry are unchanged. Edges remain blunt for a functional PETG part.
+
+## 0.4 mm nozzle check (2026-10-11)
+
+The 80x120 retrofit was originally inspected with a 0.2 mm nozzle profile. The Ender now has a 0.4 mm nozzle, so finish_sail_80x120.py slices P15/P16 with the shared 0.4 mm inspection profile (0.2 mm layers, 0.45 mm lines), allowing supports on the part. The thinnest features are the 2.7 mm saddle cheeks and 3.2 mm scoop shell, at least six lines wide; the 4.5 mm bolt bore is unchanged. Both parts generate toolpaths without slicer warnings and reach their full 24 mm and 120 mm heights. Geometry is unchanged, so the STLs need no regeneration. Strength, fit and print quality remain physically untested.
