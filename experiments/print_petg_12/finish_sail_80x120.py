@@ -6,7 +6,18 @@ env=os.environ.copy();env['PYTHONPATH']=str(app.parent/'usr/lib');env['QTWEBENGI
 if not (OUT/'render_complete.txt').exists():
     with (OUT/'render.log').open('w') as f:subprocess.run([str(app),str(ROOT/'render_sail_80x120.FCMacro')],env=env,stdout=f,stderr=f,check=True)
 assert (OUT/'render_complete.txt').exists()
-config=(ROOT/'slicer_check.ini').read_text().replace('= 1.2\n','= 0.2\n').replace('= 1.32','= 0.22').replace('= 0.4','= 0.12').replace('support_material_buildplate_only = 1','support_material_buildplate_only = 0')
+# Explicit 0.2 mm overrides: the shared slicer_check.ini base profile changes nozzle over time.
+SAIL_0P2={'nozzle_diameter':'0.2','layer_height':'0.12','first_layer_height':'0.12','extrusion_width':'0.22',
+    'external_perimeter_extrusion_width':'0.22','perimeter_extrusion_width':'0.22','first_layer_extrusion_width':'0.22',
+    'perimeters':'3','top_solid_layers':'6','bottom_solid_layers':'6','perimeter_speed':'10','external_perimeter_speed':'8',
+    'infill_speed':'10','solid_infill_speed':'10','top_solid_infill_speed':'8','first_layer_speed':'6',
+    'max_volumetric_speed':'5','filament_max_volumetric_speed':'5','support_material_buildplate_only':'0',
+    'support_material_contact_distance':'0.12','support_material_xy_spacing':'0.2','support_material_spacing':'3','support_material_speed':'8'}
+lines=[]
+for line in (ROOT/'slicer_check.ini').read_text().splitlines():
+    key=line.split('=')[0].strip()
+    lines.append(key+' = '+SAIL_0P2[key] if '=' in line and key in SAIL_0P2 else line)
+config='\n'.join(lines)+'\n'
 (OUT/'slicer_check_0p2mm.ini').write_text(config)
 cache=Path.home()/'.cache/angularmomflyer/slicer';exe=cache/'root/usr/bin/prusa-slicer'
 env['LD_LIBRARY_PATH']=str(cache/'root/usr/lib/x86_64-linux-gnu')
