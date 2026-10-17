@@ -137,7 +137,7 @@ def main():
         conclusion='No robust physical ranking. Nominal ordering is conditional on independent strip proxies and selected geometry.')
     (OUT/'results.json').write_text(json.dumps(result,indent=2)+'\n')
     with (OUT/'sensitivity.csv').open('w',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');writer.writeheader();writer.writerows(rows)
     print(json.dumps(dict(nominal=nominal,pairs=pairs,envelopes=envelopes,
          reversal={k:v['can_lead_under_stress_assumptions'] for k,v in reversals.items()},
          convergence=convergence,cases=len(rows)),indent=2))
