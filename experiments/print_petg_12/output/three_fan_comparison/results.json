@@ -1,0 +1,1240 @@
+{
+  "status": "Unvalidated sectional proxies; NOT CFD, NOT physical measurements, NOT engineered toroidal/tubercled CAD",
+  "assumptions": "Only three large80x120 sails at180mm in10knots; nominal eta.8, input friction2mNm; common sinusoidal flat-section surrogate polar",
+  "nominal": {
+    "scimitar": {
+      "rpm": 378.3069104322826,
+      "flow_L_s": 7.2804866612351296,
+      "shaft_mW": 13.461400680915611,
+      "thrust_mN": 8.845429947466572,
+      "input_rpm": 47.28836380403533,
+      "torque_residual_Nm": -4.3956488362389967e-10,
+      "alpha_min_max_deg": [
+        0.10234532872866636,
+        16.361101016704517
+      ],
+      "Re_min_max": [
+        3510.4965469592935,
+        16702.682924958506
+      ],
+      "developed_solidity": 0.8581868755355749,
+      "projected_solidity": 0.7854427373168313
+    },
+    "tubercled": {
+      "rpm": 362.7936050462458,
+      "flow_L_s": 7.6804338804117025,
+      "shaft_mW": 15.192835699757305,
+      "thrust_mN": 9.843955364717937,
+      "input_rpm": 45.34920063078072,
+      "torque_residual_Nm": -2.0803658795642832e-10,
+      "alpha_min_max_deg": [
+        13.72052174220766,
+        18.993768668920612
+      ],
+      "Re_min_max": [
+        3327.8062362587816,
+        7899.506580956519
+      ],
+      "developed_solidity": 0.6196963054276176,
+      "projected_solidity": 0.5035062617434151
+    },
+    "toroidal": {
+      "rpm": 370.0809435125048,
+      "flow_L_s": 7.686043056877293,
+      "shaft_mW": 14.40233903798415,
+      "thrust_mN": 9.858339095241025,
+      "input_rpm": 46.2601179390631,
+      "torque_residual_Nm": -3.991349529532118e-10,
+      "alpha_min_max_deg": [
+        10.802031663333695,
+        19.433173105604208
+      ],
+      "Re_min_max": [
+        3050.3943112629104,
+        3838.3071173047865
+      ],
+      "developed_solidity": 0.7762932552239529,
+      "projected_solidity": 0.6186626574016495
+    },
+    "toroidal_5pairs": {
+      "rpm": 358.77348532132345,
+      "flow_L_s": 8.053188047580054,
+      "shaft_mW": 15.611541970527115,
+      "thrust_mN": 10.822654813465656,
+      "input_rpm": 44.84668566516543,
+      "torque_residual_Nm": -3.6990280109783225e-10,
+      "alpha_min_max_deg": [
+        9.919026678555605,
+        17.89938553984637
+      ],
+      "Re_min_max": [
+        3021.52014200874,
+        3744.653018111573
+      ],
+      "developed_solidity": 0.9703665690299412,
+      "projected_solidity": 0.773328321752062
+    },
+    "original_P17": {
+      "rpm": 416.95843913485805,
+      "flow_L_s": 5.924449560678144,
+      "shaft_mW": 8.355682527878924,
+      "thrust_mN": 5.823906130720345,
+      "input_rpm": 52.11980489185726,
+      "torque_residual_Nm": -3.7419074609690295e-10
+    }
+  },
+  "toroidal_pair_counts": {
+    "3": {
+      "rpm": 383.99284998178877,
+      "flow_L_s": 7.178307982358983,
+      "shaft_mW": 12.78096966782573,
+      "thrust_mN": 8.598888183459074,
+      "input_rpm": 47.999106247723596,
+      "torque_residual_Nm": -2.2466679471672135e-10,
+      "alpha_min_max_deg": [
+        11.901341910287405,
+        21.43185855562113
+      ],
+      "Re_min_max": [
+        3085.4785057875824,
+        3954.2472742761306
+      ],
+      "developed_solidity": 0.5822199414179646,
+      "projected_solidity": 0.4639969930512372
+    },
+    "4": {
+      "rpm": 370.0809435125048,
+      "flow_L_s": 7.686043056877293,
+      "shaft_mW": 14.40233903798415,
+      "thrust_mN": 9.858339095241025,
+      "input_rpm": 46.2601179390631,
+      "torque_residual_Nm": -3.991349529532118e-10,
+      "alpha_min_max_deg": [
+        10.802031663333695,
+        19.433173105604208
+      ],
+      "Re_min_max": [
+        3050.3943112629104,
+        3838.3071173047865
+      ],
+      "developed_solidity": 0.7762932552239529,
+      "projected_solidity": 0.6186626574016495
+    },
+    "5": {
+      "rpm": 358.77348532132345,
+      "flow_L_s": 8.053188047580054,
+      "shaft_mW": 15.611541970527115,
+      "thrust_mN": 10.822654813465656,
+      "input_rpm": 44.84668566516543,
+      "torque_residual_Nm": -3.6990280109783225e-10,
+      "alpha_min_max_deg": [
+        9.919026678555605,
+        17.89938553984637
+      ],
+      "Re_min_max": [
+        3021.52014200874,
+        3744.653018111573
+      ],
+      "developed_solidity": 0.9703665690299412,
+      "projected_solidity": 0.773328321752062
+    }
+  },
+  "design_discrepancy_envelopes": {
+    "scimitar": {
+      "rpm": [
+        348.23890125723784,
+        392.83995311082555
+      ],
+      "flow_L_s": [
+        6.123668499577556,
+        7.947668863228626
+      ]
+    },
+    "tubercled": {
+      "rpm": [
+        342.623395133996,
+        376.9060157812541
+      ],
+      "flow_L_s": [
+        6.389960514037113,
+        8.519957013983877
+      ]
+    },
+    "toroidal": {
+      "rpm": [
+        349.5368033874918,
+        383.6074357869404
+      ],
+      "flow_L_s": [
+        6.379531534226226,
+        8.503695391862404
+      ]
+    },
+    "toroidal_5pairs": {
+      "rpm": [
+        337.6522572829772,
+        372.847697740563
+      ],
+      "flow_L_s": [
+        6.681332141086747,
+        8.88429446187048
+      ]
+    }
+  },
+  "reversal_examples": {
+    "scimitar": {
+      "can_lead_under_stress_assumptions": true,
+      "favorable_case": {
+        "design": "scimitar",
+        "common_polar": "nominal",
+        "lift_factor": 1.2,
+        "drag_factor": 0.75,
+        "feature_drag_coefficient": 0,
+        "transmission_efficiency": 0.8,
+        "input_friction_mNm": 2.0,
+        "rpm": 388.4569300314734,
+        "flow_L_s": 7.947668863228626,
+        "shaft_mW": 12.22959820770498,
+        "thrust_mN": 10.540899059838775,
+        "input_rpm": 48.557116253934176,
+        "torque_residual_Nm": -4.623841175395438e-10,
+        "alpha_min_max_deg": [
+          -1.1379605429288029,
+          14.854564346194387
+        ],
+        "Re_min_max": [
+          3658.988687540017,
+          17192.073181093616
+        ],
+        "developed_solidity": 0.8581868755355749,
+        "projected_solidity": 0.7854427373168313
+      },
+      "other_unfavorable_cases": {
+        "tubercled": {
+          "design": "tubercled",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 342.623395133996,
+          "flow_L_s": 6.389960514037113,
+          "shaft_mW": 17.168570659537387,
+          "thrust_mN": 6.813879912933091,
+          "input_rpm": 42.8279243917495,
+          "torque_residual_Nm": -4.85245426305736e-10,
+          "alpha_min_max_deg": [
+            15.464769057104277,
+            21.086006339595667
+          ],
+          "Re_min_max": [
+            3046.6939499791033,
+            7430.7066580732035
+          ],
+          "developed_solidity": 0.6196963054276176,
+          "projected_solidity": 0.5035062617434151
+        },
+        "toroidal": {
+          "design": "toroidal",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 349.5368033874918,
+          "flow_L_s": 6.379531534226226,
+          "shaft_mW": 16.52661774686355,
+          "thrust_mN": 6.79165635574195,
+          "input_rpm": 43.69210042343647,
+          "torque_residual_Nm": -4.1224181013266303e-10,
+          "alpha_min_max_deg": [
+            12.13680225318309,
+            21.8742951821712
+          ],
+          "Re_min_max": [
+            2793.9259763249115,
+            3594.2998409462252
+          ],
+          "developed_solidity": 0.7762932552239529,
+          "projected_solidity": 0.6186626574016495
+        },
+        "toroidal_5pairs": {
+          "design": "toroidal_5pairs",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 337.6522572829772,
+          "flow_L_s": 6.681332141086747,
+          "shaft_mW": 17.607360737877382,
+          "thrust_mN": 7.449450694621559,
+          "input_rpm": 42.20653216037215,
+          "torque_residual_Nm": -2.441851634088499e-10,
+          "alpha_min_max_deg": [
+            11.320802172143196,
+            20.363225381461067
+          ],
+          "Re_min_max": [
+            2749.318661963061,
+            3489.836376193844
+          ],
+          "developed_solidity": 0.9703665690299412,
+          "projected_solidity": 0.773328321752062
+        }
+      }
+    },
+    "tubercled": {
+      "can_lead_under_stress_assumptions": true,
+      "favorable_case": {
+        "design": "tubercled",
+        "common_polar": "nominal",
+        "lift_factor": 1.2,
+        "drag_factor": 0.75,
+        "feature_drag_coefficient": 0,
+        "transmission_efficiency": 0.8,
+        "input_friction_mNm": 2.0,
+        "rpm": 370.2144798328142,
+        "flow_L_s": 8.519957013983877,
+        "shaft_mW": 14.387474181985198,
+        "thrust_mN": 12.113591764131371,
+        "input_rpm": 46.27680997910178,
+        "torque_residual_Nm": -5.5871697459547454e-11,
+        "alpha_min_max_deg": [
+          11.56009261498192,
+          17.54956979557321
+        ],
+        "Re_min_max": [
+          3477.8678181350765,
+          8086.963830803056
+        ],
+        "developed_solidity": 0.6196963054276176,
+        "projected_solidity": 0.5035062617434151
+      },
+      "other_unfavorable_cases": {
+        "scimitar": {
+          "design": "scimitar",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 348.23890125723784,
+          "flow_L_s": 6.123668499577556,
+          "shaft_mW": 16.64994512125389,
+          "thrust_mN": 6.257797007165047,
+          "input_rpm": 43.52986265715473,
+          "torque_residual_Nm": -3.6656482103186727e-10,
+          "alpha_min_max_deg": [
+            1.8330303588131633,
+            18.492974191091225
+          ],
+          "Re_min_max": [
+            3168.6825483718253,
+            15328.127025171969
+          ],
+          "developed_solidity": 0.8581868755355749,
+          "projected_solidity": 0.7854427373168313
+        },
+        "toroidal": {
+          "design": "toroidal",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 349.5368033874918,
+          "flow_L_s": 6.379531534226226,
+          "shaft_mW": 16.52661774686355,
+          "thrust_mN": 6.79165635574195,
+          "input_rpm": 43.69210042343647,
+          "torque_residual_Nm": -4.1224181013266303e-10,
+          "alpha_min_max_deg": [
+            12.13680225318309,
+            21.8742951821712
+          ],
+          "Re_min_max": [
+            2793.9259763249115,
+            3594.2998409462252
+          ],
+          "developed_solidity": 0.7762932552239529,
+          "projected_solidity": 0.6186626574016495
+        },
+        "toroidal_5pairs": {
+          "design": "toroidal_5pairs",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 337.6522572829772,
+          "flow_L_s": 6.681332141086747,
+          "shaft_mW": 17.607360737877382,
+          "thrust_mN": 7.449450694621559,
+          "input_rpm": 42.20653216037215,
+          "torque_residual_Nm": -2.441851634088499e-10,
+          "alpha_min_max_deg": [
+            11.320802172143196,
+            20.363225381461067
+          ],
+          "Re_min_max": [
+            2749.318661963061,
+            3489.836376193844
+          ],
+          "developed_solidity": 0.9703665690299412,
+          "projected_solidity": 0.773328321752062
+        }
+      }
+    },
+    "toroidal": {
+      "can_lead_under_stress_assumptions": true,
+      "favorable_case": {
+        "design": "toroidal",
+        "common_polar": "nominal",
+        "lift_factor": 1.2,
+        "drag_factor": 0.75,
+        "feature_drag_coefficient": 0,
+        "transmission_efficiency": 0.8,
+        "input_friction_mNm": 2.0,
+        "rpm": 376.90703404749564,
+        "flow_L_s": 8.503695391862404,
+        "shaft_mW": 13.625159347186425,
+        "thrust_mN": 12.06739466193442,
+        "input_rpm": 47.113379255936955,
+        "torque_residual_Nm": -4.291144601112351e-10,
+        "alpha_min_max_deg": [
+          9.85853585771446,
+          17.796404205568
+        ],
+        "Re_min_max": [
+          3179.0205758111892,
+          3935.7091751617318
+        ],
+        "developed_solidity": 0.7762932552239529,
+        "projected_solidity": 0.6186626574016495
+      },
+      "other_unfavorable_cases": {
+        "scimitar": {
+          "design": "scimitar",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 348.23890125723784,
+          "flow_L_s": 6.123668499577556,
+          "shaft_mW": 16.64994512125389,
+          "thrust_mN": 6.257797007165047,
+          "input_rpm": 43.52986265715473,
+          "torque_residual_Nm": -3.6656482103186727e-10,
+          "alpha_min_max_deg": [
+            1.8330303588131633,
+            18.492974191091225
+          ],
+          "Re_min_max": [
+            3168.6825483718253,
+            15328.127025171969
+          ],
+          "developed_solidity": 0.8581868755355749,
+          "projected_solidity": 0.7854427373168313
+        },
+        "tubercled": {
+          "design": "tubercled",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 342.623395133996,
+          "flow_L_s": 6.389960514037113,
+          "shaft_mW": 17.168570659537387,
+          "thrust_mN": 6.813879912933091,
+          "input_rpm": 42.8279243917495,
+          "torque_residual_Nm": -4.85245426305736e-10,
+          "alpha_min_max_deg": [
+            15.464769057104277,
+            21.086006339595667
+          ],
+          "Re_min_max": [
+            3046.6939499791033,
+            7430.7066580732035
+          ],
+          "developed_solidity": 0.6196963054276176,
+          "projected_solidity": 0.5035062617434151
+        },
+        "toroidal_5pairs": {
+          "design": "toroidal_5pairs",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 337.6522572829772,
+          "flow_L_s": 6.681332141086747,
+          "shaft_mW": 17.607360737877382,
+          "thrust_mN": 7.449450694621559,
+          "input_rpm": 42.20653216037215,
+          "torque_residual_Nm": -2.441851634088499e-10,
+          "alpha_min_max_deg": [
+            11.320802172143196,
+            20.363225381461067
+          ],
+          "Re_min_max": [
+            2749.318661963061,
+            3489.836376193844
+          ],
+          "developed_solidity": 0.9703665690299412,
+          "projected_solidity": 0.773328321752062
+        }
+      }
+    },
+    "toroidal_5pairs": {
+      "can_lead_under_stress_assumptions": true,
+      "favorable_case": {
+        "design": "toroidal_5pairs",
+        "common_polar": "nominal",
+        "lift_factor": 1.2,
+        "drag_factor": 0.75,
+        "feature_drag_coefficient": 0,
+        "transmission_efficiency": 0.8,
+        "input_friction_mNm": 2.0,
+        "rpm": 365.58552678637597,
+        "flow_L_s": 8.88429446187048,
+        "shaft_mW": 14.894773830746956,
+        "thrust_mN": 13.171766255317053,
+        "input_rpm": 45.698190848296996,
+        "torque_residual_Nm": -2.919659522829243e-10,
+        "alpha_min_max_deg": [
+          8.949543270571622,
+          16.279595872970233
+        ],
+        "Re_min_max": [
+          3155.499071467747,
+          3844.7791548130804
+        ],
+        "developed_solidity": 0.9703665690299412,
+        "projected_solidity": 0.773328321752062
+      },
+      "other_unfavorable_cases": {
+        "scimitar": {
+          "design": "scimitar",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 348.23890125723784,
+          "flow_L_s": 6.123668499577556,
+          "shaft_mW": 16.64994512125389,
+          "thrust_mN": 6.257797007165047,
+          "input_rpm": 43.52986265715473,
+          "torque_residual_Nm": -3.6656482103186727e-10,
+          "alpha_min_max_deg": [
+            1.8330303588131633,
+            18.492974191091225
+          ],
+          "Re_min_max": [
+            3168.6825483718253,
+            15328.127025171969
+          ],
+          "developed_solidity": 0.8581868755355749,
+          "projected_solidity": 0.7854427373168313
+        },
+        "tubercled": {
+          "design": "tubercled",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 342.623395133996,
+          "flow_L_s": 6.389960514037113,
+          "shaft_mW": 17.168570659537387,
+          "thrust_mN": 6.813879912933091,
+          "input_rpm": 42.8279243917495,
+          "torque_residual_Nm": -4.85245426305736e-10,
+          "alpha_min_max_deg": [
+            15.464769057104277,
+            21.086006339595667
+          ],
+          "Re_min_max": [
+            3046.6939499791033,
+            7430.7066580732035
+          ],
+          "developed_solidity": 0.6196963054276176,
+          "projected_solidity": 0.5035062617434151
+        },
+        "toroidal": {
+          "design": "toroidal",
+          "common_polar": "nominal",
+          "lift_factor": 0.8,
+          "drag_factor": 1.5,
+          "feature_drag_coefficient": 0.05,
+          "transmission_efficiency": 0.8,
+          "input_friction_mNm": 2.0,
+          "rpm": 349.5368033874918,
+          "flow_L_s": 6.379531534226226,
+          "shaft_mW": 16.52661774686355,
+          "thrust_mN": 6.79165635574195,
+          "input_rpm": 43.69210042343647,
+          "torque_residual_Nm": -4.1224181013266303e-10,
+          "alpha_min_max_deg": [
+            12.13680225318309,
+            21.8742951821712
+          ],
+          "Re_min_max": [
+            2793.9259763249115,
+            3594.2998409462252
+          ],
+          "developed_solidity": 0.7762932552239529,
+          "projected_solidity": 0.6186626574016495
+        }
+      }
+    }
+  },
+  "convergence": {
+    "scimitar": {
+      "rpm": 2.1189879977345782e-06,
+      "flow_L_s": 1.059040874773487e-06
+    },
+    "tubercled": {
+      "rpm": 1.228052695090298e-07,
+      "flow_L_s": 5.40186203767945e-07
+    },
+    "toroidal": {
+      "rpm": 1.127320769400697e-06,
+      "flow_L_s": 2.1753399468416035e-06
+    },
+    "toroidal_5pairs": {
+      "rpm": 1.2021921967919624e-06,
+      "flow_L_s": 2.077748195272733e-06
+    }
+  },
+  "toroidal_geometry_sweep": [
+    {
+      "pairs": 3,
+      "chord_scale": 0.8,
+      "tip_pitch": 18,
+      "rpm": 401.6190623051659,
+      "flow_L_s": 6.598901845640546,
+      "shaft_mW": 10.516385217597342,
+      "thrust_mN": 7.2667708179264325,
+      "input_rpm": 50.20238278814574,
+      "torque_residual_Nm": -4.5961385435402957e-10,
+      "alpha_min_max_deg": [
+        9.117470779614452,
+        23.11244364200787
+      ],
+      "Re_min_max": [
+        2515.347965646172,
+        3285.7506570771
+      ],
+      "developed_solidity": 0.4657759531343718,
+      "projected_solidity": 0.3782650008644829,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 0.8,
+      "tip_pitch": 22,
+      "rpm": 394.06336626207224,
+      "flow_L_s": 6.765268594537137,
+      "shaft_mW": 11.515804263335719,
+      "thrust_mN": 7.637798797946412,
+      "input_rpm": 49.25792078275903,
+      "torque_residual_Nm": -3.6967436794002606e-10,
+      "alpha_min_max_deg": [
+        12.714755787501435,
+        22.98371683164568
+      ],
+      "Re_min_max": [
+        2488.4919785091543,
+        3230.901495270221
+      ],
+      "developed_solidity": 0.4657759531343718,
+      "projected_solidity": 0.3711975944409897,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 0.8,
+      "tip_pitch": 26,
+      "rpm": 386.1341850927163,
+      "flow_L_s": 6.884442005252134,
+      "shaft_mW": 12.518368267964151,
+      "thrust_mN": 7.9092557314893,
+      "input_rpm": 48.266773136589535,
+      "torque_residual_Nm": -3.102570088862888e-10,
+      "alpha_min_max_deg": [
+        16.35348093991918,
+        23.300573823101974
+      ],
+      "Re_min_max": [
+        2457.005242412492,
+        3172.2917815884152
+      ],
+      "developed_solidity": 0.4657759531343718,
+      "projected_solidity": 0.36361381435008355,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 1,
+      "tip_pitch": 18,
+      "rpm": 392.3264623683486,
+      "flow_L_s": 7.005315390147276,
+      "shaft_mW": 11.739475009109054,
+      "thrust_mN": 8.189426918861905,
+      "input_rpm": 49.04080779604357,
+      "torque_residual_Nm": -7.920425470001047e-11,
+      "alpha_min_max_deg": [
+        8.355916679833582,
+        21.52901024734965
+      ],
+      "Re_min_max": [
+        3121.4767420419075,
+        4029.2904341114304
+      ],
+      "developed_solidity": 0.5822199414179646,
+      "projected_solidity": 0.47283125108060364,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 1,
+      "tip_pitch": 22,
+      "rpm": 383.99284998178877,
+      "flow_L_s": 7.178307982358983,
+      "shaft_mW": 12.78096966782573,
+      "thrust_mN": 8.598888183459074,
+      "input_rpm": 47.999106247723596,
+      "torque_residual_Nm": -2.2466679471672135e-10,
+      "alpha_min_max_deg": [
+        11.901341910287405,
+        21.43185855562113
+      ],
+      "Re_min_max": [
+        3085.4785057875824,
+        3954.2472742761306
+      ],
+      "developed_solidity": 0.5822199414179646,
+      "projected_solidity": 0.4639969930512372,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 1,
+      "tip_pitch": 26,
+      "rpm": 375.27238572048407,
+      "flow_L_s": 7.299096677059957,
+      "shaft_mW": 13.814498452173527,
+      "thrust_mN": 8.890708233790843,
+      "input_rpm": 46.90904821506051,
+      "torque_residual_Nm": -4.809498983966709e-10,
+      "alpha_min_max_deg": [
+        15.491364988891322,
+        21.804020982465488
+      ],
+      "Re_min_max": [
+        3043.0386747452253,
+        3874.1795229872682
+      ],
+      "developed_solidity": 0.5822199414179646,
+      "projected_solidity": 0.4545172679376044,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 1.2,
+      "tip_pitch": 18,
+      "rpm": 384.27376777727295,
+      "flow_L_s": 7.326633778546861,
+      "shaft_mW": 12.746718078605449,
+      "thrust_mN": 8.957918237109771,
+      "input_rpm": 48.03422097215912,
+      "torque_residual_Nm": -4.3177242597253196e-10,
+      "alpha_min_max_deg": [
+        7.711811421673578,
+        20.24051748904691
+      ],
+      "Re_min_max": [
+        3721.8688507578063,
+        4754.40060053552
+      ],
+      "developed_solidity": 0.6986639297015577,
+      "projected_solidity": 0.5673975012967244,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 1.2,
+      "tip_pitch": 22,
+      "rpm": 375.3233863544496,
+      "flow_L_s": 7.504920713051378,
+      "shaft_mW": 13.808621625557203,
+      "thrust_mN": 9.399188148795359,
+      "input_rpm": 46.9154232943062,
+      "torque_residual_Nm": -4.339835747713128e-10,
+      "alpha_min_max_deg": [
+        11.210508212332748,
+        20.163587862507907
+      ],
+      "Re_min_max": [
+        3676.6953738161806,
+        4658.398543181731
+      ],
+      "developed_solidity": 0.6986639297015577,
+      "projected_solidity": 0.5567963916614845,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 3,
+      "chord_scale": 1.2,
+      "tip_pitch": 26,
+      "rpm": 365.9758844455433,
+      "flow_L_s": 7.626711319040836,
+      "shaft_mW": 14.852624428885385,
+      "thrust_mN": 9.706725372460033,
+      "input_rpm": 45.74698555569291,
+      "torque_residual_Nm": -1.4081932148135579e-10,
+      "alpha_min_max_deg": [
+        14.756307465058013,
+        20.575927238330777
+      ],
+      "Re_min_max": [
+        3623.104061512143,
+        4556.051684019929
+      ],
+      "developed_solidity": 0.6986639297015577,
+      "projected_solidity": 0.5454207215251252,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 0.8,
+      "tip_pitch": 18,
+      "rpm": 389.4268289925178,
+      "flow_L_s": 7.1186772276462404,
+      "shaft_mW": 12.107810771574066,
+      "thrust_mN": 8.456618324734778,
+      "input_rpm": 48.67835362406473,
+      "torque_residual_Nm": -4.812886985651466e-10,
+      "alpha_min_max_deg": [
+        8.129960814077744,
+        21.07200150599655
+      ],
+      "Re_min_max": [
+        2491.056536227968,
+        3203.8825483569144
+      ],
+      "developed_solidity": 0.6210346041791623,
+      "projected_solidity": 0.5043533344859772,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 0.8,
+      "tip_pitch": 22,
+      "rpm": 380.87981890364915,
+      "flow_L_s": 7.293611333493877,
+      "shaft_mW": 13.15654055583615,
+      "thrust_mN": 8.877350344088672,
+      "input_rpm": 47.609977362956144,
+      "torque_residual_Nm": -3.3599594374128516e-10,
+      "alpha_min_max_deg": [
+        11.659299895929662,
+        20.982512670165203
+      ],
+      "Re_min_max": [
+        2461.802938097608,
+        3142.477031992925
+      ],
+      "developed_solidity": 0.6210346041791623,
+      "projected_solidity": 0.4949301259213197,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 0.8,
+      "tip_pitch": 26,
+      "rpm": 371.9421381801292,
+      "flow_L_s": 7.414857515639952,
+      "shaft_mW": 14.193950004893926,
+      "thrust_mN": 9.17495084894586,
+      "input_rpm": 46.49276727251615,
+      "torque_residual_Nm": -3.7021294623656997e-10,
+      "alpha_min_max_deg": [
+        15.234134709438267,
+        21.36953829816842
+      ],
+      "Re_min_max": [
+        2427.2374019141994,
+        3076.9733273455095
+      ],
+      "developed_solidity": 0.6210346041791623,
+      "projected_solidity": 0.4848184191334447,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 1,
+      "tip_pitch": 18,
+      "rpm": 379.36754527492786,
+      "flow_L_s": 7.5046100949548515,
+      "shaft_mW": 13.336336446128945,
+      "thrust_mN": 9.398410126581636,
+      "input_rpm": 47.42094315936598,
+      "torque_residual_Nm": -4.4257668753780455e-10,
+      "alpha_min_max_deg": [
+        7.332163116422207,
+        19.5007114328648
+      ],
+      "Re_min_max": [
+        3088.7664816497395,
+        3920.911105444735
+      ],
+      "developed_solidity": 0.7762932552239529,
+      "projected_solidity": 0.6304416681074716,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 1,
+      "tip_pitch": 22,
+      "rpm": 370.0809435125048,
+      "flow_L_s": 7.686043056877293,
+      "shaft_mW": 14.40233903798415,
+      "thrust_mN": 9.858339095241025,
+      "input_rpm": 46.2601179390631,
+      "torque_residual_Nm": -3.991349529532118e-10,
+      "alpha_min_max_deg": [
+        10.802031663333695,
+        19.433173105604208
+      ],
+      "Re_min_max": [
+        3050.3943112629104,
+        3838.3071173047865
+      ],
+      "developed_solidity": 0.7762932552239529,
+      "projected_solidity": 0.6186626574016495,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 1,
+      "tip_pitch": 26,
+      "rpm": 360.3905578255668,
+      "flow_L_s": 7.808435833353274,
+      "shaft_mW": 15.44460768300921,
+      "thrust_mN": 10.174807886180414,
+      "input_rpm": 45.04881972819585,
+      "torque_residual_Nm": -4.2710059273975975e-10,
+      "alpha_min_max_deg": [
+        14.320392811523469,
+        19.866459085933165
+      ],
+      "Re_min_max": [
+        3004.6551887961446,
+        3750.2553037946836
+      ],
+      "developed_solidity": 0.7762932552239529,
+      "projected_solidity": 0.606023023916806,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 1.2,
+      "tip_pitch": 18,
+      "rpm": 370.77763078187945,
+      "flow_L_s": 7.802470894999196,
+      "shaft_mW": 14.324642129565838,
+      "thrust_mN": 10.159268558851942,
+      "input_rpm": 46.34720384773493,
+      "torque_residual_Nm": -7.570060377160015e-11,
+      "alpha_min_max_deg": [
+        6.665268466432626,
+        18.234172462004214
+      ],
+      "Re_min_max": [
+        3680.129318015164,
+        4619.277795994595
+      ],
+      "developed_solidity": 0.9315519062687435,
+      "projected_solidity": 0.7565300017289658,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 1.2,
+      "tip_pitch": 22,
+      "rpm": 360.92559835029505,
+      "flow_L_s": 7.9893663286597185,
+      "shaft_mW": 15.3889332795244,
+      "thrust_mN": 10.651794915258588,
+      "input_rpm": 45.11569979378688,
+      "torque_residual_Nm": -4.3697282337690213e-10,
+      "alpha_min_max_deg": [
+        10.08209161450094,
+        18.17820789413863
+      ],
+      "Re_min_max": [
+        3632.868709809108,
+        4515.087439705562
+      ],
+      "developed_solidity": 0.9315519062687435,
+      "projected_solidity": 0.7423951888819794,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 4,
+      "chord_scale": 1.2,
+      "tip_pitch": 26,
+      "rpm": 350.6567847798704,
+      "flow_L_s": 8.112665835387913,
+      "shaft_mW": 16.41915352957372,
+      "thrust_mN": 10.983109195625477,
+      "input_rpm": 43.8320980974838,
+      "torque_residual_Nm": -2.7554838792631653e-10,
+      "alpha_min_max_deg": [
+        13.549666323527736,
+        18.643403164173915
+      ],
+      "Re_min_max": [
+        3575.9881825891275,
+        4403.999037999805
+      ],
+      "developed_solidity": 0.9315519062687435,
+      "projected_solidity": 0.7272276287001671,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 0.8,
+      "tip_pitch": 18,
+      "rpm": 379.2828148747726,
+      "flow_L_s": 7.502933966819289,
+      "shaft_mW": 13.346358193663066,
+      "thrust_mN": 9.394212392052664,
+      "input_rpm": 47.41035185934658,
+      "torque_residual_Nm": -2.9895772446150715e-10,
+      "alpha_min_max_deg": [
+        7.332163116422207,
+        19.5007114328648
+      ],
+      "Re_min_max": [
+        2470.461293259997,
+        3136.02830704795
+      ],
+      "developed_solidity": 0.7762932552239531,
+      "projected_solidity": 0.6304416681074716,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 0.8,
+      "tip_pitch": 22,
+      "rpm": 370.00374399148825,
+      "flow_L_s": 7.684439735082682,
+      "shaft_mW": 14.410926005887456,
+      "thrust_mN": 9.854226591258326,
+      "input_rpm": 46.25046799893603,
+      "torque_residual_Nm": -4.821527370066359e-10,
+      "alpha_min_max_deg": [
+        10.802031663333695,
+        19.433173105604208
+      ],
+      "Re_min_max": [
+        2439.80639501256,
+        3070.005151873399
+      ],
+      "developed_solidity": 0.7762932552239531,
+      "projected_solidity": 0.6186626574016496,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 0.8,
+      "tip_pitch": 26,
+      "rpm": 360.3206126914515,
+      "flow_L_s": 7.806920360542638,
+      "shaft_mW": 15.451869230385604,
+      "thrust_mN": 10.17085878582274,
+      "input_rpm": 45.04007658643144,
+      "torque_residual_Nm": -2.967560884525877e-10,
+      "alpha_min_max_deg": [
+        14.320392811523469,
+        19.866459085933165
+      ],
+      "Re_min_max": [
+        2403.25763268767,
+        2999.6219589453467
+      ],
+      "developed_solidity": 0.7762932552239531,
+      "projected_solidity": 0.606023023916806,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 1,
+      "tip_pitch": 18,
+      "rpm": 368.73871937362895,
+      "flow_L_s": 7.864950446065833,
+      "shaft_mW": 14.550982470729378,
+      "thrust_mN": 10.322623979262598,
+      "input_rpm": 46.09233992170362,
+      "torque_residual_Nm": -2.7577393233585434e-10,
+      "alpha_min_max_deg": [
+        6.514622875351866,
+        17.95349457013597
+      ],
+      "Re_min_max": [
+        3061.0133282535294,
+        3832.2749261702143
+      ],
+      "developed_solidity": 0.9703665690299412,
+      "projected_solidity": 0.7880520851343394,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 1,
+      "tip_pitch": 22,
+      "rpm": 358.77348532132345,
+      "flow_L_s": 8.053188047580054,
+      "shaft_mW": 15.611541970527115,
+      "thrust_mN": 10.822654813465656,
+      "input_rpm": 44.84668566516543,
+      "torque_residual_Nm": -3.6990280109783225e-10,
+      "alpha_min_max_deg": [
+        9.919026678555605,
+        17.89938553984637
+      ],
+      "Re_min_max": [
+        3021.52014200874,
+        3744.653018111573
+      ],
+      "developed_solidity": 0.9703665690299412,
+      "projected_solidity": 0.773328321752062,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 1,
+      "tip_pitch": 26,
+      "rpm": 348.3877831410906,
+      "flow_L_s": 8.17680379814778,
+      "shaft_mW": 16.63586461026208,
+      "thrust_mN": 11.15745850519556,
+      "input_rpm": 43.548472892636326,
+      "torque_residual_Nm": -4.967493690694047e-10,
+      "alpha_min_max_deg": [
+        13.374656185812041,
+        18.37086149732269
+      ],
+      "Re_min_max": [
+        2973.85675141384,
+        3651.2242584649794
+      ],
+      "developed_solidity": 0.9703665690299412,
+      "projected_solidity": 0.7575287798960073,
+      "sectional_height_limit_pass": true
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 1.2,
+      "tip_pitch": 18,
+      "rpm": 359.82947879029615,
+      "flow_L_s": 8.138016782166357,
+      "shaft_mW": 15.502755932074582,
+      "thrust_mN": 11.051857805075949,
+      "input_rpm": 44.97868484878702,
+      "torque_residual_Nm": -3.7504667600718467e-10,
+      "alpha_min_max_deg": [
+        5.838280969805934,
+        16.71662649493973
+      ],
+      "Re_min_max": [
+        3644.573565768138,
+        4509.832474493202
+      ],
+      "developed_solidity": 1.1644398828359293,
+      "projected_solidity": 0.9456625021612073,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 1.2,
+      "tip_pitch": 22,
+      "rpm": 349.3574168776843,
+      "flow_L_s": 8.332156311516746,
+      "shaft_mW": 16.54374060771964,
+      "thrust_mN": 11.58545097536352,
+      "input_rpm": 43.669677109710534,
+      "torque_residual_Nm": -4.6279915403429905e-10,
+      "alpha_min_max_deg": [
+        9.184870601037785,
+        16.666980360416602
+      ],
+      "Re_min_max": [
+        3596.6877051231018,
+        4400.568022544896
+      ],
+      "developed_solidity": 1.1644398828359293,
+      "projected_solidity": 0.9279939861024743,
+      "sectional_height_limit_pass": false
+    },
+    {
+      "pairs": 5,
+      "chord_scale": 1.2,
+      "tip_pitch": 26,
+      "rpm": 338.4464585558544,
+      "flow_L_s": 8.456929366168723,
+      "shaft_mW": 17.538541738298733,
+      "thrust_mN": 11.935030493349661,
+      "input_rpm": 42.3058073194818,
+      "torque_residual_Nm": -4.5941698362250705e-10,
+      "alpha_min_max_deg": [
+        11.846867109076701,
+        17.163236675097785
+      ],
+      "Re_min_max": [
+        3538.127619300477,
+        4283.873488798521
+      ],
+      "developed_solidity": 1.1644398828359293,
+      "projected_solidity": 0.9090345358752088,
+      "sectional_height_limit_pass": false
+    }
+  ],
+  "tubercled_smooth_edge_control": {
+    "rpm": 362.7915223157001,
+    "flow_L_s": 7.680506357788124,
+    "shaft_mW": 15.193055846897186,
+    "thrust_mN": 9.844141153030394,
+    "input_rpm": 45.34894028946251,
+    "torque_residual_Nm": -2.1391795192865493e-10,
+    "alpha_min_max_deg": [
+      13.72013615328987,
+      18.993510470446733
+    ],
+    "Re_min_max": [
+      3327.800715375298,
+      7899.496402009677
+    ],
+    "developed_solidity": 0.6197224514150222,
+    "projected_solidity": 0.5035275329359067
+  },
+  "total_stress_cases": 2916,
+  "conclusion": "No robust physical ranking. Nominal ordering is conditional on independent strip proxies and selected geometry."
+}
