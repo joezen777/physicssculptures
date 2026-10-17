@@ -93,4 +93,3 @@ def run():
     selected=[x for x in rows if x['polar']=='nominal' and x['transmission_efficiency']==.8 and x['input_friction_mNm']==2]
     print(json.dumps(dict(wind=WIND,convergence=convergence,selected=selected),indent=2))
 if __name__=='__main__': run()
-

@@ -63,4 +63,3 @@ The model omits wake interaction between floors, swirl, tip losses, grille block
 - Pindado et al., On Cup Anemometer Rotor Aerodynamics: https://pmc.ncbi.nlm.nih.gov/articles/PMC3386737/
 
 References support the modeling framework; neither validates our chosen coefficients or this assembly.
-
