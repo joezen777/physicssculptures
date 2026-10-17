@@ -1,0 +1,31 @@
+from pathlib import Path
+import FreeCAD as App,FreeCADGui as Gui
+from PySide import QtCore
+import traceback,time
+OUT=Path(__file__).resolve().parent/'output/scimitar_40mm'
+def settle():
+    for _ in range(15):Gui.updateGui();time.sleep(.1)
+try:
+    src=App.openDocument(str(OUT/'scimitar_40mm.FCStd'))
+    shapes={n:src.getObject(n).Shape.copy() for n in ['P17S','P18S','P19_reference']}
+    App.closeDocument(src.Name)
+    d=App.newDocument('ScimitarPreview')
+    for n,shape in shapes.items():
+        o=d.addObject('PartDesign::Feature',n);o.Shape=shape;o.ViewObject.Visibility=True
+    d.recompute()
+    d.getObject('P17S').ViewObject.ShapeColor=(.95,.58,.12)
+    v=Gui.activeDocument().activeView()
+    d.getObject('P18S').ViewObject.Visibility=False
+    d.getObject('P19_reference').ViewObject.Visibility=False
+    v.setCameraType('Orthographic');v.viewAxonometric();v.fitAll();settle()
+    v.saveImage(str(OUT/'rotor.png'),1200,1000,'White')
+    v.viewTop();v.fitAll();settle();v.saveImage(str(OUT/'rotor_top.png'),1000,1000,'White')
+    v.viewFront();v.fitAll();settle();v.saveImage(str(OUT/'rotor_side.png'),1200,700,'White')
+    d.getObject('P18S').ViewObject.Visibility=True;d.getObject('P18S').ViewObject.Transparency=75
+    d.getObject('P19_reference').ViewObject.Visibility=True
+    v.viewAxonometric();v.fitAll();settle();v.saveImage(str(OUT/'guard_fit.png'),1200,1000,'White')
+    d.saveAs(str(OUT/'scimitar_40mm.FCStd'))
+    (OUT/'render_complete.txt').write_text('PASS\n')
+except BaseException:(OUT/'render_error.txt').write_text(traceback.format_exc())
+for n in list(App.listDocuments()):App.closeDocument(n)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

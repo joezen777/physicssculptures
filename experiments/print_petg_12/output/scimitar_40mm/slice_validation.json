@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "nozzle_mm": 0.2,
+  "layer_mm": 0.12,
+  "supports": "everywhere",
+  "scope": "Toolpath generation only; not calibrated machine G-code",
+  "results": [
+    {
+      "part": "P17S",
+      "layers": 918,
+      "extruding_moves": 2468261,
+      "exit_code": 0,
+      "warnings": ""
+    },
+    {
+      "part": "P18S",
+      "layers": 1060,
+      "extruding_moves": 4830060,
+      "exit_code": 0,
+      "warnings": ""
+    }
+  ]
+}

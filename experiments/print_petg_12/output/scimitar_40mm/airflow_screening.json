@@ -1,0 +1,151 @@
+{
+  "status": "UNVALIDATED SURROGATE, NOT CFD",
+  "assumptions": "10 knots, three 80x120 sails, aggregate efficiency .8, input friction 2 mNm; no added camber or winglet lift benefit",
+  "limitations": "No blade-to-blade interference, wake coupling, swirl, resolved camber, tip flow, or crosswind; lip drag coefficients hypothetical. No performance guarantee.",
+  "cases": [
+    {
+      "design": "original P17",
+      "polar": "low",
+      "assumed_lip_drag_coefficient": 0,
+      "top_rpm": 406.6581742550582,
+      "flow_L_s": 4.961110888565797,
+      "shaft_mW": 9.693519561347317
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "low",
+      "assumed_lip_drag_coefficient": 0,
+      "top_rpm": 363.56363183701325,
+      "flow_L_s": 6.093808998555191,
+      "shaft_mW": 15.016555258575213
+    },
+    {
+      "design": "original P17",
+      "polar": "low",
+      "assumed_lip_drag_coefficient": 0.01,
+      "top_rpm": 406.6581742550582,
+      "flow_L_s": 4.961110888565797,
+      "shaft_mW": 9.693519561347317
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "low",
+      "assumed_lip_drag_coefficient": 0.01,
+      "top_rpm": 361.5143797027239,
+      "flow_L_s": 6.05946081297584,
+      "shaft_mW": 15.234335794539987
+    },
+    {
+      "design": "original P17",
+      "polar": "low",
+      "assumed_lip_drag_coefficient": 0.05,
+      "top_rpm": 406.6581742550582,
+      "flow_L_s": 4.961110888565797,
+      "shaft_mW": 9.693519561347317
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "low",
+      "assumed_lip_drag_coefficient": 0.05,
+      "top_rpm": 353.72434679515743,
+      "flow_L_s": 5.92888952235662,
+      "shaft_mW": 16.03268847066475
+    },
+    {
+      "design": "original P17",
+      "polar": "nominal",
+      "assumed_lip_drag_coefficient": 0,
+      "top_rpm": 416.95843123072007,
+      "flow_L_s": 5.924449448370388,
+      "shaft_mW": 8.35568205269152
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "nominal",
+      "assumed_lip_drag_coefficient": 0,
+      "top_rpm": 380.7395051247686,
+      "flow_L_s": 7.327293039517385,
+      "shaft_mW": 13.17329427151091
+    },
+    {
+      "design": "original P17",
+      "polar": "nominal",
+      "assumed_lip_drag_coefficient": 0.01,
+      "top_rpm": 416.95843123072007,
+      "flow_L_s": 5.924449448370388,
+      "shaft_mW": 8.35568205269152
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "nominal",
+      "assumed_lip_drag_coefficient": 0.01,
+      "top_rpm": 378.3073111594749,
+      "flow_L_s": 7.28048571410782,
+      "shaft_mW": 13.46135184915711
+    },
+    {
+      "design": "original P17",
+      "polar": "nominal",
+      "assumed_lip_drag_coefficient": 0.05,
+      "top_rpm": 416.95843123072007,
+      "flow_L_s": 5.924449448370388,
+      "shaft_mW": 8.35568205269152
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "nominal",
+      "assumed_lip_drag_coefficient": 0.05,
+      "top_rpm": 369.1301030773193,
+      "flow_L_s": 7.1038712782600175,
+      "shaft_mW": 14.507779696155392
+    },
+    {
+      "design": "original P17",
+      "polar": "high",
+      "assumed_lip_drag_coefficient": 0,
+      "top_rpm": 419.1251466301156,
+      "flow_L_s": 6.575541087152538,
+      "shaft_mW": 8.065447446337004
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "high",
+      "assumed_lip_drag_coefficient": 0,
+      "top_rpm": 385.1141235824967,
+      "flow_L_s": 8.053441119405301,
+      "shaft_mW": 12.666497292290927
+    },
+    {
+      "design": "original P17",
+      "polar": "high",
+      "assumed_lip_drag_coefficient": 0.01,
+      "top_rpm": 419.1251466301156,
+      "flow_L_s": 6.575541087152538,
+      "shaft_mW": 8.065447446337004
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "high",
+      "assumed_lip_drag_coefficient": 0.01,
+      "top_rpm": 382.5756145179995,
+      "flow_L_s": 8.00035624915482,
+      "shaft_mW": 12.975019948550916
+    },
+    {
+      "design": "original P17",
+      "polar": "high",
+      "assumed_lip_drag_coefficient": 0.05,
+      "top_rpm": 419.1251466301156,
+      "flow_L_s": 6.575541087152538,
+      "shaft_mW": 8.065447446337004
+    },
+    {
+      "design": "scimitar prototype",
+      "polar": "high",
+      "assumed_lip_drag_coefficient": 0.05,
+      "top_rpm": 373.0166393272228,
+      "flow_L_s": 7.8004605840863706,
+      "shaft_mW": 14.09297958026422
+    }
+  ]
+}

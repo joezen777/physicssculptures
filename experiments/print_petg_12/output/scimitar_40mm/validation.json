@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "physical_tested": false,
+  "airfoil": "specified cambered shell, not Eppler 420",
+  "parts": [
+    {
+      "id": "P17S",
+      "volume_mm3": 51989.266747860114,
+      "mesh_closed": true,
+      "triangles": 12858,
+      "bounds_mm": [
+        138.7618987550137,
+        141.216195873432,
+        60.800000000000004
+      ]
+    },
+    {
+      "id": "P18S",
+      "volume_mm3": 152026.81802620282,
+      "mesh_closed": true,
+      "triangles": 4986,
+      "bounds_mm": [
+        176.0,
+        176.0,
+        72.0
+      ]
+    }
+  ],
+  "hub_interface_delta_mm3": 0.0,
+  "blade_height_mm": 38.800000000000004,
+  "blade_z_mm": [
+    0.0,
+    38.800000000000004
+  ],
+  "developed_solidity_excluding_lips": 0.8581853766915876,
+  "projected_solidity_excluding_lips": 0.785441242358361,
+  "guard_extension_mm": 32,
+  "grille_bottom_z_mm": 412.0,
+  "blade_to_grille_vertical_gap_mm": 25.19999999999999,
+  "radial_clearance_mm": 4,
+  "all_angle_envelope_checked_parts": [
+    "P06_46",
+    "P01_57",
+    "Hardware_3",
+    "Hardware_96",
+    "Hardware_97",
+    "Hardware_98",
+    "Hardware_99"
+  ],
+  "notes": "Geometry validity and printed-part clearance only; no strength, balance or aerodynamic validation."
+}
