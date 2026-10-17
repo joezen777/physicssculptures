@@ -1,0 +1,72 @@
+{
+  "status": "No physical experiment or resolved 3D CFD. No defensible aerodynamic ranking.",
+  "drive": "Only three large 80x120 mm sails at radius 180 mm in 10 knots wind",
+  "assumptions": {
+    "aggregate_geared_efficiency": 0.8,
+    "input_friction_Nm": 0.002,
+    "sail_forward_Cd": 1.4,
+    "sail_reverse_Cd": 0.4
+  },
+  "budget_at_415": {
+    "top_rpm": 415.0,
+    "top_available_W": 0.008641339380674629,
+    "top_available_mNm": 0.19884027142684696,
+    "ideal_isolated_flow_L_s": 9.161575106507158
+  },
+  "best_sampled_budget": {
+    "top_rpm": 229.0896146163016,
+    "top_available_W": 0.022336390788033563,
+    "top_available_mNm": 0.9310628098184037,
+    "ideal_isolated_flow_L_s": 12.57324733031855
+  },
+  "geometry": {
+    "tip_speed_m_s": 3.1290262829754334,
+    "tip_rotation_only_Re_for_40_to_80mm_chord": [
+      8344.07008793449,
+      16688.14017586898
+    ],
+    "three_blade_mean_chord_mm_for_0p75_annular_solidity": 73.82742735936014,
+    "root_chord_mm_if_35mm_height_is_pitch_projection": 49.49747468305833,
+    "biomimetic_tip_chord_mm_if_18mm_height_is_pitch_projection": 42.591628496744974,
+    "root_geometric_45deg_alpha_with_baseline_0p401ms_inflow": 22.246044326709328
+  },
+  "hypothetical_conversion_examples": [
+    {
+      "assumed_figure_of_merit": 0.2,
+      "idealized_flow_at_415_L_s": 5.357721624279272
+    },
+    {
+      "assumed_figure_of_merit": 0.4,
+      "idealized_flow_at_415_L_s": 6.7503062539064045
+    },
+    {
+      "assumed_figure_of_merit": 0.6,
+      "idealized_flow_at_415_L_s": 7.727171710443489
+    },
+    {
+      "assumed_figure_of_merit": 0.8,
+      "idealized_flow_at_415_L_s": 8.504852942533686
+    },
+    {
+      "assumed_figure_of_merit": 1,
+      "idealized_flow_at_415_L_s": 9.161575106507158
+    }
+  ],
+  "candidates": {
+    "toroidal": {
+      "airflow_score": null,
+      "rpm": null,
+      "reason": "Missing resolved geometry and validated force/torque behavior"
+    },
+    "scimitar": {
+      "airflow_score": null,
+      "rpm": null,
+      "reason": "Missing resolved geometry and validated force/torque behavior"
+    },
+    "tubercled": {
+      "airflow_score": null,
+      "rpm": null,
+      "reason": "Missing resolved geometry and validated force/torque behavior"
+    }
+  }
+}
