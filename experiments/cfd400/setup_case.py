@@ -80,7 +80,7 @@ p {solver GAMG;tolerance 1e-8;relTol .05;smoother GaussSeidel;}
 U {solver smoothSolver;smoother symGaussSeidel;tolerance 1e-9;relTol .05;}
 }
 SIMPLE {nNonOrthogonalCorrectors 1;consistent yes;}
-relaxationFactors {fields {p .2;}equations {U .4;}}
+relaxationFactors {fields {p .1;}equations {U .2;}}
 """)
 sets=[]
 for name,z in [('below',-.04),('above',.08)]:

@@ -26,3 +26,15 @@ The generator refuses to overwrite an existing case. `run_case.py` remeshes and 
 `plot_geometry.py` uses NumPy and Matplotlib. The local plotting environment is `~/.cache/angularmomflyer/cfd-venv/`.
 
 No score should be treated as a reliable winner if the flow has not numerically settled or mesh sensitivity can change the ranking. In particular, solver iterations are not physical-time samples and cannot be averaged as a transient simulation.
+
+## Transient speed sweep
+
+`setup_transient.py DESIGN --rpm 400` creates a fresh transient case from the checked coarse mesh; repeat for RPM 600 and 800. `--fine` uses the original finer mesh. The solver uses frozen MRF geometry, not a moving/sliding mesh. Start from rest and compare time averages only after assessing startup decay and sampling-window stability.
+
+```bash
+python3 experiments/cfd400/run_sweep.py --hours 12 --workers 4
+```
+
+The runner has an exclusive lock to prevent duplicate sweeps, runs up to four serial solvers, resumes written checkpoints, and requests a checkpoint/stop when its wall-clock budget expires. The matrix prioritizes 400 RPM, then 800 RPM, then 600 RPM, and finally the original finer mesh. Its target is 1.5 physical seconds per case. A 12-hour budget is not a promise that any case or the matrix will finish. Progress is in `~/.cache/angularmomflyer/cfd400/sweep_status.json`; the active detached runner's stdout is `/tmp/cfd_transient_sweep.log`. Do not run two solvers against one case.
+
+Completed steady results failed convergence and must not be interpreted as a design ranking. The pilot transient run reached only 0.003 physical seconds; it establishes execution and timing, not performance.

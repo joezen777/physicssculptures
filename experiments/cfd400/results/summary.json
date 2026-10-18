@@ -1,0 +1,192 @@
+[
+  {
+    "case": "original_coarse",
+    "iteration": 1000.0,
+    "ended": true,
+    "residuals": {
+      "Ux": 0.00835914072,
+      "Uy": 0.0070777809,
+      "Uz": 0.0076621186,
+      "p": 0.00116722788
+    },
+    "torque_mNm": 0.30611092211700003,
+    "power_W": 0.012822344321418195,
+    "torque_range_pct": 4.011507206301702,
+    "torque_window_iterations": [
+      901.0,
+      1000.0
+    ],
+    "flow_L_s": 0.8717749429621051,
+    "flow_last3_range_pct": 39.23248648685891,
+    "flow_samples": [
+      [
+        900.0,
+        1.1057569867770054
+      ],
+      [
+        950.0,
+        1.30045331579374
+      ],
+      [
+        1000.0,
+        0.8717749429621051
+      ]
+    ],
+    "mean_disk_speed_m_s": 0.05352904762194219,
+    "mesh_ok": true,
+    "cells": 289400,
+    "numerically_settled_screen": false
+  },
+  {
+    "case": "original_fine",
+    "iteration": 1000.0,
+    "ended": true,
+    "residuals": {
+      "Ux": 0.00636828294,
+      "Uy": 0.00592148556,
+      "Uz": 0.00640519048,
+      "p": 0.000466481848
+    },
+    "torque_mNm": 0.22413339992800002,
+    "power_W": 0.009388477901838773,
+    "torque_range_pct": 20.99390403889631,
+    "torque_window_iterations": [
+      901.0,
+      1000.0
+    ],
+    "flow_L_s": -2.2754053947559507,
+    "flow_last3_range_pct": 74.29511759576157,
+    "flow_samples": [
+      [
+        900.0,
+        -1.0027337465115798
+      ],
+      [
+        950.0,
+        -1.8608458530181837
+      ],
+      [
+        1000.0,
+        -2.2754053947559507
+      ]
+    ],
+    "mean_disk_speed_m_s": -0.13971528399435765,
+    "mesh_ok": true,
+    "cells": 488693,
+    "numerically_settled_screen": false
+  },
+  {
+    "case": "scimitar_coarse",
+    "iteration": 1000.0,
+    "ended": true,
+    "residuals": {
+      "Ux": 0.00617617923,
+      "Uy": 0.00641905745,
+      "Uz": 0.0052685083,
+      "p": 0.00137554614
+    },
+    "torque_mNm": 0.287823641417,
+    "power_W": 0.012056328498734803,
+    "torque_range_pct": 1.6672836450732769,
+    "torque_window_iterations": [
+      901.0,
+      1000.0
+    ],
+    "flow_L_s": 7.169291887460419,
+    "flow_last3_range_pct": 4.573234274409106,
+    "flow_samples": [
+      [
+        900.0,
+        6.848125077081443
+      ],
+      [
+        950.0,
+        7.050833059920741
+      ],
+      [
+        1000.0,
+        7.169291887460419
+      ]
+    ],
+    "mean_disk_speed_m_s": 0.44021151325538194,
+    "mesh_ok": true,
+    "cells": 328881,
+    "numerically_settled_screen": false
+  },
+  {
+    "case": "toroidal5_coarse",
+    "iteration": 1000.0,
+    "ended": true,
+    "residuals": {
+      "Ux": 0.00776741608,
+      "Uy": 0.00728821233,
+      "Uz": 0.00682937512,
+      "p": 0.00115161025
+    },
+    "torque_mNm": 0.31776664705299995,
+    "power_W": 0.013310578185834206,
+    "torque_range_pct": 8.103908997002117,
+    "torque_window_iterations": [
+      901.0,
+      1000.0
+    ],
+    "flow_L_s": 5.849795668313841,
+    "flow_last3_range_pct": 21.75254991119675,
+    "flow_samples": [
+      [
+        900.0,
+        7.283187198013378
+      ],
+      [
+        950.0,
+        6.635617167479257
+      ],
+      [
+        1000.0,
+        5.849795668313841
+      ]
+    ],
+    "mean_disk_speed_m_s": 0.35919131816732464,
+    "mesh_ok": true,
+    "cells": 314313,
+    "numerically_settled_screen": false
+  },
+  {
+    "case": "tubercled_coarse",
+    "iteration": 1000.0,
+    "ended": true,
+    "residuals": {
+      "Ux": 0.00665648838,
+      "Uy": 0.00759871156,
+      "Uz": 0.00660832841,
+      "p": 0.00121592572
+    },
+    "torque_mNm": 0.40910278977200004,
+    "power_W": 0.0171364575854774,
+    "torque_range_pct": 20.282940198536675,
+    "torque_window_iterations": [
+      901.0,
+      1000.0
+    ],
+    "flow_L_s": 3.607377031456565,
+    "flow_last3_range_pct": 40.661361565428045,
+    "flow_samples": [
+      [
+        900.0,
+        5.480091097475653
+      ],
+      [
+        950.0,
+        4.729438097921826
+      ],
+      [
+        1000.0,
+        3.607377031456565
+      ]
+    ],
+    "mean_disk_speed_m_s": 0.2215014992872222,
+    "mesh_ok": true,
+    "cells": 307235,
+    "numerically_settled_screen": false
+  }
+]

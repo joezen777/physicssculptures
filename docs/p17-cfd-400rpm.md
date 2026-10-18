@@ -23,7 +23,7 @@ Candidate sections are simple cambered shells, not digitized Goe 417, Eiffel 335
 - All six outer faces: zero gauge pressure, pressure-inlet/outlet velocity, no imposed freestream.
 - Rotating MRF cell zone: radius 82 mm, z = -35 to +55 mm. Rotor surface velocity is imposed by the MRF correction.
 - snappyHexMesh: 10 mm base cells, 2.5 mm near-rotor region, 1.25 mm surface refinement for coarse cases, 0.625 mm surface refinement for the finer original case. No prism boundary layers. Thin-feature and viscous-load resolution are limitations.
-- SIMPLE steady solver, limited linear-upwind momentum discretization, relaxed pressure and velocity. Iteration number is not elapsed physical time.
+- SIMPLE steady solver, limited linear-upwind momentum discretization, relaxed pressure and velocity. Initial relaxation factors were pressure 0.2 / velocity 0.4; they were reduced to 0.1 / 0.2 during startup to investigate stability. Approximate switch iterations are recorded in `experiments/cfd400/relaxation_change.json`. Iteration number is not elapsed physical time.
 - Mesh-quality checks must pass before the solver starts.
 - Laminar closure is a screening assumption at this low-speed operating point, not evidence that all separated flow is steady or laminar. Transient and transition/turbulence-model sensitivity remain unresolved.
 
@@ -38,3 +38,19 @@ A numerical screening flag requires the run to finish, less than 2% torque range
 ## Reproduction
 
 All work runs in WSL2 Ubuntu. Cases and large field files are stored on the Linux filesystem at `~/.cache/angularmomflyer/cfd400/`, outside OneDrive and Git. See the experiment README for commands. Compact histories and results are retained in the repository. The original coarse mesh was generated with Ubuntu OpenFOAM v1912.200626; all flow solves use the maintained OpenCFD build. Remaining meshes use the maintained build.
+
+## Completed steady screening: failed convergence
+
+All five steady cases reached 1,000 iterations and exited normally, and all meshes passed checkMesh. None passed the declared numerical convergence criterion. The final three downstream-flow samples varied by approximately 39% (original coarse), 74% (original fine), 4.6% (scimitar), 22% (toroidal), and 41% (tubercled). The original coarse/fine flux even differed in sign. These are solver diagnostics, NOT physical fluctuation amplitudes or evidence of a winning design. Steady iteration averages cannot substitute for time averages. The complete histories, summary flags and compact logs/configuration archive are retained under `experiments/cfd400/results/`.
+
+## Higher-speed and transient follow-up
+
+The user requested a higher-speed final-gear alternative. The sensitivity matrix is 400, 600 and 800 RPM for the four explicit geometries, plus the finer original at 400 RPM. These are imposed speeds, not predictions of the wind-driven equilibrium. For unchanged input shaft speed, total speed-up ratios 8, 12 and 16 would produce those speeds from an assumed 50 RPM input; the final stage would change from 2:1 to 3:1 or 4:1 speed-up. Gear geometry and strength have not been redesigned.
+
+For a speed-up ratio g, ideal output torque is input torque/g. Including efficiency eta, available output torque is eta*T_input/g before other losses. Changing gearing also changes the sail operating point under load. It cannot create shaft power. A coupled solution must intersect the sail/drivetrain available-torque curve with each fan's CFD torque curve; the present fixed-speed tests do not establish that intersection.
+
+Under unchanged dimensionless fan coefficients, Q scales with RPM, torque with RPM squared, and power with RPM cubed. Relative to 400 RPM, ideal 600 RPM factors are 1.5 / 2.25 / 3.375; at 800 RPM they are 2 / 4 / 8. This similarity estimate would preserve rankings, so Reynolds-number, separation and efficiency changes are exactly what the independent CFD speed tests must investigate. This is not a replacement for the simulations. Source: [AMCA airflow fundamentals / affinity laws](https://www.amca.org/assets/resources/public/assets/uploads/FINAL-_Fundamentals_of_Airflow-_TCF-_AMCA__5.6.20.pdf).
+
+The transient follow-up uses pimpleFoam, second-order backward time integration, adaptive maximum Courant number 0.7, two outer correctors and two pressure correctors, with one non-orthogonal correction. Initial conditions are rest. The existing MRF geometry stays frozen: this is an unsteady frozen-rotor screening approximation, not a sliding-mesh blade-passage simulation. Guard interactions, transition modelling and mesh/time-step sensitivity remain limitations. Target physical duration is 1.5 seconds (10 revolutions at 400 RPM). No ranking is acceptable solely because that duration was reached; time-window statistics and finer-mesh sensitivity must also be assessed.
+
+The original coarse pilot completed 0.003 physical seconds in about 140 wall-clock seconds. This is only a timing/startup check, not a useful performance measurement. Linear extrapolation suggests roughly 19 hours per serial 1.5-second case, before changes in time step and CPU contention. Four cases can run concurrently. A bounded runner checkpoints and stops at its compute-time limit; unfinished cases remain explicitly unfinished and can resume from written fields.

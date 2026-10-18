@@ -1,0 +1,10 @@
+{
+  "change": "pressure 0.2 to 0.1; velocity 0.4 to 0.2 to improve steady iteration stability",
+  "approx_iteration": {
+    "toroidal5_coarse": "8",
+    "original_coarse": "387",
+    "original_fine": "30",
+    "tubercled_coarse": "18",
+    "scimitar_coarse": "10"
+  }
+}
