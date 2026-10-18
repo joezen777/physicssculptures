@@ -1,0 +1,23 @@
+{
+  "scope": "CFD-only shapes, not print qualified; generic cambered sections, not named airfoil profiles",
+  "parts": [
+    {
+      "name": "tubercled",
+      "valid_solid": true,
+      "solids": 1,
+      "volume_mm3": 45117.33919801842,
+      "z_min_mm": -22.0,
+      "z_max_mm": 36.862468283492944,
+      "triangles": 12704
+    },
+    {
+      "name": "toroidal5",
+      "valid_solid": true,
+      "solids": 1,
+      "volume_mm3": 38601.06579817047,
+      "z_min_mm": -22.0,
+      "z_max_mm": 34.04609745433744,
+      "triangles": 5812
+    }
+  ]
+}
