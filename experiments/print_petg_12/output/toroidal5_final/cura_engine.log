@@ -1,0 +1,613 @@
+[2026-10-18 17:46:30.681] [warning] Mesh has overlapping faces!
+[2026-10-18 17:46:30.722] [info] loading 'C:\Users\josep\OneDrive\Documents\angularmomflyer\experiments\print_petg_12\output\toroidal5_final\P17_top_fan_B_integrated_supports_print-1x.stl' took 0.140 seconds
+[2026-10-18 17:46:30.726] [info] Loaded from disk in 0.1881252s
+
+[2026-10-18 17:46:30.727] [info] All settings:  -s machine_max_acceleration_e="10000.000000" -s support_roof_wall_count="0.000000" -s anti_overhang_mesh="false" -s machine_name="Unknown" -s material_crystallinity="false" -s support_bottom_stair_step_width="5.000000" -s support_xy_distance="0.700000" -s material_type="" -s support_bottom_line_distance="0.400000" -s machine_show_variants="false" -s meshfix_fluid_motion_shift_distance="0.100000" -s machine_max_feedrate_e="299792458000.000000" -s material_brand="" -s extruder_prime_pos_x="0.000000" -s machine_start_gcode="" -s magic_spiralize="false" -s machine_end_gcode="" -s machine_heated_bed="false" -s raft_base_fan_speed="0.000000" -s skin_line_width="0.66" -s material_guid="" -s material_diameter="2.850000" -s raft_interface_speed="15.000000" -s machine_steps_per_mm_e="1600.000000" -s sub_div_rad_add="0.400000" -s material_bed_temp_wait="true" -s material_print_temp_wait="true" -s extruder_prime_pos_z="0.000000" -s retraction_prime_speed="25.000000" -s print_sequence="all_at_once" -s flow_rate_extrusion_offset_factor="100.000000" -s prime_tower_enable="false" -s machine_nozzle_temp_enabled="true" -s material_break_speed="25.000000" -s material_print_temp_prepend="true" -s machine_shape="rectangular" -s support_mesh="false" -s machine_depth="220" -s material_bed_temp_prepend="true" -s cool_fan_speed_min="100.000000" -s machine_nozzle_tip_outer_diameter="1.000000" -s support_tree_angle="60.000000" -s machine_width="220" -s machine_height="250" -s gradual_infill_steps="0.000000" -s machine_max_acceleration_y="9000.000000" -s support_tree_top_rate="15.000000" -s machine_steps_per_mm_z="50.000000" -s machine_extruders_share_nozzle="false" -s machine_buildplate_type="glass" -s machine_heated_build_volume="false" -s prime_tower_max_bridging_distance="5.000000" -s wall_overhang_angle="90.000000" -s machine_endstop_positive_direction_y="false" -s support_tower_maximum_supported_diameter="3.000000" -s machine_always_write_active_tool="false" -s machine_max_feedrate_y="299792458000.000000" -s meshfix_maximum_travel_resolution="1.000000" -s machine_center_is_zero="true" -s skirt_brim_extruder_nr="-1" -s initial_bottom_layers="6.000000" -s switch_extruder_retraction_amount="20.000000" -s machine_extruder_count="1.000000" -s machine_min_cool_heat_time_window="50.000000" -s interlocking_beam_width="0.800000" -s extruders_enabled_count="1.000000" -s machine_head_with_fans_polygon="[[-20.000000,10.000000],[10.000000,10.000000],[10.000000,-10.000000],[-20.000000,-10.000000]]" -s machine_nozzle_head_distance="3.000000" -s support_bottom_distance="0.100000" -s material_break_temperature="50.000000" -s machine_nozzle_expansion_angle="45.000000" -s material_bed_temperature="80" -s machine_heat_zone_length="16.000000" -s machine_nozzle_heat_up_speed="2.000000" -s min_feature_size="0.100000" -s machine_nozzle_cool_down_speed="2.000000" -s machine_steps_per_mm_x="50.000000" -s material_shrinkage_percentage_xy="100.000000" -s machine_gcode_flavor="RepRap (Marlin)" -s gantry_height="99999999999.000000" -s machine_firmware_retract="false" -s small_skin_on_surface="false" -s machine_steps_per_mm_y="50.000000" -s machine_extruders_share_heater="false" -s machine_endstop_positive_direction_x="false" -s machine_extruders_shared_nozzle_initial_retraction="0.000000" -s support_brim_line_count="3.000000" -s machine_disallowed_areas="[]" -s nozzle_disallowed_areas="[]" -s skirt_brim_line_width="0.400000" -s machine_max_feedrate_x="299792458000.000000" -s flow_rate_max_extrusion_offset="0.000000" -s machine_nozzle_id="unknown" -s machine_use_extruder_offset_to_offset_coords="true" -s machine_nozzle_size="0.6" -s raft_base_jerk="20.000000" -s minimum_support_area="0.000000" -s minimum_roof_area="1.000000" -s extruder_prime_pos_abs="false" -s speed_topbottom="25" -s machine_max_feedrate_z="299792458000.000000" -s machine_max_jerk_z="0.400000" -s support_roof_enable="false" -s raft_base_line_spacing="1.600000" -s machine_max_acceleration_x="9000.000000" -s machine_max_acceleration_z="100.000000" -s acceleration_support_bottom="3000.000000" -s machine_acceleration="4000.000000" -s z_seam_x="100.000000" -s ironing_inset="0.350000" -s raft_base_flow="100.000000" -s top_bottom_extruder_nr="-1" -s machine_max_jerk_xy="20.000000" -s mesh_position_y="0.000000" -s machine_max_jerk_e="5.000000" -s machine_endstop_positive_direction_z="true" -s machine_minimum_feedrate="0.000000" -s machine_feeder_wheel_diameter="10.000000" -s wall_x_material_flow_roofing="100.000000" -s skirt_height="3.000000" -s jerk_print_layer_0="20.000000" -s machine_scale_fan_speed_zero_to_one="false" -s layer_height="0.25" -s meshfix_keep_open_polygons="false" -s layer_height_0="0.25" -s initial_layer_line_width_factor="100.000000" -s acceleration_support_roof="3000.000000" -s wall_line_width_0="0.66" -s wall_line_width_x="0.66" -s infill_line_width="0.66" -s support_material_flow="100.000000" -s mold_angle="40.000000" -s meshfix_extensive_stitching="false" -s support_line_width="0.400000" -s remove_empty_first_layers="true" -s support_roof_line_width="0.400000" -s support_bottom_line_width="0.400000" -s ooze_shield_angle="60.000000" -s prime_tower_line_width="0.400000" -s roofing_monotonic="true" -s material_is_support_material="false" -s speed_equalize_flow_width_factor="100.000000" -s wall_0_extruder_nr="-1" -s lightning_infill_overhang_angle="40.000000" -s wall_x_extruder_nr="-1" -s support_roof_height="1.000000" -s prime_tower_mode="normal" -s wall_line_count="4" -s group_outer_walls="true" -s jerk_travel_enabled="true" -s raft_interface_line_width="0.700000" -s wall_transition_length="0.400000" -s acceleration_travel="5000.000000" -s interlocking_depth="2.000000" -s wall_distribution_count="1.000000" -s ooze_shield_enabled="false" -s wall_transition_angle="10.000000" -s meshfix_maximum_deviation="0.025000" -s wall_transition_filter_distance="100.000000" -s wall_transition_filter_deviation="0.100000" -s wall_0_wipe_dist="0.200000" -s material_break_preparation_retracted_position="-16.000000" -s skirt_brim_minimal_length="250.000000" -s raft_base_infill_overlap_mm="0.000000" -s wall_0_inset="0.000000" -s optimize_wall_printing_order="true" -s support_infill_angles="[ ]" -s inset_direction="inside_out" -s alternate_extra_perimeter="false" -s material_bed_temperature_layer_0="60.000000" -s magic_fuzzy_skin_enabled="false" -s min_even_wall_line_width="0.300000" -s switch_extruder_extra_prime_amount="0.000000" -s cross_infill_density_image="" -s min_odd_wall_line_width="0.300000" -s coasting_volume="0.064000" -s fill_outline_gaps="true" -s raft_interface_line_spacing="0.900000" -s meshfix_union_all="true" -s min_bead_width="0.200000" -s support_line_distance="2.660000" -s xy_offset="0.000000" -s speed_wall="25" -s xy_offset_layer_0="0.000000" -s skin_material_flow="100.000000" -s hole_xy_offset="0.000000" -s support_tower_diameter="3.000000" -s hole_xy_offset_max_diameter="0.000000" -s z_seam_type="sharpest_corner" -s z_seam_on_vertex="false" -s raft_surface_extruder_nr="0" -s support_tree_branch_diameter="5.000000" -s z_seam_y="100.000000" -s lightning_infill_straightening_angle="40.000000" -s z_seam_corner="z_seam_corner_inner" -s raft_interface_infill_overlap_mm="0.000000" -s ppr_enable="false" -s retraction_count_max="90.000000" -s retraction_combing_max_distance="0.000000" -s z_seam_relative="false" -s skin_outline_count="1.000000" -s roofing_extruder_nr="-1" -s acceleration_wall_x_roofing="3000.000000" -s speed_travel_layer_0="60.000000" -s infill_support_angle="40.000000" -s multiple_mesh_overlap="0.150000" -s roofing_line_width="0.400000" -s infill_offset_x="0.000000" -s roofing_pattern="lines" -s roofing_angles="[ ]" -s gradual_infill_step_height="1.500000" -s top_layers="5" -s bottom_layers="5" -s material_extrusion_cool_down_speed="0.700000" -s material_break_retracted_position="-50.000000" -s top_bottom_pattern="lines" -s top_bottom_pattern_0="lines" -s acceleration_roofing="3000.000000" -s raft_base_extruder_nr="0" -s connect_skin_polygons="false" -s skin_monotonic="false" -s raft_interface_margin="15.000000" -s skin_angles="[ ]" -s jerk_wall_x="20.000000" -s small_skin_width="1.000000" -s speed_z_hop="10.000000" -s skin_no_small_gaps_heuristic="false" -s ironing_enabled="false" -s interlocking_orientation="22.500000" -s raft_interface_flow="100.000000" -s ironing_only_highest_layer="false" -s ironing_pattern="zigzag" -s ironing_monotonic="false" -s ironing_line_spacing="0.100000" -s support_infill_extruder_nr="0" -s ironing_flow="10.000000" -s speed_ironing="20.000000" -s support_tree_rest_preference="buildplate" -s acceleration_ironing="3000.000000" -s jerk_ironing="20.000000" -s skin_overlap_mm="0.020000" -s bottom_skin_expand_distance="1.000000" -s top_skin_preshrink="1.000000" -s bottom_skin_preshrink="1.000000" -s top_skin_expand_distance="1.000000" -s min_skin_width_for_expansion="0.000000" -s bridge_sparse_infill_max_density="0.000000" -s infill_extruder_nr="-1" -s jerk_travel="30.000000" -s conical_overhang_hole_size="0.000000" -s infill_line_distance="2.2" -s retraction_combing="all" -s support_roof_extruder_nr="0" -s infill_pattern="grid" -s zig_zaggify_infill="false" -s support_roof_angles="[ ]" -s brim_gap="0.000000" -s cool_min_layer_time_fan_speed_max="10.000000" -s prime_blob_enable="false" -s support_structure="normal" -s connect_infill_polygons="true" -s jerk_support_roof="20.000000" -s infill_angles="[ ]" -s support_bottom_offset="0.000000" -s support_tree_branch_diameter_angle="7.000000" -s infill_offset_y="0.000000" -s infill_randomize_start_location="false" -s support_z_seam_min_distance="0.800000" -s infill_multiplier="1.000000" -s acceleration_prime_tower="3000.000000" -s infill_wall_line_count="0.000000" -s support_top_distance="0.100000" -s infill_overlap_mm="0.040000" -s infill_wipe_dist="0.040000" -s infill_sparse_thickness="0.100000" -s support_supported_skin_fan_speed="100.000000" -s infill_before_walls="true" -s min_infill_area="0.000000" -s infill_support_enabled="false" -s draft_shield_dist="10.000000" -s wipe_pause="0.000000" -s skin_edge_support_layers="4.000000" -s material_standby_temperature="150.000000" -s lightning_infill_prune_angle="40.000000" -s support_bottom_material_flow="100.000000" -s default_material_print_temperature="210.000000" -s build_volume_temperature="0.000000" -s material_print_temperature="240" -s material_end_of_filament_purge_speed="0.500000" -s material_print_temperature_layer_0="215.000000" -s material_initial_print_temperature="200.000000" -s bridge_skin_speed_3="15.000000" -s seam_overhang_angle="90.000000" -s mold_width="5.000000" -s material_final_print_temperature="195.000000" -s default_material_bed_temperature="60.000000" -s small_feature_max_length="0.000000" -s material_adhesion_tendency="10.000000" -s material_no_load_move_factor="0.940860" -s user_defined_print_order_enabled="false" -s mesh_position_x="0.000000" -s print_temp_anomaly_limit="7.000000" -s zig_zaggify_support="false" -s material_surface_energy="100.000000" -s material_shrinkage_percentage_z="100.000000" -s material_anti_ooze_retracted_position="-4.000000" -s jerk_topbottom="20.000000" -s material_anti_ooze_retraction_speed="5.000000" -s speed_support_bottom="40.000000" -s material_break_preparation_speed="2.000000" -s material_break_preparation_temperature="50.000000" -s material_flush_purge_speed="0.500000" -s material_flush_purge_length="60.000000" -s material_end_of_filament_purge_length="20.000000" -s mold_roof_height="0.500000" -s draft_shield_height="10.000000" -s raft_surface_line_width="0.400000" -s material_maximum_park_duration="300.000000" -s bridge_wall_min_length="5.000000" -s wall_0_material_flow="100.000000" -s coasting_speed="90.000000" -s skirt_brim_speed="30.000000" -s support_bottom_stair_step_height="0.300000" -s raft_base_smoothing="5.000000" -s wall_x_material_flow="100.000000" -s wall_0_material_flow_roofing="100.000000" -s roofing_material_flow="100.000000" -s travel_avoid_supports="false" -s infill_material_flow="100.000000" -s wall_0_material_flow_layer_0="100.000000" -s infill_mesh_order="0.000000" -s skirt_brim_material_flow="100.000000" -s support_roof_material_flow="100.000000" -s prime_tower_flow="100.000000" -s raft_interface_z_offset="0.000000" -s speed_infill="60.000000" -s material_flow_layer_0="100.000000" -s raft_surface_fan_speed="0.000000" -s wall_x_material_flow_layer_0="100.000000" -s wipe_hop_enable="true" -s skin_material_flow_layer_0="100.000000" -s speed_wall_0="20" -s brim_line_count="20.000000" -s draft_shield_enabled="false" -s speed_wall_x="25" -s support_offset="0.800000" -s prime_tower_wipe_enabled="true" -s speed_wall_0_roofing="30.000000" -s draft_shield_height_limitation="full" -s acceleration_travel_layer_0="3000.000000" -s coasting_min_volume="0.800000" -s speed_wall_x_roofing="60.000000" -s speed_support_roof="40.000000" -s speed_roofing="25.000000" -s mesh_position_z="0.000000" -s speed_support_infill="60.000000" -s jerk_roofing="20.000000" -s speed_prime_tower="60.000000" -s speed_travel="120" -s speed_print_layer_0="30.000000" -s cool_fan_speed_0="0.000000" -s acceleration_enabled="false" -s speed_slowdown_layers="2.000000" -s acceleration_travel_enabled="true" -s infill_enable_travel_optimization="false" -s acceleration_infill="3000.000000" -s acceleration_wall_0="3000.000000" -s acceleration_wall_x="3000.000000" -s acceleration_wall_0_roofing="3000.000000" -s small_feature_speed_factor_0="50.000000" -s acceleration_topbottom="3000.000000" -s raft_base_line_width="0.800000" -s raft_surface_infill_overlap_mm="0.000000" -s acceleration_support_infill="3000.000000" -s acceleration_print_layer_0="3000.000000" -s acceleration_skirt_brim="3000.000000" -s meshfix_fluid_motion_enabled="true" -s jerk_enabled="false" -s jerk_infill="20.000000" -s jerk_wall_0="20.000000" -s material_flow_temp_graph="[[3.5, 200],[7.0, 240]]" -s retraction_retract_speed="25.000000" -s jerk_wall_0_roofing="20.000000" -s jerk_wall_x_roofing="20.000000" -s support_conical_angle="30.000000" -s jerk_support_infill="20.000000" -s raft_surface_thickness="0.100000" -s jerk_support_bottom="20.000000" -s jerk_prime_tower="20.000000" -s jerk_travel_layer_0="20.000000" -s jerk_skirt_brim="20.000000" -s retraction_enable="true" -s retraction_extra_prime_amount="0.000000" -s magic_mesh_surface_mode="normal" -s layer_start_x="0.000000" -s bv_temp_warn_limit="7.500000" -s retract_at_layer_change="false" -s support_zag_skip_count="5.000000" -s retraction_amount="6.500000" -s support_join_distance="2.000000" -s infill_mesh="false" -s retraction_min_travel="1.500000" -s retraction_extrusion_window="4.500000" -s travel_retract_before_outer_wall="false" -s travel_avoid_other_parts="true" -s travel_avoid_distance="0.625000" -s layer_start_y="0.000000" -s retraction_hop_enabled="false" -s support_tree_min_height_to_model="3.000000" -s retraction_hop_only_when_collides="false" -s retraction_hop="1.000000" -s retraction_hop_after_extruder_switch="true" -s retraction_hop_after_extruder_switch_height="1.000000" -s cool_fan_enabled="true" -s cool_fan_speed_max="100.000000" -s cool_fan_full_layer="2.000000" -s support_meshes_present="false" -s cool_min_layer_time="5.000000" -s cool_min_speed="10.000000" -s cool_lift_head="false" -s cool_min_temperature="0.000000" -s cool_during_extruder_switch="unchanged" -s raft_base_margin="15.000000" -s raft_base_speed="15.000000" -s support_enable="false" -s support_bottom_enable="false" -s support_extruder_nr_layer_0="0" -s bridge_skin_density="100.000000" -s support_bottom_extruder_nr="0" -s bridge_skin_density_2="75.000000" -s support_tree_max_diameter="25.000000" -s support_type="everywhere" -s support_tree_angle_slow="50.000000" -s conical_overhang_enabled="false" -s skirt_line_count="1.000000" -s cross_support_density_image="" -s support_tree_max_diameter_increase_by_merges_when_support_to_model="1.000000" -s support_tree_bp_diameter="7.500000" -s support_tree_tip_diameter="0.400000" -s coasting_enable="false" -s support_tree_limit_branch_reach="true" -s support_initial_layer_line_distance="2.660000" -s support_tree_branch_reach_limit="30.000000" -s support_angle="50.000000" -s support_pattern="zigzag" -s support_wall_count="1.000000" -s support_bottom_wall_count="0.000000" -s switch_extruder_prime_speed="20.000000" -s meshfix_fluid_motion_angle="15.000000" -s support_connect_zigzags="true" -s support_infill_density_multiplier_initial_layer="1.000000" -s raft_base_thickness="0.300000" -s support_brim_enable="true" -s support_xy_overrides_z="z_overrides_xy" -s support_xy_distance_overhang="0.200000" -s support_bottom_stair_step_min_slope="10.000000" -s raft_surface_jerk="20.000000" -s switch_extruder_retraction_speed="20.000000" -s support_infill_sparse_thickness="0.100000" -s gradual_support_infill_steps="0.000000" -s gradual_support_infill_step_height="1.000000" -s support_bottom_height="1.000000" -s support_roof_line_distance="0.400000" -s support_roof_pattern="concentric" -s support_bottom_pattern="concentric" -s minimum_bottom_area="1.000000" -s raft_surface_layers="2.000000" -s support_roof_offset="0.000000" -s ooze_shield_dist="2.000000" -s mold_enabled="false" -s support_interface_priority="interface_area_overwrite_support_area" -s raft_surface_line_spacing="0.400000" -s raft_base_acceleration="3000.000000" -s support_bottom_angles="[ ]" -s support_fan_enable="false" -s prime_tower_position_y="200.000000" -s cross_infill_pocket_size="2.000000" -s support_use_towers="true" -s support_tower_roof_angle="65.000000" -s support_mesh_drop_down="true" -s extruder_prime_pos_y="0.000000" -s adhesion_type="none" -s raft_interface_wall_count="0.000000" -s raft_interface_extruder_nr="0" -s skirt_gap="3.000000" -s brim_replaces_support="true" -s support_skip_some_zags="false" -s brim_location="outside" -s brim_inside_margin="1.6" -s brim_smart_ordering="true" -s raft_surface_margin="15.000000" -s raft_base_remove_inside_corners="false" -s raft_interface_remove_inside_corners="false" -s raft_surface_remove_inside_corners="false" -s raft_interface_smoothing="5.000000" -s raft_surface_smoothing="5.000000" -s raft_airgap="0.300000" -s raft_surface_z_offset="0.000000" -s raft_interface_fan_speed="0.000000" -s wipe_move_distance="20.000000" -s layer_0_z_overlap="0.220000" -s raft_interface_layers="1.000000" -s raft_surface_acceleration="3000.000000" -s raft_interface_thickness="0.150000" -s raft_surface_monotonic="false" -s flow_anomaly_limit="25.000000" -s adaptive_layer_height_enabled="false" -s raft_base_wall_count="1.000000" -s raft_surface_wall_count="0.000000" -s raft_surface_speed="20.000000" -s raft_interface_acceleration="3000.000000" -s raft_interface_jerk="20.000000" -s raft_surface_flow="100.000000" -s prime_tower_size="20.000000" -s bridge_skin_material_flow_2="100.000000" -s prime_tower_min_volume="6.000000" -s prime_tower_min_shell_thickness="0.400000" -s prime_tower_position_x="200.000000" -s prime_tower_brim_enable="false" -s prime_tower_base_size="1.200000" -s prime_tower_base_height="0.000000" -s prime_tower_base_curve_magnitude="4.000000" -s prime_tower_raft_base_line_spacing="1.600000" -s meshfix_union_all_remove_holes="false" -s carve_multiple_volumes="true" -s alternate_carve_order="true" -s meshfix_maximum_resolution="0.500000" -s meshfix_maximum_extrusion_area_deviation="50000.000000" -s meshfix_fluid_motion_small_distance="0.010000" -s small_feature_speed_factor="50.000000" -s cutting_mesh="false" -s smooth_spiralized_contours="true" -s relative_extrusion="false" -s slicing_tolerance="middle" -s bridge_wall_material_flow="50.000000" -s minimum_polygon_circumference="1.000000" -s interlocking_enable="false" -s interlocking_beam_layer_count="2.000000" -s interlocking_boundary_avoidance="2.000000" -s conical_overhang_angle="50.000000" -s support_conical_enabled="false" -s support_conical_min_width="5.000000" -s magic_fuzzy_skin_outside_only="false" -s magic_fuzzy_skin_thickness="0.300000" -s magic_fuzzy_skin_point_dist="0.800000" -s adaptive_layer_height_variation="0.100000" -s adaptive_layer_height_variation_step="0.010000" -s adaptive_layer_height_threshold="0.200000" -s wall_overhang_speed_factor="100.000000" -s bridge_settings_enabled="false" -s bridge_skin_support_threshold="50.000000" -s bridge_wall_coast="100.000000" -s bridge_wall_speed="15.000000" -s bridge_skin_speed="15.000000" -s bridge_skin_material_flow="60.000000" -s bridge_fan_speed="100.000000" -s bridge_enable_more_layers="true" -s bridge_skin_speed_2="25.000000" -s bridge_fan_speed_2="0.000000" -s bridge_skin_material_flow_3="110.000000" -s bridge_skin_density_3="80.000000" -s bridge_fan_speed_3="0.000000" -s clean_between_layers="false" -s max_extrusion_before_wipe="10.000000" -s wipe_retraction_enable="true" -s wipe_retraction_amount="1.000000" -s wipe_retraction_extra_prime_amount="0.000000" -s wipe_retraction_retract_speed="3.000000" -s wipe_retraction_prime_speed="2.000000" -s wipe_hop_amount="1.000000" -s wipe_hop_speed="10.000000" -s wipe_brush_pos_x="100.000000" -s wipe_repeat_count="5.000000" -s material_alternate_walls="false" -s flow_warn_limit="15.000000" -s print_temp_warn_limit="3.000000" -s bv_temp_anomaly_limit="10.000000" -s center_object="false" -s mesh_rotation_matrix="[[1,0,0], [0,1,0], [0,0,1]]" -s line_width="0.66" -s wall_line_width="0.66" -s infill_sparse_density="30" -s speed_print="30" -s speed_layer_0="15" -s roofing_layer_count="0" -s flooring_layer_count="0" -e0 -s machine_extruder_end_code_duration="0.000000" -s machine_extruder_end_pos_y="0.000000" -s extruder_nr="0" -s extruder_prime_pos_z="0.000000" -s machine_extruder_cooling_fan_number="0.000000" -s machine_extruder_start_pos_y="0.000000" -s machine_extruder_end_code="" -s machine_extruder_end_pos_x="0.000000" -s machine_extruder_end_pos_abs="false" -s machine_nozzle_offset_y="0.000000" -s machine_extruder_start_code="" -s machine_extruder_start_code_duration="0.000000" -s machine_extruder_start_pos_abs="false" -s machine_extruder_start_pos_x="0.000000" -s machine_nozzle_id="unknown" -s machine_nozzle_offset_x="0.000000" -s machine_nozzle_size="0.6" -s material_diameter="1.75" -s extruder_prime_pos_x="0.000000" -s extruder_prime_pos_y="0.000000" -g -e0 -l "0" -s machine_extruder_end_code_duration="0.000000" -s machine_extruder_end_pos_y="0.000000" -s extruder_nr="0" -s extruder_prime_pos_z="0.000000" -s machine_extruder_cooling_fan_number="0.000000" -s machine_extruder_start_pos_y="0.000000" -s machine_extruder_end_code="" -s machine_extruder_end_pos_x="0.000000" -s machine_extruder_end_pos_abs="false" -s machine_nozzle_offset_y="0.000000" -s machine_extruder_start_code="" -s machine_extruder_start_code_duration="0.000000" -s machine_extruder_start_pos_abs="false" -s machine_extruder_start_pos_x="0.000000" -s machine_nozzle_id="unknown" -s machine_nozzle_offset_x="0.000000" -s machine_nozzle_size="0.6" -s material_diameter="1.75" -s extruder_prime_pos_x="0.000000" -s extruder_prime_pos_y="0.000000"
+
+[2026-10-18 17:46:30.728] [info] Progress: start accomplished in 0.000s
+[2026-10-18 17:46:30.728] [info] Starting slice...
+[2026-10-18 17:46:30.728] [info] Slicing model...
+[2026-10-18 17:46:31.169] [info] Slice of mesh took 0.442 seconds
+[2026-10-18 17:46:32.063] [info] Make polygons took 0.894 seconds
+[2026-10-18 17:46:32.065] [info] Progress: slice accomplished in 1.337s
+[2026-10-18 17:46:32.065] [info] Starting layerparts...
+[2026-10-18 17:46:32.519] [info] Progress: layerparts accomplished in 0.455s
+[2026-10-18 17:46:32.519] [info] Starting inset+skin...
+[2026-10-18 17:48:47.606] [info] Progress: inset+skin accomplished in 135.087s
+[2026-10-18 17:48:47.606] [info] Starting support...
+[2026-10-18 17:48:47.675] [info] Progress: support accomplished in 0.069s
+[2026-10-18 17:48:47.675] [info] Starting export...
+[2026-10-18 17:48:48.350] [info] ┌ Layer export [0] accomplished in 0.673s
+[2026-10-18 17:48:48.350] [info] ├── Init:          0.025s
+[2026-10-18 17:48:48.350] [info] ├── Mesh 0:        0.595s
+[2026-10-18 17:48:48.351] [info] └── Modify plugin: 0.053s
+[2026-10-18 17:48:48.799] [info] ┌ Layer export [1] accomplished in 1.121s
+[2026-10-18 17:48:48.799] [info] └── Mesh 0: 1.114s
+[2026-10-18 17:48:48.800] [info] ┌ Layer export [2] accomplished in 0.596s
+[2026-10-18 17:48:48.800] [info] ├── Init:          0.019s
+[2026-10-18 17:48:48.800] [info] ├── Mesh 0:        0.561s
+[2026-10-18 17:48:48.800] [info] └── Modify plugin: 0.016s
+[2026-10-18 17:48:48.831] [info] ┌ Layer export [3] accomplished in 0.489s
+[2026-10-18 17:48:48.831] [info] ├── Init:   0.017s
+[2026-10-18 17:48:48.831] [info] └── Mesh 0: 0.471s
+[2026-10-18 17:48:48.831] [info] ┌ Layer export [4] accomplished in 0.451s
+[2026-10-18 17:48:48.831] [info] ├── Init:   0.050s
+[2026-10-18 17:48:48.831] [info] └── Mesh 0: 0.400s
+[2026-10-18 17:48:48.832] [info] ┌ Layer export [5] accomplished in 0.423s
+[2026-10-18 17:48:48.832] [info] ├── Init:   0.018s
+[2026-10-18 17:48:48.832] [info] └── Mesh 0: 0.405s
+[2026-10-18 17:48:49.028] [info] ┌ Layer export [6] accomplished in 0.677s
+[2026-10-18 17:48:49.029] [info] ├── Init:   0.073s
+[2026-10-18 17:48:49.029] [info] └── Mesh 0: 0.604s
+[2026-10-18 17:48:49.182] [info] ┌ Layer export [7] accomplished in 0.366s
+[2026-10-18 17:48:49.183] [info] ├── Init:   0.022s
+[2026-10-18 17:48:49.183] [info] └── Mesh 0: 0.344s
+[2026-10-18 17:48:49.254] [info] ┌ Layer export [8] accomplished in 0.384s
+[2026-10-18 17:48:49.254] [info] ├── Init:   0.019s
+[2026-10-18 17:48:49.254] [info] └── Mesh 0: 0.365s
+[2026-10-18 17:48:49.281] [info] ┌ Layer export [9] accomplished in 0.374s
+[2026-10-18 17:48:49.281] [info] ├── Init:   0.034s
+[2026-10-18 17:48:49.281] [info] └── Mesh 0: 0.340s
+[2026-10-18 17:48:49.346] [info] ┌ Layer export [10] accomplished in 0.361s
+[2026-10-18 17:48:49.346] [info] ├── Init:   0.049s
+[2026-10-18 17:48:49.346] [info] └── Mesh 0: 0.312s
+[2026-10-18 17:48:49.446] [info] ┌ Layer export [11] accomplished in 0.365s
+[2026-10-18 17:48:49.446] [info] ├── Init:   0.017s
+[2026-10-18 17:48:49.446] [info] └── Mesh 0: 0.348s
+[2026-10-18 17:48:49.566] [info] ┌ Layer export [12] accomplished in 0.314s
+[2026-10-18 17:48:49.566] [info] ├── Init:   0.017s
+[2026-10-18 17:48:49.566] [info] └── Mesh 0: 0.296s
+[2026-10-18 17:48:49.936] [info] ┌ Layer export [13] accomplished in 0.619s
+[2026-10-18 17:48:49.936] [info] ├── Init:   0.036s
+[2026-10-18 17:48:49.936] [info] └── Mesh 0: 0.582s
+[2026-10-18 17:48:49.989] [info] ┌ Layer export [14] accomplished in 0.369s
+[2026-10-18 17:48:49.989] [info] ├── Init:   0.037s
+[2026-10-18 17:48:49.989] [info] └── Mesh 0: 0.332s
+[2026-10-18 17:48:50.049] [info] ┌ Layer export [15] accomplished in 0.385s
+[2026-10-18 17:48:50.049] [info] ├── Init:   0.039s
+[2026-10-18 17:48:50.049] [info] └── Mesh 0: 0.345s
+[2026-10-18 17:48:50.078] [info] ┌ Layer export [16] accomplished in 0.379s
+[2026-10-18 17:48:50.078] [info] ├── Init:   0.045s
+[2026-10-18 17:48:50.078] [info] └── Mesh 0: 0.334s
+[2026-10-18 17:48:50.148] [info] ┌ Layer export [17] accomplished in 0.400s
+[2026-10-18 17:48:50.148] [info] ├── Init:   0.045s
+[2026-10-18 17:48:50.148] [info] └── Mesh 0: 0.355s
+[2026-10-18 17:48:50.234] [info] ┌ Layer export [18] accomplished in 0.387s
+[2026-10-18 17:48:50.234] [info] ├── Init:   0.039s
+[2026-10-18 17:48:50.234] [info] └── Mesh 0: 0.348s
+[2026-10-18 17:48:50.334] [info] ┌ Layer export [19] accomplished in 0.364s
+[2026-10-18 17:48:50.334] [info] ├── Init:   0.043s
+[2026-10-18 17:48:50.334] [info] └── Mesh 0: 0.321s
+[2026-10-18 17:48:50.509] [info] ┌ Layer export [20] accomplished in 0.363s
+[2026-10-18 17:48:50.509] [info] ├── Init:   0.036s
+[2026-10-18 17:48:50.509] [info] └── Mesh 0: 0.326s
+[2026-10-18 17:48:50.845] [info] ┌ Layer export [21] accomplished in 0.624s
+[2026-10-18 17:48:50.846] [info] ├── Init:   0.053s
+[2026-10-18 17:48:50.846] [info] └── Mesh 0: 0.570s
+[2026-10-18 17:48:50.912] [info] ┌ Layer export [22] accomplished in 0.341s
+[2026-10-18 17:48:50.912] [info] ├── Init:   0.034s
+[2026-10-18 17:48:50.912] [info] └── Mesh 0: 0.307s
+[2026-10-18 17:48:50.974] [info] ┌ Layer export [23] accomplished in 0.340s
+[2026-10-18 17:48:50.974] [info] ├── Init:   0.037s
+[2026-10-18 17:48:50.974] [info] └── Mesh 0: 0.302s
+[2026-10-18 17:48:51.008] [info] ┌ Layer export [24] accomplished in 0.376s
+[2026-10-18 17:48:51.008] [info] ├── Init:   0.035s
+[2026-10-18 17:48:51.008] [info] └── Mesh 0: 0.341s
+[2026-10-18 17:48:51.072] [info] ┌ Layer export [25] accomplished in 0.395s
+[2026-10-18 17:48:51.073] [info] ├── Init:   0.033s
+[2026-10-18 17:48:51.073] [info] └── Mesh 0: 0.361s
+[2026-10-18 17:48:51.123] [info] ┌ Layer export [26] accomplished in 0.399s
+[2026-10-18 17:48:51.123] [info] ├── Init:   0.045s
+[2026-10-18 17:48:51.123] [info] └── Mesh 0: 0.354s
+[2026-10-18 17:48:51.286] [info] ┌ Layer export [27] accomplished in 0.373s
+[2026-10-18 17:48:51.286] [info] ├── Init:   0.027s
+[2026-10-18 17:48:51.286] [info] └── Mesh 0: 0.345s
+[2026-10-18 17:48:51.341] [info] ┌ Layer export [28] accomplished in 0.356s
+[2026-10-18 17:48:51.341] [info] ├── Init:   0.036s
+[2026-10-18 17:48:51.341] [info] └── Mesh 0: 0.320s
+[2026-10-18 17:48:51.495] [info] ┌ Layer export [29] accomplished in 0.383s
+[2026-10-18 17:48:51.495] [info] ├── Init:   0.018s
+[2026-10-18 17:48:51.495] [info] └── Mesh 0: 0.365s
+[2026-10-18 17:48:51.723] [info] ┌ Layer export [30] accomplished in 0.578s
+[2026-10-18 17:48:51.723] [info] ├── Init:   0.044s
+[2026-10-18 17:48:51.723] [info] └── Mesh 0: 0.534s
+[2026-10-18 17:48:51.777] [info] ┌ Layer export [31] accomplished in 0.367s
+[2026-10-18 17:48:51.777] [info] ├── Init:          0.017s
+[2026-10-18 17:48:51.777] [info] ├── Mesh 0:        0.339s
+[2026-10-18 17:48:51.777] [info] └── Modify plugin: 0.011s
+[2026-10-18 17:48:51.814] [info] ┌ Layer export [32] accomplished in 0.359s
+[2026-10-18 17:48:51.814] [info] ├── Init:   0.034s
+[2026-10-18 17:48:51.814] [info] └── Mesh 0: 0.324s
+[2026-10-18 17:48:51.909] [info] ┌ Layer export [33] accomplished in 0.378s
+[2026-10-18 17:48:51.909] [info] ├── Init:   0.036s
+[2026-10-18 17:48:51.909] [info] └── Mesh 0: 0.341s
+[2026-10-18 17:48:52.017] [info] ┌ Layer export [34] accomplished in 0.344s
+[2026-10-18 17:48:52.017] [info] ├── Init:   0.018s
+[2026-10-18 17:48:52.017] [info] └── Mesh 0: 0.325s
+[2026-10-18 17:48:52.083] [info] ┌ Layer export [35] accomplished in 0.345s
+[2026-10-18 17:48:52.083] [info] ├── Init:   0.038s
+[2026-10-18 17:48:52.083] [info] └── Mesh 0: 0.308s
+[2026-10-18 17:48:52.338] [info] ┌ Layer export [36] accomplished in 0.509s
+[2026-10-18 17:48:52.338] [info] ├── Init:   0.055s
+[2026-10-18 17:48:52.338] [info] └── Mesh 0: 0.454s
+[2026-10-18 17:48:52.399] [info] ┌ Layer export [37] accomplished in 0.354s
+[2026-10-18 17:48:52.399] [info] ├── Init:   0.039s
+[2026-10-18 17:48:52.399] [info] └── Mesh 0: 0.315s
+[2026-10-18 17:48:52.445] [info] ┌ Layer export [38] accomplished in 0.325s
+[2026-10-18 17:48:52.445] [info] ├── Init:   0.038s
+[2026-10-18 17:48:52.445] [info] └── Mesh 0: 0.286s
+[2026-10-18 17:48:52.469] [info] ┌ Layer export [39] accomplished in 0.355s
+[2026-10-18 17:48:52.469] [info] ├── Init:   0.036s
+[2026-10-18 17:48:52.469] [info] └── Mesh 0: 0.318s
+[2026-10-18 17:48:52.649] [info] ┌ Layer export [40] accomplished in 0.362s
+[2026-10-18 17:48:52.649] [info] ├── Init:   0.034s
+[2026-10-18 17:48:52.649] [info] └── Mesh 0: 0.327s
+[2026-10-18 17:48:52.734] [info] ┌ Layer export [41] accomplished in 0.365s
+[2026-10-18 17:48:52.734] [info] ├── Init:   0.041s
+[2026-10-18 17:48:52.734] [info] └── Mesh 0: 0.323s
+[2026-10-18 17:48:53.093] [info] ┌ Layer export [42] accomplished in 0.630s
+[2026-10-18 17:48:53.094] [info] ├── Init:   0.049s
+[2026-10-18 17:48:53.094] [info] └── Mesh 0: 0.572s
+[2026-10-18 17:48:53.148] [info] ┌ Layer export [43] accomplished in 0.354s
+[2026-10-18 17:48:53.148] [info] ├── Init:   0.016s
+[2026-10-18 17:48:53.148] [info] └── Mesh 0: 0.337s
+[2026-10-18 17:48:53.199] [info] ┌ Layer export [44] accomplished in 0.381s
+[2026-10-18 17:48:53.199] [info] ├── Init:   0.038s
+[2026-10-18 17:48:53.199] [info] └── Mesh 0: 0.342s
+[2026-10-18 17:48:53.244] [info] ┌ Layer export [45] accomplished in 0.333s
+[2026-10-18 17:48:53.244] [info] ├── Init:   0.037s
+[2026-10-18 17:48:53.245] [info] └── Mesh 0: 0.296s
+[2026-10-18 17:48:53.299] [info] ┌ Layer export [46] accomplished in 0.380s
+[2026-10-18 17:48:53.299] [info] ├── Init:   0.039s
+[2026-10-18 17:48:53.299] [info] └── Mesh 0: 0.341s
+[2026-10-18 17:48:53.432] [info] ┌ Layer export [47] accomplished in 0.366s
+[2026-10-18 17:48:53.432] [info] ├── Init:   0.035s
+[2026-10-18 17:48:53.432] [info] └── Mesh 0: 0.331s
+[2026-10-18 17:48:53.465] [info] ┌ Layer export [48] accomplished in 0.363s
+[2026-10-18 17:48:53.465] [info] ├── Init:   0.036s
+[2026-10-18 17:48:53.465] [info] └── Mesh 0: 0.326s
+[2026-10-18 17:48:53.567] [info] ┌ Layer export [49] accomplished in 0.330s
+[2026-10-18 17:48:53.567] [info] ├── Init:   0.035s
+[2026-10-18 17:48:53.567] [info] └── Mesh 0: 0.294s
+[2026-10-18 17:48:53.935] [info] ┌ Layer export [50] accomplished in 0.551s
+[2026-10-18 17:48:53.935] [info] ├── Init:   0.053s
+[2026-10-18 17:48:53.935] [info] └── Mesh 0: 0.497s
+[2026-10-18 17:48:53.977] [info] ┌ Layer export [51] accomplished in 0.375s
+[2026-10-18 17:48:53.977] [info] ├── Init:   0.032s
+[2026-10-18 17:48:53.977] [info] └── Mesh 0: 0.342s
+[2026-10-18 17:48:54.027] [info] ┌ Layer export [52] accomplished in 0.344s
+[2026-10-18 17:48:54.027] [info] ├── Init:   0.033s
+[2026-10-18 17:48:54.027] [info] └── Mesh 0: 0.311s
+[2026-10-18 17:48:54.076] [info] ┌ Layer export [53] accomplished in 0.337s
+[2026-10-18 17:48:54.076] [info] ├── Init:   0.035s
+[2026-10-18 17:48:54.076] [info] └── Mesh 0: 0.301s
+[2026-10-18 17:48:54.180] [info] ┌ Layer export [54] accomplished in 0.349s
+[2026-10-18 17:48:54.180] [info] ├── Init:   0.024s
+[2026-10-18 17:48:54.180] [info] └── Mesh 0: 0.324s
+[2026-10-18 17:48:54.214] [info] ┌ Layer export [55] accomplished in 0.361s
+[2026-10-18 17:48:54.214] [info] ├── Init:   0.041s
+[2026-10-18 17:48:54.214] [info] └── Mesh 0: 0.320s
+[2026-10-18 17:48:54.302] [info] ┌ Layer export [56] accomplished in 0.364s
+[2026-10-18 17:48:54.302] [info] ├── Init:          0.035s
+[2026-10-18 17:48:54.302] [info] ├── Mesh 0:        0.311s
+[2026-10-18 17:48:54.302] [info] └── Modify plugin: 0.019s
+[2026-10-18 17:48:54.612] [info] ┌ Layer export [57] accomplished in 0.521s
+[2026-10-18 17:48:54.612] [info] ├── Init:   0.052s
+[2026-10-18 17:48:54.612] [info] └── Mesh 0: 0.468s
+[2026-10-18 17:48:54.665] [info] ┌ Layer export [58] accomplished in 0.331s
+[2026-10-18 17:48:54.665] [info] ├── Init:   0.033s
+[2026-10-18 17:48:54.665] [info] └── Mesh 0: 0.298s
+[2026-10-18 17:48:54.702] [info] ┌ Layer export [59] accomplished in 0.345s
+[2026-10-18 17:48:54.702] [info] ├── Init:                0.033s
+[2026-10-18 17:48:54.702] [info] ├── Mesh 0:              0.297s
+[2026-10-18 17:48:54.702] [info] └── Back pressure comp.: 0.015s
+[2026-10-18 17:48:54.735] [info] ┌ Layer export [60] accomplished in 0.336s
+[2026-10-18 17:48:54.735] [info] ├── Init:   0.032s
+[2026-10-18 17:48:54.735] [info] └── Mesh 0: 0.304s
+[2026-10-18 17:48:54.895] [info] ┌ Layer export [61] accomplished in 0.360s
+[2026-10-18 17:48:54.895] [info] ├── Init:   0.036s
+[2026-10-18 17:48:54.895] [info] └── Mesh 0: 0.324s
+[2026-10-18 17:48:54.957] [info] ┌ Layer export [62] accomplished in 0.383s
+[2026-10-18 17:48:54.957] [info] ├── Init:   0.016s
+[2026-10-18 17:48:54.957] [info] └── Mesh 0: 0.366s
+[2026-10-18 17:48:55.002] [info] ┌ Layer export [63] accomplished in 0.339s
+[2026-10-18 17:48:55.002] [info] ├── Init:   0.029s
+[2026-10-18 17:48:55.002] [info] └── Mesh 0: 0.309s
+[2026-10-18 17:48:55.310] [info] ┌ Layer export [64] accomplished in 0.558s
+[2026-10-18 17:48:55.310] [info] ├── Init:   0.027s
+[2026-10-18 17:48:55.311] [info] └── Mesh 0: 0.530s
+[2026-10-18 17:48:55.398] [info] ┌ Layer export [65] accomplished in 0.384s
+[2026-10-18 17:48:55.399] [info] ├── Init:   0.052s
+[2026-10-18 17:48:55.399] [info] └── Mesh 0: 0.331s
+[2026-10-18 17:48:55.454] [info] ┌ Layer export [66] accomplished in 0.448s
+[2026-10-18 17:48:55.454] [info] ├── Init:   0.043s
+[2026-10-18 17:48:55.454] [info] └── Mesh 0: 0.405s
+[2026-10-18 17:48:55.474] [info] ┌ Layer export [67] accomplished in 0.458s
+[2026-10-18 17:48:55.474] [info] ├── Init:   0.028s
+[2026-10-18 17:48:55.474] [info] └── Mesh 0: 0.429s
+[2026-10-18 17:48:55.673] [info] ┌ Layer export [68] accomplished in 0.362s
+[2026-10-18 17:48:55.673] [info] ├── Init:   0.023s
+[2026-10-18 17:48:55.673] [info] └── Mesh 0: 0.339s
+[2026-10-18 17:48:55.785] [info] ┌ Layer export [69] accomplished in 0.347s
+[2026-10-18 17:48:55.785] [info] ├── Init:   0.038s
+[2026-10-18 17:48:55.785] [info] └── Mesh 0: 0.309s
+[2026-10-18 17:48:55.970] [info] ┌ Layer export [70] accomplished in 0.499s
+[2026-10-18 17:48:55.970] [info] ├── Init:   0.029s
+[2026-10-18 17:48:55.970] [info] └── Mesh 0: 0.470s
+[2026-10-18 17:48:56.005] [info] ┌ Layer export [71] accomplished in 0.344s
+[2026-10-18 17:48:56.005] [info] ├── Init:   0.032s
+[2026-10-18 17:48:56.005] [info] └── Mesh 0: 0.310s
+[2026-10-18 17:48:56.055] [info] ┌ Layer export [72] accomplished in 0.325s
+[2026-10-18 17:48:56.055] [info] ├── Init:   0.023s
+[2026-10-18 17:48:56.055] [info] └── Mesh 0: 0.302s
+[2026-10-18 17:48:56.171] [info] ┌ Layer export [73] accomplished in 0.352s
+[2026-10-18 17:48:56.171] [info] ├── Init:   0.037s
+[2026-10-18 17:48:56.171] [info] └── Mesh 0: 0.315s
+[2026-10-18 17:48:56.199] [info] ┌ Layer export [74] accomplished in 0.351s
+[2026-10-18 17:48:56.199] [info] ├── Init:   0.036s
+[2026-10-18 17:48:56.199] [info] └── Mesh 0: 0.315s
+[2026-10-18 17:48:56.465] [info] ┌ Layer export [75] accomplished in 0.432s
+[2026-10-18 17:48:56.465] [info] ├── Init:   0.037s
+[2026-10-18 17:48:56.465] [info] └── Mesh 0: 0.395s
+[2026-10-18 17:48:56.703] [info] ┌ Layer export [76] accomplished in 0.602s
+[2026-10-18 17:48:56.703] [info] ├── Init:   0.065s
+[2026-10-18 17:48:56.703] [info] └── Mesh 0: 0.536s
+[2026-10-18 17:48:56.752] [info] ┌ Layer export [77] accomplished in 0.443s
+[2026-10-18 17:48:56.752] [info] ├── Init:   0.045s
+[2026-10-18 17:48:56.752] [info] └── Mesh 0: 0.398s
+[2026-10-18 17:48:56.815] [info] ┌ Layer export [78] accomplished in 0.399s
+[2026-10-18 17:48:56.815] [info] ├── Init:   0.038s
+[2026-10-18 17:48:56.815] [info] └── Mesh 0: 0.361s
+[2026-10-18 17:48:56.865] [info] ┌ Layer export [79] accomplished in 0.363s
+[2026-10-18 17:48:56.865] [info] ├── Init:   0.038s
+[2026-10-18 17:48:56.865] [info] └── Mesh 0: 0.325s
+[2026-10-18 17:48:57.007] [info] ┌ Layer export [80] accomplished in 0.374s
+[2026-10-18 17:48:57.007] [info] ├── Init:   0.031s
+[2026-10-18 17:48:57.007] [info] └── Mesh 0: 0.343s
+[2026-10-18 17:48:57.045] [info] ┌ Layer export [81] accomplished in 0.380s
+[2026-10-18 17:48:57.045] [info] ├── Init:   0.030s
+[2026-10-18 17:48:57.045] [info] └── Mesh 0: 0.350s
+[2026-10-18 17:48:57.418] [info] ┌ Layer export [82] accomplished in 0.583s
+[2026-10-18 17:48:57.418] [info] ├── Init:   0.045s
+[2026-10-18 17:48:57.419] [info] └── Mesh 0: 0.538s
+[2026-10-18 17:48:57.434] [info] ┌ Layer export [83] accomplished in 0.398s
+[2026-10-18 17:48:57.434] [info] ├── Init:   0.048s
+[2026-10-18 17:48:57.434] [info] └── Mesh 0: 0.350s
+[2026-10-18 17:48:57.497] [info] ┌ Layer export [84] accomplished in 0.366s
+[2026-10-18 17:48:57.497] [info] ├── Init:   0.036s
+[2026-10-18 17:48:57.497] [info] └── Mesh 0: 0.330s
+[2026-10-18 17:48:57.542] [info] ┌ Layer export [85] accomplished in 0.346s
+[2026-10-18 17:48:57.542] [info] ├── Init:   0.027s
+[2026-10-18 17:48:57.542] [info] └── Mesh 0: 0.319s
+[2026-10-18 17:48:57.586] [info] ┌ Layer export [86] accomplished in 0.299s
+[2026-10-18 17:48:57.586] [info] ├── Init:   0.035s
+[2026-10-18 17:48:57.586] [info] └── Mesh 0: 0.264s
+[2026-10-18 17:48:57.678] [info] ┌ Layer export [87] accomplished in 0.296s
+[2026-10-18 17:48:57.678] [info] ├── Init:   0.035s
+[2026-10-18 17:48:57.678] [info] └── Mesh 0: 0.261s
+[2026-10-18 17:48:57.833] [info] ┌ Layer export [88] accomplished in 0.395s
+[2026-10-18 17:48:57.833] [info] ├── Init:   0.039s
+[2026-10-18 17:48:57.833] [info] └── Mesh 0: 0.355s
+[2026-10-18 17:48:58.688] [info] ┌ Layer export [89] accomplished in 1.105s
+[2026-10-18 17:48:58.688] [info] ├── Init:   0.053s
+[2026-10-18 17:48:58.688] [info] └── Mesh 0: 1.052s
+[2026-10-18 17:48:59.975] [info] ┌ Layer export [90] accomplished in 2.355s
+[2026-10-18 17:48:59.975] [info] ├── Init:   0.034s
+[2026-10-18 17:48:59.975] [info] └── Mesh 0: 2.320s
+[2026-10-18 17:49:01.042] [info] ┌ Layer export [91] accomplished in 3.331s
+[2026-10-18 17:49:01.042] [info] ├── Init:   0.031s
+[2026-10-18 17:49:01.042] [info] └── Mesh 0: 3.300s
+[2026-10-18 17:49:01.449] [info] ┌ Layer export [92] accomplished in 3.572s
+[2026-10-18 17:49:01.449] [info] ├── Init:   0.044s
+[2026-10-18 17:49:01.449] [info] └── Mesh 0: 3.528s
+[2026-10-18 17:49:05.940] [info] ┌ Layer export [93] accomplished in 7.174s
+[2026-10-18 17:49:05.940] [info] ├── Init:   0.058s
+[2026-10-18 17:49:05.940] [info] └── Mesh 0: 7.116s
+[2026-10-18 17:49:05.963] [info] ┌ Layer export [94] accomplished in 3.243s
+[2026-10-18 17:49:05.963] [info] ├── Init:   0.019s
+[2026-10-18 17:49:05.963] [info] └── Mesh 0: 3.223s
+[2026-10-18 17:49:05.980] [info] ┌ Layer export [95] accomplished in 3.142s
+[2026-10-18 17:49:05.980] [info] ├── Init:   0.016s
+[2026-10-18 17:49:05.980] [info] └── Mesh 0: 3.125s
+[2026-10-18 17:49:06.001] [info] ┌ Layer export [96] accomplished in 3.017s
+[2026-10-18 17:49:06.001] [info] ├── Init:   0.036s
+[2026-10-18 17:49:06.001] [info] └── Mesh 0: 2.981s
+[2026-10-18 17:49:06.199] [info] ┌ Layer export [97] accomplished in 2.965s
+[2026-10-18 17:49:06.199] [info] ├── Init:   0.016s
+[2026-10-18 17:49:06.199] [info] └── Mesh 0: 2.949s
+[2026-10-18 17:49:07.036] [info] ┌ Layer export [98] accomplished in 2.839s
+[2026-10-18 17:49:07.036] [info] ├── Init:   0.015s
+[2026-10-18 17:49:07.036] [info] └── Mesh 0: 2.823s
+[2026-10-18 17:49:07.718] [info] ┌ Layer export [99] accomplished in 3.222s
+[2026-10-18 17:49:07.718] [info] ├── Init:   0.015s
+[2026-10-18 17:49:07.718] [info] └── Mesh 0: 3.206s
+[2026-10-18 17:49:11.417] [info] ┌ Layer export [100] accomplished in 5.385s
+[2026-10-18 17:49:11.417] [info] ├── Init:   0.021s
+[2026-10-18 17:49:11.417] [info] └── Mesh 0: 5.364s
+[2026-10-18 17:49:11.465] [info] ┌ Layer export [101] accomplished in 3.749s
+[2026-10-18 17:49:11.465] [info] ├── Init:   0.017s
+[2026-10-18 17:49:11.465] [info] └── Mesh 0: 3.731s
+[2026-10-18 17:49:11.522] [info] ┌ Layer export [102] accomplished in 3.972s
+[2026-10-18 17:49:11.522] [info] ├── Init:   0.016s
+[2026-10-18 17:49:11.522] [info] └── Mesh 0: 3.955s
+[2026-10-18 17:49:11.569] [info] ┌ Layer export [103] accomplished in 3.666s
+[2026-10-18 17:49:11.569] [info] ├── Init:   0.017s
+[2026-10-18 17:49:11.569] [info] └── Mesh 0: 3.649s
+[2026-10-18 17:49:14.394] [info] ┌ Layer export [104] accomplished in 4.429s
+[2026-10-18 17:49:14.394] [info] ├── Init:   0.043s
+[2026-10-18 17:49:14.394] [info] └── Mesh 0: 4.386s
+[2026-10-18 17:49:16.715] [info] ┌ Layer export [105] accomplished in 5.686s
+[2026-10-18 17:49:16.715] [info] ├── Init:   0.018s
+[2026-10-18 17:49:16.715] [info] └── Mesh 0: 5.668s
+[2026-10-18 17:49:17.366] [info] ┌ Layer export [106] accomplished in 5.964s
+[2026-10-18 17:49:17.366] [info] ├── Init:   0.019s
+[2026-10-18 17:49:17.366] [info] └── Mesh 0: 5.944s
+[2026-10-18 17:49:21.904] [info] ┌ Layer export [107] accomplished in 10.288s
+[2026-10-18 17:49:21.904] [info] ├── Init:   0.052s
+[2026-10-18 17:49:21.904] [info] └── Mesh 0: 10.236s
+[2026-10-18 17:49:21.956] [info] ┌ Layer export [108] accomplished in 7.032s
+[2026-10-18 17:49:21.957] [info] ├── Init:   0.042s
+[2026-10-18 17:49:21.957] [info] └── Mesh 0: 6.989s
+[2026-10-18 17:49:23.739] [info] ┌ Layer export [109] accomplished in 6.980s
+[2026-10-18 17:49:23.739] [info] ├── Init:   0.031s
+[2026-10-18 17:49:23.739] [info] └── Mesh 0: 6.949s
+[2026-10-18 17:49:24.248] [info] ┌ Layer export [110] accomplished in 6.805s
+[2026-10-18 17:49:24.248] [info] ├── Init:   0.023s
+[2026-10-18 17:49:24.248] [info] └── Mesh 0: 6.781s
+[2026-10-18 17:49:28.380] [info] ┌ Layer export [111] accomplished in 6.906s
+[2026-10-18 17:49:28.380] [info] ├── Init:   0.030s
+[2026-10-18 17:49:28.380] [info] └── Mesh 0: 6.875s
+[2026-10-18 17:49:33.816] [info] ┌ Layer export [112] accomplished in 11.801s
+[2026-10-18 17:49:33.816] [info] ├── Init:   0.055s
+[2026-10-18 17:49:33.816] [info] └── Mesh 0: 11.746s
+[2026-10-18 17:49:33.871] [info] ┌ Layer export [113] accomplished in 6.855s
+[2026-10-18 17:49:33.871] [info] ├── Init:   0.029s
+[2026-10-18 17:49:33.871] [info] └── Mesh 0: 6.826s
+[2026-10-18 17:49:33.916] [info] ┌ Layer export [114] accomplished in 6.827s
+[2026-10-18 17:49:33.916] [info] ├── Init:   0.016s
+[2026-10-18 17:49:33.916] [info] └── Mesh 0: 6.811s
+[2026-10-18 17:49:34.994] [info] ┌ Layer export [115] accomplished in 6.579s
+[2026-10-18 17:49:34.994] [info] ├── Init:   0.036s
+[2026-10-18 17:49:34.994] [info] └── Mesh 0: 6.543s
+[2026-10-18 17:49:37.172] [info] ┌ Layer export [116] accomplished in 6.540s
+[2026-10-18 17:49:37.172] [info] ├── Init:   0.034s
+[2026-10-18 17:49:37.172] [info] └── Mesh 0: 6.506s
+[2026-10-18 17:49:37.580] [info] ┌ Layer export [117] accomplished in 6.480s
+[2026-10-18 17:49:37.580] [info] ├── Init:   0.026s
+[2026-10-18 17:49:37.580] [info] └── Mesh 0: 6.453s
+[2026-10-18 17:49:44.532] [info] ┌ Layer export [118] accomplished in 10.566s
+[2026-10-18 17:49:44.532] [info] ├── Init:   0.053s
+[2026-10-18 17:49:44.532] [info] └── Mesh 0: 10.513s
+[2026-10-18 17:49:44.589] [info] ┌ Layer export [119] accomplished in 6.549s
+[2026-10-18 17:49:44.589] [info] ├── Init:          0.026s
+[2026-10-18 17:49:44.589] [info] ├── Mesh 0:        6.502s
+[2026-10-18 17:49:44.589] [info] └── Modify plugin: 0.020s
+[2026-10-18 17:49:44.657] [info] ┌ Layer export [120] accomplished in 6.593s
+[2026-10-18 17:49:44.657] [info] ├── Init:   0.032s
+[2026-10-18 17:49:44.657] [info] └── Mesh 0: 6.561s
+[2026-10-18 17:49:44.733] [info] ┌ Layer export [121] accomplished in 6.485s
+[2026-10-18 17:49:44.733] [info] ├── Init:   0.031s
+[2026-10-18 17:49:44.733] [info] └── Mesh 0: 6.453s
+[2026-10-18 17:49:48.219] [info] ┌ Layer export [122] accomplished in 6.644s
+[2026-10-18 17:49:48.219] [info] ├── Init:   0.014s
+[2026-10-18 17:49:48.219] [info] └── Mesh 0: 6.630s
+[2026-10-18 17:49:50.328] [info] ┌ Layer export [123] accomplished in 6.527s
+[2026-10-18 17:49:50.343] [info] ├── Init:   0.041s
+[2026-10-18 17:49:50.343] [info] └── Mesh 0: 6.486s
+[2026-10-18 17:49:50.792] [info] ┌ Layer export [124] accomplished in 6.706s
+[2026-10-18 17:49:50.792] [info] ├── Init:   0.014s
+[2026-10-18 17:49:50.792] [info] └── Mesh 0: 6.691s
+[2026-10-18 17:49:56.481] [info] ┌ Layer export [125] accomplished in 11.692s
+[2026-10-18 17:49:56.481] [info] ├── Init:   0.044s
+[2026-10-18 17:49:56.481] [info] └── Mesh 0: 11.648s
+[2026-10-18 17:49:56.543] [info] ┌ Layer export [126] accomplished in 6.642s
+[2026-10-18 17:49:56.543] [info] ├── Init:   0.043s
+[2026-10-18 17:49:56.543] [info] └── Mesh 0: 6.598s
+[2026-10-18 17:49:56.878] [info] ┌ Layer export [127] accomplished in 6.505s
+[2026-10-18 17:49:56.878] [info] ├── Init:   0.014s
+[2026-10-18 17:49:56.878] [info] └── Mesh 0: 6.491s
+[2026-10-18 17:49:56.894] [info] ┌ Layer export [128] accomplished in 5.757s
+[2026-10-18 17:49:56.894] [info] ├── Init:   0.012s
+[2026-10-18 17:49:56.894] [info] └── Mesh 0: 5.745s
+[2026-10-18 17:49:59.655] [info] ┌ Layer export [129] accomplished in 4.763s
+[2026-10-18 17:49:59.655] [info] ├── Init:   0.021s
+[2026-10-18 17:49:59.655] [info] └── Mesh 0: 4.742s
+[2026-10-18 17:50:01.213] [info] ┌ Layer export [130] accomplished in 4.628s
+[2026-10-18 17:50:01.213] [info] ├── Init:   0.018s
+[2026-10-18 17:50:01.213] [info] └── Mesh 0: 4.610s
+[2026-10-18 17:50:05.426] [info] ┌ Layer export [131] accomplished in 8.813s
+[2026-10-18 17:50:05.426] [info] ├── Init:   0.069s
+[2026-10-18 17:50:05.426] [info] └── Mesh 0: 8.744s
+[2026-10-18 17:50:05.483] [info] ┌ Layer export [132] accomplished in 4.687s
+[2026-10-18 17:50:05.483] [info] ├── Init:   0.022s
+[2026-10-18 17:50:05.483] [info] └── Mesh 0: 4.665s
+[2026-10-18 17:50:05.555] [info] ┌ Layer export [133] accomplished in 4.478s
+[2026-10-18 17:50:05.555] [info] ├── Init:   0.035s
+[2026-10-18 17:50:05.555] [info] └── Mesh 0: 4.443s
+[2026-10-18 17:50:05.608] [info] ┌ Layer export [134] accomplished in 2.199s
+[2026-10-18 17:50:05.609] [info] ├── Init:   0.012s
+[2026-10-18 17:50:05.609] [info] └── Mesh 0: 2.187s
+[2026-10-18 17:50:05.662] [info] ┌ Layer export [135] accomplished in 0.378s
+[2026-10-18 17:50:05.662] [info] ├── Init:   0.027s
+[2026-10-18 17:50:05.662] [info] └── Mesh 0: 0.350s
+[2026-10-18 17:50:05.698] [info] ┌ Layer export [136] accomplished in 0.366s
+[2026-10-18 17:50:05.698] [info] ├── Init:   0.043s
+[2026-10-18 17:50:05.698] [info] └── Mesh 0: 0.322s
+[2026-10-18 17:50:05.747] [info] ┌ Layer export [137] accomplished in 0.392s
+[2026-10-18 17:50:05.747] [info] ├── Init:   0.044s
+[2026-10-18 17:50:05.747] [info] └── Mesh 0: 0.347s
+[2026-10-18 17:50:05.793] [info] ┌ Layer export [138] accomplished in 0.386s
+[2026-10-18 17:50:05.793] [info] ├── Init:   0.012s
+[2026-10-18 17:50:05.793] [info] └── Mesh 0: 0.374s
+[2026-10-18 17:50:05.839] [info] ┌ Layer export [139] accomplished in 0.384s
+[2026-10-18 17:50:05.839] [info] ├── Init:   0.030s
+[2026-10-18 17:50:05.839] [info] └── Mesh 0: 0.353s
+[2026-10-18 17:50:05.888] [info] ┌ Layer export [140] accomplished in 0.353s
+[2026-10-18 17:50:05.888] [info] ├── Init:   0.038s
+[2026-10-18 17:50:05.888] [info] └── Mesh 0: 0.315s
+[2026-10-18 17:50:05.938] [info] ┌ Layer export [141] accomplished in 0.372s
+[2026-10-18 17:50:05.938] [info] ├── Init:   0.026s
+[2026-10-18 17:50:05.938] [info] └── Mesh 0: 0.346s
+[2026-10-18 17:50:05.950] [info] ┌ Layer export [142] accomplished in 0.395s
+[2026-10-18 17:50:05.950] [info] ├── Init:   0.012s
+[2026-10-18 17:50:05.950] [info] └── Mesh 0: 0.382s
+[2026-10-18 17:50:05.994] [info] ┌ Layer export [143] accomplished in 0.341s
+[2026-10-18 17:50:05.994] [info] ├── Init:          0.025s
+[2026-10-18 17:50:05.994] [info] ├── Mesh 0:        0.295s
+[2026-10-18 17:50:05.994] [info] └── Modify plugin: 0.021s
+[2026-10-18 17:50:06.060] [info] ┌ Layer export [144] accomplished in 0.366s
+[2026-10-18 17:50:06.060] [info] ├── Init:   0.012s
+[2026-10-18 17:50:06.060] [info] └── Mesh 0: 0.354s
+[2026-10-18 17:50:06.074] [info] ┌ Layer export [145] accomplished in 0.357s
+[2026-10-18 17:50:06.074] [info] └── Mesh 0: 0.347s
+[2026-10-18 17:50:06.127] [info] ┌ Layer export [146] accomplished in 0.337s
+[2026-10-18 17:50:06.127] [info] ├── Init:   0.011s
+[2026-10-18 17:50:06.127] [info] └── Mesh 0: 0.325s
+[2026-10-18 17:50:06.183] [info] ┌ Layer export [147] accomplished in 0.312s
+[2026-10-18 17:50:06.184] [info] ├── Init:   0.010s
+[2026-10-18 17:50:06.184] [info] └── Mesh 0: 0.302s
+[2026-10-18 17:50:06.245] [info] ┌ Layer export [148] accomplished in 0.303s
+[2026-10-18 17:50:06.245] [info] ├── Init:   0.010s
+[2026-10-18 17:50:06.245] [info] └── Mesh 0: 0.292s
+[2026-10-18 17:50:06.256] [info] ┌ Layer export [149] accomplished in 0.336s
+[2026-10-18 17:50:06.256] [info] ├── Init:   0.029s
+[2026-10-18 17:50:06.256] [info] └── Mesh 0: 0.307s
+[2026-10-18 17:50:06.314] [info] ┌ Layer export [150] accomplished in 0.366s
+[2026-10-18 17:50:06.314] [info] ├── Init:   0.011s
+[2026-10-18 17:50:06.314] [info] └── Mesh 0: 0.355s
+[2026-10-18 17:50:06.369] [info] ┌ Layer export [151] accomplished in 0.345s
+[2026-10-18 17:50:06.369] [info] ├── Init:   0.023s
+[2026-10-18 17:50:06.369] [info] └── Mesh 0: 0.322s
+[2026-10-18 17:50:06.380] [info] ┌ Layer export [152] accomplished in 0.367s
+[2026-10-18 17:50:06.380] [info] ├── Init:   0.023s
+[2026-10-18 17:50:06.380] [info] └── Mesh 0: 0.343s
+[2026-10-18 17:50:06.424] [info] ┌ Layer export [153] accomplished in 0.365s
+[2026-10-18 17:50:06.424] [info] └── Mesh 0: 0.355s
+[2026-10-18 17:50:06.499] [info] ┌ Layer export [154] accomplished in 0.342s
+[2026-10-18 17:50:06.499] [info] └── Mesh 0: 0.332s
+[2026-10-18 17:50:06.517] [info] ┌ Layer export [155] accomplished in 0.340s
+[2026-10-18 17:50:06.517] [info] └── Mesh 0: 0.330s
+[2026-10-18 17:50:06.596] [info] ┌ Layer export [156] accomplished in 0.327s
+[2026-10-18 17:50:06.596] [info] ├── Init:   0.023s
+[2026-10-18 17:50:06.596] [info] └── Mesh 0: 0.304s
+[2026-10-18 17:50:06.650] [info] ┌ Layer export [157] accomplished in 0.314s
+[2026-10-18 17:50:06.650] [info] └── Mesh 0: 0.305s
+[2026-10-18 17:50:06.710] [info] ┌ Layer export [158] accomplished in 0.305s
+[2026-10-18 17:50:06.710] [info] ├── Init:   0.024s
+[2026-10-18 17:50:06.710] [info] └── Mesh 0: 0.281s
+[2026-10-18 17:50:06.722] [info] ┌ Layer export [159] accomplished in 0.380s
+[2026-10-18 17:50:06.722] [info] ├── Init:   0.045s
+[2026-10-18 17:50:06.722] [info] └── Mesh 0: 0.334s
+[2026-10-18 17:50:06.775] [info] ┌ Layer export [160] accomplished in 0.325s
+[2026-10-18 17:50:06.775] [info] └── Mesh 0: 0.316s
+[2026-10-18 17:50:06.838] [info] ┌ Layer export [161] accomplished in 0.379s
+[2026-10-18 17:50:06.838] [info] └── Mesh 0: 0.371s
+[2026-10-18 17:50:06.852] [info] ┌ Layer export [162] accomplished in 0.430s
+[2026-10-18 17:50:06.852] [info] ├── Init:   0.024s
+[2026-10-18 17:50:06.852] [info] └── Mesh 0: 0.404s
+[2026-10-18 17:50:06.951] [info] ┌ Layer export [163] accomplished in 0.506s
+[2026-10-18 17:50:06.951] [info] ├── Init:   0.029s
+[2026-10-18 17:50:06.952] [info] └── Mesh 0: 0.477s
+[2026-10-18 17:50:07.103] [info] ┌ Layer export [164] accomplished in 0.416s
+[2026-10-18 17:50:07.103] [info] └── Mesh 0: 0.409s
+[2026-10-18 17:50:07.132] [info] ┌ Layer export [165] accomplished in 0.491s
+[2026-10-18 17:50:07.132] [info] └── Mesh 0: 0.482s
+[2026-10-18 17:50:07.208] [info] ┌ Layer export [166] accomplished in 0.497s
+[2026-10-18 17:50:07.208] [info] ├── Init:   0.025s
+[2026-10-18 17:50:07.208] [info] └── Mesh 0: 0.470s
+[2026-10-18 17:50:07.230] [info] ┌ Layer export [167] accomplished in 0.464s
+[2026-10-18 17:50:07.230] [info] └── Mesh 0: 0.455s
+[2026-10-18 17:50:07.892] [info] ┌ Layer export [168] accomplished in 0.774s
+[2026-10-18 17:50:07.892] [info] ├── Init:   0.052s
+[2026-10-18 17:50:07.893] [info] └── Mesh 0: 0.722s
+[2026-10-18 17:50:07.903] [info] ┌ Layer export [169] accomplished in 0.424s
+[2026-10-18 17:50:07.903] [info] ├── Init:   0.029s
+[2026-10-18 17:50:07.903] [info] └── Mesh 0: 0.395s
+[2026-10-18 17:50:07.953] [info] ┌ Layer export [170] accomplished in 0.365s
+[2026-10-18 17:50:07.953] [info] ├── Init:   0.026s
+[2026-10-18 17:50:07.953] [info] └── Mesh 0: 0.339s
+[2026-10-18 17:50:08.029] [info] ┌ Layer export [171] accomplished in 0.344s
+[2026-10-18 17:50:08.029] [info] └── Mesh 0: 0.337s
+[2026-10-18 17:50:08.038] [info] ┌ Layer export [172] accomplished in 0.339s
+[2026-10-18 17:50:08.038] [info] └── Mesh 0: 0.332s
+[2026-10-18 17:50:08.090] [info] ┌ Layer export [173] accomplished in 0.355s
+[2026-10-18 17:50:08.090] [info] └── Mesh 0: 0.349s
+[2026-10-18 17:50:08.100] [info] ┌ Layer export [174] accomplished in 0.341s
+[2026-10-18 17:50:08.100] [info] ├── Init:   0.027s
+[2026-10-18 17:50:08.100] [info] └── Mesh 0: 0.314s
+[2026-10-18 17:50:08.266] [info] ┌ Layer export [175] accomplished in 0.360s
+[2026-10-18 17:50:08.266] [info] ├── Init:   0.031s
+[2026-10-18 17:50:08.266] [info] └── Mesh 0: 0.329s
+[2026-10-18 17:50:08.296] [info] ┌ Layer export [176] accomplished in 0.323s
+[2026-10-18 17:50:08.296] [info] ├── Init:   0.012s
+[2026-10-18 17:50:08.296] [info] └── Mesh 0: 0.311s
+[2026-10-18 17:50:08.305] [info] ┌ Layer export [177] accomplished in 0.307s
+[2026-10-18 17:50:08.305] [info] └── Mesh 0: 0.300s
+[2026-10-18 17:50:08.695] [info] ┌ Layer export [178] accomplished in 0.544s
+[2026-10-18 17:50:08.695] [info] └── Mesh 0: 0.536s
+[2026-10-18 17:50:08.716] [info] ┌ Layer export [179] accomplished in 0.275s
+[2026-10-18 17:50:08.716] [info] └── Mesh 0: 0.269s
+[2026-10-18 17:50:08.763] [info] ┌ Layer export [180] accomplished in 0.281s
+[2026-10-18 17:50:08.763] [info] ├── Init:   0.026s
+[2026-10-18 17:50:08.763] [info] └── Mesh 0: 0.255s
+[2026-10-18 17:50:08.822] [info] ┌ Layer export [181] accomplished in 0.261s
+[2026-10-18 17:50:08.822] [info] └── Mesh 0: 0.255s
+[2026-10-18 17:50:08.830] [info] ┌ Layer export [182] accomplished in 0.242s
+[2026-10-18 17:50:08.830] [info] ├── Init:   0.013s
+[2026-10-18 17:50:08.830] [info] └── Mesh 0: 0.229s
+[2026-10-18 17:50:08.887] [info] ┌ Layer export [183] accomplished in 0.189s
+[2026-10-18 17:50:08.887] [info] └── Mesh 0: 0.185s
+[2026-10-18 17:50:08.896] [info] ┌ Layer export [184] accomplished in 0.194s
+[2026-10-18 17:50:08.896] [info] ├── Init:   0.011s
+[2026-10-18 17:50:08.896] [info] └── Mesh 0: 0.182s
+[2026-10-18 17:50:08.936] [info] ┌ Layer export [185] accomplished in 0.145s
+[2026-10-18 17:50:08.936] [info] └── Mesh 0: 0.140s
+[2026-10-18 17:50:08.952] [info] ┌ Layer export [186] accomplished in 0.190s
+[2026-10-18 17:50:08.952] [info] └── Mesh 0: 0.186s
+[2026-10-18 17:50:08.985] [info] ┌ Layer export [187] accomplished in 0.199s
+[2026-10-18 17:50:08.985] [info] └── Mesh 0: 0.195s
+[2026-10-18 17:50:09.050] [info] ┌ Layer export [188] accomplished in 0.184s
+[2026-10-18 17:50:09.050] [info] ├── Init:   0.024s
+[2026-10-18 17:50:09.050] [info] └── Mesh 0: 0.160s
+[2026-10-18 17:50:09.193] [info] ┌ Layer export [189] accomplished in 0.249s
+[2026-10-18 17:50:09.193] [info] └── Mesh 0: 0.245s
+[2026-10-18 17:50:09.201] [info] ┌ Layer export [190] accomplished in 0.156s
+[2026-10-18 17:50:09.201] [info] └── Mesh 0: 0.152s
+[2026-10-18 17:50:09.234] [info] ┌ Layer export [191] accomplished in 0.157s
+[2026-10-18 17:50:09.234] [info] └── Mesh 0: 0.153s
+[2026-10-18 17:50:09.512] [info] Progress: export accomplished in 81.838s
+[2026-10-18 17:50:09.512] [info] Total time elapsed 218.785s
+
+[2026-10-18 17:50:09.852] [info] Gcode header after slicing: ;FLAVOR:Marlin
+;TIME:136563
+;Filament used: 96.7209m
+;Layer height: 0.25
+;MINX:-72.665
+;MINY:-71.677
+;MINZ:0.25
+;MAXX:72.661
+;MAXY:72.663
+;MAXZ:58.25
+;TARGET_MACHINE.NAME:Unknown
+
+[2026-10-18 17:50:09.852] [info] Print time (s): 136563
+[2026-10-18 17:50:09.852] [info] Print time (hr|min|s): 37h 56m 3s
+[2026-10-18 17:50:09.852] [info] Filament (mm^3): 232641
+
+Cura_SteamEngine version 5.8.1
+
+Copyright (C) 2024 Ultimaker
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+

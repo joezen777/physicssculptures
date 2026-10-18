@@ -262,14 +262,14 @@
     "file": "P17_top_fan_B_print-1x.stl",
     "size_mm": [
       144.0,
-      133.73,
-      33.4
+      142.91,
+      58.17
     ],
-    "support": "Build-plate support under blades and connector",
+    "support": "Use integrated-support alternate STL; auto supports OFF",
     "orientation": "upright",
-    "note": "",
-    "triangles": 2330,
-    "volume_mm3": 41369.343118475284
+    "note": "Toroidal5; 0.6 mm nozzle, 0.25 mm layers. Print bare OR supported, not both.",
+    "triangles": 22332,
+    "volume_mm3": 64864.177709196345
   },
   {
     "id": "P18",
@@ -277,15 +277,15 @@
     "quantity": 1,
     "file": "P18_top_guard_shroud_print-1x.stl",
     "size_mm": [
-      176.0,
-      176.0,
-      40.0
+      175.98,
+      175.99,
+      72.0
     ],
     "support": "None",
     "orientation": "upside_down",
-    "note": "Six M4 x16 bolts join grille.",
-    "triangles": 3604,
-    "volume_mm3": 95713.39271948696
+    "note": "72 mm tall; alias P185_print-1x.stl. Requires 500 mm rod and 53 mm top steel spacer.",
+    "triangles": 4828,
+    "volume_mm3": 152026.81802620273
   },
   {
     "id": "P19",
@@ -293,15 +293,15 @@
     "quantity": 1,
     "file": "P19_curved_guard_grille_print-1x.stl",
     "size_mm": [
-      176.0,
-      176.0,
+      175.98,
+      175.99,
       12.0
     ],
     "support": "None",
     "orientation": "flat",
-    "note": "Nine rings, six spokes, nominal ring gaps 2.4 mm; not a certified child guard.",
-    "triangles": 14768,
-    "volume_mm3": 118844.24749478129
+    "note": "Geometry unchanged; install at z=412, raised 32 mm. Existing grille reusable.",
+    "triangles": 18382,
+    "volume_mm3": 118844.24749478135
   },
   {
     "id": "C01",

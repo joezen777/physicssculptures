@@ -390,5 +390,15 @@
     "P17_top_fan_B_print-1x.stl": "6823ca0dfc1387c29af72d164891d622ad1ba31bd36fc828141dcb23b3d83d03",
     "P18_top_guard_shroud_print-1x.stl": "96b93c403277bbb26b68fdda254ad086f15ac9167ebc180c5acba4019cca7aff",
     "P19_curved_guard_grille_print-1x.stl": "8eb224581cae2372ee7ba99f2a0ade54298146676f1b187b993536b5085d2166"
+  },
+  "top_part_override": {
+    "parts": [
+      "P17",
+      "P18",
+      "P19"
+    ],
+    "authoritative_report": "toroidal5_final/geometry_validation.json",
+    "slicing_report": "toroidal5_final/slice_validation.json",
+    "note": "Historical top-part dimensions, hashes, toolpaths and renderings below are superseded; other parts were not rebuilt. Top parts now use 0.6 mm nozzle / 0.25 mm layers."
   }
 }

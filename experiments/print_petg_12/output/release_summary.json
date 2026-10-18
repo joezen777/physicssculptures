@@ -18,6 +18,7 @@
   "fastener_envelopes_checked": 96,
   "physical_testing": "Not yet performed",
   "purchased_hardware_count": 295,
+<<<<<<< HEAD
   "exploded_assembly_instances": 351,
   "hardware_representation": "All purchased items shown; threads simplified",
   "gear_form": "15 deg helical, module 2, 72/36/18, one-piece ring",
@@ -25,5 +26,18 @@
     "P06": 3,
     "P07": 9,
     "P09": 3
+=======
+  "exploded_assembly_instances": 354,
+  "hardware_representation": "All purchased items shown; threads simplified",
+  "top_part_override": {
+    "parts": [
+      "P17",
+      "P18",
+      "P19"
+    ],
+    "authoritative_report": "toroidal5_final/geometry_validation.json",
+    "slicing_report": "toroidal5_final/slice_validation.json",
+    "note": "Historical top-part dimensions, hashes, toolpaths and renderings below are superseded; other parts were not rebuilt. Top parts now use 0.6 mm nozzle / 0.25 mm layers."
+>>>>>>> 8de7679 (estimated-18000-tokens_Finalize_toroidal5_and_revise_Cura_PETG_supports)
   }
 }

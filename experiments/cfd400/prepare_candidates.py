@@ -51,26 +51,9 @@ s=hub()
 for a in (0,90,180,270):
     b=blade.copy();b.rotate(V(),V(0,0,1),a);s=s.fuse(b)
 reports.append(finish('tubercled',s))
-# Five looped pairs: two lifting arms joined by an outward/axial return bend.
-arms=[]
-for arm in (0,1):
-    ws=[]
-    for i in range(17):
-        r=21+47*i/16;x=(r-21)/47
-        beta=47.5-25.5*x;c=(33/math.sin(math.radians(47.5)))*(1-x)+18*x
-        phase=math.radians(12*math.sin(math.pi*x)+arm*36)
-        ws.append(wire(r,beta,c,phase,base=1.2+18*x*arm,thick=2))
-    arms.append(solid(ws))
-# Interpolate the outer loop continuously between the two arm-end sections.
-ws=[]
-for i in range(9):
-    u=i/8;r=68+4*math.sin(math.pi*u)
-    ws.append(wire(r,22,18,math.radians(36*u),base=1.2+18*u,thick=2))
-loop=solid(ws)
-pair=arms[0].fuse(loop).fuse(arms[1]).cut(Part.makeCylinder(22.6,60,V(0,0,11.4))).removeSplitter()
-assert pair.isValid()
-s=hub()
-for a in (0,72,144,216,288):
-    b=pair.copy();b.rotate(V(),V(0,0,1),a);s=s.fuse(b)
-reports.append(finish('toroidal5',s))
-(OUT/'candidate_geometry.json').write_text(json.dumps(dict(scope='CFD-only shapes, not print qualified; generic cambered sections, not named airfoil profiles',parts=reports),indent=2)+'\n')
+# Corrected production loops; historical toroidal5 meshes are obsolete.
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'print_petg_12'))
+from toroidal_geometry import make_fan
+reports.append(finish('toroidal5_final',make_fan()))
+(OUT/'candidate_geometry.json').write_text(json.dumps(dict(scope='Generic cambered sections. Old toroidal5 cases are obsolete; remesh toroidal5_final.',parts=reports),indent=2)+'\n')

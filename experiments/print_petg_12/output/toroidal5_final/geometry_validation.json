@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "physical_tested": false,
+  "selection": "aesthetic, no aerodynamic winner established",
+  "hub_interface_delta_mm3": 0.0,
+  "radial_clearance_mm": 4,
+  "blade_top_local_mm": 36.599999999999994,
+  "grille_gap_mm": 27.399999999999977,
+  "all_angle_checked": [
+    "P06_46",
+    "P01_57",
+    "Hardware_3",
+    "Hardware_96",
+    "Hardware_97",
+    "Hardware_98",
+    "Hardware_99"
+  ],
+  "parts": [
+    {
+      "id": "P17",
+      "file": "P17_top_fan_B_print-1x.stl",
+      "volume_mm3": 64864.177709196345,
+      "dimensions_mm": [
+        143.99999924547902,
+        142.90558712116217,
+        58.17145934074321
+      ],
+      "triangles": 22332,
+      "orientation": "upright",
+      "solids": 1
+    },
+    {
+      "id": "P18",
+      "file": "P185_print-1x.stl",
+      "volume_mm3": 152026.81802620273,
+      "dimensions_mm": [
+        175.97752476020744,
+        175.98876202131916,
+        72.00000000000003
+      ],
+      "triangles": 4828,
+      "orientation": "flange on bed",
+      "solids": 1
+    },
+    {
+      "id": "P19",
+      "file": "P19_curved_guard_grille_print-1x.stl",
+      "volume_mm3": 118844.24749478135,
+      "dimensions_mm": [
+        175.97752476020744,
+        175.98876202131916,
+        12.000000000000002
+      ],
+      "triangles": 18382,
+      "orientation": "upright",
+      "solids": 1
+    }
+  ],
+  "rotor_euler_characteristic": -16,
+  "closed_loop_passages": 5,
+  "input_stl_sha256": {
+    "P17_top_fan_B_print-1x.stl": "9658a4b8df72fa955d3b6a56433d2009baf5b6fd460b65e4858acab501f1ae3e",
+    "P185_print-1x.stl": "669ea5deb1015765375f9ad1248012d9c855ab9d4b965d7390429ffa4f6bf1c3",
+    "P19_curved_guard_grille_print-1x.stl": "fdd2bb3c83b5ce9360d4c3574588f4b629362e4a143cfee4f7598adf1356403b"
+  }
+}

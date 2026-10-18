@@ -1,4 +1,5 @@
 __pycache__/
+*.zip
 *.py[cod]
 .venv/
 venv/
@@ -63,3 +64,6 @@ experiments/resin_hardware_sprues/*.log
 experiments/resin_hardware_sprues/render_meshes/
 experiments/resin_hardware_sprues/label_request.json
 experiments/resin_hardware_sprues/label_meshes.json
+
+# Inspection-only output; not a printer-ready job
+experiments/print_petg_12/output/toroidal5_final/*.gcode

@@ -236,5 +236,15 @@
       ]
     }
   ],
-  "scope": "Toolpath generation only; not a calibrated machine profile. G-code retained outside the print package."
+  "scope": "Toolpath generation only; not a calibrated machine profile. G-code retained outside the print package.",
+  "top_part_override": {
+    "parts": [
+      "P17",
+      "P18",
+      "P19"
+    ],
+    "authoritative_report": "toroidal5_final/geometry_validation.json",
+    "slicing_report": "toroidal5_final/slice_validation.json",
+    "note": "Historical top-part dimensions, hashes, toolpaths and renderings below are superseded; other parts were not rebuilt. Top parts now use 0.6 mm nozzle / 0.25 mm layers."
+  }
 }

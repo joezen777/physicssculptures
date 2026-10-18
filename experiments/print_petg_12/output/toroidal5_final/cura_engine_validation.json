@@ -1,0 +1,11 @@
+{
+  "engine": "CuraEngine 5.8.1",
+  "exit_code": 0,
+  "nozzle_mm": 0.6,
+  "layer_mm": 0.25,
+  "supported_stl_sha256": "35b79e344da170590fb44dc94272019b3ced15b4335f8cdfe8c15017d9cace19",
+  "warnings": [
+    "[2026-10-18 17:46:30.681] [warning] Mesh has overlapping faces!"
+  ],
+  "errors": []
+}

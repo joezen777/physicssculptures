@@ -238,14 +238,13 @@ cup=Part.makeSphere(24,V(0,0,20)).cut(Part.makeSphere(20.4,V(0,0,20)))
 cup=cup.common(Part.makeBox(60,60,14,V(-30,-30,-4)))
 cup=cup.fuse(cyl(8,10,-8)).cut(cyl(2.25,22,-9))
 register("P16","wind_cup",cup,"gear","upright","Build-plate support under bowl around mounting boss","Through M4 bolt, washer and nut accessible from open bowl.")
-fan=fan_hub()
-for b in blade_set(72,-1):fan=fan.fuse(b)
-register("P17","top_fan_B",fan,"gear","upright","Build-plate support under blades and connector")
+from toroidal_geometry import make_fan,make_shroud
+fan=make_fan()
+register("P17","top_fan_B",fan,"gear","upright","Use separate integrated-support STL; 0.6 mm nozzle / 0.25 mm layer","Toroidal five closed pairs; selected for appearance, not validated airflow.")
 
-shroud=ann(79.6,76,34).fuse(shift(ann(88,76,6),34))
-shroud=holes(shroud,82,list(range(0,360,60)),2.25,33,9)
-shroud=nuttraps(shroud,82,list(range(0,360,60)),7.4,34,3.4)
-register("P18","top_guard_shroud",shroud,"fixed","upside_down","None","Six M4 x16 bolts join grille.")
+shroud=make_shroud()
+register("P18","top_guard_shroud",shroud,"fixed","upside_down","None","72 mm tall; 500 mm rod and 53 mm top steel spacer; P185 is the release alias.")
+
 grille=ann(88,76,6).fuse(ann(22,4.3,12)).cut(hexagon(13.5,6.8))
 for a in range(0,360,60):grille=grille.fuse(curved(19,79,7.2,6,a=a))
 for r in range(25,74,6):grille=grille.fuse(ann(r+1.8,r-1.8,6))
@@ -254,7 +253,7 @@ register("P19","curved_guard_grille",grille,"fixed","flat","None","Nine rings, s
 
 # Assembly placements (all coordinates in mm).
 put("P12",-66,order=0);nut8(-66);nut8(-54)
-metal("M8_rod","M8 threaded steel rod, cut 468 mm",cyl(4,468),-68)
+metal("M8_rod","M8 threaded steel rod, 500 mm end to end",cyl(4,500),-68)
 spacer8(-47.5,12.5);bearing(608,-35)
 put("P01",-38.6,order=1);put("P13",-35,order=2,ratio=1)
 spacer8(-28,32)
@@ -294,11 +293,11 @@ for level in range(3):
 put("P17",348,stage=3,order=0,ratio=-8)
 bearing(608,352,stage=3,order=1)
 put("P01",359.4,stage=3,order=2,ratio=-8)
-spacer8(359,21,3)
+spacer8(359,53,3)
 put("P18",340,stage=3,order=3)
-nut8(380,3)
-put("P19",380,stage=3,order=4)
-metal("M8_acorn","M8 acorn nut",hexagon(13,10).cut(cyl(4,8)),392,stage=3,order=5)
+nut8(412,3)
+put("P19",412,stage=3,order=4)
+metal("M8_acorn","M8 acorn nut",hexagon(13,10).cut(cyl(4,8)),424,stage=3,order=5)
 
 # Fit coupons are separate from production counts.
 coupon=Part.makeBox(90,38,10)

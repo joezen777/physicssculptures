@@ -1,0 +1,59 @@
+{
+  "status": "PASS_SAMPLED_SUPPORT_TOOLPATHS",
+  "engine": "CuraEngine 5.8.1",
+  "physically_tested": false,
+  "supported_stl_sha256": "35b79e344da170590fb44dc94272019b3ced15b4335f8cdfe8c15017d9cace19",
+  "samples": [
+    {
+      "z_mm": 10,
+      "support_extrusion_segments": 2881,
+      "outer_support_segments_by_72degree_sector": [
+        237,
+        245,
+        250,
+        225,
+        238
+      ],
+      "total_segments": 3197
+    },
+    {
+      "z_mm": 25,
+      "support_extrusion_segments": 2343,
+      "outer_support_segments_by_72degree_sector": [
+        197,
+        212,
+        204,
+        185,
+        194
+      ],
+      "total_segments": 4847
+    },
+    {
+      "z_mm": 35,
+      "support_extrusion_segments": 1522,
+      "outer_support_segments_by_72degree_sector": [
+        106,
+        113,
+        98,
+        113,
+        113
+      ],
+      "total_segments": 3171
+    },
+    {
+      "z_mm": 45,
+      "support_extrusion_segments": 611,
+      "outer_support_segments_by_72degree_sector": [
+        35,
+        38,
+        30,
+        43,
+        32
+      ],
+      "total_segments": 2541
+    }
+  ],
+  "engine_exit_code": 0,
+  "engine_warning": "Mesh has overlapping faces!",
+  "original_failed_profile_reproduced": false
+}
