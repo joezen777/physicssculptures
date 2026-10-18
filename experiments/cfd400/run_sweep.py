@@ -3,7 +3,7 @@ from pathlib import Path
 import argparse,subprocess,time,json,re,signal,fcntl
 from foam_runtime import BIN,ENV
 BASE=Path.home()/'.cache/angularmomflyer/cfd400'
-p=argparse.ArgumentParser();p.add_argument('--hours',type=float,default=12);p.add_argument('--workers',type=int,default=4);args=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--hours',type=float,default=1);p.add_argument('--started-unix',type=float);p.add_argument('--workers',type=int,default=4);args=p.parse_args()
 assert args.hours>0 and 1<=args.workers<=4
 cases=[BASE/f'{name}_transient_{rpm}' for rpm in [400,800,600] for name in ['original','scimitar','toroidal5','tubercled']]
 cases.append(BASE/'original_fine_transient_400')
@@ -12,7 +12,7 @@ lock=open(BASE/'sweep.lock','w')
 fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
 def interrupted(signum,frame):raise KeyboardInterrupt
 signal.signal(signal.SIGTERM,interrupted)
-started=time.time();deadline=started+args.hours*3600
+started=args.started_unix if args.started_unix is not None else time.time();deadline=started+args.hours*3600
 running={};finished=[];pending=list(cases);last=0;stopping=False
 
 def status():

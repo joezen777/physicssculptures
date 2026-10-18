@@ -32,9 +32,11 @@ No score should be treated as a reliable winner if the flow has not numerically 
 `setup_transient.py DESIGN --rpm 400` creates a fresh transient case from the checked coarse mesh; repeat for RPM 600 and 800. `--fine` uses the original finer mesh. The solver uses frozen MRF geometry, not a moving/sliding mesh. Start from rest and compare time averages only after assessing startup decay and sampling-window stability.
 
 ```bash
-python3 experiments/cfd400/run_sweep.py --hours 12 --workers 4
+python3 experiments/cfd400/run_sweep.py --hours 1 --workers 4
 ```
 
-The runner has an exclusive lock to prevent duplicate sweeps, runs up to four serial solvers, resumes written checkpoints, and requests a checkpoint/stop when its wall-clock budget expires. The matrix prioritizes 400 RPM, then 800 RPM, then 600 RPM, and finally the original finer mesh. Its target is 1.5 physical seconds per case. A 12-hour budget is not a promise that any case or the matrix will finish. Progress is in `~/.cache/angularmomflyer/cfd400/sweep_status.json`; the active detached runner's stdout is `/tmp/cfd_transient_sweep.log`. Do not run two solvers against one case.
+The runner has an exclusive lock to prevent duplicate sweeps, runs up to four serial solvers, resumes written checkpoints, and requests a checkpoint/stop when its wall-clock budget expires. The matrix prioritizes 400 RPM, then 800 RPM, then 600 RPM, and finally the original finer mesh. Its target is 1.5 physical seconds per case. A one-hour budget is not a promise that any case or the matrix will finish. Progress is in `~/.cache/angularmomflyer/cfd400/sweep_status.json`; the active detached runner's stdout is `/tmp/cfd_transient_sweep.log`. Do not run two solvers against one case.
 
 Completed steady results failed convergence and must not be interpreted as a design ranking. The pilot transient run reached only 0.003 physical seconds; it establishes execution and timing, not performance.
+
+The user selected a one-hour total compute budget. The active batch was checkpointed and restarted with `--started-unix` preserving the initial batch start and counting the 140-second pilot. The previous 12-hour assumption is superseded. Higher-speed cases will remain queued if the baseline cases exhaust this budget.
