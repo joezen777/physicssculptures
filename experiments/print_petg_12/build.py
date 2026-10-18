@@ -240,7 +240,7 @@ cup=cup.fuse(cyl(8,10,-8)).cut(cyl(2.25,22,-9))
 register("P16","wind_cup",cup,"gear","upright","Build-plate support under bowl around mounting boss","Through M4 bolt, washer and nut accessible from open bowl.")
 from toroidal_geometry import make_fan,make_shroud
 fan=make_fan()
-register("P17","top_fan_B",fan,"gear","upright","Use separate integrated-support STL; 0.6 mm nozzle / 0.25 mm layer","Toroidal five closed pairs; selected for appearance, not validated airflow.")
+register("P17","top_fan_B",fan,"gear","upright","Use separate integrated-support STL; 0.6 mm nozzle / 0.25 mm layer","Toroidal5; P17 male hex AF23.7 mm and axial bore diameter 12.9 mm; -0.15 mm horizontal expansion is applied to these features only. P06 socket and other geometry are unchanged.")
 
 shroud=make_shroud()
 register("P18","top_guard_shroud",shroud,"fixed","upside_down","None","72 mm tall; 500 mm rod and 53 mm top steel spacer; P185 is the release alias.")

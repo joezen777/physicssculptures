@@ -1,5 +1,6 @@
 __pycache__/
 *.zip
+*.gcode
 *.py[cod]
 .venv/
 venv/

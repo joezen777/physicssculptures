@@ -2,6 +2,8 @@
 
 Chosen for appearance, not as a proven aerodynamic winner. Units: mm.
 
+P17's hub/casing alone includes -0.15 mm horizontal expansion as CAD geometry. The outside casing radius is 21.85 mm; the male drive hex is 23.7 mm AF; the axial bore is 12.9 mm diameter; the bearing pocket is 22.7 mm diameter; the three screw holes are 3.9 mm diameter; and the three nut traps are 6.1 mm AF. The P06 mating socket remains 24.6 mm AF, giving 0.45 mm nominal clearance per hex flat. Fan blades and the existing integrated support mesh are unchanged. Set Cura Horizontal Expansion to 0.00 mm to avoid applying compensation twice.
+
 Print ONE fan: `P17_top_fan_B_integrated_supports_print-1x.stl` includes removable supports; `P17_top_fan_B_print-1x.stl` is the bare alternative. Keep the supplied orientation (hex drive down). Do not split the supported STL into objects or drop its shells individually onto the bed. Custom supports are ordinary model geometry: in Cura Preview they appear as walls/skin, not as Cura-generated support.
 
 ## Cura 5.8.1 / 0.6 mm nozzle / 0.25 mm layers

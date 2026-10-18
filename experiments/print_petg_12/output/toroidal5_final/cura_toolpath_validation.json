@@ -2,7 +2,11 @@
   "status": "PASS_SAMPLED_SUPPORT_TOOLPATHS",
   "engine": "CuraEngine 5.8.1",
   "physically_tested": false,
-  "supported_stl_sha256": "35b79e344da170590fb44dc94272019b3ced15b4335f8cdfe8c15017d9cace19",
+  "engine_exit_code": 0,
+  "engine_warnings": [
+    "[2026-10-18 18:16:07.112] [warning] Mesh has overlapping faces!"
+  ],
+  "supported_stl_sha256": "026e6abbe4be7fcfdcb6229988d3f7c74f12a5ffc585f9d538e41c5a03cbe96a",
   "samples": [
     {
       "z_mm": 10,
@@ -14,7 +18,7 @@
         225,
         238
       ],
-      "total_segments": 3197
+      "total_segments": 3181
     },
     {
       "z_mm": 25,
@@ -50,10 +54,7 @@
         43,
         32
       ],
-      "total_segments": 2541
+      "total_segments": 2542
     }
-  ],
-  "engine_exit_code": 0,
-  "engine_warning": "Mesh has overlapping faces!",
-  "original_failed_profile_reproduced": false
+  ]
 }

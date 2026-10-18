@@ -5,7 +5,13 @@ import FreeCAD as App,Part
 from FreeCAD import Vector as V
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'output';RELEASE=OUT/'toroidal5_final';STL=OUT/'stl'
 geo=json.loads((RELEASE/'geometry_validation.json').read_text());slicing=json.loads((RELEASE/'slice_validation.json').read_text());supports=json.loads((RELEASE/'support_validation.json').read_text())
-assert geo['closed_loop_passages']==5 and geo['hub_interface_delta_mm3']<1e-5
+assert geo['closed_loop_passages']==5
+assert geo['p17_horizontal_expansion_mm']==-0.15
+assert geo['p17_hex_af_mm']==23.7 and geo['p17_bore_diameter_mm']==12.9
+assert geo['p17_bearing_pocket_diameter_mm']==22.7
+assert geo['p17_screw_hole_diameter_mm']==3.9 and geo['p17_nut_pocket_af_mm']==6.1
+assert not geo['blade_and_support_geometry_changed']
+assert geo['p06_mating_socket_af_mm']==24.6
 assert slicing['status']=='PASS_TOOLPATH_GENERATION' and supports['rotor_support_overlap_mm3']<1e-4
 cura=json.loads((RELEASE/'cura_toolpath_validation.json').read_text())
 assert cura['engine_exit_code']==0
@@ -42,7 +48,7 @@ parts=json.loads((OUT/'parts.json').read_text());byid={r['id']:r for r in geo['p
 for r in parts:
  if r['id'] in byid:
   newpart=byid[r['id']];r.update(size_mm=[round(x,2) for x in newpart['dimensions_mm']],triangles=newpart['triangles'],volume_mm3=newpart['volume_mm3'])
-  if r['id']=='P17':r.update(support='Use integrated-support alternate STL; auto supports OFF',orientation='upright',note='Toroidal5; 0.6 mm nozzle, 0.25 mm layers. Print bare OR supported, not both.')
+  if r['id']=='P17':r.update(support='Use integrated-support alternate STL; auto supports OFF',orientation='upright',note='Toroidal5; -0.15 mm horizontal expansion applies to hub/casing, hex, center bore, bearing pocket, screw holes and nut pockets. Blades and custom supports are unchanged. Print bare OR supported, not both.')
   elif r['id']=='P18':r.update(orientation='upside_down',support='None',note='72 mm tall; alias P185_print-1x.stl. Requires 500 mm rod and 53 mm top steel spacer.')
   else:r['note']='Geometry unchanged; install at z=412, raised 32 mm. Existing grille reusable.'
 (OUT/'parts.json').write_text(json.dumps(parts,indent=2)+'\n')
@@ -54,5 +60,5 @@ for name in ['validation.json','slice_validation.json','release_summary.json']:
  p=OUT/name;j=json.loads(p.read_text());j['top_part_override']={'parts':['P17','P18','P19'],'authoritative_report':'toroidal5_final/geometry_validation.json','slicing_report':'toroidal5_final/slice_validation.json','note':'Historical top-part dimensions, hashes, toolpaths and renderings below are superseded; other parts were not rebuilt. Top parts now use 0.6 mm nozzle / 0.25 mm layers.'};p.write_text(json.dumps(j,indent=2)+'\n')
 checks={name:hashlib.sha256((STL/name).read_bytes()).hexdigest() for name in oldfiles+['P17_top_fan_B_integrated_supports_print-1x.stl','P185_print-1x.stl']}
 assert checks['P18_top_guard_shroud_print-1x.stl']==checks['P185_print-1x.stl']
-(RELEASE/'integration_validation.json').write_text(json.dumps({'status':'PASS','rod_mm':500,'top_steel_spacer_mm':53,'grille_elevation_mm':412,'production_stl_sha256':checks,'grille_reprint_required':False},indent=2)+'\n')
+(RELEASE/'integration_validation.json').write_text(json.dumps({'status':'PASS','rod_mm':500,'top_steel_spacer_mm':53,'grille_elevation_mm':412,'p17_horizontal_expansion_mm':-0.15,'p17_hub_casing_radius_mm':21.85,'p17_hex_af_mm':23.7,'p17_bore_diameter_mm':12.9,'p17_bearing_pocket_diameter_mm':22.7,'p17_screw_hole_diameter_mm':3.9,'p17_nut_pocket_af_mm':6.1,'p06_socket_af_mm':24.6,'p17_hex_clearance_per_side_mm':0.45,'p17_blades_unchanged':True,'p17_support_mesh_unchanged':True,'production_stl_sha256':checks,'grille_reprint_required':False},indent=2)+'\n')
 print('Production assembly, top STL files, manifest and hardware BOM updated.',flush=True)

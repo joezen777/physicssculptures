@@ -2,7 +2,7 @@ from pathlib import Path
 import json,math
 import FreeCAD as App,Part,MeshPart
 from FreeCAD import Vector as V
-from toroidal_geometry import make_fan,make_shroud,cyl,shifted
+from toroidal_geometry import make_fan,make_shroud,cyl,shifted,P17_HORIZONTAL_EXPANSION_MM,P17_HEX_AF_MM,P17_BORE_RADIUS_MM,P17_HUB_RADIUS_MM,P17_BEARING_POCKET_RADIUS_MM,P17_SCREW_HOLE_RADIUS_MM,P17_NUT_POCKET_AF_MM
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'output/toroidal5_final';OUT.mkdir(exist_ok=True)
 print('Building five closed pairs with production hub',flush=True)
 fan=make_fan();guard=make_shroud()
@@ -11,7 +11,9 @@ scene=json.loads((ROOT/'output/scene.json').read_text())
 get=lambda key:source.getObject(next(x['name'] for x in scene if x['key']==key)).Shape.copy()
 old=get('P17');old.translate(V(0,0,-348));region=cyl(20.9,100,-30)
 a,b=fan.common(region),old.common(region);delta=a.cut(b).Volume+b.cut(a).Volume
-assert delta<1e-5,delta
+# P17's horizontal offset is limited to the hub/casing; blade roots begin
+# outside this comparison region and remain unchanged.
+assert 0<delta<1500,delta
 # Grille shape is retained; only its assembly elevation changes.
 grille=get('P19');grille.translate(V(0,0,-grille.BoundBox.ZMin))
 wf=shifted(fan,348);wg=shifted(guard,340);wgr=shifted(grille,412)
@@ -23,7 +25,7 @@ for row in scene:
   assert envelope.common(s).Volume<1e-5,row['name'];checked.append(row['name'])
 assert wf.common(wg).Volume<1e-5 and wf.common(wgr).Volume<1e-5
 assert fan.BoundBox.ZMax<=40 and fan.BoundBox.ZMin>=-22.00001
-report={'status':'PASS','physical_tested':False,'selection':'aesthetic, no aerodynamic winner established','hub_interface_delta_mm3':delta,'radial_clearance_mm':4,'blade_top_local_mm':fan.BoundBox.ZMax,'grille_gap_mm':412-wf.BoundBox.ZMax,'all_angle_checked':checked,'parts':[]}
+report={'status':'PASS','physical_tested':False,'selection':'aesthetic, no aerodynamic winner established','p17_horizontal_expansion_mm':P17_HORIZONTAL_EXPANSION_MM,'p17_hub_casing_radius_mm':P17_HUB_RADIUS_MM,'p17_hex_af_mm':P17_HEX_AF_MM,'p17_bore_diameter_mm':2*P17_BORE_RADIUS_MM,'p17_bearing_pocket_diameter_mm':2*P17_BEARING_POCKET_RADIUS_MM,'p17_screw_hole_diameter_mm':2*P17_SCREW_HOLE_RADIUS_MM,'p17_nut_pocket_af_mm':P17_NUT_POCKET_AF_MM,'p06_mating_socket_af_mm':24.6,'p17_hex_clearance_per_side_mm':(24.6-P17_HEX_AF_MM)/2,'fit_geometry_delta_mm3':delta,'blade_and_support_geometry_changed':False,'radial_clearance_mm':4,'blade_top_local_mm':fan.BoundBox.ZMax,'grille_gap_mm':412-wf.BoundBox.ZMax,'all_angle_checked':checked,'parts':[]}
 doc=App.newDocument('Toroidal5Final')
 for key,s,z,name,flip in [('P17',fan,348,'P17_top_fan_B_print-1x.stl',False),('P18',guard,340,'P185_print-1x.stl',True),('P19',grille,412,'P19_curved_guard_grille_print-1x.stl',False)]:
  o=doc.addObject('PartDesign::Feature',key);o.Shape=shifted(s,z)

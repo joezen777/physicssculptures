@@ -1,6 +1,6 @@
 ## Top assembly update: toroidal5, 0.6 mm nozzle
 
-Use [the revised top-part instructions](toroidal5_final/README.md) for P17/P185/P19: **0.6 mm nozzle, 0.25 mm layers**, a **500 mm rod**, and a **53 mm top steel spacer**. P185 is the72 mm raised P18 shroud; print only one. The P19 grille is unchanged and reusable. Print either the bare P17 or its integrated-support alternative. These instructions override the historical1.2 mm settings and old top-assembly images below. Lower sail components are unchanged.
+Use [the revised top-part instructions](toroidal5_final/README.md) for P17/P185/P19: **0.6 mm nozzle, 0.25 mm layers**, a **500 mm rod**, and a **53 mm top steel spacer**. P185 is the 72 mm raised P18 shroud; print only one. The P19 grille is unchanged and reusable. Print either the bare P17 or its integrated-support alternative. P17's hub/casing only includes -0.15 mm horizontal expansion: outside radius21.85 mm, hex AF23.7 mm, axial bore diameter12.9 mm, bearing seat diameter22.7 mm, screw holes diameter3.9 mm and nut traps AF6.1 mm. Its blades and custom support mesh are unchanged; P06 socket remains AF24.6 mm. Set Cura horizontal expansion to0.00 mm. These instructions override the historical 1.2 mm settings and old top-assembly images below. Lower sail components are unchanged.
 
 # PETG / 1.2 mm nozzle print prototype
 
@@ -42,7 +42,7 @@ Deburr the hex connectors, bolt holes and tooth edges. Do not force binding gear
 See hardware_bom.csv for exact quantities. Bearings, fasteners, threaded rod and steel spacers are purchased parts, not STLs.
 
 - 11 x 608 bearings (8 x 22 x 7 mm); 9 x 604 bearings (4 x 12 x 4 mm).
-- 1 x M8 threaded steel rod, cut to 468 mm, deburred; 9 x M8 hex nuts and 1 x M8 acorn nut.
+- 1 x M8 threaded steel rod, 500 mm end to end, deburred; 9 x M8 hex nuts and 1 x M8 acorn nut.
 - 9 x M4 x75 planet-axle bolts, 18 x M4 axle nuts and 9 x M4 washers of approximately 7 mm OD.
 - 24 x M3 x16 socket-head screws for the eight 608 retainers, plus 9 x M3 x20 socket-head screws for the three split sun housings; 33 x M3 nuts total.
 - 27 x M2.5 x16 screws and 27 x M2.5 nuts for the planet retainers.
@@ -51,14 +51,14 @@ See hardware_bom.csv for exact quantities. Bearings, fasteners, threaded rod and
 - 3 x M4 x25 socket-head cup bolts and 3 x M4 washers of approximately 9 mm OD.
 - 6 x M4 x16 socket-head guard bolts.
 - 54 x M4 nuts total, INCLUDING the 18 axle nuts already listed above.
-- Steel tube ID8.2 / OD12: 12.5 mm x1; 32 mm x1; 15 mm x3; 5.9 mm x3; 11 mm x3; 44.6 mm x3; 21 mm x1.
+- Steel tube ID8.2 / OD12: 12.5 mm x1; 32 mm x1; 15 mm x3; 5.9 mm x3; 11 mm x3; 44.6 mm x3; 53 mm x1.
 - Steel tube ID4.2 / OD6: 37.2 mm x9 and 10 mm x9.
 
 The main shaft and planet bolts remain stationary. Bearings rotate around clamped inner races; the threaded stock is not intended as a rotating journal. Tighten against the metal spacer/inner-race stack gently and confirm free rotation. The plastic housings and caps must not be crushed to remove end play.
 
 ## Linear assembly order
 
-1. Print and inspect the coupons, then all P01-P19 parts in their filename quantities. Clean support, nut slots and bearing seats. Sort A-pitch pots P02 for levels 1 and 3, B-pitch pot P03 for level 2, and B-pitch top fan P17.
+1. Print and inspect the coupons, then all P01-P19 parts in their filename quantities. Clean support, nut slots and bearing seats. Sort A-pitch pots P02 for levels 1 and 3, B-pitch pot P03 for level 2, and toroidal5 top fan P17.
 2. Load three M3 nuts into the underside pockets of each pot hub and the top fan hub. Insert one 608 from above into each hub. Attach one P01 retainer to each with three M3 x16 screws. These are four of the eight P01 caps.
 3. For each of the nine P07 planet gears, load three M2.5 nuts from below, insert one 604 from above, and fit P08 with three M2.5 x16 screws. The cap's small projecting collar goes into the bearing counterbore.
 4. Prepare each of the three sun assemblies. Slide three M3 nuts into the radial slots of P06. Insert its upper 608 through the open bottom face.
@@ -66,7 +66,7 @@ The main shaft and planet bolts remain stationary. Bearings rotate around clampe
 6. Join each P05/P06 pair using three M3 x20 screws through P05's RECESSED head pockets. Seat these heads completely before installing the bottom bearing cap.
 7. Fit a P01 under each sun assembly with three M3 x16 screws. Rotate this cap 60 degrees relative to the housing-join screw pattern so its holes align with the other three holes. These use three more P01 caps.
 8. Load the M3 nuts into P13's side slots, insert its lower 608 from below, and attach the final P01 with three M3 x16 screws.
-9. Fit an M8 nut into the underside hex pocket of base P12. Thread in the 468 mm rod, leaving about 2 mm below the base's central bottom face, within the feet recess. Tighten another M8 nut against the top of the base.
+9. Fit an M8 nut into the underside hex pocket of base P12. Thread in the 500 mm rod, leaving about 2 mm below the base's central bottom face, within the feet recess. Tighten another M8 nut against the top of the base.
 10. Slide the 12.5 mm ID8.2/OD12 spacer over the rod. Lower the P13 base-drive assembly until its lower bearing's inner race rests on that spacer.
 11. If using sails, preload six M4 nuts into the underside arm-root pockets of P14. Fit each P15 into its curved root pocket and use two recessed M4 x10 button-head screws per arm.
 12. Fit one P16 cup to each arm's upright end tab. Pass an M4 x25 screw from the recessed back of the tab through the cup boss; fit the OD9 washer and nut from inside the cup. All cup openings must face the same tangential sense around the rotor.
@@ -83,12 +83,12 @@ The main shaft and planet bolts remain stationary. Bearings rotate around clampe
 23. Assemble level 2 in this order: 15 mm center spacer, lower M8 nut, P04, upper M8 nut, three M4 axle bolts and their lower nuts, three 37.2 mm axle spacers, 5.9 mm center spacer, prepared sun, three prepared planets, three 10 mm axle spacers with washers/nuts, two P09 halves and P10 with six M4 x20 bolts. Hand-check rotation.
 24. Add the next 44.6 mm center spacer and lower the second P02 for level 3. Assemble its carrier, spacers, sun, planets and ring halves in the same order as level 2, but use the shorter P11 terminal collar instead of P10.
 25. Add the final 44.6 mm center spacer. Lower the prepared P17 top fan and engage its male hex with the third sun socket.
-26. Add the 21 mm center spacer above the top fan bearing. Thread the ninth ordinary M8 nut onto the rod until it seats against that spacer.
+26. Add the 53 mm center spacer above the top fan bearing. Thread the ninth ordinary M8 nut onto the rod until it seats against that spacer.
 27. Load six M4 nuts into the underside flange pockets of shroud P18. Lower the shroud around the top fan. Lower grille P19 over the central M8 nut so its hex pocket captures the nut.
 28. Join P19 to P18 with six M4 x16 bolts. Fit the M8 acorn nut at the top of the rod and confirm the rod end fits inside it without bottoming out.
 29. Hand-turn the input through several revolutions. Confirm speeds +1, -2, +4 and -8, clear fan/guard gaps, non-rubbing air collars and free bearings. Fix each fault before applying wind or a motor.
 
-Every required purchased component is shown separately in the exploded image: 295 bearings, fasteners, washers and steel spacer/shaft pieces alongside 59 printed assembly parts. Gray hardware is labeled by specification, count at that location, and joint. Enlarged planet_joint_labeled.png and cup_joint_labeled.png views show the two small connection stacks in detail. The M8 rod is offset beside the base at its actual 468 mm length; the much taller exploded layout is not a shaft-cutting dimension. Threads and fastener details are simplified. The numbered assembly sequence above specifies insertion and tightening order.
+Every required purchased component is shown separately in the exploded image: 295 bearings, fasteners, washers and steel spacer/shaft pieces alongside 59 printed assembly parts. Gray hardware is labeled by specification, count at that location, and joint. Enlarged planet_joint_labeled.png and cup_joint_labeled.png views show the two small connection stacks in detail. The older exploded image shows a 468 mm rod and is superseded; use a 500 mm rod. The much taller exploded layout is not a shaft-cutting dimension. Threads and fastener details are simplified. The numbered assembly sequence above specifies insertion and tightening order.
 
 ## Split-part dovetail assembly
 
@@ -96,7 +96,7 @@ Every required purchased component is shown separately in the exploded image: 29
 2. Rotate the second P09 ring half 180 degrees. Align both flange dovetails and slide the halves together axially before placing the ring in the pot.
 3. Seat the complete ring and install the P10/P11 collar and its existing bolts. The bolts prevent axial separation. Do not force resin dovetails or try to snap them together sideways.
 
-Socket clearance is 0.30 mm per side. Hardware sprue components are one-piece prints.
+Sun-housing dovetail clearance is 0.30 mm per side. Hardware sprue components are one-piece prints.
 
 ## Design and verification references
 

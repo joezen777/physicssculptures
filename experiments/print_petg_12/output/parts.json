@@ -267,9 +267,9 @@
     ],
     "support": "Use integrated-support alternate STL; auto supports OFF",
     "orientation": "upright",
-    "note": "Toroidal5; 0.6 mm nozzle, 0.25 mm layers. Print bare OR supported, not both.",
-    "triangles": 22332,
-    "volume_mm3": 64864.177709196345
+    "note": "Toroidal5; -0.15 mm horizontal expansion applies to hub/casing, hex, center bore, bearing pocket, screw holes and nut pockets. Blades and custom supports are unchanged. Print bare OR supported, not both.",
+    "triangles": 22340,
+    "volume_mm3": 64091.41003482662
   },
   {
     "id": "P18",

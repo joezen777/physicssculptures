@@ -3,6 +3,16 @@ import math
 import FreeCAD as App,Part
 from FreeCAD import Vector as V
 
+# Cura's -0.15 mm horizontal expansion, applied as actual geometry to the P17
+# hub/casing only. The blades and separately generated supports stay unchanged.
+P17_HORIZONTAL_EXPANSION_MM = -0.15
+P17_HEX_AF_MM = 24.0 + 2 * P17_HORIZONTAL_EXPANSION_MM
+P17_BORE_RADIUS_MM = 6.3 - P17_HORIZONTAL_EXPANSION_MM
+P17_HUB_RADIUS_MM = 22.0 + P17_HORIZONTAL_EXPANSION_MM
+P17_BEARING_POCKET_RADIUS_MM = 11.2 - P17_HORIZONTAL_EXPANSION_MM
+P17_SCREW_HOLE_RADIUS_MM = 1.8 - P17_HORIZONTAL_EXPANSION_MM
+P17_NUT_POCKET_AF_MM = 5.8 - 2 * P17_HORIZONTAL_EXPANSION_MM
+
 def cyl(r,h,z=0):return Part.makeCylinder(r,h,V(0,0,z))
 def hexagon(af,h):
  r=af/math.sqrt(3);p=[V(r*math.cos(j*math.pi/3),r*math.sin(j*math.pi/3),0) for j in range(6)]
@@ -11,11 +21,11 @@ def shifted(s,z):
  s=s.copy();s.translate(V(0,0,z));return s
 
 def mounting_hub():
- s=cyl(22,11.4).cut(cyl(6.3,11.4)).fuse(shifted(hexagon(24,22).cut(cyl(6.3,22)),-22)).cut(cyl(11.2,8,4))
+ s=cyl(P17_HUB_RADIUS_MM,11.4).cut(cyl(P17_BORE_RADIUS_MM,11.4)).fuse(shifted(hexagon(P17_HEX_AF_MM,22).cut(cyl(P17_BORE_RADIUS_MM,22)),-22)).cut(cyl(P17_BEARING_POCKET_RADIUS_MM,8,4))
  for a in (0,120,240):
   x,y=17.5*math.cos(math.radians(a)),17.5*math.sin(math.radians(a))
-  h=cyl(1.8,15,-2);h.translate(V(x,y,0));s=s.cut(h)
-  n=hexagon(5.8,2.8);n.translate(V(x,y,0));s=s.cut(n)
+  h=cyl(P17_SCREW_HOLE_RADIUS_MM,15,-2);h.translate(V(x,y,0));s=s.cut(h)
+  n=hexagon(P17_NUT_POCKET_AF_MM,2.8);n.translate(V(x,y,0));s=s.cut(n)
  return s
 
 def edge(points):
