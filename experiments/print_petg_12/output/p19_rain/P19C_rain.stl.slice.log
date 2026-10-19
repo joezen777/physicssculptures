@@ -1,0 +1,12 @@
+10 => Processing triangulated mesh
+20 => Generating perimeters
+30 => Preparing infill
+45 => Making infill
+65 => Searching support spots
+69 => Alert if supports needed
+70 => Generating support material
+89 => Calculating overhanging perimeters
+88 => Generating skirt and brim
+90 => Exporting G-code to /mnt/c/Users/josep/OneDrive/Documents/angularmomflyer/experiments/print_petg_12/output/p19_rain/P19C_rain.gcode
+Slicing result exported to /mnt/c/Users/josep/OneDrive/Documents/angularmomflyer/experiments/print_petg_12/output/p19_rain/P19C_rain.gcode
+

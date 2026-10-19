@@ -1,0 +1,74 @@
+from pathlib import Path
+import FreeCAD as App,FreeCADGui as Gui,Part,math,traceback
+from FreeCAD import Vector as V
+from PySide import QtCore
+from pivy import coin
+ROOT=Path(__file__).resolve().parent;OUT=ROOT/'output/arm_joint_variants'
+BLUE=(.10,.45,.72);ORANGE=(.95,.48,.12);GRAY=(.48,.51,.54);GOLD=(.94,.65,.15);STEEL=(.72,.74,.77)
+try:
+    source=App.openDocument(str(OUT/'arm_joint_variants.FCStd'))
+    shapes={o.Name:o.Shape.copy() for o in source.Objects}
+    App.closeDocument(source.Name)
+    def add(doc,name,s,color,angle=0,z=0):
+        o=doc.addObject('PartDesign::Feature',name);o.Shape=s.copy()
+        o.Placement=App.Placement(V(0,0,z),App.Rotation(V(0,0,1),angle))
+        o.ViewObject.ShapeColor=color;o.ViewObject.DisplayMode='Flat Lines'
+        return o
+    def render(doc,name,w=1500,h=1100):
+        doc.recompute();view=Gui.activeDocument().activeView();view.setCameraType('Orthographic')
+        view.viewAxonometric();Gui.updateGui();view.fitAll();Gui.updateGui();view.viewAxonometric();Gui.updateGui()
+        view.getCameraNode().height.setValue(view.getCameraNode().height.getValue()*1.10)
+        view.saveImage(str(OUT/(name+'.png')),w,h,'White')
+    def bolt(x,y,z,length,grip):
+        axis=V(0,1,0)
+        shaft=Part.makeCylinder(2,length,V(x,y,z),axis)
+        head=Part.makeCylinder(3.5,4,V(x,y-4,z),axis).cut(Part.makeCylinder(1.6,2,V(x,y-4,z),axis))
+        wa=Part.makeCylinder(4.5,.8,V(x,y,z),axis).cut(Part.makeCylinder(2.1,.8,V(x,y,z),axis))
+        wb=Part.makeCylinder(4.5,.8,V(x,y+.8+grip,z),axis).cut(Part.makeCylinder(2.1,.8,V(x,y+.8+grip,z),axis))
+        yy=y+grip+1.6;r=7/math.sqrt(3)
+        pts=[V(x+r*math.cos(i*math.pi/3),yy,z+r*math.sin(i*math.pi/3)) for i in range(6)]
+        nut=Part.Face(Part.makePolygon(pts+[pts[0]])).extrude(V(0,3.2,0)).cut(Part.makeCylinder(2,3.2,V(x,yy,z),axis))
+        return Part.makeCompound([shaft,head,wa,wb,nut])
+    tempsteel=bolt(108,-8.2,-9,25,14.8)
+    sidesteel=Part.makeCompound([bolt(x,-12.8,-14.5,35,24) for x in [49,65]]+[Part.makeCylinder(3,24,V(x,-12,-14.5),V(0,1,0)).cut(Part.makeCylinder(2.1,24,V(x,-12,-14.5),V(0,1,0))) for x in [49,65]])
+    for kind in ['temporary','side_access']:
+        doc=App.newDocument(kind)
+        add(doc,'Hub',shapes['Original_P14' if kind=='temporary' else 'S14_side_access_hub'],GRAY)
+        for a in [0,120,240]:
+            if kind=='temporary':
+                add(doc,'OriginalArm'+str(a),shapes['Original_P15'],GRAY,a)
+                add(doc,'Extension'+str(a),shapes['T15_extension'],BLUE,a)
+                add(doc,'Cap'+str(a),shapes['T15_closing_cap'],ORANGE,a)
+                add(doc,'Steel'+str(a),tempsteel,STEEL,a)
+            else:
+                add(doc,'Arm'+str(a),shapes['S15_side_access_arm'],BLUE,a)
+                add(doc,'Steel'+str(a),sidesteel,STEEL,a)
+            add(doc,'Scoop'+str(a),shapes['Reference_P16'],GOLD,a)
+        render(doc,kind+'_assembled')
+        doc.saveAs(str(OUT/(kind+'_assembly.FCStd')))
+        App.closeDocument(doc.Name)
+    doc=App.newDocument('TemporaryExploded')
+    add(doc,'OriginalArm',shapes['Original_P15'],GRAY)
+    add(doc,'LowerCradle',shapes['T15_extension'],BLUE,z=-25)
+    add(doc,'ClosingCap',shapes['T15_closing_cap'],ORANGE,z=22)
+    render(doc,'temporary_joint_exploded')
+    App.closeDocument(doc.Name)
+    doc=App.newDocument('SideJoint')
+    # Crop only for visual detail; complete printable geometry is retained separately.
+    region=Part.makeBox(100,70,40,V(0,-35,-30))
+    add(doc,'Socket',shapes['S14_side_access_hub'].common(region),GRAY)
+    add(doc,'Tongue',shapes['S15_side_access_arm'].common(region),BLUE)
+    add(doc,'Steel',sidesteel,STEEL)
+    render(doc,'side_joint_detail',1400,1000)
+    App.closeDocument(doc.Name)
+    # Explode radially to show the long tongue and socket bearing faces.
+    doc=App.newDocument('SideExploded')
+    add(doc,'Socket',shapes['S14_side_access_hub'].common(region),GRAY)
+    s=shapes['S15_side_access_arm'].copy();s.translate(V(50,0,0))
+    add(doc,'ArmWithdrawn',s,BLUE)
+    render(doc,'side_joint_exploded')
+    App.closeDocument(doc.Name)
+    (OUT/'render_complete.txt').write_text('PASS')
+except BaseException:(OUT/'render_error.txt').write_text(traceback.format_exc())
+for name in list(App.listDocuments()):App.closeDocument(name)
+QtCore.QTimer.singleShot(200,Gui.getMainWindow().close)

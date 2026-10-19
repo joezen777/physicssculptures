@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "packages": [
+    "temporary_extension_kit.zip",
+    "side_access_hub_arm_kit.zip"
+  ],
+  "reference_sha256": {
+    "P14_sail_hex_hub_print-1x.stl": "ad419008f746780133ac5cad7356832142e3a138fb91dd8bac6622f44c4f9bc8",
+    "P15_curved_sail_arm_print-3x.stl": "4b7753c75624115647bd7cb48cadb6cb9bc8749e86812281758ff8ccfbba0748",
+    "P16_scoop_80x120mm_print-3x.stl": "5b15738d241c65c37ea629f2e5f8c1128fcfe6599d81fcf852feab28e18a7ae1"
+  },
+  "physical_testing": false
+}

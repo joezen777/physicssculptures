@@ -1,0 +1,101 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "position": "cradle under-arm entry x=20",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle under-arm entry x=0",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=-25",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=-15",
+      "obstacle": "P15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=-15",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=-5",
+      "obstacle": "P15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=-5",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=0",
+      "obstacle": "P15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cradle final lift z=0",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=30",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=15",
+      "obstacle": "P15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=15",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=15",
+      "obstacle": "new cradle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=5",
+      "obstacle": "P15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=5",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=5",
+      "obstacle": "new cradle",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=0",
+      "obstacle": "P15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=0",
+      "obstacle": "P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "position": "cap lowered z=0",
+      "obstacle": "new cradle",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "scope": "Sampled nominal original-tower installation path, small cups removed. Actual hand/tool access and print tolerances need physical check."
+}

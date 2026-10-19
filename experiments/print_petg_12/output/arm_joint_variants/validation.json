@@ -1,0 +1,606 @@
+{
+  "status": "PASS",
+  "parts": [
+    {
+      "id": "T15_extension",
+      "file": "T15_extension_print-3x.stl",
+      "quantity": 3,
+      "size_mm": [
+        122.14784224518087,
+        76.3402469525751,
+        28.0
+      ],
+      "volume_mm3": 19535.29072418615,
+      "triangles": 5622,
+      "closed_mesh": true
+    },
+    {
+      "id": "T15_closing_cap",
+      "file": "T15_closing_cap_print-3x.stl",
+      "quantity": 3,
+      "size_mm": [
+        51.14784224518087,
+        39.57764543932232,
+        20.800000000000022
+      ],
+      "volume_mm3": 4339.584117142079,
+      "triangles": 1636,
+      "closed_mesh": true
+    },
+    {
+      "id": "S14_side_access_hub",
+      "file": "S14_side_access_hub_print-1x.stl",
+      "quantity": 1,
+      "size_mm": [
+        127.39230484541329,
+        147.0999629903724,
+        17.0
+      ],
+      "volume_mm3": 57043.08611164232,
+      "triangles": 6792,
+      "closed_mesh": true
+    },
+    {
+      "id": "S15_side_access_arm",
+      "file": "S15_side_access_arm_print-3x.stl",
+      "quantity": 3,
+      "size_mm": [
+        152.6,
+        76.92485818562425,
+        27.0
+      ],
+      "volume_mm3": 25899.20347599688,
+      "triangles": 2336,
+      "closed_mesh": true
+    }
+  ],
+  "checks": [
+    {
+      "check": "Temporary cradle versus installed arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Temporary cap versus installed arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Temporary cradle versus cap",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Temporary extension versus scoop",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Permanent tongue versus socket",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Permanent arm versus scoop",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cradle upward installation -45",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cradle upward installation -25",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cradle upward installation -12",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cradle upward installation -4",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cradle upward installation 0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap downward installation 30",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap versus cradle during installation 30",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap downward installation 15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap versus cradle during installation 15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap downward installation 5",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap versus cradle during installation 5",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap downward installation 0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Cap versus cradle during installation 0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side arm radial withdrawal 0",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side arm radial withdrawal 5",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side arm radial withdrawal 15",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side arm radial withdrawal 30",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side arm radial withdrawal 45",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side bolt shank versus hub 49",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side bolt shank versus tongue 49",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Steel compression sleeve versus hub 49",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Steel compression sleeve versus tongue 49",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side bolt shank versus hub 65",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Side bolt shank versus tongue 65",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Steel compression sleeve versus hub 65",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Steel compression sleeve versus tongue 65",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side49 nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side65 nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_temp nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side front washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side head",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side back washer",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "scoop_side nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary versus retained P14",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary versus retained P14",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary part 0 angle 0 versus P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary part 1 angle 0 versus P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "temporary neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 0 versus P13",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 0 versus P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 0 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 0 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 30 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 30 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 60 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 60 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 90 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 90 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 120 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 120 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 150 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 150 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 180 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 180 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 210 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 210 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 240 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 240 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 270 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 270 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 300 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 300 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 330 versus M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 0 angle 330 versus T8_32",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access part 1 angle 0 versus P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "side_access neighbour",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool access 49 -1 P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool access 49 1 P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool access 65 -1 P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool access 65 1 P02",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    },
+    {
+      "check": "Tool versus neighbouring arm",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "root_socket_overlap_mm": 39.6,
+  "temporary_overlap_nominal_mm": 32,
+  "side_joint_clearance_per_face_mm": 0.3,
+  "temporary_clearance_per_face_mm": 0.4,
+  "collision_sample_step_deg": 30,
+  "physical_testing": false,
+  "scope": "Nominal CAD, sampled paths and tool envelopes; not stress or fatigue qualification."
+}

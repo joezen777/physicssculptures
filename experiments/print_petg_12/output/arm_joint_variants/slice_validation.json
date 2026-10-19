@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "nozzle_mm": 0.2,
+  "layer_mm": 0.12,
+  "results": [
+    {
+      "id": "T15_extension",
+      "status": "PASS",
+      "layers": 326,
+      "warnings": ""
+    },
+    {
+      "id": "T15_closing_cap",
+      "status": "PASS",
+      "layers": 266,
+      "warnings": ""
+    },
+    {
+      "id": "S14_side_access_hub",
+      "status": "PASS",
+      "layers": 216,
+      "warnings": ""
+    },
+    {
+      "id": "S15_side_access_arm",
+      "status": "PASS",
+      "layers": 260,
+      "warnings": ""
+    }
+  ],
+  "scope": "Toolpath generation, not calibrated machine G-code or print qualification."
+}
