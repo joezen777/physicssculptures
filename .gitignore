@@ -68,3 +68,8 @@ experiments/resin_hardware_sprues/label_meshes.json
 
 # Inspection-only output; not a printer-ready job
 experiments/print_petg_12/output/toroidal5_final/*.gcode
+
+# P19 inspection toolpaths and transient CAD debug output
+experiments/print_petg_12/output/p19_rain/*.gcode
+experiments/print_petg_12/output/p19_rain/*.slice.log
+experiments/print_petg_12/output/p19_rain/debug.brep

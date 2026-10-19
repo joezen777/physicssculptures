@@ -1,0 +1,32 @@
+{
+  "status": "PASS_TOOLPATH_GENERATION_ONLY",
+  "nozzle_mm": 0.2,
+  "layer_mm": 0.12,
+  "support_removal_physical_test_required": true,
+  "results": [
+    {
+      "file": "P19_rain.stl",
+      "exit_code": 0,
+      "layers": 302,
+      "warnings": "",
+      "supports_generated": true,
+      "statistics": [
+        "; estimated printing time (normal mode) = 4d 4h 26m 7s"
+      ]
+    },
+    {
+      "file": "P19C_rain.stl",
+      "exit_code": 0,
+      "layers": 307,
+      "warnings": "",
+      "supports_generated": true,
+      "statistics": [
+        "; estimated printing time (normal mode) = 6h 28m 25s"
+      ]
+    }
+  ],
+  "input_stl_sha256": {
+    "P19_rain.stl": "4765ce74eb40bfca9089214574fa08857c0a12589f0b53c1cbd2d543aecc0115",
+    "P19C_rain.stl": "e73afd773d80bedc301a15aaba4ec780fdb5a95373a7d41c060244b1f8e16904"
+  }
+}

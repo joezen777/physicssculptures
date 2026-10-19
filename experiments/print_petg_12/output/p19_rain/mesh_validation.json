@@ -1,0 +1,98 @@
+{
+  "physical_tested": false,
+  "mesh": {
+    "P19": {
+      "watertight": true,
+      "consistent_winding": true,
+      "components": 1,
+      "dimensions_mm": [
+        175.97093963623047,
+        176.0,
+        21.399999618530273
+      ],
+      "volume_mm3": 89542.71572452458
+    },
+    "P19C": {
+      "watertight": true,
+      "consistent_winding": true,
+      "components": 1,
+      "dimensions_mm": [
+        47.599998474121094,
+        46.852962493896484,
+        21.0
+      ],
+      "volume_mm3": 4010.476513303516
+    }
+  },
+  "airflow": {
+    "method": "720 mesh rays per cylindrical overlap curtain; sum clear vertical gaps times arc length",
+    "curtains": [
+      {
+        "radius_mm": 32.25,
+        "open_fraction": 0.8333333333333334,
+        "minimum_open_gap_mm": 5.442012362371841,
+        "area_mm2": 1031.9583687499087
+      },
+      {
+        "radius_mm": 39.75,
+        "open_fraction": 0.825,
+        "minimum_open_gap_mm": 4.644941894036702,
+        "area_mm2": 958.0744845970778
+      },
+      {
+        "radius_mm": 47.25,
+        "open_fraction": 0.8333333333333334,
+        "minimum_open_gap_mm": 6.145703841493258,
+        "area_mm2": 1521.5437033322953
+      },
+      {
+        "radius_mm": 54.75,
+        "open_fraction": 0.85,
+        "minimum_open_gap_mm": 4.645918043523444,
+        "area_mm2": 1359.6684265937608
+      },
+      {
+        "radius_mm": 62.25,
+        "open_fraction": 0.8666666666666667,
+        "minimum_open_gap_mm": 6.146436267660988,
+        "area_mm2": 2084.7046599205555
+      },
+      {
+        "radius_mm": 70.125,
+        "open_fraction": 0.9,
+        "minimum_open_gap_mm": 4.644875671514637,
+        "area_mm2": 1843.8101783170532
+      }
+    ],
+    "total_curtain_area_mm2": 8799.759821510652,
+    "relative_to_annulus_24_to_76": 0.5386635667749519,
+    "limitation": "Geometric side-slot proxy, not discharge coefficient or fan performance. Turns, pillars and wetting cause losses."
+  },
+  "drainage": {
+    "gutter_drop_mm": 5.0249999999999995,
+    "gutter_slope": 0.075,
+    "roof_radial_downhill_gradient_min": 0.07436568355038349,
+    "roof_radial_downhill_gradient_max": 0.1182040824086248,
+    "roof_triangles_checked": 8461,
+    "angular_rise_from_gutter_to_sector_midpoint_mm": 2.4,
+    "limitations": "Checks gravity drainage of designed surfaces. Surface tension, print texture, wind-driven rain and splash require physical testing.",
+    "mesh_gutter_centerline_min_outward_slopes": [
+      0.07499912013052068,
+      0.07499845407936334,
+      0.07499923406258091,
+      0.07499911463047937,
+      0.0749991078715766,
+      0.07499903898863636
+    ],
+    "excluded_flat_surfaces": "Original mounting rim, bolt lands and small central cap crown can retain a water film; no enclosing lip on crown."
+  },
+  "center_cover": {
+    "vertical_rain_rays_intercepted": 480,
+    "bearing_radius_checked_mm": 11,
+    "wind_driven_spray_excluded": false
+  },
+  "input_stl_sha256": {
+    "P19C_rain.stl": "e73afd773d80bedc301a15aaba4ec780fdb5a95373a7d41c060244b1f8e16904",
+    "P19_rain.stl": "4765ce74eb40bfca9089214574fa08857c0a12589f0b53c1cbd2d543aecc0115"
+  }
+}

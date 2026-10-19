@@ -1,0 +1,76 @@
+{
+  "status": "PASS_CAD",
+  "protected_original_sha256": {
+    "P17_top_fan_B_print-1x.stl": "4c206c88bc25db1346d9c494315352e20f5e2d51872c107d86f34fcbdc4b3070",
+    "P185_print-1x.stl": "669ea5deb1015765375f9ad1248012d9c855ab9d4b965d7390429ffa4f6bf1c3"
+  },
+  "physical_tested": false,
+  "parts": [
+    {
+      "id": "P19",
+      "volume_mm3": 89549.62163741424,
+      "solids": 1,
+      "bounds_mm": "BoundBox (-87.9709, -88, 0, 88, 88, 21.4)",
+      "triangles": 96614
+    },
+    {
+      "id": "P19C",
+      "volume_mm3": 4017.736505436827,
+      "solids": 1,
+      "bounds_mm": "BoundBox (-23.8, -23.4265, 6.5, 23.8, 23.4265, 27.5)",
+      "triangles": 4176
+    }
+  ],
+  "mounting_annulus_symmetric_difference_mm3": 0.0,
+  "assembly_overlap_checks": [
+    {
+      "part": "P19",
+      "other": "P18",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19",
+      "other": "M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19C",
+      "other": "M8_rod",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19",
+      "other": "T8_53",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19",
+      "other": "M8_nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19C",
+      "other": "M8_nut",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19",
+      "other": "M8_acorn",
+      "overlap_mm3": 0.0
+    },
+    {
+      "part": "P19C",
+      "other": "M8_acorn",
+      "overlap_mm3": 0.0
+    }
+  ],
+  "cap_clearance_above_acorn_mm": 3.9,
+  "rotor_vertical_clearance_mm": 27.399999999999977,
+  "roof_count": 42,
+  "gutter_count": 6,
+  "column_count": 180,
+  "input_stl_sha256": {
+    "P19C_rain.stl": "e73afd773d80bedc301a15aaba4ec780fdb5a95373a7d41c060244b1f8e16904",
+    "P19_rain.stl": "4765ce74eb40bfca9089214574fa08857c0a12589f0b53c1cbd2d543aecc0115"
+  }
+}
